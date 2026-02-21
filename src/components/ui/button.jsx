@@ -1,4 +1,3 @@
-import React from "react";
 import { cn } from "@/lib/utils";
 
 const variants = {
@@ -28,10 +27,9 @@ export function Button({
         "inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-#FE5443 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
         variants[variant] || variants.default,
         sizes[size] || sizes.default,
-        className
+        className,
       )}
       {...props}
     />
   );
 }
-

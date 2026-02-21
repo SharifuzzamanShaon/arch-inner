@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
 const ProjectCard = ({ project }) => {
@@ -13,6 +14,7 @@ const ProjectCard = ({ project }) => {
     WebkitMaskSize: "100% 100%",
     WebkitMaskRepeat: "no-repeat",
   };
+  console.log(project.id);
   return (
     <div className="relative w-full group max-w-[571px] mx-auto">
       <Card
@@ -21,7 +23,7 @@ const ProjectCard = ({ project }) => {
       >
         <div className="absolute inset-0 z-0">
           <Image
-            src={project?.image}
+            src={project?.thumbnail}
             alt={project?.title || "Project"}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -51,11 +53,13 @@ const ProjectCard = ({ project }) => {
         </CardContent>
       </Card>
       <div className="absolute top-[80%] md:top-[82.5%] xl:top-[90%] right-[1%] md:right-[-2%] xl:right-[2%] z-20 p-1">
-        <Button className="flex items-center gap-3 rounded-full bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white shadow-2xl hover:bg-[#ff6657] transition-all active:scale-95">
-          <span className="hidden lg:inline">View Project</span>
-          <span className="lg:hidden">View</span>
-          <FaArrowRight className="w-4 h-4" />
-        </Button>
+        <Link href={`/portfolio/${project?.id}`}>
+          <Button className="flex items-center gap-3 rounded-full cursor-pointer hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white shadow-2xl transition-all active:scale-95">
+            <span className="hidden lg:inline">View Project</span>
+            <span className="lg:hidden">View</span>
+            <FaArrowRight className="w-4 h-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   );

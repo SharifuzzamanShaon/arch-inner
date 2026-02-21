@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import axios from "axios";
 import gsap from "gsap";
@@ -194,15 +193,7 @@ const PortfolioSection = () => {
         <Swiper spaceBetween={16} slidesPerView={1.1}>
           {projects.map((project) => (
             <SwiperSlide key={project.id}>
-              <ProjectCard
-                project={{
-                  title: project.title,
-                  image: project.thumbnail,
-                  category: project.type || categoryName,
-                  location: project.client || "Dhaka",
-                  description: project.strategy,
-                }}
-              />
+              <ProjectCard project={project} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -211,16 +202,7 @@ const PortfolioSection = () => {
       {/* Desktop Grid */}
       <div className="hidden md:grid md:grid-cols-2 gap-4">
         {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={{
-              title: project.title,
-              image: project.thumbnail,
-              category: project.type || categoryName,
-              location: project.client || "Dhaka",
-              description: project.strategy,
-            }}
-          />
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </>
@@ -273,13 +255,12 @@ const PortfolioSection = () => {
         </div>
 
         <div ref={buttonRef} className="text-center mt-10 px-4">
-          <Button
-            variant="outline"
+          <button
             onClick={() => router.push("/portfolio")}
-            className="border-[#FE5443] text-[#FE5443] hover:bg-[#FE5443] hover:text-white"
+            className="px-6 py-2 rounded-full border border-[#FE5443] text-[#FE5443] hover:border-[#FE5443] hover:bg-[#FE5443] hover:text-[#ffffff] transition-colors duration-300"
           >
             Explore all Project →
-          </Button>
+          </button>
         </div>
       </div>
     </Container>

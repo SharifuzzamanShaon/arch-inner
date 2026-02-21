@@ -107,12 +107,11 @@ const Header = ({ active }) => {
           {/* Desktop CTA + Mobile menu button */}
           <div className="flex items-center gap-3">
             <div className="hidden md:block">
-              <Button
-                onClick={() => router.push("/contact")}
-                className="rounded-full bg-[#FE5443] px-6 py-2 text-sm font-medium text-white shadow-md hover:bg-[#FE5443]/90"
-              >
-                Get In Touch
-              </Button>
+              <Link href="/contact">
+                <Button className="flex items-center gap-3 rounded-full cursor-pointer hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white shadow-2xl transition-all active:scale-95">
+                  Get In Touch
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile: hamburger / close */}
@@ -157,15 +156,17 @@ const Header = ({ active }) => {
               ))}
             </ul>
             <div className="px-4 pb-4 pt-2">
-              <Button
-                className="w-full rounded-full bg-[#FE5443] py-3 text-sm font-medium text-white shadow-md hover:bg-[#FE5443]/90"
-                onClick={() => {
-                  closeMenu();
-                  router.push("/contact");
-                }}
-              >
-                Get In Touch
-              </Button>
+              <Link href="/contact">
+                <Button
+                  className="flex items-center gap-3 rounded-full cursor-pointer hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white shadow-2xl transition-all active:scale-95"
+                  onClick={() => {
+                    closeMenu();
+                    router.push("/contact");
+                  }}
+                >
+                  Get In Touch
+                </Button>
+              </Link>
             </div>
           </nav>
         </div>

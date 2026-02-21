@@ -71,25 +71,40 @@ const ShowcaseProject = () => {
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+              enabled: false, // Disabled by default, will be enabled on desktop breakpoints
             }}
             loop={true}
             centeredSlides={true}
+            allowTouchMove={true} // Enable swipe on mobile
             breakpoints={{
               640: {
                 slidesPerView: 1,
                 spaceBetween: 20,
+                autoplay: {
+                  enabled: false, // Keep disabled on mobile/tablet
+                },
               },
               768: {
                 slidesPerView: 1,
                 spaceBetween: 30,
+                autoplay: {
+                  enabled: true, // Enable on desktop
+                },
               },
               1024: {
                 slidesPerView: 2,
                 spaceBetween: 30,
+                autoplay: {
+                  enabled: true, // Enable on desktop
+                },
               },
               1280: {
                 slidesPerView: 2,
-                spaceBetween: 40,
+                spaceBetween: 30,
+                autoplay: {
+                  enabled: true, // Enable on desktop
+                },
               },
             }}
             className="showcaseSwiper"
@@ -100,38 +115,6 @@ const ShowcaseProject = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-
-          {/* Navigation Buttons */}
-          <button className="showcase-swiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 -translate-x-1/2">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-          <button className="showcase-swiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 translate-x-1/2">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
         </div>
       </div>
     </Container>

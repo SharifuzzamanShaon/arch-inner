@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { gsap } from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 
@@ -146,11 +147,13 @@ const ShowcaseProjectCard = ({ project }) => {
         ref={buttonRef}
         className="absolute bottom-[20px] right-[12px] md:bottom-px md:right-[2px] z-20 p-1"
       >
-        <Button className="flex items-center gap-3 rounded-full bg-[#FE5443] h-10 sm:h-12 px-4 sm:px-6 text-xs sm:text-sm font-bold text-white shadow-2xl hover:bg-[#ff6657] transition-all active:scale-95">
-          <span className="hidden md:inline">View Project</span>
-          <span className="md:hidden">View</span>
-          <FaArrowRight className="w-4 h-4" />
-        </Button>
+        <Link href={`/portfolio/${project?.id}`}>
+          <Button className="flex items-center gap-3 rounded-full cursor-pointer hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white shadow-2xl transition-all active:scale-95">
+            <span className="hidden lg:inline">View Project</span>
+            <span className="lg:hidden">View</span>
+            <FaArrowRight className="w-4 h-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   );
