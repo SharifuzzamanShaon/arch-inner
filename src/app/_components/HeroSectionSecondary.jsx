@@ -214,8 +214,8 @@ const HeroSectionSecondary = () => {
 
             {/* Content overlay */}
             <Container className="relative z-10 h-full flex items-center">
-              <div className="hero-content max-w-2xl text-white">
-                <div className="hero-title mb-6">
+              <div className="hero-content w-full text-white max-w-7xl mx-auto">
+                <div className="hero-title mb-4 sm:mb-6 lg:mb-8">
                   <SectionTitle
                     title={slide.title}
                     titleHighlight={slide.highlight}
@@ -224,18 +224,18 @@ const HeroSectionSecondary = () => {
                   />
                 </div>
 
-                <div className="hero-tags flex flex-wrap gap-2 mb-8">
+                <div className="hero-tags flex flex-wrap gap-2 mb-6 sm:mb-8 lg:mb-10">
                   {slide.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm border border-white/30"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-xs sm:text-sm border border-white/30"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="hero-buttons flex flex-col sm:flex-row gap-4">
+                <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <BtnPrimary text="Book Consultation" />
                   <BtnSecondary
                     text="Watch Video"
@@ -247,14 +247,14 @@ const HeroSectionSecondary = () => {
             </Container>
 
             {/* Slide indicator */}
-            <span className="absolute top-6 right-6 text-white/60 text-sm font-medium">
+            <span className="absolute top-4 sm:top-6 right-4 sm:right-6 text-white/60 text-xs sm:text-sm font-medium">
               0{slide.id}/0{HERO_DATA.length}
             </span>
           </SwiperSlide>
         ))}
 
         {/* Custom Pagination Placement */}
-        <div className="custom-pagination flex justify-center absolute bottom-10 left-1/2 -translate-x-1/2 z-20" />
+        <div className="custom-pagination flex justify-center absolute bottom-6 sm:bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 z-20" />
       </Swiper>
 
       <VideoPopup
@@ -266,16 +266,16 @@ const HeroSectionSecondary = () => {
       <style jsx global>{`
         .swiper-pagination-bullet {
           background: rgba(255, 255, 255, 0.5) !important;
-          width: 12px;
-          height: 12px;
-          margin: 0 6px;
+          width: 8px;
+          height: 8px;
+          margin: 0 4px;
           border-radius: 50%;
           transition: all 0.3s ease;
         }
 
         .swiper-pagination-bullet-active {
           background: #fff !important;
-          width: 32px;
+          width: 24px;
           border-radius: 6px;
         }
 
@@ -283,6 +283,30 @@ const HeroSectionSecondary = () => {
           display: flex;
           align-items: center;
           justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+          .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+          }
+
+          .swiper-pagination-bullet-active {
+            width: 28px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            margin: 0 6px;
+          }
+
+          .swiper-pagination-bullet-active {
+            width: 32px;
+          }
         }
       `}</style>
     </section>

@@ -1,13 +1,13 @@
 const SectionTitle = ({ title, titleHighlight, subtitle }) => {
   return (
     <>
-      <h3 className="font-semibold text-2xl sm:text-3xl md:text-4xl text-center md:text-left">
+      <h3 className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center md:text-left">
         {title}{" "}
-        <span className="text-(--color-secondary) text-2xl text-center md:text-left sm:text-3xl md:text-4xl">
+        <span className="text-(--color-secondary) text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center md:text-left">
           {titleHighlight}
         </span>
       </h3>
-      <p className="text-xs sm:text-sm text-zinc-600 text-center md:text-left dark:text-zinc-400 mt-1 sm:mt-2">
+      <p className="text-xs sm:text-sm md:text-base text-zinc-600 text-center md:text-left dark:text-zinc-400 mt-2 sm:mt-3 md:mt-4">
         {subtitle}
       </p>
     </>
