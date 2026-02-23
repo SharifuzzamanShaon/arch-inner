@@ -1,6 +1,6 @@
 import AboutDesign from "./_components/AboutDesign";
 import ClientReview from "./_components/ClientReview";
-import HeroSection from "./_components/HeroSection";
+import HeroSectionSecondary from "./_components/HeroSectionSecondary";
 import PortfolioSection from "./_components/PortfolioSection";
 import ServiceSection from "./_components/ServiceSection";
 import StatsSection from "./_components/StateSection";
@@ -12,7 +12,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <HeroSectionSecondary />
       <StatsSection />
       <AboutDesign />
       <ClientReview />
