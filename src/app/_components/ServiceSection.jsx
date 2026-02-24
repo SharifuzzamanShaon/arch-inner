@@ -10,31 +10,37 @@ import ServiceCard from "./ServiceCard";
 
 const services = [
   {
+    thumbnail: "/images/service-1.png",
     title: "Residential Interior Design",
     description:
       "Creating homes that blend comfort with sophistication. Every element is thoughtfully chosen to reflect your lifestyle.",
   },
   {
+    thumbnail: "/images/service-2.png",
     title: "Hospital Interior Design",
     description:
       "We design warm, functional interiors tailored to your lifestyle. Every detail supports comfort, flow, and timeless living.",
   },
   {
+    thumbnail: "/images/service-3.png",
     title: "Restaurant Interior Design",
     description:
       "Designing dining spaces that balance ambiance and efficiency, creating memorable experiences for every guest.",
   },
   {
+    thumbnail: "/images/service-5.png",
     title: "Sports Club Interior Design",
     description:
       "Building energizing spaces that inspire community. Functional layouts meet bold design for peak performance environments.",
   },
   {
+    thumbnail: "/images/service-5.png",
     title: "Gym Center Interior Design",
     description:
       "Transforming fitness spaces into motivating, high‑energy zones where design supports determination and focus.",
   },
   {
+    thumbnail: "/images/service-6.png",
     title: "Commercial Interior Design",
     description:
       "Elevating offices and commercial spaces with smart, modern layouts that reflect your brand and enhance productivity.",

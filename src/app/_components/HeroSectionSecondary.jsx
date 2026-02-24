@@ -215,7 +215,7 @@ const HeroSectionSecondary = () => {
             {/* Content overlay */}
             <Container className="relative z-10 h-full flex items-center">
               <div className="hero-content w-full text-white max-w-7xl mx-auto">
-                <div className="hero-title mb-4 sm:mb-6 lg:mb-8">
+                <div className="hero-title mb-4 sm:mb-6 lg:mb-8 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[90%]">
                   <SectionTitle
                     title={slide.title}
                     titleHighlight={slide.highlight}

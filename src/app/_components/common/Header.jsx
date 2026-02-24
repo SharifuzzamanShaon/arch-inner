@@ -32,7 +32,6 @@ const Header = ({ active }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when resizing to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMenuOpen(false);
@@ -41,7 +40,6 @@ const Header = ({ active }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
@@ -86,14 +84,14 @@ const Header = ({ active }) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex items-center gap-8 text-sm">
+            <ul className="flex items-center gap-8 text-base">
               {navItems.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
                     className={`transition-colors ${
                       item.name === active
-                        ? "font-semibold text-gray-900"
+                        ? "font-[2.5] text-gray-900"
                         : "text-black hover:text-gray-800"
                     }`}
                   >
@@ -144,9 +142,9 @@ const Header = ({ active }) => {
                   <Link
                     href={item.href}
                     onClick={closeMenu}
-                    className={`block w-full px-4 py-3 text-left text-base transition-colors ${
+                    className={`block w-full px-4 py-3 text-left text-lg transition-colors ${
                       item.name === active
-                        ? "font-semibold text-gray-900 "
+                        ? "font-[1.2] text-gray-900 "
                         : "text-black hover:bg-gray-50 hover:text-gray-900"
                     }`}
                   >
