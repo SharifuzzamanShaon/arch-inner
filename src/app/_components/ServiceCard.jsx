@@ -4,7 +4,7 @@ const ServiceCard = ({ service }) => {
   return (
     <div className="relative w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:-translate-y-1">
       <article
-        className="relative min-h-[300px] w-full bg-white transition-colors duration-300 overflow-hidden"
+        className="relative min-h-[300px] w-full transition-colors duration-300 overflow-hidden"
         style={{
           maskImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' preserveAspectRatio='none'%3E%3Cpath d='M20,0 h360 a20,20 0 0 1 20,20 v280 a20,20 0 0 1 -20,20 h-360 a20,20 0 0 1 -20,-20 v-280 a20,20 0 0 1 20,-20 z' fill='black'/%3E%3C/svg%3E")`,
           maskSize: "100% 100%",

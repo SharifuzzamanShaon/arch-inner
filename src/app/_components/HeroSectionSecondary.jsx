@@ -215,7 +215,7 @@ const HeroSectionSecondary = () => {
             {/* Content overlay */}
             <Container className="relative z-10 h-full flex items-center">
               <div className="hero-content w-full text-white max-w-7xl mx-auto">
-                <div className="hero-title mb-4 sm:mb-6 lg:mb-8 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] xl:max-w-[90%]">
+                <div className="hero-title mb-4 sm:mb-6 lg:mb-8 max-w-full text-center sm:text-center md:text-left sm:max-w-full md:max-w-full lg:max-w-full xl:max-w-full">
                   <SectionTitle
                     title={slide.title}
                     titleHighlight={slide.highlight}
@@ -224,11 +224,11 @@ const HeroSectionSecondary = () => {
                   />
                 </div>
 
-                <div className="hero-tags flex flex-wrap gap-2 mb-6 sm:mb-8 lg:mb-10">
+                <div className="hero-tags flex justify-center lg:justify-start flex-wrap gap-2 mb-6 sm:mb-8 lg:mb-10">
                   {slide.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-xs sm:text-sm border border-white/30"
+                      className="px-3 py-1.5 lg:px-4 lg:py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-xs sm:text-sm border border-white/30"
                     >
                       {tag}
                     </span>

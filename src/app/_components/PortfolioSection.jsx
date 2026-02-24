@@ -219,7 +219,7 @@ const PortfolioSection = () => {
         <div ref={tabsRef}>
           <Tabs defaultValue="All" onValueChange={handleTabChange}>
             {/* Tabs Header */}
-            <div className="flex justify-center mb-10 px-2">
+            <div className="flex justify-center mb-2 md:mb-10  px-2">
               <TabsList className="flex-wrap gap-2">
                 <TabsTrigger value="All">All</TabsTrigger>
                 {categories.map((cat) => (
