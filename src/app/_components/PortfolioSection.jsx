@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { toast } from "react-toastify";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -33,6 +32,11 @@ const PortfolioSection = () => {
   const buttonRef = useRef(null);
 
   useEffect(() => {
+    // Skip GSAP animations on mobile screens
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     // Animate the entire portfolio section
@@ -136,7 +140,6 @@ const PortfolioSection = () => {
         }
       } catch (error) {
         setCategories(dummyCategories);
-        toast.info("Using sample data");
       }
     };
 
@@ -168,7 +171,6 @@ const PortfolioSection = () => {
         ...prev,
         [categoryId]: getProjectsByCategory(categoryId),
       }));
-      toast.info("Using sample data");
     } finally {
       setLoading(false);
     }

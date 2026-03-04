@@ -52,6 +52,11 @@ const ServiceSection = () => {
   const servicesRef = useRef(null);
 
   useEffect(() => {
+    // Skip GSAP animations on mobile screens
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.fromTo(

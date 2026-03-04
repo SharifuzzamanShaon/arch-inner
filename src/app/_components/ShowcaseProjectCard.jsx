@@ -25,6 +25,11 @@ const ShowcaseProjectCard = ({ project }) => {
   };
 
   useEffect(() => {
+    // Skip GSAP animations on mobile screens
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
       // Initial animation on mount
       gsap.from(cardRef.current, {

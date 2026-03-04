@@ -83,6 +83,11 @@ const HeroSection = () => {
   const closeVideo = () => setIsVideoOpen(false);
 
   useEffect(() => {
+    // Skip GSAP animations on mobile screens
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     // Animate the entire hero section

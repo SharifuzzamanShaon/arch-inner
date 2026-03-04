@@ -66,8 +66,6 @@ const ServiceCollaps = () => {
         toast.success("Services loaded successfully");
       } catch {
         setServices(dummyServices);
-        setError("Using demo data - API unavailable");
-        toast.warning("Using demo data - API unavailable");
         return;
       } finally {
         setLoading(false);

@@ -91,7 +91,7 @@ const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden md:block">
               <Link href="/contact">
-                <Button className="rounded-full bg-[#FE5443] hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] h-10 px-5 text-sm font-bold text-white shadow-lg transition-all active:scale-95">
+                <Button className="cursor-pointer rounded-full bg-[#FE5443] hover:bg-transparent border-2 border-transparent hover:border-[#FE5443] hover:text-[#FE5443] h-10 px-5 text-sm font-bold text-white shadow-lg transition-all active:scale-95">
                   Get In Touch
                 </Button>
               </Link>
@@ -136,7 +136,7 @@ const Header = () => {
                   {/* Mobile CTA */}
                   <div className="mt-8 mb-4">
                     <Link href="/contact" onClick={closeMenu}>
-                      <Button className="w-full rounded-full bg-[#FE5443] hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] h-12 px-6 text-base font-bold text-white shadow-lg transition-all active:scale-95">
+                      <Button className="cursor-pointer w-full rounded-full bg-[#FE5443] hover:bg-transparent border-2 border-transparent hover:border-[#FE5443] hover:text-[#FE5443] h-12 px-6 text-base font-bold text-white shadow-lg transition-all active:scale-95">
                         Get In Touch
                       </Button>
                     </Link>

@@ -119,6 +119,11 @@ const HeroSectionSecondary = () => {
   };
 
   useEffect(() => {
+    // Skip GSAP animations on mobile screens
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     // Initial animation on mount
     const ctx = gsap.context(() => {
       // Set initial states
@@ -234,15 +239,16 @@ const HeroSectionSecondary = () => {
                   ))}
                 </div>
 
-                <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="hero-buttons mx-auto flex flex-row justify-center items-center w-full gap-3 sm:gap-4 md:justify-start lg:justify-start">
                   <BtnPrimary
                     text="Book Consultation"
-                    className="border border-transparent box-border hover:border-white"
+                    className="border border-transparent box-border hover:border-white shrink-0"
                   />
                   <BtnSecondary
                     text="Watch Video"
                     onClick={() => handleOpenVideo(slide.videoUrl)}
                     darkMode={true}
+                    className="shrink-0"
                   />
                 </div>
               </div>

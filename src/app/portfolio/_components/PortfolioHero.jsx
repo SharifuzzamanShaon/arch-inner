@@ -23,7 +23,7 @@ const PortfolioHero = () => {
           help bring it to you
         </h1>
 
-        <button className="bg-[#FE5443] hover:bg-[#ff6657] text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+        <button className="bg-[#FE5443] cursor-pointer hover:bg-[#ff6657] text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
           Book Consultation
         </button>
       </div>

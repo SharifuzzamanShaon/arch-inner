@@ -181,7 +181,7 @@ const InquiryForm = () => {
 
             <button
               type="submit"
-              className="w-full py-4 bg-[#f06a4f] hover:bg-[#d95a42] text-white font-bold rounded-xl transition-all shadow-lg shadow-orange-200 active:scale-[0.98]"
+              className="cursor-pointer w-full py-4 bg-[#FE5443] hover:bg-transparent text-white hover:text-[#FE5443] font-bold rounded-xl transition-all shadow-lg shadow-orange-200 active:scale-[0.98] border-2 border-transparent hover:border-[#FE5443] box-border shrink-0"
             >
               Send Inquiry
             </button>

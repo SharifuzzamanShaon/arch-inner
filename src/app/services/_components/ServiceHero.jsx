@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const ServicesHero = () => {
   return (
-    <section className="relative w-full mt-20 md:mt-0 h-[600px] overflow-hidden min-h-[420px] md:min-h-[520px]">
+    <section className="relative w-full mt-20 md:mt-0 overflow-hidden min-h-[420px] md:min-h-[520px]">
       <Image
         src="/images/service-hero.png"
         alt="Interior Design Services"
@@ -26,7 +26,7 @@ const ServicesHero = () => {
           commercial environments.
         </p>
 
-        <button className="group flex items-center gap-2 bg-[#FE5443] hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-[#FE5443]/20">
+        <button className="group cursor-pointer flex items-center gap-2 bg-[#FE5443] hover:bg-[#ff6657] text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
           Explore Our Services
           <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </button>

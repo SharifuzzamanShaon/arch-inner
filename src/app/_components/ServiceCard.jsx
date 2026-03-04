@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ServiceCard = ({ service }) => {
   return (
-    <div className=" relative w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:-translate-y-1">
+    <div className="group relative w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.04)] transition-transform duration-300 hover:-translate-y-1">
       <article
         className="relative min-h-[300px] w-full transition-colors duration-300 overflow-hidden"
         style={{
@@ -27,7 +27,7 @@ const ServiceCard = ({ service }) => {
 
         <div className="relative z-10 flex h-full flex-col justify-between px-6 sm:px-8 py-6 sm:py-8 md:py-10">
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            <div className="space-y-3 sm:space-y-4 pt-12">
+            <div className="space-y-3 sm:space-y-4 pt-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <h4 className="text-2xl sm:text-2xl font-semibold tracking-tight text-[#ff6657] leading-[1.2]">
                 {service?.title || "Residential Interior Design"}
               </h4>

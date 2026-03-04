@@ -23,7 +23,7 @@ const ClientReview = () => {
   return (
     <Container>
       {/* Trust Score */}
-      <div className="text-center mb-4 pt-6 my-6 sm:mb-5 sm:pt-8 md:mb-6 md:pt-10 md:pb-12 lg:pb-15">
+      <div className="text-center mb-2 pt-2 my-6 sm:mb-5 sm:pt-8 md:mb-6 md:pt-6">
         <p className="text-[#222222] text-sm sm:text-base">
           Client trust score <span className="font-semibold">4.7</span> (based
           on 250 reviews)

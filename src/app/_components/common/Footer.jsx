@@ -10,7 +10,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaYoutube,
-} from "react-icons/fa6";
+} from "react-icons/fa";
 import Container from "./Container";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,6 +18,11 @@ const Footer = () => {
   const footerRef = useRef(null);
 
   useEffect(() => {
+    // Skip GSAP animations on mobile screens
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return;
+    }
+
     const footer = footerRef.current;
 
     // Set initial state for all sections
@@ -94,14 +99,6 @@ const Footer = () => {
                     <li>
                       <Link href="#">Partnerships</Link>
                     </li>
-                    <li>
-                      <div className="flex items-center gap-4 mt-16 lg:gap-6 text-[#2c2c2c]">
-                        <FaLinkedinIn className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
-                        <FaInstagram className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
-                        <FaFacebookF className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
-                        <FaYoutube className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
-                      </div>
-                    </li>
                   </ul>
                 </div>
                 <div className="animate-section">
@@ -134,7 +131,13 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className=" lg:mt-10 pt-8 lg:pt-10 flex flex-col items-center gap-6 lg:gap-8">
+          <div className="pb-10 flex flex-col items-center gap-6 lg:gap-8">
+            <div className="flex items-center gap-4 mt-16 lg:gap-6 text-[#2c2c2c]">
+              <FaLinkedinIn className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
+              <FaInstagram className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
+              <FaFacebookF className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
+              <FaYoutube className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
+            </div>
             <div className="flex flex-wrap justify-center gap-4 lg:gap-8 text-xs sm:text-sm uppercase tracking-wide text-[#2c2c2c]">
               {/* <Link href="#">Media Inquiries</Link>
               <Link href="#">Terms & Conditions</Link>
@@ -145,14 +148,14 @@ const Footer = () => {
         </div>
       </Container>
       <div className=" absolute bottom-[-10%] left-0 w-full text-[40px] mb-20 md:mb-16 lg:pt-16 sm:text-[80px] lg:text-[120px] font-bold tracking-widest text-black/5 select-none pointer-events-none text-center">
-        <div className="pl-5 pr-5 pb-5 sm:pl-10 sm:pr-10 sm:pb-10 text-center flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10 animate-section">
+        <div className="pl-5 pr-5 pb-5 sm:pl-10 sm:pr-10 sm:pb-10 text-center flex flex-row items-center justify-center gap-5 sm:gap-10 animate-section">
           <span>
             <Image
               src="/images/footer-logo.png"
-              width={30}
-              height={30}
+              width={100}
+              height={100}
               alt="Footer Logo"
-              className="w-full h-full object-cover sm:w-[60px] sm:h-[60px]"
+              className="object-cover w-[50px] h-[50px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px]"
             />
           </span>
           ARCH INNER
