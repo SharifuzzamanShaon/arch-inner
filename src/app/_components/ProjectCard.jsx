@@ -14,7 +14,6 @@ const ProjectCard = ({ project }) => {
     WebkitMaskSize: "100% 100%",
     WebkitMaskRepeat: "no-repeat",
   };
-  console.log(project.id);
   return (
     <div className="relative w-full group max-w-[571px] mx-auto">
       <Card
@@ -46,7 +45,7 @@ const ProjectCard = ({ project }) => {
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 leading-tight text-left">
             {project?.title || "Modern Living"}
           </h3>
-          <p className="text-xs sm:text-sm text-white/80 line-clamp-2 max-w-[85%] text-left">
+          <p className="text-sm md:text-base sm:text-lg font-normal text-white  max-w-[75%] md:max-w-[85%] text-left">
             {project?.description ||
               "A beautiful blend of modern aesthetics and functional design."}
           </p>

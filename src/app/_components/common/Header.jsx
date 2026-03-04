@@ -105,7 +105,7 @@ const Header = () => {
                   size="icon"
                   className="md:hidden p-2 text-black rounded-lg"
                 >
-                  <FaBars className="h-6 w-6" />
+                  <FaBars className="h-8 w-8 px-1 text-[#FE5443]" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="top" className="h-full w-full max-h-screen">

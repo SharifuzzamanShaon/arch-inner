@@ -78,7 +78,7 @@ const ServiceSection = () => {
     );
   }, []);
   return (
-    <section className="py-12 sm:py-16">
+    <section className=" py-8 md:py-2">
       <Container>
         <div ref={titleRef} className="text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-[#2D2D2D] leading-tight">

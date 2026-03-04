@@ -64,7 +64,7 @@ const MissionSection = () => {
               story to tell, and we craft designs that honor your vision while
               exceeding expectations.
             </p>
-            <button className="px-8 py-3 border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white transition-all font-medium">
+            <button className="px-8 py-3 border border-[#FE5443] text-[#FE5443] cursor-pointer rounded-full hover:bg-[#FE5443] hover:text-white transition-all font-medium">
               Learn More
             </button>
           </div>

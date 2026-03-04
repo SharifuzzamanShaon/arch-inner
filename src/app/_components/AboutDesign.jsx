@@ -62,6 +62,7 @@ const AboutDesign = () => {
               title="Design Rooted in Craft, "
               titleHighlight="Materiality and Emotion"
               subtitle="At Arch Inner, we blend architecture and interior design seamlessly. We don't just decorate within boundaries-we reimagine them. Our studio specializes in creating spaces that feel both deeply personal and effortlessly elegant, where every detail serves a purpose."
+              subtitleClassName="text-black"
             />
             <div className="flex gap-3 sm:gap-4">
               <BtnSecondary text="Learn More" />

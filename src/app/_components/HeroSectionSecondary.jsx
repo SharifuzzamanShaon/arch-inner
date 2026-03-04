@@ -55,7 +55,6 @@ const HeroSectionSecondary = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState("");
   const contentRef = useRef(null);
-  const bgImageRef = useRef(null);
 
   const handleOpenVideo = (url) => {
     setActiveVideo(url);
@@ -236,7 +235,10 @@ const HeroSectionSecondary = () => {
                 </div>
 
                 <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <BtnPrimary text="Book Consultation" />
+                  <BtnPrimary
+                    text="Book Consultation"
+                    className="border border-transparent box-border hover:border-white"
+                  />
                   <BtnSecondary
                     text="Watch Video"
                     onClick={() => handleOpenVideo(slide.videoUrl)}
@@ -247,9 +249,6 @@ const HeroSectionSecondary = () => {
             </Container>
 
             {/* Slide indicator */}
-            <span className="absolute top-4 sm:top-6 right-4 sm:right-6 text-white/60 text-xs sm:text-sm font-medium">
-              0{slide.id}/0{HERO_DATA.length}
-            </span>
           </SwiperSlide>
         ))}
 

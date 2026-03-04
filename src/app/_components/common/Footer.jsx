@@ -64,13 +64,13 @@ const Footer = () => {
     <footer ref={footerRef} className="relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#efe8e3] to-[#ff170057]" />
       <Container>
-        <div className="relative z-10 pt-20 pb-16 lg:pt-24 lg:pb-40">
+        <div className="relative z-10 pt-20 pb-16 lg:pt-12 lg:pb-40">
           <div className="grid grid-cols-12 gap-10">
             <div className="col-span-12 lg:col-span-4 animate-section">
               <Image
                 src="/images/design-txt-footer.png"
-                width={300}
-                height={300}
+                width={280}
+                height={280}
                 alt="Footer Logo"
                 className="w-full h-full object-cover"
               />
@@ -96,10 +96,10 @@ const Footer = () => {
                     </li>
                     <li>
                       <div className="flex items-center gap-4 mt-16 lg:gap-6 text-[#2c2c2c]">
-                        <FaLinkedinIn className="h-4 w-4 lg:h-5 lg:w-5" />
-                        <FaInstagram className="h-4 w-4 lg:h-5 lg:w-5" />
-                        <FaFacebookF className="h-4 w-4 lg:h-5 lg:w-5" />
-                        <FaYoutube className="h-4 w-4 lg:h-5 lg:w-5" />
+                        <FaLinkedinIn className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
+                        <FaInstagram className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
+                        <FaFacebookF className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
+                        <FaYoutube className="h-4 w-4 lg:h-5 lg:w-5 cursor-pointer" />
                       </div>
                     </li>
                   </ul>

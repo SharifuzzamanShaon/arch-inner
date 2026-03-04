@@ -87,7 +87,7 @@ const VisionSection = () => {
               design. We strive to build lasting relationships with clients,
               turning their dreams into beautifully realized spaces.
             </p>
-            <button className="px-8 py-3 border border-orange-500 text-orange-500 rounded-full hover:bg-orange-500 hover:text-white transition-all font-medium">
+            <button className="px-8 py-3 border border-[#FE5443] text-[#FE5443] cursor-pointer rounded-full hover:bg-[#FE5443] hover:text-white transition-all font-medium">
               Learn More
             </button>
           </div>
