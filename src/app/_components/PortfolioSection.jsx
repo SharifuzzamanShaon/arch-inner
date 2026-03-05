@@ -202,7 +202,7 @@ const PortfolioSection = () => {
       </div>
 
       {/* Desktop Grid */}
-      <div className="hidden md:grid md:grid-cols-2 gap-4">
+      <div className="hidden md:grid md:grid-cols-2 gap-4 max-w-[1240px] mx-auto">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

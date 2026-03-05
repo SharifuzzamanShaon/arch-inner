@@ -41,7 +41,7 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
 
-        <CardContent className="relative z-10 mt-auto px-4 sm:px-6 pb-16 sm:pb-20 lg:pb-24 pt-0">
+        <CardContent className="relative z-10 mt-auto px-4 sm:px-6 pb-26 sm:pb-20 lg:pb-24 pt-0">
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 leading-tight text-left">
             {project?.title || "Modern Living"}
           </h3>

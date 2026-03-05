@@ -10,40 +10,67 @@ import { toast } from "react-toastify";
 const dummyServices = [
   {
     id: "dummy-1",
-    name: "Web Development",
+    name: "Residential Interior Design",
     thumbnail: "/images/service-collaps-img.png",
     details: [
       {
-        title: "Frontend Development",
+        title: "Space Planning",
         description:
-          "Creating responsive and interactive user interfaces using modern frameworks like React, Vue, and Angular.",
+          "Designing functional and comfortable living spaces by carefully planning layouts, furniture placement, and circulation for your home.",
       },
       {
-        title: "Backend Development",
+        title: "Furniture & Decor Selection",
         description:
-          "Building robust server-side applications with Node.js, Python, and database integration.",
+          "Selecting furniture, lighting, colors, and decorative elements that reflect your lifestyle while creating a balanced and elegant interior.",
+      },
+      {
+        title: "Lighting Design",
+        description:
+          "Creating layered lighting solutions using ambient, task, and accent lighting to enhance both functionality and mood in your living spaces.",
       },
     ],
   },
   {
     id: "dummy-2",
-    name: "Mobile App Development",
+    name: "Commercial Interior Design",
     thumbnail: "/images/service-collaps-img.png",
     details: [
       {
-        title: "iOS Development",
+        title: "Workspace Planning",
         description:
-          "Native iOS app development using Swift and SwiftUI for optimal performance and user experience.",
+          "Designing efficient office and commercial layouts that improve productivity, collaboration, and employee comfort.",
       },
       {
-        title: "Android Development",
+        title: "Brand-Oriented Design",
         description:
-          "Creating Android applications with Kotlin and Jetpack Compose for modern mobile experiences.",
+          "Creating interiors that reflect your brand identity through colors, materials, and design elements to leave a lasting impression on clients.",
       },
       {
-        title: "Cross-Platform",
+        title: "Customer Experience Design",
         description:
-          "Developing apps for both iOS and Android using React Native and Flutter for cost-effective solutions.",
+          "Designing welcoming and functional spaces for retail stores, restaurants, and offices that enhance the overall customer experience.",
+      },
+    ],
+  },
+  {
+    id: "dummy-3",
+    name: "Luxury Interior Design",
+    thumbnail: "/images/service-collaps-img.png",
+    details: [
+      {
+        title: "Premium Material Selection",
+        description:
+          "Using high-end materials such as marble, natural stone, fine wood, and luxury fabrics to create sophisticated interiors.",
+      },
+      {
+        title: "Custom Furniture Design",
+        description:
+          "Designing bespoke furniture pieces tailored to the space, ensuring uniqueness and exclusivity in every project.",
+      },
+      {
+        title: "High-End Finishing",
+        description:
+          "Applying premium finishes, textures, and details to achieve a refined and luxurious ambiance throughout the space.",
       },
     ],
   },
