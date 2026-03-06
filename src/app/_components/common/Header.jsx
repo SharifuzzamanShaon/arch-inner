@@ -3,11 +3,11 @@
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -29,7 +29,6 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  /* Detect scroll */
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -66,7 +65,7 @@ const Header = () => {
             />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Menu */}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8 text-base">
               {navItems.map((item) => (
@@ -86,9 +85,8 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Desktop CTA + Mobile button */}
           <div className="flex items-center gap-3">
-            {/* Desktop CTA */}
+            {/* Desktop Button */}
             <div className="hidden md:block">
               <Link href="/contact">
                 <Button className="cursor-pointer rounded-full bg-[#FE5443] hover:bg-transparent border-2 border-transparent hover:border-[#FE5443] hover:text-[#FE5443] h-10 px-5 text-sm font-bold text-white shadow-lg transition-all active:scale-95">
@@ -97,7 +95,7 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu */}
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild>
                 <Button
@@ -105,14 +103,17 @@ const Header = () => {
                   size="icon"
                   className="md:hidden p-2 text-black rounded-lg"
                 >
-                  <FaBars className="h-8 w-8 px-1 text-[#FE5443]" />
+                  <FaBars className="h-8 w-8 text-[#FE5443]" />
                 </Button>
               </SheetTrigger>
+
               <SheetContent side="top" className="h-full w-full max-h-screen">
-                <SheetHeader>
-                  <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col h-full pt-8">
+                <SheetClose className="absolute right-5 top-5">
+                  <X className="h-10 w-10 text-[#FE5443]" />
+                </SheetClose>
+
+                <div className="flex flex-col h-full pt-16">
+                  {/* Mobile Nav */}
                   <nav className="flex-1">
                     <ul className="flex flex-col gap-2">
                       {navItems.map((item) => (
@@ -133,7 +134,7 @@ const Header = () => {
                     </ul>
                   </nav>
 
-                  {/* Mobile CTA */}
+                  {/* Mobile Button */}
                   <div className="mt-8 mb-4">
                     <Link href="/contact" onClick={closeMenu}>
                       <Button className="cursor-pointer w-full rounded-full bg-[#FE5443] hover:bg-transparent border-2 border-transparent hover:border-[#FE5443] hover:text-[#FE5443] h-12 px-6 text-base font-bold text-white shadow-lg transition-all active:scale-95">
