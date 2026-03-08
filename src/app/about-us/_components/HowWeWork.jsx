@@ -75,7 +75,7 @@ const HowWeWork = () => {
           How We <span className="text-[#FE5443]">Work</span>
         </h2>
 
-        <p className="text-gray-600 text-lg sm:text-xl md:text-2xl font-light leading-relaxed">
+        <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl font-light leading-relaxed">
           {`We've been making people's dreams come true`}{" "}
           <br className="hidden sm:block" />
           for decades.{" "}

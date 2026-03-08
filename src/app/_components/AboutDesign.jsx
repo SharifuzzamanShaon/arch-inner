@@ -56,9 +56,9 @@ const AboutDesign = () => {
   }, []);
 
   return (
-    <div ref={sectionRef}>
-      <Container>
-        <div className="flex flex-col lg:flex-row items-center pt-24 md:pt-15 lg:items-center gap-8 sm:gap-10 lg:gap-13 relative">
+    <Container>
+      <div ref={sectionRef} className="overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-center pt-24 md:pt-15 lg:items-center gap-8 sm:gap-10 lg:gap-13 relative w-full">
           <div
             ref={contentRef}
             className="flex flex-col flex-1 gap-4 sm:gap-5 md:gap-6 w-full lg:max-w-xl order-2 lg:order-1"
@@ -75,7 +75,7 @@ const AboutDesign = () => {
           </div>
           <div
             ref={imageRef}
-            className="flex-1 relative w-full min-w-0 order-1 lg:order-2"
+            className="flex-1 relative w-full min-w-0 order-1 lg:order-2 overflow-hidden"
           >
             <Image
               src="/images/hero-image.png"
@@ -90,8 +90,8 @@ const AboutDesign = () => {
             </span>
           </div>
         </div>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 };
 

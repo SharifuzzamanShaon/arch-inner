@@ -101,18 +101,21 @@ const Header = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden p-2 text-black rounded-lg"
+                  className="md:hidden text-black rounded-lg"
                 >
                   <FaBars className="h-8 w-8 text-[#FE5443]" />
                 </Button>
               </SheetTrigger>
 
-              <SheetContent side="top" className="h-full w-full max-h-screen">
+              <SheetContent
+                side="top"
+                className="h-full w-full max-h-screen bg-white"
+              >
                 <SheetClose className="absolute right-5 top-5">
                   <X className="h-10 w-10 text-[#FE5443]" />
                 </SheetClose>
 
-                <div className="flex flex-col h-full pt-16">
+                <div className="flex flex-col h-full pt-16 ">
                   {/* Mobile Nav */}
                   <nav className="flex-1">
                     <ul className="flex flex-col gap-2">
