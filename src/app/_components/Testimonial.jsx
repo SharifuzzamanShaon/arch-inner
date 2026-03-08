@@ -24,7 +24,7 @@ const TestimonialSection = () => {
       <div className="mx-auto max-w-7xl mt-8 sm:mt-10 md:mt-12">
         {/* Mobile Slider */}
         <div className="block md:hidden">
-          <Swiper spaceBetween={4} slidesPerView={1.1}>
+          <Swiper spaceBetween={16} slidesPerView={1.1}>
             {[...Array(3)].map((_, index) => (
               <SwiperSlide key={index}>
                 <TestimonialCard

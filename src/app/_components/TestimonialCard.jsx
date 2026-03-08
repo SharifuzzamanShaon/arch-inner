@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const TestimonialCard = ({ service }) => {
   return (
-    <div className="relative w-full max-w-[350px] sm:max-w-[400px] mt-16 mx-auto group">
-      <div className="absolute -top-12 left-1/2 z-30 h-24 w-24 -translate-x-1/2 overflow-hidden rounded-full border-4 border-white bg-white shadow-xl transition-transform duration-300 group-hover:scale-105">
+    <div className="relative w-full max-w-[350px] sm:max-w-[400px] mt-16 mx-auto group pb-4">
+      <div className="absolute -top-12 left-1/2 z-30 h-24 w-24 -translate-x-1/2 overflow-hidden rounded-full border-4 bg-white shadow-xl transition-transform duration-300 group-hover:scale-105">
         <Image
           src={service?.image || "/api/placeholder/100/100"}
           width={96}

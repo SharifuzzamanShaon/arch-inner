@@ -52,7 +52,7 @@ const VisionSection = () => {
   return (
     <div ref={sectionRef}>
       <Container>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-0 md:py-20">
           {/* Notched Image Container */}
           <div
             ref={imageRef}
@@ -75,7 +75,7 @@ const VisionSection = () => {
           </div>
 
           {/* Text Content */}
-          <div ref={textRef} className="space-y-6">
+          <div ref={textRef} className="space-y-1 md:space-y-6">
             <h2 className="text-5xl font-bold text-gray-900">Our Vision</h2>
             <p className="text-gray-500 leading-relaxed text-lg">
               Our vision is to become a leading name in interior design,
@@ -87,9 +87,11 @@ const VisionSection = () => {
               design. We strive to build lasting relationships with clients,
               turning their dreams into beautifully realized spaces.
             </p>
-            <button className="px-8 py-3 border border-[#FE5443] text-[#FE5443] cursor-pointer rounded-full hover:bg-[#FE5443] hover:text-white transition-all font-medium">
-              Learn More
-            </button>
+            <div className="flex justify-center md:justify-start">
+              <button className="md:px-8 md:py-3 py-2 px-6 border border-[#FE5443] text-[#FE5443] cursor-pointer rounded-full hover:bg-[#FE5443] hover:text-white transition-all font-medium text-center">
+                Learn More
+              </button>
+            </div>
           </div>
         </div>
       </Container>

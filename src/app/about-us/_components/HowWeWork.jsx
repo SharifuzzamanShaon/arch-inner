@@ -105,8 +105,8 @@ const HowWeWork = () => {
                 <div
                   key={index}
                   ref={(el) => (stepsRef.current[index] = el)}
-                  className={`bg-zinc-900/60 border border-zinc-900 rounded-[10px] backdrop-blur-2xl overflow-hidden h-full flex flex-col hover:bg-zinc-900/70 transition-all group ${
-                    index % 2 === 0 ? "-mt-[100px]" : "mt-[100px]"
+                  className={`bg-zinc-900/60 border border-zinc-900 rounded-[10px] backdrop-blur-2xl overflow-hidden h-full flex flex-col hover:bg-zinc-900/70 transition-all group md:mt-0 ${
+                    index % 2 === 0 ? "md:-mt-[100px]" : "md:mt-[100px]"
                   }`}
                 >
                   {/* Image Container - Flush to top/sides */}

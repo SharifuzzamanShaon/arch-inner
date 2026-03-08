@@ -44,7 +44,7 @@ const Header = () => {
   return (
     <header
       className={`w-full fixed md:relative top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+        scrolled ? "bg-white/95 backdrop-blur-lg shadow-sm" : "bg-transparent"
       }`}
     >
       <Container>
@@ -72,10 +72,10 @@ const Header = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className={`transition-colors duration-200 ${
+                    className={`transition-colors duration-200 text-[#FE5443] ${
                       pathname === item.href
                         ? "font-semibold text-[#FE5443]"
-                        : "text-black hover:text-[#FE5443]"
+                        : "text-[#FE5443] hover:text-[#FE5443]"
                     }`}
                   >
                     {item.name}
@@ -123,8 +123,8 @@ const Header = () => {
                             onClick={closeMenu}
                             className={`block text-lg font-medium transition-colors py-3 px-4 rounded-md ${
                               pathname === item.href
-                                ? "text-[#FE5443] bg-[#FE5443]/10 font-semibold"
-                                : "text-black hover:text-[#FE5443] hover:bg-gray-50"
+                                ? "text-[#FE5443] font-semibold"
+                                : "text-[#FE5443] hover:text-[#FE5443] hover:bg-gray-50"
                             }`}
                           >
                             {item.name}
