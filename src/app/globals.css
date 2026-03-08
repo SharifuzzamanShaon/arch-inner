@@ -34,5 +34,5 @@ body {
 }
 
 .svg.lucide.lucide-x.h-4.w-4 {
-  display: none;
+  display: none !important;
 }
