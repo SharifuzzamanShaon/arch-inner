@@ -1,18 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { FaBars } from "react-icons/fa6";
 import Container from "./Container";
 
 const navItems = [
@@ -72,7 +65,7 @@ const Header = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className={`transition-colors duration-200 text-[#FE5443] ${
+                    className={`transition-colors duration-200 ${
                       pathname === item.href
                         ? "font-semibold text-[#FE5443]"
                         : "text-[#FE5443] hover:text-[#FE5443]"
@@ -95,62 +88,53 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu */}
-            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="md:hidden text-black rounded-lg"
-                >
-                  <FaBars className="h-8 w-8 text-[#FE5443]" />
-                </Button>
-              </SheetTrigger>
-
-              <SheetContent
-                side="top"
-                className="h-full w-full max-h-screen bg-white"
-              >
-                <SheetClose className="absolute right-5 top-5">
-                  <X className="h-10 w-10 text-[#FE5443]" />
-                </SheetClose>
-
-                <div className="flex flex-col h-full pt-16 ">
-                  {/* Mobile Nav */}
-                  <nav className="flex-1">
-                    <ul className="flex flex-col gap-2">
-                      {navItems.map((item) => (
-                        <li key={item.name}>
-                          <Link
-                            href={item.href}
-                            onClick={closeMenu}
-                            className={`block text-lg font-medium transition-colors py-3 px-4 rounded-md ${
-                              pathname === item.href
-                                ? "text-[#FE5443] font-semibold"
-                                : "text-[#FE5443] hover:text-[#FE5443] hover:bg-gray-50"
-                            }`}
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-
-                  {/* Mobile Button */}
-                  <div className="mt-8 mb-4">
-                    <Link href="/contact" onClick={closeMenu}>
-                      <Button className="cursor-pointer w-full rounded-full bg-[#FE5443] hover:bg-transparent border-2 border-transparent hover:border-[#FE5443] hover:text-[#FE5443] h-12 px-6 text-base font-bold text-white shadow-lg transition-all active:scale-95">
-                        Get In Touch
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? (
+                <X size={28} className="text-[#FE5443]" />
+              ) : (
+                <Menu size={28} className="text-[#FE5443]" />
+              )}
+            </button>
           </div>
         </div>
       </Container>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden transition-all duration-300 overflow-hidden ${
+          menuOpen ? "max-h-[500px]" : "max-h-0"
+        }`}
+      >
+        <div className="bg-white shadow-md">
+          <ul className="flex flex-col gap-4 p-6 text-center">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  onClick={closeMenu}
+                  className={`block text-lg ${
+                    pathname === item.href
+                      ? "font-semibold text-[#FE5443]"
+                      : "text-gray-700"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+
+            <Link href="/contact" onClick={closeMenu}>
+              <Button className="w-full mt-3 rounded-full bg-[#FE5443] text-white hover:bg-[#e04839]">
+                Get In Touch
+              </Button>
+            </Link>
+          </ul>
+        </div>
+      </div>
     </header>
   );
 };

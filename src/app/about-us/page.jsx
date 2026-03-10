@@ -5,7 +5,6 @@ import Header from "../_components/common/Header";
 import HowWeWork from "./_components/HowWeWork";
 import MissionSection from "./_components/MissionSection";
 import VisionSection from "./_components/VisionSection";
-
 const page = () => {
   return (
     <>

@@ -256,7 +256,10 @@ const PortfolioSection = () => {
           </Tabs>
         </div>
 
-        <div ref={buttonRef} className="text-center px-4 md:pt-12">
+        <div
+          ref={buttonRef}
+          className="text-center px-4 md:pt-12 hidden sm:block"
+        >
           <button
             onClick={() => router.push("/portfolio")}
             className="px-6 py-2 rounded-full border cursor-pointer border-[#FE5443] text-[#FE5443] hover:border-[#FE5443] hover:bg-[#FE5443] hover:text-[#ffffff] transition-colors duration-300"

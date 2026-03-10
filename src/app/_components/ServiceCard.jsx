@@ -27,7 +27,7 @@ const ServiceCard = ({ service }) => {
 
         <div className="relative z-10 flex h-full flex-col justify-between px-6 sm:px-8 py-6 sm:py-8 md:py-10">
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            <div className="space-y-3 sm:space-y-4 pt-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div className="space-y-3 sm:space-y-4 pt-12 opacity-100 sm:opacity-0 transition-opacity duration-300 sm:group-hover:opacity-100">
               <h4 className="text-2xl sm:text-2xl font-semibold tracking-tight text-[#ff6657] leading-[1.2]">
                 {service?.title || "Residential Interior Design"}
               </h4>
@@ -35,12 +35,26 @@ const ServiceCard = ({ service }) => {
                 {service?.description ||
                   "Creating homes that blend comfort with sophistication. Every element is thoughtfully chosen to reflect your lifestyle."}
               </p>
+              <button className="cursor-pointer flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#FE5443] py-1.5 sm:py-2 pl-5 sm:pl-7 pr-2.5 sm:pr-3 text-xs sm:text-sm font-semibold text-white active:scale-95 sm:hidden">
+                <span>Learn More</span>
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="h-4 w-4 sm:h-5 sm:w-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
       </article>
       <div className="absolute bottom-[5px] right-[-4px]">
-        <button className="cursor-pointer flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#FE5443] py-1.5 sm:py-2 pl-5 sm:pl-7 pr-2.5 sm:pr-3 text-xs sm:text-sm font-semibold text-white shadow-[0_10px_20px_rgba(254,84,67,0.3)] transition-all hover:bg-[#ff6657] hover:shadow-[0_12px_24px_rgba(254,84,67,0.4)] active:scale-95">
+        <button className="cursor-pointer items-center gap-1.5 sm:gap-2 rounded-full bg-[#FE5443] py-1.5 sm:py-2 pl-5 sm:pl-7 pr-2.5 sm:pr-3 text-xs sm:text-sm font-semibold text-white active:scale-95 hidden sm:block">
           <span>Learn More</span>
           <svg
             viewBox="0 0 20 20"

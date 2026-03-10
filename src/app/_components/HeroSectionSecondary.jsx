@@ -218,7 +218,7 @@ const HeroSectionSecondary = () => {
 
             {/* Content overlay */}
             <Container className="relative z-10 h-full flex items-center">
-              <div className="hero-content w-full text-white max-w-7xl mx-auto">
+              <div className="hero-content w-full text-white max-w-7xl py-20 mx-auto">
                 <div className="hero-title mb-4 sm:mb-6 lg:mb-8 max-w-full text-center sm:text-center md:text-left sm:max-w-full md:max-w-full lg:max-w-full xl:max-w-full">
                   <SectionTitle
                     title={slide.title}
@@ -228,7 +228,7 @@ const HeroSectionSecondary = () => {
                   />
                 </div>
 
-                <div className="hero-tags flex justify-center lg:justify-start flex-wrap gap-2 mb-6 sm:mb-8 lg:mb-10">
+                <div className="hero-tags flex justify-center md:justify-start flex-wrap gap-2 mb-6 sm:mb-8 lg:mb-10">
                   {slide.tags.map((tag, idx) => (
                     <span
                       key={idx}
@@ -253,13 +253,8 @@ const HeroSectionSecondary = () => {
                 </div>
               </div>
             </Container>
-
-            {/* Slide indicator */}
           </SwiperSlide>
         ))}
-
-        {/* Custom Pagination Placement */}
-        <div className="custom-pagination flex justify-center absolute bottom-6 sm:bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 z-20" />
       </Swiper>
 
       <VideoPopup
@@ -267,53 +262,6 @@ const HeroSectionSecondary = () => {
         onClose={() => setIsVideoOpen(false)}
         videoUrl={activeVideo}
       />
-
-      <style jsx global>{`
-        .swiper-pagination-bullet {
-          background: rgba(255, 255, 255, 0.5) !important;
-          width: 8px;
-          height: 8px;
-          margin: 0 4px;
-          border-radius: 50%;
-          transition: all 0.3s ease;
-        }
-
-        .swiper-pagination-bullet-active {
-          background: #fff !important;
-          width: 24px;
-          border-radius: 6px;
-        }
-
-        .hero-swiper .swiper-slide {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        @media (min-width: 640px) {
-          .swiper-pagination-bullet {
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
-          }
-
-          .swiper-pagination-bullet-active {
-            width: 28px;
-          }
-        }
-
-        @media (min-width: 1024px) {
-          .swiper-pagination-bullet {
-            width: 12px;
-            height: 12px;
-            margin: 0 6px;
-          }
-
-          .swiper-pagination-bullet-active {
-            width: 32px;
-          }
-        }
-      `}</style>
     </section>
   );
 };

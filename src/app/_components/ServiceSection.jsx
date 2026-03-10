@@ -83,11 +83,12 @@ const ServiceSection = () => {
     );
   }, []);
   return (
-    <section className=" py-8 md:py-2">
+    <section className="pt-16 pb-8 md:pb-16">
       <Container>
         <div ref={titleRef} className="text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2D2D2D] leading-tight">
-            We Shape Interiors That <br />
+          <h2 className="text-lg md:text-5xl font-bold text-[#2D2D2D] leading-tight">
+            We Shape Interiors That kk
+            <br />
             <span className="text-[#FE5443]">Reflect</span> Your Story
           </h2>
         </div>
