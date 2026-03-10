@@ -77,7 +77,7 @@ const Footer = () => {
                 width={280}
                 height={280}
                 alt="Footer Logo"
-                className="w-full h-full object-cover"
+                className="w-[380px] lg:w-full h-full object-cover"
               />
             </div>
             <div className="col-span-12 lg:col-span-8">

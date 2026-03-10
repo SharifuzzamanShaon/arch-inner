@@ -54,7 +54,7 @@ const ServiceCard = ({ service }) => {
         </div>
       </article>
       <div className="absolute bottom-[5px] right-[-4px]">
-        <button className="cursor-pointer items-center gap-1.5 sm:gap-2 rounded-full bg-[#FE5443] py-1.5 sm:py-2 pl-5 sm:pl-7 pr-2.5 sm:pr-3 text-xs sm:text-sm font-semibold text-white active:scale-95 hidden sm:block">
+        <button className="cursor-pointer sm:flex sm:items-center gap-2 rounded-full bg-[#FE5443] py-1.5 sm:py-2 pl-5 sm:pl-7 pr-2.5 sm:pr-3 text-xs sm:text-sm font-semibold text-white active:scale-95 hidden">
           <span>Learn More</span>
           <svg
             viewBox="0 0 20 20"

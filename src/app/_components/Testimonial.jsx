@@ -9,7 +9,7 @@ const TestimonialSection = () => {
     <div className=" px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-4xl mx-auto text-center">
         {/* Main Heading */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2D2D2D] leading-tight tracking-tight mb-6">
+        <h2 className="text-xl md:text-5xl lg:text-6xl font-bold text-[#2D2D2D] leading-tight tracking-tight mb-6">
           We Shape Interiors That <br />
           <span className="text-[#FE5443]">Reflect</span> Your Story
         </h2>

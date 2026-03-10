@@ -86,8 +86,8 @@ const ServiceSection = () => {
     <section className="pt-16 pb-8 md:pb-16">
       <Container>
         <div ref={titleRef} className="text-center">
-          <h2 className="text-lg md:text-5xl font-bold text-[#2D2D2D] leading-tight">
-            We Shape Interiors That kk
+          <h2 className="text-xl md:text-5xl font-bold text-[#2D2D2D] leading-tight">
+            We Shape Interiors That
             <br />
             <span className="text-[#FE5443]">Reflect</span> Your Story
           </h2>
