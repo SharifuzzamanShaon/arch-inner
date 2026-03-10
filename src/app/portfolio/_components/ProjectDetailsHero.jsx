@@ -25,15 +25,14 @@ const ProjectDetailsHero = () => {
   ];
 
   return (
-    <section className="p-8 md:p-16 min-h-screen flex items-center">
+    <section className="p-8 pt-26 md:p-16 min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left Column: Text & Details */}
         <div className="space-y-8">
           <div>
             <span className="text-#FE5443 uppercase tracking-widest text-xs font-bold">
               Featured Project
             </span>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mt-4 leading-tight">
+            <h1 className="text-xl md:text-6xl font-bold text-gray-900 mt-4 leading-tight">
               The Serenity <br />
               <span className="text-#FE5443">House</span>
             </h1>
@@ -43,8 +42,6 @@ const ProjectDetailsHero = () => {
               commitment to creating spaces that inspire daily living.
             </p>
           </div>
-
-          {/* Metadata Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {details.map((item, index) => (
               <div
@@ -65,9 +62,7 @@ const ProjectDetailsHero = () => {
           </div>
         </div>
 
-        {/* Right Column: Image with "Notched" Border */}
         <div className="relative group">
-          {/* Custom Shape Container */}
           <div className="relative overflow-hidden rounded-[2rem] bg-gray-200">
             <Image
               src="/images/details-hero.png"
@@ -77,8 +72,6 @@ const ProjectDetailsHero = () => {
               className="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-500"
             />
           </div>
-
-          {/* Subtle background glow or frame if desired */}
           <div className="absolute -inset-4 bg-orange-100/30 -z-10 rounded-[3rem] blur-2xl"></div>
         </div>
       </div>

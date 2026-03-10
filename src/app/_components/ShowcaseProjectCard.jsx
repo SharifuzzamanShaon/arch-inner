@@ -136,7 +136,7 @@ const ShowcaseProjectCard = ({ project }) => {
 
         <CardContent
           ref={contentRef}
-          className="relative z-10 mt-auto px-4 sm:px-6 pb-16 sm:pb-20 lg:pb-24 pt-0"
+          className="relative z-10 mt-auto px-4 sm:px-6 pb-26 sm:pb-20 lg:pb-24 pt-0"
         >
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 leading-tight text-left">
             {project?.title || "Modern Living"}
@@ -150,10 +150,10 @@ const ShowcaseProjectCard = ({ project }) => {
 
       <div
         ref={buttonRef}
-        className="absolute bottom-[20px] right-[12px] md:bottom-px md:right-[2px] z-20 p-1"
+        className="absolute bottom-[38px] right-[10px] md:bottom-px md:right-[2px] z-20 p-1"
       >
         <Link href={`/portfolio/${project?.id}`}>
-          <Button className="flex items-center gap-3 rounded-full cursor-pointer hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white shadow-2xl transition-all active:scale-95">
+          <Button className="flex items-center gap-3 rounded-full cursor-pointer hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white transition-all active:scale-95">
             <span className="hidden lg:inline">View Project</span>
             <span className="lg:hidden">View</span>
             <FaArrowRight className="w-4 h-4" />
