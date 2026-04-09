@@ -19,11 +19,11 @@ const PortfolioHero = () => {
       {/* 3. Content */}
       <div className="relative z-20 text-center px-6">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
-          If You can imagine it, we can <br />
+          If You can imagine it, we can <br className="hidden md:block" />
           help bring it to you
         </h1>
 
-        <button className="bg-[#FE5443] cursor-pointer hover:bg-[#ff6657] text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+        <button className="bg-[#FE5443] cursor-pointer hover:bg-[#ff6657] text-white px-8 py-2 md:py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
           Book Consultation
         </button>
       </div>

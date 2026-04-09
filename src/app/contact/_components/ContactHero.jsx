@@ -12,9 +12,9 @@ const ContactHero = () => {
       />
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <h1 className="relative z-10 text-white text-5xl md:text-7xl font-bold text-center">
+      <h3 className="relative z-10 text-white text-3xl md:text-5xl font-bold text-center">
         Contact Us
-      </h1>
+      </h3>
     </section>
   );
 };

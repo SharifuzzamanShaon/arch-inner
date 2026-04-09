@@ -214,7 +214,7 @@ const PortfolioSection = () => {
     <Container>
       <div ref={portfolioRef} className="text-center mt-10 sm:mt-12 md:my-15">
         <SectionTopTitle
-          title="A Curated Selection of Our Interior Project"
+          title="A Curated Selection of Our Interior"
           highlight="Project"
         />
 
