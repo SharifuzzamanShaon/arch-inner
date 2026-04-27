@@ -225,7 +225,11 @@ const PortfolioSection = () => {
               <TabsList className="flex-wrap gap-2">
                 <TabsTrigger value="All">All</TabsTrigger>
                 {categories.map((cat) => (
-                  <TabsTrigger key={cat.id} value={cat.id}>
+                  <TabsTrigger
+                    className={"cursor-pointer"}
+                    key={cat.id}
+                    value={cat.id}
+                  >
                     {cat.name}
                   </TabsTrigger>
                 ))}

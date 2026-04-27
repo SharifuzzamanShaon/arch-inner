@@ -69,15 +69,15 @@ const Footer = () => {
     <footer ref={footerRef} className="relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#efe8e3] to-[#ff170057]" />
       <Container>
-        <div className="relative z-10 pt-20 pb-16 lg:pt-12 lg:pb-40">
-          <div className="grid grid-cols-12 gap-10">
+        <div className="relative z-10 pt-12 pb-16 lg:pt-12 lg:pb-40">
+          <div className="grid grid-cols-12 gap-8 lg:gap-10">
             <div className="col-span-12 lg:col-span-4 animate-section">
               <Image
                 src="/images/design-txt-footer.png"
                 width={280}
                 height={280}
                 alt="Footer Logo"
-                className="w-[380px] lg:w-full h-full object-cover"
+                className="w-full max-w-55 sm:max-w-70 lg:max-w-full h-auto object-cover"
               />
             </div>
             <div className="col-span-12 lg:col-span-8">
@@ -147,15 +147,15 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-      <div className=" absolute bottom-[-10%] left-0 w-full text-[40px] mb-20 md:mb-16 lg:pt-16 sm:text-[80px] lg:text-[120px] font-bold tracking-widest text-black/5 select-none pointer-events-none text-center">
-        <div className="pl-5 pr-5 pb-5 sm:pl-10 sm:pr-10 sm:pb-10 text-center flex flex-row items-center justify-center gap-5 sm:gap-10 animate-section">
+      <div className="relative w-full overflow-hidden text-[32px] sm:text-[60px] md:text-[80px] lg:text-[120px] font-bold tracking-widest text-black/5 select-none pointer-events-none text-center">
+        <div className="px-4 sm:px-8 pb-4 sm:pb-8 text-center flex flex-row items-center justify-center gap-3 sm:gap-6 md:gap-10 animate-section">
           <span>
             <Image
               src="/images/footer-logo.png"
               width={100}
               height={100}
               alt="Footer Logo"
-              className="object-cover w-[50px] h-[50px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px]"
+              className="object-cover w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
             />
           </span>
           ARCH INNER

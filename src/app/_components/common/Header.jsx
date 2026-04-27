@@ -67,7 +67,7 @@ const Header = () => {
                     href={item.href}
                     className={`transition-colors duration-200 ${
                       pathname === item.href
-                        ? "font-semibold text-[#FE5443]"
+                        ? "font-semibold text-gray-700"
                         : "text-[#FE5443] hover:text-[#FE5443]"
                     }`}
                   >
@@ -118,7 +118,7 @@ const Header = () => {
                   onClick={closeMenu}
                   className={`block text-lg ${
                     pathname === item.href
-                      ? "font-semibold text-[#FE5443]"
+                      ? "font-semibold text-gray-700"
                       : "text-gray-700"
                   }`}
                 >

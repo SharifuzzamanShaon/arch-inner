@@ -71,7 +71,7 @@ const HowWeWork = () => {
           Our Process
         </span>
 
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-800 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 tracking-tight">
           How We <span className="text-[#FE5443]">Work</span>
         </h2>
 
@@ -106,7 +106,7 @@ const HowWeWork = () => {
                   key={index}
                   ref={(el) => (stepsRef.current[index] = el)}
                   className={`bg-zinc-900/60 border border-zinc-900 rounded-[10px] backdrop-blur-2xl overflow-hidden h-full flex flex-col hover:bg-zinc-900/70 transition-all group md:mt-0 ${
-                    index % 2 === 0 ? "md:-mt-[100px]" : "md:mt-[100px]"
+                    index % 2 === 0 ? "md:-mt-25" : "md:mt-25"
                   }`}
                 >
                   {/* Image Container - Flush to top/sides */}
@@ -122,18 +122,18 @@ const HowWeWork = () => {
                   </div>
 
                   {/* Content Area */}
-                  <div className="p-8 flex flex-col relative rounded-[10px]">
-                    <h3 className="text-white text-3xl font-semibold mb-4 tracking-tight">
+                  <div className="p-5 sm:p-6 md:p-8 flex flex-col relative rounded-[10px]">
+                    <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-semibold mb-3 md:mb-4 tracking-tight">
                       {step.title}
                     </h3>
 
-                    <p className="text-gray-300 text-lg leading-snug font-light max-w-[90%]">
+                    <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-snug font-light max-w-[90%]">
                       {step.desc}
                     </p>
 
                     {/* Numbering - Positioned Bottom Right */}
                     <div className="mt-auto flex justify-end">
-                      <span className="text-white/20 text-8xl font-bold leading-none select-none">
+                      <span className="text-white/20 text-6xl sm:text-7xl md:text-8xl font-bold leading-none select-none">
                         {step.id}
                       </span>
                     </div>

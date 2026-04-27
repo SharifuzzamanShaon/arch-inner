@@ -6,16 +6,16 @@ import TestimonialCard from "./TestimonialCard";
 
 const TestimonialSection = () => {
   return (
-    <div className=" px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24">
+    <div className="px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-4xl mx-auto text-center">
         {/* Main Heading */}
-        <h2 className="text-xl md:text-5xl lg:text-6xl font-bold text-[#2D2D2D] leading-tight tracking-tight mb-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#2D2D2D] leading-tight tracking-tight mb-4 sm:mb-6">
           We Shape Interiors That <br />
           <span className="text-[#FE5443]">Reflect</span> Your Story
         </h2>
 
         {/* Description Paragraph */}
-        <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+        <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
           {` Our clients' experiences speak volumes. From concept to completion, they share how 
           Arcattic's designs have transformed their spaces and exceeded expectations. Their 
           trust and satisfaction are the foundations of our continued success.`}

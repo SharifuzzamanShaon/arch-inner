@@ -38,7 +38,7 @@ const InquiryForm = () => {
 
   return (
     <Container>
-      <div className="max-w-6xl mx-auto p-4 md:p-8rounded-3xl  flex flex-col md:flex-row gap-8 lg:gap-16 items-start my-16">
+      <div className="max-w-6xl mx-auto p-4 md:p-8 rounded-3xl flex flex-col md:flex-row gap-8 lg:gap-16 items-start my-8 md:my-16">
         <div className="w-full md:w-1/2 top-8">
           <div className="relative group">
             <Image

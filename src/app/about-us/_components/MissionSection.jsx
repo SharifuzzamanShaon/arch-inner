@@ -54,7 +54,7 @@ const MissionSection = () => {
 
   return (
     <Container>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 md:py-20">
         {/* Image - shown first on mobile, second on desktop */}
         <div
           ref={imageRef}
@@ -81,7 +81,7 @@ const MissionSection = () => {
           ref={textRef}
           className="space-y-6 order-2 lg:order-1 text-center lg:text-left"
         >
-          <h2 className="text-5xl font-bold text-gray-900">Our Mission</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">Our Mission</h2>
           <p className="text-gray-500 leading-relaxed text-lg">
             Our mission is to transform ordinary spaces into extraordinary
             experiences. At Arch Inner, we are committed to delivering

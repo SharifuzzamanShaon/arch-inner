@@ -3,6 +3,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -200,10 +201,12 @@ const HeroSection = () => {
               </span>
             ))}
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
-            <BtnPrimary text="Book Consultation" />
-            <BtnSecondary text="Watch Video" onClick={openVideo} />
-          </div>
+          <Link href="/contact">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
+              <BtnPrimary text="Book Consultation" />
+              <BtnSecondary text="Watch Video" onClick={openVideo} />
+            </div>
+          </Link>
         </div>
       </div>
 

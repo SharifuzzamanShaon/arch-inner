@@ -11,6 +11,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
 import gsap from "gsap";
+import Link from "next/link";
 import { useEffect } from "react";
 import BtnPrimary from "./common/BtnPrimary";
 import BtnSecondary from "./common/BtnSecondary";
@@ -218,8 +219,8 @@ const HeroSectionSecondary = () => {
 
             {/* Content overlay */}
             <Container className="relative z-10 h-full flex items-center">
-              <div className="hero-content w-full text-white max-w-7xl py-20 mt-20 md:mt-0 mx-auto">
-                <div className="hero-title mb-4 sm:mb-6 lg:mb-8 max-w-full text-center sm:text-center md:text-left sm:max-w-full md:max-w-full lg:max-w-full xl:max-w-full">
+              <div className="hero-content w-full text-white max-w-7xl pt-24 pb-16 sm:pt-28 sm:pb-16 md:py-20 mx-auto">
+                <div className="hero-title mb-4 sm:mb-6 lg:mb-8 max-w-full text-center md:text-left">
                   <SectionTitle
                     title={slide.title}
                     titleHighlight={slide.highlight}
@@ -240,10 +241,12 @@ const HeroSectionSecondary = () => {
                 </div>
 
                 <div className="hero-buttons mx-auto flex flex-row justify-center items-center w-full gap-3 sm:gap-4 md:justify-start lg:justify-start">
-                  <BtnPrimary
-                    text="Book Consultation"
-                    className="border border-transparent box-border hover:border-white shrink-0"
-                  />
+                  <Link href="/contact">
+                    <BtnPrimary
+                      text="Book Consultation"
+                      className="border border-transparent box-border hover:border-white shrink-0"
+                    />
+                  </Link>
                   <BtnSecondary
                     text="Watch Video"
                     onClick={() => handleOpenVideo(slide.videoUrl)}
