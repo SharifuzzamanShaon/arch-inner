@@ -4,83 +4,11 @@ import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
-import { toast } from "react-toastify";
-
-// Dummy data fallback
-const dummyServices = [
-  {
-    id: "dummy-1",
-    name: "Residential Interior Design",
-    thumbnail: "/images/service-collaps-img.png",
-    details: [
-      {
-        title: "Space Planning",
-        description:
-          "Designing functional and comfortable living spaces by carefully planning layouts, furniture placement, and circulation for your home.",
-      },
-      {
-        title: "Furniture & Decor Selection",
-        description:
-          "Selecting furniture, lighting, colors, and decorative elements that reflect your lifestyle while creating a balanced and elegant interior.",
-      },
-      {
-        title: "Lighting Design",
-        description:
-          "Creating layered lighting solutions using ambient, task, and accent lighting to enhance both functionality and mood in your living spaces.",
-      },
-    ],
-  },
-  {
-    id: "dummy-2",
-    name: "Commercial Interior Design",
-    thumbnail: "/images/service-collaps-img.png",
-    details: [
-      {
-        title: "Workspace Planning",
-        description:
-          "Designing efficient office and commercial layouts that improve productivity, collaboration, and employee comfort.",
-      },
-      {
-        title: "Brand-Oriented Design",
-        description:
-          "Creating interiors that reflect your brand identity through colors, materials, and design elements to leave a lasting impression on clients.",
-      },
-      {
-        title: "Customer Experience Design",
-        description:
-          "Designing welcoming and functional spaces for retail stores, restaurants, and offices that enhance the overall customer experience.",
-      },
-    ],
-  },
-  {
-    id: "dummy-3",
-    name: "Luxury Interior Design",
-    thumbnail: "/images/service-collaps-img.png",
-    details: [
-      {
-        title: "Premium Material Selection",
-        description:
-          "Using high-end materials such as marble, natural stone, fine wood, and luxury fabrics to create sophisticated interiors.",
-      },
-      {
-        title: "Custom Furniture Design",
-        description:
-          "Designing bespoke furniture pieces tailored to the space, ensuring uniqueness and exclusivity in every project.",
-      },
-      {
-        title: "High-End Finishing",
-        description:
-          "Applying premium finishes, textures, and details to achieve a refined and luxurious ambiance throughout the space.",
-      },
-    ],
-  },
-];
 
 const ServiceCollaps = () => {
   const [openIndex, setOpenIndex] = useState(0);
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -90,10 +18,8 @@ const ServiceCollaps = () => {
         );
 
         setServices([...response?.data.data]);
-        toast.success("Services loaded successfully");
       } catch {
-        setServices(dummyServices);
-        return;
+        // services remain empty
       } finally {
         setLoading(false);
       }
@@ -116,13 +42,6 @@ const ServiceCollaps = () => {
           </div>
         ) : services.length > 0 ? (
           <>
-            {error && (
-              <div className="text-center py-4 mb-8">
-                <p className="text-orange-600 bg-orange-50 px-4 py-2 rounded-lg inline-block">
-                  {error}
-                </p>
-              </div>
-            )}
             <div className="space-y-12 lg:space-y-16">
               {services.map((service, serviceIndex) => (
                 <div

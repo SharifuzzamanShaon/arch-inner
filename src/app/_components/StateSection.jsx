@@ -1,12 +1,35 @@
+"use client";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Container from "./common/Container";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+
+const fallbackStats = [
+  { number: "10", label: "Years Experience" },
+  { number: "240+", label: "Project Completed" },
+  { number: "40+", label: "Design Award" },
+  { number: "100+", label: "Client Satisfaction" },
+];
+
 const StatsSection = () => {
-  const stats = [
-    { number: "10", label: "Years Experience" },
-    { number: "240+", label: "Project Completed" },
-    { number: "40+", label: "Design Award" },
-    { number: "100+", label: "Client Satisfaction" },
-  ];
+  const [stats, setStats] = useState(fallbackStats);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const res = await axios.get(`${BASE_URL}/public/m/stats`);
+        const data = res?.data?.data;
+        if (Array.isArray(data) && data.length > 0) {
+          setStats(data);
+        }
+      } catch {
+        // keep fallback stats
+      }
+    };
+    fetchStats();
+  }, []);
 
   return (
     <Container>

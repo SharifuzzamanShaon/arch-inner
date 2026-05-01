@@ -11,18 +11,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import Container from "./common/Container";
 import SectionTopTitle from "./common/SectionTopTitle";
-import {
-  dummyCategories,
-  dummyProjects,
-  getProjectsByCategory,
-} from "./dummyData";
 import ProjectCard from "./ProjectCard";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const PortfolioSection = () => {
   const router = useRouter();
-  const [categories, setCategories] = useState(dummyCategories);
+  const [categories, setCategories] = useState([]);
   const [projectsByCategory, setProjectsByCategory] = useState({});
   const [activeTab, setActiveTab] = useState("All");
   const [loading, setLoading] = useState(false);
@@ -135,11 +130,9 @@ const PortfolioSection = () => {
 
         if (Array.isArray(res?.data?.data) && res.data.data.length > 0) {
           setCategories(res.data.data);
-        } else {
-          setCategories(dummyCategories);
         }
       } catch (error) {
-        setCategories(dummyCategories);
+        // categories remain empty
       }
     };
 
@@ -159,18 +152,14 @@ const PortfolioSection = () => {
 
       const apiProjects = res?.data?.data?.projects;
 
-      setProjectsByCategory((prev) => ({
-        ...prev,
-        [categoryId]:
-          apiProjects && apiProjects.length > 0
-            ? apiProjects
-            : getProjectsByCategory(categoryId),
-      }));
+      if (apiProjects && apiProjects.length > 0) {
+        setProjectsByCategory((prev) => ({
+          ...prev,
+          [categoryId]: apiProjects,
+        }));
+      }
     } catch (error) {
-      setProjectsByCategory((prev) => ({
-        ...prev,
-        [categoryId]: getProjectsByCategory(categoryId),
-      }));
+      // projects remain empty for this category
     } finally {
       setLoading(false);
     }
@@ -183,8 +172,7 @@ const PortfolioSection = () => {
 
   // All Projects (Flattened)
   const allProjects = useMemo(() => {
-    const merged = Object.values(projectsByCategory).flat();
-    return merged.length > 0 ? merged : dummyProjects;
+    return Object.values(projectsByCategory).flat();
   }, [projectsByCategory]);
 
   // Helper to render project list
@@ -248,11 +236,7 @@ const PortfolioSection = () => {
                   {loading && activeTab === cat.id ? (
                     <p className="text-center">Loading...</p>
                   ) : (
-                    renderProjects(
-                      projectsByCategory[cat.id] ||
-                        getProjectsByCategory(cat.id),
-                      cat.name,
-                    )
+                    renderProjects(projectsByCategory[cat.id] || [], cat.name)
                   )}
                 </div>
               </TabsContent>

@@ -84,6 +84,32 @@ const ProjectListByCategory = ({ onEdit }) => {
     fetchProjectsByCategory(categoryId);
   };
 
+  const handleDeleteCategory = async (cat) => {
+    if (!cat?.id) return;
+    const ok = window.confirm(
+      `Delete category "${cat.name}"? All associated projects may also be affected.`,
+    );
+    if (!ok) return;
+
+    try {
+      await axios.delete(`${API_BASE}/admin/project-category/delete/${cat.id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          ...getAuthHeader(),
+        },
+      });
+      setCategories((prev) => prev.filter((c) => c.id !== cat.id));
+      if (selectedCategoryId === cat.id) {
+        setSelectedCategoryId(null);
+        setProjects([]);
+      }
+      toast.success(`Category "${cat.name}" deleted.`);
+    } catch (err) {
+      toast.error("Delete category error: " + (err?.response?.data?.message || err.message));
+    }
+  };
+
   const handleEdit = (project) => {
     if (onEdit) {
       onEdit(project);
@@ -119,18 +145,34 @@ const ProjectListByCategory = ({ onEdit }) => {
             <span className="text-sm text-gray-500">Loading categories...</span>
           )}
           {categories.map((cat) => (
-            <button
+            <div
               key={cat.id}
-              type="button"
-              onClick={() => handleSelectCategory(cat.id)}
-              className={`px-3 py-1 rounded-full text-sm border transition ${
+              className={`flex items-center gap-1 pl-3 pr-1 py-1 rounded-full text-sm border transition ${
                 selectedCategoryId === cat.id
                   ? "bg-blue-600 text-white border-blue-600"
-                  : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
+                  : "bg-gray-100 text-gray-700 border-gray-300"
               }`}
             >
-              {cat.name}
-            </button>
+              <button
+                type="button"
+                onClick={() => handleSelectCategory(cat.id)}
+                className="leading-none"
+              >
+                {cat.name}
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDeleteCategory(cat)}
+                title="Delete category"
+                className={`ml-1 w-4 h-4 flex items-center justify-center rounded-full text-xs leading-none transition ${
+                  selectedCategoryId === cat.id
+                    ? "hover:bg-blue-500 text-white"
+                    : "hover:bg-red-100 text-gray-500 hover:text-red-600"
+                }`}
+              >
+                ×
+              </button>
+            </div>
           ))}
           {!loadingCategories && categories.length === 0 && (
             <span className="text-sm text-gray-500">

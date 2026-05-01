@@ -1,61 +1,41 @@
 "use client";
 
+import axios from "axios";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Container from "./common/Container";
 import ServiceCard from "./ServiceCard";
 
-const services = [
-  {
-    thumbnail: "/images/service-1.png",
-    title: "Residential Interior Design",
-    description:
-      "Creating homes that blend comfort with sophistication. Every element is thoughtfully chosen to reflect your lifestyle.",
-  },
-  {
-    thumbnail: "/images/service-2.png",
-    title: "Hospital Interior Design",
-    description:
-      "We design warm, functional interiors tailored to your lifestyle. Every detail supports comfort, flow, and timeless living.",
-  },
-  {
-    thumbnail: "/images/service-3.png",
-    title: "Restaurant Interior Design",
-    description:
-      "Designing dining spaces that balance ambiance and efficiency, creating memorable experiences for every guest.",
-  },
-  {
-    thumbnail: "/images/service-5.png",
-    title: "Sports Club Interior Design",
-    description:
-      "Building energizing spaces that inspire community. Functional layouts meet bold design for peak performance environments.",
-  },
-  {
-    thumbnail: "/images/service-5.png",
-    title: "Gym Center Interior Design",
-    description:
-      "Transforming fitness spaces into motivating, high‑energy zones where design supports determination and focus.",
-  },
-  {
-    thumbnail: "/images/service-6.png",
-    title: "Commercial Interior Design",
-    description:
-      "Elevating offices and commercial spaces with smart, modern layouts that reflect your brand and enhance productivity.",
-  },
-];
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const ServiceSection = () => {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
   const titleRef = useRef(null);
   const servicesRef = useRef(null);
 
   useEffect(() => {
-    // Skip GSAP animations on mobile screens
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      return;
-    }
+    const fetchServices = async () => {
+      try {
+        const res = await axios.get(`${BASE_URL}/public/services`);
+        const data = res?.data?.data;
+        if (Array.isArray(data) && data.length > 0) {
+          setServices(data.map((s) => ({ ...s, title: s.name || s.title })));
+        }
+      } catch {
+        // silently fail
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -82,6 +62,9 @@ const ServiceSection = () => {
       },
     );
   }, []);
+
+  if (loading || !services.length) return null;
+
   return (
     <section className="pt-16 pb-8 md:pb-16">
       <Container>
@@ -97,7 +80,7 @@ const ServiceSection = () => {
           <div className="block md:hidden">
             <Swiper spaceBetween={16} slidesPerView={1.1}>
               {services.map((service, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={service.id || index}>
                   <ServiceCard service={service} />
                 </SwiperSlide>
               ))}
@@ -107,7 +90,7 @@ const ServiceSection = () => {
           {/* Desktop Grid */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
-              <ServiceCard key={index} service={service} />
+              <ServiceCard key={service.id || index} service={service} />
             ))}
           </div>
         </div>
