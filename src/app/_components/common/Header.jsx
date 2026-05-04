@@ -43,7 +43,7 @@ const Header = () => {
       <Container>
         <div
           className={`flex items-center justify-between transition-all duration-300 ${
-            scrolled ? "py-2 md:py-3" : "py-4"
+            scrolled ? "py-2 md:py-3" : "py-2"
           }`}
         >
           {/* Logo */}

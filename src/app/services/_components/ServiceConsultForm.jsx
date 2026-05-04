@@ -1,5 +1,4 @@
 import Container from "@/app/_components/common/Container";
-import Image from "next/image";
 import { FaArrowRight, FaCheck } from "react-icons/fa6";
 
 const ServiceConsultForm = () => {
@@ -11,15 +10,10 @@ const ServiceConsultForm = () => {
   ];
 
   return (
-    <section className="relative min-h-[560px] md:min-h-[700px] w-full flex items-center mt-16 sm:mt-20">
-      {/* Background Image */}
-      <Image
-        src="/images/contact-img-1.png"
-        alt="Interior Design Background"
-        fill
-        className="absolute inset-0 object-cover -z-10"
-        priority
-      />
+    <section
+      className="relative min-h-[560px] md:min-h-[700px] w-full flex items-center mt-16 sm:mt-20 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/contact-img-1.png')" }}
+    >
       <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px] -z-10"></div>
 
       <Container>

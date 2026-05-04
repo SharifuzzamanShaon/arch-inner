@@ -1,16 +1,11 @@
-import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 
 const ServicesHero = () => {
   return (
-    <section className="relative w-full mt-20 md:mt-0 overflow-hidden min-h-[420px] md:min-h-[520px]">
-      <Image
-        src="/images/service-hero.png"
-        alt="Interior Design Services"
-        fill
-        className="absolute inset-0 object-cover"
-        priority
-      />
+    <section
+      className="relative w-full mt-20 md:mt-0 overflow-hidden min-h-[420px] md:min-h-[520px] bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/service-hero.png')" }}
+    >
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center text-center py-16 md:py-0 min-h-[420px] md:min-h-[520px]">
         <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-2">

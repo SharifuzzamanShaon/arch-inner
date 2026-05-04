@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const PortfolioHero = () => {
   return (
-    <section className="relative h-80 sm:h-100 md:h-120 lg:h-130 w-full overflow-hidden flex items-center justify-center mt-16 md:mt-0">
+    <section className="relative h-80 sm:h-100 sm:mt-10 md:h-120 lg:h-130 w-full overflow-hidden flex items-center justify-center mt-16 md:mt-0">
       {/* 1. Background Video */}
       <video
         autoPlay
