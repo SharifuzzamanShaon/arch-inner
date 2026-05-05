@@ -129,8 +129,8 @@ const PortfolioSection = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
+        // Fetch categories
         const res = await axios.get(`${BASE_URL}/public/project-category`);
-
         if (Array.isArray(res?.data?.data) && res.data.data.length > 0) {
           setCategories(res.data.data);
         }
