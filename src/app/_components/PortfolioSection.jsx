@@ -15,9 +15,6 @@ import SectionTopTitle from "./common/SectionTopTitle";
 import ProjectCard from "./ProjectCard";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-console.log("====================================");
-console.log(BASE_URL);
-console.log("====================================");
 const PortfolioSection = () => {
   const router = useRouter();
   const [categories, setCategories] = useState([]);

@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import Cookies from "js-cookie";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -92,13 +93,16 @@ const ProjectListByCategory = ({ onEdit }) => {
     if (!ok) return;
 
     try {
-      await axios.delete(`${API_BASE}/admin/project-category/delete/${cat.id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          ...getAuthHeader(),
+      await axios.delete(
+        `${API_BASE}/admin/project-category/delete/${cat.id}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            ...getAuthHeader(),
+          },
         },
-      });
+      );
       setCategories((prev) => prev.filter((c) => c.id !== cat.id));
       if (selectedCategoryId === cat.id) {
         setSelectedCategoryId(null);
@@ -106,7 +110,10 @@ const ProjectListByCategory = ({ onEdit }) => {
       }
       toast.success(`Category "${cat.name}" deleted.`);
     } catch (err) {
-      toast.error("Delete category error: " + (err?.response?.data?.message || err.message));
+      toast.error(
+        "Delete category error: " +
+          (err?.response?.data?.message || err.message),
+      );
     }
   };
 
@@ -208,32 +215,13 @@ const ProjectListByCategory = ({ onEdit }) => {
               {projects?.map((proj) => (
                 <tr key={proj.id} className="hover:bg-gray-50 border-b">
                   <td className="px-3 py-2">
-                    {proj.thumbnail ? (
-                      <>
-                        {console.log("Thumbnail data:", proj.thumbnail)}
-                        <img
-                          src={
-                            proj.thumbnail.startsWith("http")
-                              ? proj.thumbnail
-                              : `${BASE_URL}${proj.thumbnail}`
-                          }
-                          alt={proj.title}
-                          className="w-16 h-12 object-cover rounded-md"
-                          onError={(e) => {
-                            console.log("Image load error:", e.target.src);
-                            e.target.style.display = "none";
-                          }}
-                          onLoad={() => {
-                            console.log(
-                              "Image loaded successfully:",
-                              proj.thumbnail,
-                            );
-                          }}
-                        />
-                      </>
-                    ) : (
-                      <span className="text-xs text-gray-400">No image</span>
-                    )}
+                    <Image
+                      src={proj.thumbnail}
+                      alt={proj.title}
+                      width={50}
+                      height={50}
+                      className="w-10 h-10 object-cover rounded-full"
+                    />
                   </td>
                   <td className="px-3 py-2">{proj.title}</td>
                   <td className="px-3 py-2">{proj.type}</td>

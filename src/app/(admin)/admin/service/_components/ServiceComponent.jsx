@@ -204,7 +204,6 @@ const ServiceComponent = ({
       });
       setThumbnailFile(null);
     } catch (err) {
-      console.log(err);
       toast.error("Failed to save service");
     } finally {
       setLoading(false);

@@ -95,7 +95,6 @@ const ProjectComponent = ({ editingProject, clearEditing }) => {
           },
         },
       );
-      console.log("we", res.data.data.url);
       if (res.data.data) {
         toast.success("Image uploaded successfully");
         return res.data.data.url;
@@ -205,7 +204,6 @@ const ProjectComponent = ({ editingProject, clearEditing }) => {
           },
         );
         toast.success("Project Updated Successfully ✅");
-        console.log(res);
         if (clearEditing) clearEditing();
       } else {
         // Create new project
@@ -256,20 +254,15 @@ const ProjectComponent = ({ editingProject, clearEditing }) => {
     setSelectedCategoryId(value);
     setProject((prev) => ({
       ...prev,
-      categoryId: value, // ✅ explicitly assign
+      categoryId: value,
     }));
-    console.log(value);
-    console.log(selectedCategoryId);
-    console.log(project.categoryId);
   };
 
-  /* ================= UI ================= */
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-6xl mx-auto space-y-10">
         <h1 className="text-3xl font-bold text-gray-800">Project Management</h1>
 
-        {/* ================= CATEGORY ================= */}
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="text-xl font-semibold mb-4">
             Create Project Category
@@ -292,7 +285,6 @@ const ProjectComponent = ({ editingProject, clearEditing }) => {
           </form>
         </div>
 
-        {/* ================= PROJECT ================= */}
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="text-xl font-semibold mb-6">
             {editingId ? "Edit Project" : "Create Project"}
@@ -329,7 +321,6 @@ const ProjectComponent = ({ editingProject, clearEditing }) => {
               </select>
             </div>
 
-            {/* Thumbnail Upload */}
             <div>
               <label className="block mb-1 font-medium">Thumbnail</label>
               <input
