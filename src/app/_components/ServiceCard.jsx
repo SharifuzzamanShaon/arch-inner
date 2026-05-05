@@ -14,13 +14,15 @@ const ServiceCard = ({ service }) => {
       >
         {/* Full-width background image */}
         <div className="absolute inset-0 w-full h-full bg-gray-800 opacity-100 cursor-pointer">
-          <Image
-            src={service?.thumbnail}
-            alt={service?.title}
-            fill
-            className="object-cover"
-            priority
-          />
+          {service?.thumbnail && (
+            <Image
+              src={service?.thumbnail}
+              alt={service?.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          )}
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
         </div>

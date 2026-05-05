@@ -21,15 +21,17 @@ const ProjectCard = ({ project }) => {
         style={maskStyles}
       >
         <div className="absolute inset-0 z-0">
-          <Image
-            src={project?.thumbnail}
-            alt={project?.title || "Project"}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-            priority
-            unoptimized
-          />
+          {project?.thumbnail && (
+            <Image
+              src={project?.thumbnail}
+              alt={project?.title || "Project"}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              priority
+              unoptimized
+            />
+          )}
         </div>
         <div className="flex items-start justify-between px-4 sm:px-6 pt-16 xl:pt-6 relative z-10">
           <Badge className="rounded-full bg-white/10 backdrop-blur-md px-3 sm:px-4 py-1 text-[10px] sm:text-xs text-white border-none">

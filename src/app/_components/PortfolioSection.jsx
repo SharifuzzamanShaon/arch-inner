@@ -9,12 +9,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { toast } from "react-toastify";
 import Container from "./common/Container";
 import SectionTopTitle from "./common/SectionTopTitle";
 import ProjectCard from "./ProjectCard";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
+console.log("====================================");
+console.log(BASE_URL);
+console.log("====================================");
 const PortfolioSection = () => {
   const router = useRouter();
   const [categories, setCategories] = useState([]);
@@ -126,13 +129,16 @@ const PortfolioSection = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/public/m/project-category`);
+        const res = await axios.get(`${BASE_URL}/public/project-category`);
 
         if (Array.isArray(res?.data?.data) && res.data.data.length > 0) {
           setCategories(res.data.data);
         }
       } catch (error) {
         // categories remain empty
+        toast.error(
+          "Failed to load project categories. Please try again later.",
+        );
       }
     };
 
