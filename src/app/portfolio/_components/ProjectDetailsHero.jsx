@@ -1,80 +1,119 @@
 import Image from "next/image";
-import {
-  FaCalendar,
-  FaClock,
-  FaHouseMedical,
-  FaLightbulb,
-  FaUser,
-} from "react-icons/fa6";
-const ProjectDetailsHero = () => {
-  const details = [
-    { label: "TYPE", value: "Residential", icon: <FaHouseMedical size={16} /> },
-    { label: "ARCHITECT", value: "Themelexus", icon: <FaUser size={16} /> },
-    { label: "CLIENT", value: "David", icon: <FaUser size={16} /> },
-    { label: "DURATION", value: "9 months", icon: <FaClock size={16} /> },
-    {
-      label: "STRATEGY",
-      value: "Minimalistic",
-      icon: <FaLightbulb size={16} />,
-    },
-    {
-      label: "DATE",
-      value: "06/12/25 - 06/12/25",
-      icon: <FaCalendar size={16} />,
-    },
+import Link from "next/link";
+
+const ProjectDetailsHero = ({ project }) => {
+  const meta = [
+    { label: "Type", value: project.type || project.category },
+    { label: "Architect", value: project.architect || "Arch Inner" },
+    { label: "Client", value: project.client || "—" },
+    { label: "Location", value: project.location },
+    { label: "Concept", value: project.concept || "Minimal Design" },
+    { label: "Year", value: project.year || "2024" },
   ];
 
+  const heroImage =
+    project.gallery?.[1] || project.gallery?.[0] || project.thumbnail;
+
+  const titleWords = project.title.split(" ");
+  const half = Math.ceil(titleWords.length / 2);
+  const titleLine1 = titleWords.slice(0, half).join(" ");
+  const titleLine2 = titleWords.slice(half).join(" ");
+
   return (
-    <section className="p-8 pt-26 md:p-16 min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8">
-          <div>
-            <span className="text-#FE5443 uppercase tracking-widest text-xs font-bold">
-              Featured Project
-            </span>
-            <h1 className="text-xl md:text-6xl font-bold text-gray-900 mt-4 leading-tight">
-              The Serenity <br />
-              <span className="text-#FE5443">House</span>
-            </h1>
-            <p className="text-gray-500 mt-6 max-w-md leading-relaxed">
-              A contemporary residential masterpiece blending minimalist
-              aesthetics with functional elegance. This project showcases our
-              commitment to creating spaces that inspire daily living.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {details.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white/50 border border-orange-100 p-5 rounded-2xl flex flex-col gap-2 shadow-sm"
+    <section className="bg-white pt-24 sm:pt-28 pb-0 border-b border-[#383636]/10">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16">
+        {/* Breadcrumb */}
+        <p className="text-xs tracking-[0.3em] uppercase text-black/50 font-light mb-10 flex items-center gap-2">
+          <Link
+            href="/portfolio"
+            className="hover:text-black transition-colors duration-200"
+          >
+            Portfolio
+          </Link>
+          <span className="opacity-50">/</span>
+          <span>{project.category}</span>
+          <span className="opacity-50">/</span>
+          <span className="text-black truncate max-w-xs">
+            {project.title}
+          </span>
+        </p>
+
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end pb-16 sm:pb-24">
+          {/* Left — text + meta */}
+          <div className="flex flex-col gap-10">
+            <div>
+              <h1
+                className="font-light text-black leading-[1.08] mb-8"
+                style={{ fontSize: "clamp(3.2rem, 6.5vw, 6.5rem)" }}
               >
-                <div className="flex items-center gap-2 text-orange-400">
-                  {item.icon}
-                  <span className="text-[10px] font-bold tracking-tighter text-gray-400 uppercase">
-                    {item.label}
+                {titleLine1}
+                <br />
+                <span className="text-black">{titleLine2}</span>
+              </h1>
+              <p className="text-black/70 text-lg leading-relaxed max-w-sm">
+                {project.longDescription || project.description}
+              </p>
+            </div>
+
+            {/* Meta grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-0 border-t border-[#383636]/10">
+              {meta.map(({ label, value }, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col gap-1.5 py-5 pr-4 border-b border-[#383636]/10 border-r border-r-[#383636]/10 [&:nth-child(2n)]:border-r-0 sm:[&:nth-child(2n)]:border-r sm:[&:nth-child(2n)]:border-r-[#383636]/10 sm:[&:nth-child(3n)]:border-r-0"
+                >
+                  <span className="text-[11px] tracking-[0.3em] uppercase text-black/40 font-medium">
+                    {label}
+                  </span>
+                  <span className="text-base text-black font-normal tracking-wide leading-snug">
+                    {value}
                   </span>
                 </div>
-                <span className="text-gray-800 font-bold text-lg">
-                  {item.value}
+              ))}
+            </div>
+          </div>
+
+          {/* Right — hero image */}
+          <div className="relative">
+            <div className="absolute -top-4 left-0 w-10 h-px bg-[#383636]" />
+
+            <div
+              className="relative overflow-hidden"
+              style={{ aspectRatio: "4/5" }}
+            >
+              <Image
+                src={heroImage}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                alt={project.title}
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-[#1C1917]/30 via-transparent to-transparent pointer-events-none" />
+
+              {/* Category badge */}
+              <div className="absolute top-6 left-6 flex items-center gap-2">
+                <span className="bg-white/10 backdrop-blur-sm text-white text-xs tracking-[0.2em] uppercase px-3 py-1.5 border border-white/15">
+                  {project.category}
                 </span>
               </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="relative group">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gray-200">
-            <Image
-              src="/images/details-hero.png"
-              width={600}
-              height={600}
-              alt="Interior Design"
-              className="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-500"
-            />
+              {/* Location bottom */}
+              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 font-light">
+                  {project.location}
+                </span>
+                <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
+                  {project.year}
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="absolute -inset-4 bg-orange-100/30 -z-10 rounded-[3rem] blur-2xl"></div>
         </div>
       </div>
+
+      <div className="w-full h-px bg-[#383636]/8" />
     </section>
   );
 };

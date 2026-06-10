@@ -81,7 +81,9 @@ const MissionSection = () => {
           ref={textRef}
           className="space-y-6 order-2 lg:order-1 text-center lg:text-left"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">Our Mission</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+            Our Mission
+          </h2>
           <p className="text-gray-500 leading-relaxed text-lg">
             Our mission is to transform ordinary spaces into extraordinary
             experiences. At Arch Inner, we are committed to delivering
@@ -90,7 +92,9 @@ const MissionSection = () => {
             story to tell, and we craft designs that honor your vision while
             exceeding expectations.
           </p>
-          <button className="px-8 py-3 border border-[#FE5443] text-[#FE5443] cursor-pointer rounded-full hover:bg-[#FE5443] hover:text-white transition-all font-medium">
+          <button
+            className="px-8 py-3 border border-[#383636] text-[#383636] cursor-pointer hover:bg-[#383636] hover:text-white transition-all font-light tracking-wide"
+          >
             Learn More
           </button>
         </div>

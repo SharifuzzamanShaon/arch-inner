@@ -5,7 +5,7 @@ const page = () => {
   return (
     <>
       {/* <Header/> */}
-      <PortfolioHero />
+      {/* <PortfolioHero /> */}
       <PortfolioSection />
       {/* <Footer/> */}
     </>

@@ -42,7 +42,7 @@ const ServiceCard = ({ service }) => {
         </div>
       </article>
       <div className="absolute bottom-[5px] right-[-4px]">
-        <button className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#FE5443] py-1.5 sm:py-2 pl-5 sm:pl-7 pr-2.5 sm:pr-3 text-xs sm:text-sm font-semibold text-white shadow-[0_10px_20px_rgba(254,84,67,0.3)] transition-all hover:bg-[#ff6657] hover:shadow-[0_12px_24px_rgba(254,84,67,0.4)] active:scale-95">
+        <button className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#fffff] py-1.5 sm:py-2 pl-5 sm:pl-7 pr-2.5 sm:pr-3 text-xs sm:text-sm font-semibold text-white shadow-[0_10px_20px_rgba(254,84,67,0.3)] transition-all hover:bg-[#ff6657] hover:shadow-[0_12px_24px_rgba(254,84,67,0.4)] active:scale-95">
           <span>Learn More</span>
           <svg
             viewBox="0 0 20 20"

@@ -78,7 +78,9 @@ const VisionSection = () => {
 
         {/* Text Content */}
         <div ref={textRef} className="space-y-1 md:space-y-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">Our Vision</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+            Our Vision
+          </h2>
           <p className="text-gray-500 leading-relaxed text-lg">
             Our vision is to become a leading name in interior design,
             recognized for excellence, integrity, and innovation. We aspire to
@@ -90,7 +92,7 @@ const VisionSection = () => {
             turning their dreams into beautifully realized spaces.
           </p>
           <div className="flex justify-center md:justify-start">
-            <button className="md:px-8 md:py-3 py-2 px-6 border border-[#FE5443] text-[#FE5443] cursor-pointer rounded-full hover:bg-[#FE5443] hover:text-white transition-all font-medium text-center">
+            <button className="px-8 py-3 border border-[#383636] text-[#383636] cursor-pointer hover:bg-[#383636] hover:text-white transition-all font-light tracking-wide">
               Learn More
             </button>
           </div>

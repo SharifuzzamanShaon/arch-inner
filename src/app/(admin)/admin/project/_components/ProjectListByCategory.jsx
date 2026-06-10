@@ -19,41 +19,18 @@ const getAuthHeader = () => {
   return token ? { Authorization: `Bearer ${token}` } : {};
 };
 
-const ProjectListByCategory = ({ onEdit }) => {
-  const [categories, setCategories] = useState([]);
+const ProjectListByCategory = ({ onEdit, categories = [], onCategoryDeleted }) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [projects, setProjects] = useState([]);
   const [loadingProjects, setLoadingProjects] = useState(false);
-  const [loadingCategories, setLoadingCategories] = useState(false);
 
+  // Auto-select first category when categories first load
   useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  const fetchCategories = async () => {
-    try {
-      setLoadingCategories(true);
-      const res = await axios.get(`${API_BASE}/admin/project-category`, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          ...getAuthHeader(),
-        },
-      });
-
-      const cats = res?.data?.data || res.data || [];
-      setCategories(cats);
-
-      // Auto-select first category and load its projects
-      if (cats.length > 0) {
-        handleSelectCategory(cats[0].id);
-      }
-    } catch (err) {
-      toast.error("Category fetch error:", err);
-    } finally {
-      setLoadingCategories(false);
+    if (categories.length > 0 && !selectedCategoryId) {
+      handleSelectCategory(categories[0].id);
     }
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categories]);
 
   const fetchProjectsByCategory = async (categoryId) => {
     if (!categoryId) return;
@@ -103,7 +80,7 @@ const ProjectListByCategory = ({ onEdit }) => {
           },
         },
       );
-      setCategories((prev) => prev.filter((c) => c.id !== cat.id));
+      if (onCategoryDeleted) onCategoryDeleted(cat.id);
       if (selectedCategoryId === cat.id) {
         setSelectedCategoryId(null);
         setProjects([]);
@@ -148,7 +125,7 @@ const ProjectListByCategory = ({ onEdit }) => {
       <div className="flex items-center justify-between gap-4 flex-wrap">
         <h2 className="text-xl font-semibold">Projects by Category</h2>
         <div className="flex flex-wrap gap-2">
-          {loadingCategories && categories.length === 0 && (
+          {categories.length === 0 && (
             <span className="text-sm text-gray-500">Loading categories...</span>
           )}
           {categories.map((cat) => (
@@ -181,7 +158,7 @@ const ProjectListByCategory = ({ onEdit }) => {
               </button>
             </div>
           ))}
-          {!loadingCategories && categories.length === 0 && (
+          {categories.length === 0 && (
             <span className="text-sm text-gray-500">
               No categories found. Create one above first.
             </span>
@@ -216,8 +193,8 @@ const ProjectListByCategory = ({ onEdit }) => {
                 <tr key={proj.id} className="hover:bg-gray-50 border-b">
                   <td className="px-3 py-2">
                     <Image
-                      src={proj.thumbnail}
-                      alt={proj.title}
+                      src={proj.thumbnail || "/images/no-image.png"}
+                      alt={proj.title || "Project thumbnail"}
                       width={50}
                       height={50}
                       className="w-10 h-10 object-cover rounded-full"

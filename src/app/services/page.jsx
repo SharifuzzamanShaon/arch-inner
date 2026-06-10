@@ -11,12 +11,12 @@ const page = () => {
   return (
     <>
       <Header />
-      <ServiceHero />
+      <div className="pt-24 sm:pt-28" />
       <ServiceCollaps />
       <ServiceDesignProcess />
       <ShowcaseProject />
       <ServiceConsultForm />
-      <ClientReview />
+      {/* <ClientReview /> */}
       <Footer />
     </>
   );

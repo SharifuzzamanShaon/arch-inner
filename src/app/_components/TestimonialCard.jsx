@@ -1,51 +1,74 @@
 import Image from "next/image";
 
-const TestimonialCard = ({ service }) => {
+const TestimonialCard = ({ service, dark }) => {
   return (
-    <div className="relative w-full max-w-[350px] sm:max-w-[400px] mt-16 mx-auto group pb-4">
-      <div className="absolute -top-12 left-1/2 z-30 h-24 w-24 -translate-x-1/2 overflow-hidden rounded-full border-4 bg-white shadow-xl transition-transform duration-300 group-hover:scale-105">
+    <article
+      className={`group relative flex flex-col h-full border transition-all duration-400 ${
+        dark
+          ? "bg-white/4 border-white/8 hover:bg-white/6 hover:border-white/15"
+          : "bg-[#383636]/4 border-[#383636]/10 hover:border-[#383636]/20 hover:bg-[#383636]/6"
+      }`}
+    >
+      {/* Project image */}
+      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
         <Image
-          src={service?.image || "/api/placeholder/100/100"}
-          width={96}
-          height={96}
-          alt={service?.name || "Profile"}
-          className="h-full w-full object-cover"
+          src={service?.image || "/images/avater.png"}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          alt={service?.name || "Client"}
+          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]"
         />
+        <div className={`absolute inset-0 ${dark ? "bg-[#0F0E0D]/40" : "bg-[#383636]/20"} group-hover:opacity-0 transition-opacity duration-500`} />
       </div>
-      <article className="relative bg-white pt-16 pb-8 px-6 sm:px-8 shadow-[0_10px_50px_rgba(0,0,0,0.08)] rounded-lg transition-all duration-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
-        <div className="flex flex-col items-center text-center h-full">
-          {/* Rating Stars */}
-          <div className="flex gap-0.5 text-[#FE5443] mb-4">
-            {[...Array(5)].map((_, i) => (
-              <span key={i} className="text-base sm:text-lg">
-                ★
-              </span>
-            ))}
-          </div>
 
-          {/* Name & Title */}
-          <div className="mb-6">
-            <h4 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight mb-1">
-              {service?.name || "Md Rafi Islam"}
-            </h4>
-            <p className="text-[#FE5443] text-xs font-semibold uppercase tracking-widest">
-              Verified Client
-            </p>
-          </div>
-
-          {/* Testimonial Quote */}
-          <div className="relative mb-6">
-            <span className="absolute -top-3 -left-2 text-5xl text-gray-200 font-serif leading-none">
-              &ldquo;
-            </span>
-            <p className="text-gray-700 leading-relaxed text-sm sm:text-base italic relative z-10 px-4">
-              {service?.testimonial ||
-                "Being a part of Arc Inner is my greatest pleasure as I have been working with really wonderful projects last 2 Years. We didn't compromise with quality and commitment."}
-            </p>
-          </div>
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-7 sm:p-8">
+        {/* Stars */}
+        <div className={`flex gap-0.5 mb-5 ${dark ? "text-white/40" : "text-[#383636]"}`}>
+          {[...Array(5)].map((_, i) => (
+            <span key={i} className="text-xs">★</span>
+          ))}
         </div>
-      </article>
-    </div>
+
+        {/* Quote */}
+        <div className="relative flex-1 mb-7">
+          <span
+            className={`absolute -top-2 -left-1 text-4xl font-serif leading-none select-none ${
+              dark ? "text-white/8" : "text-[#383636]/10"
+            }`}
+          >
+            &ldquo;
+          </span>
+          <p
+            className={`text-base font-light leading-relaxed italic pl-4 ${
+              dark ? "text-white/50" : "text-[#383636]/60"
+            }`}
+          >
+            {service?.testimonial}
+          </p>
+        </div>
+
+        {/* Author */}
+        <div
+          className={`pt-5 border-t ${dark ? "border-white/10" : "border-[#383636]/10"}`}
+        >
+          <p
+            className={`text-sm font-light tracking-wide ${
+              dark ? "text-white/80" : "text-[#383636]"
+            }`}
+          >
+            {service?.name}
+          </p>
+          <p
+            className={`text-[10px] tracking-[0.12em] mt-1 leading-snug ${
+              dark ? "text-white/35" : "text-[#383636]/50"
+            }`}
+          >
+            {service?.role || "Verified Client"}
+          </p>
+        </div>
+      </div>
+    </article>
   );
 };
 

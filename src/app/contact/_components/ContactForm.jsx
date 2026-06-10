@@ -1,10 +1,8 @@
 "use client";
 
-import Container from "@/app/_components/common/Container";
 import Image from "next/image";
 import { useState } from "react";
 
-// Country Data List
 const countries = [
   { code: "BD", flag: "🇧🇩", dialCode: "+880", name: "Bangladesh" },
   { code: "US", flag: "🇺🇸", dialCode: "+1", name: "United States" },
@@ -14,7 +12,6 @@ const countries = [
 ];
 
 const InquiryForm = () => {
-  // State Management
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -22,11 +19,9 @@ const InquiryForm = () => {
     phone: "",
     projectBrief: "",
   });
-
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Handlers
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -36,159 +31,212 @@ const InquiryForm = () => {
     e.preventDefault();
   };
 
+  const inputClass =
+    "w-full bg-transparent border-b border-[#383636]/15 py-4 text-sm text-[#383636]/80 placeholder-[#383636]/25 font-light tracking-wide outline-none focus:border-[#383636] transition-colors duration-300";
+
+  const labelClass =
+    "block text-[14px] tracking-[0.25em] uppercase text-[#383636]/35 font- mb-2";
+
   return (
-    <Container>
-      <div className="max-w-6xl mx-auto p-4 md:p-8 rounded-3xl flex flex-col md:flex-row gap-8 lg:gap-16 items-start my-8 md:my-16">
-        <div className="w-full md:w-1/2 top-8">
-          <div className="relative group">
-            <Image
-              src="/images/contact-img.png"
-              width={800}
-              height={600}
-              alt="Interior Design Background"
-              className="w-full rounded-3xl"
-            />
-            <div className="absolute bottom-6 left-5 backdrop-blur-sm p-4 rounded-xl">
-              <p className="text-sm font-bold text-slate-800">
-                Available Lot #402
-              </p>
-              <p className="text-xs text-slate-500">Premium Residential Zone</p>
-            </div>
-          </div>
-        </div>
+    <section className="bg-white border-t border-[#383636]/10">
+      <div className="max-w-360 mx-auto px-6 sm:px-14 lg:px-16 py-20 sm:py-28">
+        {/* Section label */}
+        <p className="text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-light">
+          / Get In Touch
+        </p>
 
-        <div className="w-full md:w-1/2 space-y-6 py-2">
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Full Name*
-              </label>
-              <input
-                required
-                name="fullName"
-                type="text"
-                placeholder="Enter your full name"
-                onChange={handleInputChange}
-                className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left — image + info */}
+          <div className="flex flex-col gap-10">
+            <h2
+              className="font-light text-[#383636] leading-tight"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+            >
+              Let&apos;s Talk About
+              <br />
+              <span className="text-[#383636]/50">Your Project</span>
+            </h2>
+
+            <div className="relative overflow-hidden">
+              <Image
+                src="/images/contact-img.png"
+                width={800}
+                height={600}
+                alt="Interior Design"
+                className="w-full object-cover grayscale"
               />
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Email Address*
-              </label>
-              <input
-                required
-                name="email"
-                type="email"
-                placeholder="Enter your email address"
-                onChange={handleInputChange}
-                className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Project Type*
-              </label>
-              <div className="relative">
-                <select
-                  required
-                  name="projectType"
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none appearance-none cursor-pointer text-slate-600"
-                >
-                  <option value="">Choose your preferred type</option>
-                  <option value="residential">Residential Villa</option>
-                  <option value="commercial">Commercial Complex</option>
-                  <option value="industrial">Industrial Plot</option>
-                </select>
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                  ▼
-                </div>
+              <div className="absolute inset-0 bg-white/10" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-white/70 to-transparent">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636] font-light mb-1">
+                  / Studio
+                </p>
+                <p className="text-sm text-[#383636]/60 font-light">
+                  Dhaka, Bangladesh
+                </p>
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Phone Number
-              </label>
-              <div className="flex gap-3 relative">
-                {/* Flag Dropdown Trigger */}
-                <div
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center gap-2 px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors"
-                >
-                  <span className="text-2xl">{selectedCountry.flag}</span>
-                  <span
-                    className={`text-[10px] transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
-                  >
-                    ▼
+            {/* Contact details */}
+            <div className="space-y-6 border-t border-[#383636]/12 pt-8">
+              {[
+                { label: "Email", value: "hello@archinner.com" },
+                { label: "Phone", value: "+880 1700-000000" },
+                { label: "Hours", value: "Sun – Thu, 10am – 7pm" },
+              ].map(({ label, value }) => (
+                <div key={label} className="flex items-start gap-6">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-[#383636]/30 font-light w-14 pt-0.5">
+                    {label}
+                  </span>
+                  <span className="text-sm text-[#383636]/60 font-light">
+                    {value}
                   </span>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {isDropdownOpen && (
-                  <div className="absolute top-16 left-0 w-64 bg-white border border-slate-100 shadow-2xl rounded-2xl z-50 py-2 animate-in fade-in zoom-in duration-200">
-                    {countries.map((c) => (
-                      <div
-                        key={c.code}
-                        onClick={() => {
-                          setSelectedCountry(c);
-                          setIsDropdownOpen(false);
-                        }}
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-orange-50 cursor-pointer transition-colors"
+          {/* Right — form */}
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <label className={labelClass}>Full Name *</label>
+                  <input
+                    required
+                    name="fullName"
+                    type="text"
+                    placeholder="Your full name"
+                    onChange={handleInputChange}
+                    className={inputClass}
+                  />
+                </div>
+                <div>
+                  <label className={labelClass}>Email Address *</label>
+                  <input
+                    required
+                    name="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    onChange={handleInputChange}
+                    className={inputClass}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className={labelClass}>Project Type *</label>
+                <div className="relative">
+                  <select
+                    required
+                    name="projectType"
+                    onChange={handleInputChange}
+                    className={`${inputClass} appearance-none cursor-pointer pr-8`}
+                  >
+                    <option value="" className="bg-white">
+                      Choose your project type
+                    </option>
+                    <option value="residential" className="bg-white">
+                      Residential Villa
+                    </option>
+                    <option value="commercial" className="bg-white">
+                      Commercial Complex
+                    </option>
+                    <option value="industrial" className="bg-white">
+                      Industrial Plot
+                    </option>
+                  </select>
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 text-[#383636]/25 pointer-events-none text-xs">
+                    ↓
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <label className={labelClass}>Phone Number</label>
+                <div className="relative flex items-end gap-4">
+                  <div className="relative shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="flex items-center gap-2 pb-4 border-b border-[#383636]/15 text-[#383636]/50 hover:text-[#383636]/80 transition-colors duration-300 text-sm font-light"
+                    >
+                      <span className="text-lg">{selectedCountry.flag}</span>
+                      <span className="text-xs tracking-wide">
+                        {selectedCountry.dialCode}
+                      </span>
+                      <span
+                        className={`text-[9px] text-[#383636]/25 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`}
                       >
-                        <span className="text-2xl">{c.flag}</span>
-                        <div className="flex flex-col">
-                          <span className="text-sm font-bold text-slate-700">
-                            {c.name}
-                          </span>
-                          <span className="text-xs text-slate-400">
-                            {c.dialCode}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                        ▼
+                      </span>
+                    </button>
 
-                <input
-                  name="phone"
-                  type="tel"
-                  placeholder={`e.g. ${selectedCountry.dialCode} 000-000`}
+                    {isDropdownOpen && (
+                      <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-[#383636]/12 z-50 py-1 shadow-sm">
+                        {countries.map((c) => (
+                          <button
+                            key={c.code}
+                            type="button"
+                            onClick={() => {
+                              setSelectedCountry(c);
+                              setIsDropdownOpen(false);
+                            }}
+                            className="flex items-center gap-3 w-full px-4 py-3 hover:bg-[#383636]/4 transition-colors text-left"
+                          >
+                            <span className="text-lg">{c.flag}</span>
+                            <span className="text-xs text-[#383636]/60 font-light flex-1">
+                              {c.name}
+                            </span>
+                            <span className="text-[10px] text-[#383636]/30">
+                              {c.dialCode}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <input
+                    name="phone"
+                    type="tel"
+                    placeholder={`${selectedCountry.dialCode} 000-000`}
+                    onChange={handleInputChange}
+                    className={`${inputClass} flex-1`}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className={labelClass}>Project Brief</label>
+                <textarea
+                  name="projectBrief"
+                  rows={5}
+                  placeholder="Describe your project, timeline, and vision..."
                   onChange={handleInputChange}
-                  className="flex-1 px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none transition-all"
+                  className={`${inputClass} resize-none`}
                 />
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Project Brief
-              </label>
-              <textarea
-                name="projectBrief"
-                rows={4}
-                placeholder="Write your project brief..."
-                onChange={handleInputChange}
-                className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none transition-all resize-none"
-              ></textarea>
-            </div>
+              <p className="text-[10px] text-[#383636]/30 tracking-[0.15em] uppercase font-light">
+                * We respond within 24–48 hours.
+              </p>
 
-            <p className="text-xs text-slate-400 font-medium italic">
-              * We usually respond within 24-48 hours.
-            </p>
-
-            <button
-              type="submit"
-              className="cursor-pointer w-full py-4 bg-[#FE5443] hover:bg-transparent text-white hover:text-[#FE5443] font-bold rounded-xl transition-all shadow-lg shadow-orange-200 active:scale-[0.98] border-2 border-transparent hover:border-[#FE5443] box-border shrink-0"
-            >
-              Send Inquiry
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="group relative w-full py-5 bg-transparent border border-[#383636]/20 text-[#383636]/60 hover:border-[#383636] hover:text-[#383636] text-sm tracking-[0.2em] uppercase font-light transition-all duration-400 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-4">
+                  Send Inquiry
+                  <span className="inline-block w-6 h-px bg-current group-hover:w-12 transition-all duration-400" />
+                  <span>→</span>
+                </span>
+                <span className="absolute inset-0 bg-[#383636]/4 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </Container>
+    </section>
   );
 };
 

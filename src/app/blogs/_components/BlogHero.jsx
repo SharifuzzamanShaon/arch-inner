@@ -11,20 +11,9 @@ const BlogHero = () => {
         }}
       >
         {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
-          Let’s Design Something{" "}
-          <span className="text-[#FF6B50]">Meaningful.</span>
-        </h1>
-
-        <p className="mt-6 text-lg md:text-xl text-gray-300 font-light tracking-wide">
-          Tell us about your space. We’ll take care of the rest.
-        </p>
-      </div>
     </section>
   );
 };

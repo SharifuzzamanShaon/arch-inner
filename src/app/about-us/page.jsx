@@ -9,8 +9,8 @@ const page = () => {
   return (
     <>
       <Header />
-      <AboutDesign />
-      <ClientReview />
+      {/* <AboutDesign /> */}
+      {/* <ClientReview /> */}
       <MissionSection />
       <VisionSection />
       <HowWeWork />

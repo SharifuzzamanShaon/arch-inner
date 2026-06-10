@@ -72,7 +72,7 @@ const HowWeWork = () => {
         </span>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 tracking-tight">
-          How We <span className="text-[#FE5443]">Work</span>
+          How We Work
         </h2>
 
         <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl font-light leading-relaxed">

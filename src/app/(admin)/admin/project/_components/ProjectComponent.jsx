@@ -14,9 +14,8 @@ const getAuthHeader = () => {
   return token ? { Authorization: `Bearer ${token}` } : {};
 };
 
-const ProjectComponent = ({ editingProject, clearEditing }) => {
+const ProjectComponent = ({ editingProject, clearEditing, categories = [], onCategoryAdded }) => {
   const [category, setCategory] = useState("");
-  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [project, setProject] = useState({
@@ -36,10 +35,6 @@ const ProjectComponent = ({ editingProject, clearEditing }) => {
   const [thumbnailFile, setThumbnailFile] = useState(null);
 
   const [editingId, setEditingId] = useState(null);
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
 
   // When an editing project is provided, populate the form
   useEffect(() => {
@@ -62,22 +57,6 @@ const ProjectComponent = ({ editingProject, clearEditing }) => {
       setEditingId(null);
     }
   }, [editingProject]);
-
-  const fetchCategories = async () => {
-    try {
-      const res = await axios.get(`${API_BASE}/admin/project-category`, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          ...getAuthHeader(),
-        },
-      });
-
-      setCategories(res?.data?.data || res.data);
-    } catch (err) {
-      console.error("Category Fetch Error:", err);
-    }
-  };
 
   /* ================= IMAGE UPLOAD API ================= */
   const uploadImage = async (file) => {
@@ -157,14 +136,17 @@ const ProjectComponent = ({ editingProject, clearEditing }) => {
   const handleCategorySubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
+      const res = await axios.post(
         `${API_BASE}/admin/project-category/create`,
         { name: category },
         { headers: { ...getAuthHeader() } },
       );
+      const newCat = res?.data?.data || { id: Date.now(), name: category };
+      if (onCategoryAdded) onCategoryAdded(newCat);
       setCategory("");
-      fetchCategories();
+      toast.success("Category added");
     } catch (err) {
+      toast.error("Failed to add category");
       console.error(err);
     }
   };

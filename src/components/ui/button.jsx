@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
 
 const variants = {
-  default: "bg-#FE5443 text-white hover:bg-orange-600",
+  default: "bg-[#383636] text-white hover:bg-black",
   outline:
-    "border border-#FE5443 text-#FE5443 bg-transparent hover:bg-orange-50",
-  ghost: "bg-transparent text-#FE5443 hover:bg-orange-50",
+    "border border-[#383636] text-[#383636] bg-transparent hover:bg-[#383636] hover:text-white",
+  ghost: "bg-transparent text-[#383636] hover:bg-[#383636]/8",
 };
 
 const sizes = {
@@ -24,7 +24,7 @@ export function Button({
     <button
       type={type}
       className={cn(
-        "inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-#FE5443 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
+        "inline-flex items-center justify-center rounded-none text-sm font-light tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#383636] focus-visible:ring-offset-2 disabled:opacity-40 disabled:pointer-events-none",
         variants[variant] || variants.default,
         sizes[size] || sizes.default,
         className,
