@@ -1,59 +1,123 @@
-import Image from "next/image";
+"use client";
 
-const Sidebar = () => {
+import Image from "next/image";
+import { useState } from "react";
+
+const CATEGORY_LIST = [
+  "Residential Interior",
+  "Commercial Interior",
+  "Institutional",
+  "Tech Office",
+];
+
+const Sidebar = ({ posts, activeCategory, setActiveCategory }) => {
+  const [search, setSearch] = useState("");
+
+  const recentPosts = posts.slice(0, 3);
+  const searchResults =
+    search.trim().length > 1
+      ? posts.filter(
+          (p) =>
+            p.title.toLowerCase().includes(search.toLowerCase()) ||
+            p.category.toLowerCase().includes(search.toLowerCase()),
+        )
+      : [];
+
   return (
-    <div className="space-y-10">
-      {/* Search Bar */}
+    <div className="space-y-12 lg:sticky lg:top-28">
+      {/* Search */}
       <div>
-        <h3 className="text-xl font-bold mb-4">Search blogs</h3>
+        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-light mb-5">
+          / Search
+        </p>
         <div className="relative">
           <input
             type="text"
-            placeholder="Search..."
-            className="w-full bg-gray-100 rounded-full py-3 px-6 outline-none focus:ring-2 focus:ring-orange-500"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search articles..."
+            className="w-full bg-transparent border-b border-[#383636]/15 py-3 text-base text-[#383636]/70 placeholder-[#383636]/25 font-light tracking-wide outline-none focus:border-[#383636] transition-colors duration-300 pr-6"
           />
-          <span className="absolute right-5 top-3.5 text-gray-400">🔍</span>
+          <span className="absolute right-0 top-3 text-[#383636]/25 text-xs pointer-events-none">
+            ↗
+          </span>
         </div>
+        {searchResults.length > 0 && (
+          <div className="mt-2 border border-[#383636]/10 bg-white">
+            {searchResults.map((p) => (
+              <div
+                key={p.id}
+                className="px-4 py-3 border-b border-[#383636]/8 last:border-0 hover:bg-[#F7F4F0] cursor-pointer transition-colors duration-200"
+              >
+                <p className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/35 font-light mb-0.5">
+                  {p.category}
+                </p>
+                <p className="text-xs text-[#383636]/60 font-light line-clamp-2">
+                  {p.title}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Categories */}
       <div>
-        <h3 className="text-xl font-bold mb-4">Categories</h3>
-        <ul className="space-y-3 text-gray-600">
-          {[
-            "Residential Interior",
-            "Commercial Interior",
-            "3D Visualization",
-            "Renovation",
-          ].map((cat) => (
-            <li
-              key={cat}
-              className="hover:text-orange-600 cursor-pointer transition-colors"
-            >
-              {cat}
+        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-light mb-5">
+          / Categories
+        </p>
+        <ul className="border-t border-[#383636]/10">
+          {CATEGORY_LIST.map((cat) => (
+            <li key={cat}>
+              <button
+                onClick={() =>
+                  setActiveCategory(activeCategory === cat ? "All" : cat)
+                }
+                className={`w-full flex items-center justify-between py-3.5 border-b border-[#383636]/8 text-left transition-colors duration-200 ${
+                  activeCategory === cat
+                    ? "text-[#383636]"
+                    : "text-[#383636]/40 hover:text-[#383636]/70"
+                }`}
+              >
+                <span className="text-xs font-light tracking-[0.08em]">
+                  {cat}
+                </span>
+                {activeCategory === cat && (
+                  <span className="text-[10px] text-[#383636]/30">×</span>
+                )}
+              </button>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Recent Posts */}
+      {/* Recent posts */}
       <div>
-        <h3 className="text-xl font-bold mb-6">Recent Posts</h3>
+        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-light mb-5">
+          / Recent
+        </p>
         <div className="space-y-6">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="flex gap-4 group cursor-pointer">
-              <Image
-                src={`/thumb-${i}.jpg`}
-                alt={`Thumb ${i}`}
-                className="w-24 h-20 rounded-lg object-cover"
-                width={96}
-                height={80}
-              />
-              <div>
-                <h4 className="font-bold text-sm line-clamp-2 group-hover:text-orange-600">
-                  The Top Interior Design Trends...
-                </h4>
-                <p className="text-xs text-gray-400 mt-1">Jan 1, 2026</p>
+          {recentPosts.map((post) => (
+            <div
+              key={post.id}
+              className="flex gap-4 group cursor-pointer"
+            >
+              <div className="relative w-16 h-16 shrink-0 overflow-hidden">
+                <Image
+                  src={post.image}
+                  fill
+                  sizes="64px"
+                  alt={post.title}
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex flex-col gap-1 justify-center">
+                <p className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/30 font-light">
+                  {post.date}
+                </p>
+                <p className="text-xs text-[#383636]/55 font-light leading-snug line-clamp-2 group-hover:text-[#383636] transition-colors duration-200">
+                  {post.title}
+                </p>
               </div>
             </div>
           ))}
@@ -62,4 +126,5 @@ const Sidebar = () => {
     </div>
   );
 };
+
 export default Sidebar;

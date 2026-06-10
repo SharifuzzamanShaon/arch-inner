@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
 const FooterBottom = () => {
   return (
-    
-    <section
-      className="flex min-h-[200px] flex-row gap-4 justify-end md:min-h-[180px]"
-    >
-    <div>
+    <section className="flex min-h-[200px] flex-row gap-4 justify-end md:min-h-[180px]">
+      <div>
         {/* <Image src="/assets/site-icon.png"  width={80} height={80}/> */}
-    </div>
-    <div className='text-[180px]'>ARCH INNER</div>
+      </div>
+      {/* <div
+        className="whitespace-nowrap"
+        style={{ fontSize: "clamp(3rem, 13vw, 6rem)" }}
+      >
+        ARCH INNER
+      </div> */}
     </section>
-  )
-}
+  );
+};
 
-export default FooterBottom
+export default FooterBottom;

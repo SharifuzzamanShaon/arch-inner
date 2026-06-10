@@ -1,30 +1,42 @@
-import { FaArrowRight } from "react-icons/fa6";
+import Link from "next/link";
 
 const ServicesHero = () => {
   return (
     <section
-      className="relative w-full mt-20 md:mt-0 overflow-hidden min-h-[420px] md:min-h-[520px] bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/service-hero.png')" }}
+      className="relative w-full overflow-hidden flex items-end bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/images/service-hero.png')",
+        height: "clamp(420px, 70vh, 720px)",
+      }}
     >
-      <div className="absolute inset-0 bg-black/60"></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center text-center py-16 md:py-0 min-h-[420px] md:min-h-[520px]">
-        <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-2">
-          Interior Design
-        </h1>
-        <h2 className="text-[#FE5443] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8">
-          Services
-        </h2>
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-[#383636]/45" />
+      <div className="absolute inset-0 bg-linear-to-t from-[#383636]/75 via-transparent to-transparent" />
 
-        <p className="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mb-8 sm:mb-10 leading-relaxed">
-          Creating exceptional spaces that blend aesthetics, functionality, and
-          your unique vision. From residential sanctuaries to inspiring
-          commercial environments.
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-white/50 z-20" />
+
+      {/* Content */}
+      <div className="relative z-20 w-full max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pb-14 sm:pb-20">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-white/60 font-light mb-5">
+          / Services
         </p>
-
-        <button className="group cursor-pointer flex items-center gap-2 bg-[#FE5443] hover:bg-[#ff6657] text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
-          Explore Our Services
-          <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </button>
+        <h1
+          className="font-thin text-white leading-tight mb-8"
+          style={{ fontSize: "clamp(2.2rem, 5vw, 4.5rem)" }}
+        >
+          Spaces Designed
+          <br />
+          <span className="text-white/50">With Purpose</span>
+        </h1>
+        <Link
+          href="/contact"
+          className="group inline-flex items-center gap-4 text-sm tracking-[0.15em] uppercase text-white/70 hover:text-white font-light transition-colors duration-300"
+        >
+          <span>Book Consultation</span>
+          <span className="inline-block w-8 h-px bg-white/50 group-hover:w-14 transition-all duration-400" />
+          <span className="text-white/70">→</span>
+        </Link>
       </div>
     </section>
   );

@@ -1,65 +1,53 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa6";
 
 const ProjectCard = ({ project }) => {
-  const maskStyles = {
-    maskImage: `url("data:image/svg+xml,%3Csvg width='571' height='503' viewBox='0 0 571 503' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M571 421C571 434.255 560.255 445 547 445H436C416.118 445 400 461.118 400 481C400 493.15 390.15 503 378 503H24C10.7452 503 0 492.255 0 479V24C0 10.7452 10.7452 0 24 0H547C560.255 0 571 10.7452 571 24V421Z' fill='black'/%3E%3C/svg%3E")`,
-    maskSize: "100% 100%",
-    maskRepeat: "no-repeat",
-    WebkitMaskImage: `url("data:image/svg+xml,%3Csvg width='571' height='503' viewBox='0 0 571 503' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M571 421C571 434.255 560.255 445 547 445H436C416.118 445 400 461.118 400 481C400 493.15 390.15 503 378 503H24C10.7452 503 0 492.255 0 479V24C0 10.7452 10.7452 0 24 0H547C560.255 0 571 10.7452 571 24V421Z' fill='black'/%3E%3C/svg%3E")`,
-    WebkitMaskSize: "100% 100%",
-    WebkitMaskRepeat: "no-repeat",
-  };
   return (
-    <div className="relative w-full group max-w-[571px] mx-auto">
-      <Card
-        className="relative flex min-h-[420px] lg:min-h-[500px] flex-col justify-between border-none bg-[#2B1411] text-white shadow-xl overflow-hidden"
-        style={maskStyles}
-      >
-        <div className="absolute inset-0 z-0">
-          {project?.thumbnail && (
-            <Image
-              src={project?.thumbnail}
-              alt={project?.title || "Project"}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              priority
-              unoptimized
-            />
-          )}
-        </div>
-        <div className="flex items-start justify-between px-4 sm:px-6 pt-16 xl:pt-6 relative z-10">
-          <Badge className="rounded-full bg-white/10 backdrop-blur-md px-3 sm:px-4 py-1 text-[10px] sm:text-xs text-white border-none">
-            {project?.category || "Interior"}
-          </Badge>
-          <div className="flex items-start gap-1.5 rounded-full bg-black/40 backdrop-blur-md px-3 py-1 text-[10px] sm:text-xs text-white/90">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#FE5443] animate-pulse" />
-            {project?.location || "Dhaka"}
-          </div>
-        </div>
+    <div className="group relative w-full overflow-hidden bg-[#1C1917]" style={{ minHeight: "420px" }}>
+      {/* Background image */}
+      {project?.thumbnail && (
+        <Image
+          src={project.thumbnail}
+          alt={project.title || "Project"}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-90"
+          priority
+        />
+      )}
 
-        <CardContent className="relative z-10 mt-auto px-4 sm:px-6 pb-26 sm:pb-20 lg:pb-24 pt-0">
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 leading-tight text-left">
-            {project?.title || "Modern Living"}
-          </h3>
-          <p className="text-sm md:text-base sm:text-lg font-normal text-white  max-w-[75%] md:max-w-[85%] text-left">
-            {project?.description ||
-              "A beautiful blend of modern aesthetics and functional design."}
-          </p>
-        </CardContent>
-      </Card>
-      <div className="absolute top-[78%] md:top-[82.5%] xl:top-[90%] right-[1%] md:right-[-2%] xl:right-[2%] z-20 p-1">
-        <Link href={`/portfolio/${project?.id}`}>
-          <Button className="flex items-center gap-3 rounded-full cursor-pointer hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white shadow-2xl transition-all active:scale-95">
-            <span className="hidden lg:inline">View Project</span>
-            <span className="lg:hidden">View</span>
-            <FaArrowRight className="w-4 h-4" />
-          </Button>
+      {/* Gradient */}
+      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent z-10" />
+
+      {/* Top row — category + location */}
+      <div className="absolute top-5 left-5 right-5 flex items-start justify-between z-20">
+        <span className="bg-white/10 backdrop-blur-sm text-white text-[10px] tracking-[0.18em] uppercase px-3 py-1.5 border border-white/15">
+          {project?.category || "Interior"}
+        </span>
+        <span className="text-white/45 text-[10px] tracking-[0.12em] uppercase">
+          {project?.location || "Dhaka"}
+        </span>
+      </div>
+
+      {/* Bottom content */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-8">
+        <h3
+          className="font-light text-white leading-tight mb-2"
+          style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)" }}
+        >
+          {project?.title || "Modern Living"}
+        </h3>
+        <p className="text-sm text-white/45 font-light leading-relaxed mb-6 max-w-xs">
+          {project?.description ||
+            "A beautiful blend of modern aesthetics and functional design."}
+        </p>
+        <Link
+          href={`/portfolio/${project?.id}`}
+          className="group/btn inline-flex items-center gap-3 text-white/50 hover:text-white text-xs tracking-[0.18em] uppercase transition-colors duration-300"
+        >
+          <span>View Project</span>
+          <span className="inline-block w-5 h-px bg-current group-hover/btn:w-9 transition-all duration-300" />
+          <span>→</span>
         </Link>
       </div>
     </div>

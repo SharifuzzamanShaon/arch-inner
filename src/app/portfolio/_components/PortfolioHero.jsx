@@ -2,32 +2,45 @@ import Link from "next/link";
 
 const PortfolioHero = () => {
   return (
-    <section className="relative h-80 sm:h-100 sm:mt-10 md:h-120 lg:h-130 w-full overflow-hidden flex items-center justify-center mt-16 md:mt-0">
-      {/* 1. Background Video */}
+    <section className="relative w-full overflow-hidden flex items-end" style={{ height: "clamp(420px, 70vh, 720px)" }}>
+      {/* Background Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute z-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/images/video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
 
-      {/* 2. Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
+      {/* Overlay — heavier at bottom for text legibility */}
+      <div className="absolute inset-0 bg-[#383636]/45" />
+      <div className="absolute inset-0 bg-linear-to-t from-[#383636]/75 via-transparent to-transparent" />
 
-      {/* 3. Content */}
-      <div className="relative z-20 text-center px-4 sm:px-6">
-        <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 sm:mb-8">
-          If You can imagine it, we can <br className="hidden sm:block" />
-          help bring it to you
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-white/50 z-20" />
+
+      {/* Content */}
+      <div className="relative z-20 w-full max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pb-14 sm:pb-20">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-white/60 font-light mb-5">
+          / Portfolio
+        </p>
+        <h1
+          className="font-thin text-white leading-tight mb-8"
+          style={{ fontSize: "clamp(2.2rem, 5vw, 4.5rem)" }}
+        >
+          If You Can Imagine It,
+          <br />
+          <span className="text-white/50">We Can Bring It to Life</span>
         </h1>
-        <Link href="/contact">
-          <button className="bg-[#FE5443] cursor-pointer hover:bg-[#ff6657] text-white px-6 py-2.5 sm:px-8 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
-            Book Consultation
-          </button>
+        <Link
+          href="/contact"
+          className="group inline-flex items-center gap-4 text-sm tracking-[0.15em] uppercase text-white/70 hover:text-white font-light transition-colors duration-300"
+        >
+          <span>Book Consultation</span>
+          <span className="inline-block w-8 h-px bg-white/50 group-hover:w-14 transition-all duration-400" />
+          <span className="text-white/70">→</span>
         </Link>
       </div>
     </section>

@@ -1,265 +1,168 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import axios from "axios";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import { toast } from "react-toastify";
-import Container from "./common/Container";
-import SectionTopTitle from "./common/SectionTopTitle";
 import ProjectCard from "./ProjectCard";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+import { CATEGORIES, PROJECTS } from "../portfolio/_data/projects";
+
 const PortfolioSection = () => {
   const router = useRouter();
-  const [categories, setCategories] = useState([]);
-  const [projectsByCategory, setProjectsByCategory] = useState({});
   const [activeTab, setActiveTab] = useState("All");
-  const [loading, setLoading] = useState(false);
-  const portfolioRef = useRef(null);
-  const tabsRef = useRef(null);
-  const projectsRef = useRef(null);
-  const buttonRef = useRef(null);
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const filtersRef = useRef(null);
+  const gridRef = useRef(null);
 
   useEffect(() => {
-    // Skip GSAP animations on mobile screens
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      return;
-    }
-
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
     gsap.registerPlugin(ScrollTrigger);
-
-    // Animate the entire portfolio section
-    gsap.fromTo(
-      portfolioRef.current,
-      {
-        opacity: 0,
-        y: 80,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: portfolioRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headingRef.current.querySelectorAll(".reveal"),
+        { y: 36, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: headingRef.current, start: "top 82%" },
         },
-      },
-    );
-
-    // Animate tabs
-    gsap.fromTo(
-      tabsRef.current,
-      {
-        opacity: 0,
-        y: 50,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: 0.3,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: tabsRef.current,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-      },
-    );
-
-    // Animate projects
-    gsap.fromTo(
-      projectsRef.current,
-      {
-        opacity: 0,
-        y: 60,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: 0.6,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: projectsRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-      },
-    );
-
-    // Animate button
-    gsap.fromTo(
-      buttonRef.current,
-      {
-        opacity: 0,
-        y: 40,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        delay: 0.9,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: buttonRef.current,
-          start: "top 90%",
-          end: "bottom 10%",
-          toggleActions: "play none none reverse",
-        },
-      },
-    );
-  }, []);
-
-  // Fetch Categories
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        // Fetch categories
-        const res = await axios.get(`${BASE_URL}/public/project-category`);
-        if (Array.isArray(res?.data?.data) && res.data.data.length > 0) {
-          setCategories(res.data.data);
-        }
-      } catch (error) {
-        // categories remain empty
-        toast.error(
-          "Failed to load project categories. Please try again later.",
-        );
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
-  // Fetch Projects by Category
-  const fetchProjects = async (categoryId) => {
-    if (!categoryId || projectsByCategory[categoryId]) return;
-
-    setLoading(true);
-
-    try {
-      const res = await axios.get(
-        `${BASE_URL}/public/project-by-category/${categoryId}`,
       );
+      gsap.fromTo(
+        filtersRef.current,
+        { y: 24, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          delay: 0.2,
+          ease: "power2.out",
+          scrollTrigger: { trigger: filtersRef.current, start: "top 88%" },
+        },
+      );
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
 
-      const apiProjects = res?.data?.data?.projects;
+  useEffect(() => {
+    if (!gridRef.current) return;
+    gsap.fromTo(
+      gridRef.current.querySelectorAll(".project-item"),
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: "power3.out" },
+    );
+  }, [activeTab]);
 
-      if (apiProjects && apiProjects.length > 0) {
-        setProjectsByCategory((prev) => ({
-          ...prev,
-          [categoryId]: apiProjects,
-        }));
-      }
-    } catch (error) {
-      // projects remain empty for this category
-    } finally {
-      setLoading(false);
-    }
-  };
+  const activeProjects =
+    activeTab === "All"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.categoryId === activeTab);
 
-  const handleTabChange = (value) => {
-    setActiveTab(value);
-    if (value !== "All") fetchProjects(value);
-  };
+  const tabs = [
+    "All",
+    ...CATEGORIES.map((c) => ({ id: c.id, name: c.name })),
+  ];
 
-  // All Projects (Flattened)
-  const allProjects = useMemo(() => {
-    return Object.values(projectsByCategory).flat();
-  }, [projectsByCategory]);
-
-  // Helper to render project list
-  const renderProjects = (projects, categoryName = "Project") => (
+  const renderProjects = (projects) => (
     <>
-      {/* Mobile Slider */}
       <div className="block md:hidden">
         <Swiper spaceBetween={16} slidesPerView={1.1}>
-          {projects.map((project) => (
-            <SwiperSlide key={project.id}>
-              <ProjectCard project={project} />
+          {projects.map((p) => (
+            <SwiperSlide key={p.id}>
+              <div className="project-item">
+                <ProjectCard project={p} />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-
-      {/* Desktop Grid */}
-      <div className="hidden md:grid md:grid-cols-2 gap-4 max-w-[1240px] mx-auto">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+      <div className="hidden md:grid md:grid-cols-2 gap-5">
+        {projects.map((p) => (
+          <div key={p.id} className="project-item">
+            <ProjectCard project={p} />
+          </div>
         ))}
       </div>
     </>
   );
 
   return (
-    <Container>
-      <div ref={portfolioRef} className="text-center mt-10 sm:mt-12 md:my-15">
-        <SectionTopTitle
-          title="A Curated Selection of Our Interior"
-          highlight="Project"
-        />
-
-        <div ref={tabsRef}>
-          <Tabs defaultValue="All" onValueChange={handleTabChange}>
-            {/* Tabs Header */}
-            <div className="flex justify-center mb-2 md:mb-10  px-2">
-              <TabsList className="flex-wrap gap-2">
-                <TabsTrigger value="All">All</TabsTrigger>
-                {categories.map((cat) => (
-                  <TabsTrigger
-                    className={"cursor-pointer"}
-                    key={cat.id}
-                    value={cat.id}
-                  >
-                    {cat.name}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-
-            {/* All Tab */}
-            <TabsContent value="All">
-              <div ref={projectsRef}>{renderProjects(allProjects)}</div>
-            </TabsContent>
-
-            {/* Category Tabs */}
-            {categories.map((cat) => (
-              <TabsContent key={cat.id} value={cat.id}>
-                <div ref={projectsRef}>
-                  {loading && activeTab === cat.id ? (
-                    <p className="text-center">Loading...</p>
-                  ) : (
-                    renderProjects(projectsByCategory[cat.id] || [], cat.name)
-                  )}
-                </div>
-              </TabsContent>
-            ))}
-          </Tabs>
+    <section ref={sectionRef} className="bg-white border-t border-[#383636]/10">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
+        {/* Heading */}
+        <div ref={headingRef} className="mb-12 sm:mb-16">
+          <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-light">
+            / Portfolio
+          </p>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+            <h2
+              className="reveal font-thin text-[#383636] leading-tight"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
+            >
+              Selected{" "}
+              <span className="text-[#383636]/50">Works</span>
+            </h2>
+            <button
+              onClick={() => router.push("/portfolio")}
+              className="reveal group hidden sm:inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-light pb-1"
+            >
+              <span>Explore All</span>
+              <span className="inline-block w-8 h-px bg-current group-hover:w-14 transition-all duration-400" />
+              <span className="text-base leading-none">→</span>
+            </button>
+          </div>
         </div>
 
+        {/* Filter tabs */}
         <div
-          ref={buttonRef}
-          className="text-center px-4 md:pt-12 hidden sm:block"
+          ref={filtersRef}
+          className="flex items-center gap-1 flex-wrap mb-10 sm:mb-14 border-b border-[#383636]/10"
         >
+          {tabs.map((tab) => {
+            const id = typeof tab === "string" ? tab : tab.id;
+            const name = typeof tab === "string" ? tab : tab.name;
+            const active = activeTab === id;
+            return (
+              <button
+                key={id}
+                onClick={() => setActiveTab(id)}
+                className={`relative px-4 py-3 text-sm font-light tracking-[0.08em] transition-colors duration-200 ${
+                  active
+                    ? "text-[#383636]"
+                    : "text-[#383636]/35 hover:text-[#383636]/70"
+                }`}
+              >
+                {name}
+                {active && (
+                  <span className="absolute bottom-0 left-0 right-0 h-px bg-[#383636]" />
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Grid */}
+        <div ref={gridRef}>{renderProjects(activeProjects)}</div>
+
+        {/* Mobile CTA */}
+        <div className="flex justify-center mt-10 sm:hidden">
           <button
             onClick={() => router.push("/portfolio")}
-            className="px-6 py-2 rounded-full border cursor-pointer border-[#FE5443] text-[#FE5443] hover:border-[#FE5443] hover:bg-[#FE5443] hover:text-[#ffffff] transition-colors duration-300"
+            className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-light"
           >
-            Explore all Project →
+            <span>Explore All Projects</span>
+            <span className="inline-block w-6 h-px bg-current" />
+            <span>→</span>
           </button>
         </div>
       </div>
-    </Container>
+    </section>
   );
 };
 
