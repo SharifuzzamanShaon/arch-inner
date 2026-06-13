@@ -4,7 +4,6 @@ import Footer from "../_components/common/Footer";
 import Header from "../_components/common/Header";
 import HowWeWork from "./_components/HowWeWork";
 import MissionSection from "./_components/MissionSection";
-import VisionSection from "./_components/VisionSection";
 const page = () => {
   return (
     <>
@@ -12,7 +11,6 @@ const page = () => {
       {/* <AboutDesign /> */}
       {/* <ClientReview /> */}
       <MissionSection />
-      <VisionSection />
       <HowWeWork />
       <Footer />
     </>

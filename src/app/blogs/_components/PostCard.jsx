@@ -24,29 +24,29 @@ const PostCard = ({ post, featured }) => {
 
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-3">
-            <span className="text-[9px] tracking-[0.3em] uppercase text-[#383636] font-light">
+            <span className="text-[9px] tracking-[0.3em] uppercase text-[#383636] font-normal">
               {post.category}
             </span>
             <span className="w-4 h-px bg-[#383636]/20" />
-            <span className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/35 font-light">
+            <span className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/35 font-normal">
               {post.date}
             </span>
           </div>
 
           <h2
-            className="font-light text-[#383636] leading-snug"
+            className="font-normal text-[#383636] leading-snug"
             style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
           >
             {post.title}
           </h2>
 
-          <p className="text-base text-[#383636]/50 font-light leading-relaxed">
+          <p className="text-base text-[#383636]/50 font-normal leading-relaxed">
             {post.excerpt}
           </p>
 
           <Link
-            href={`/blogs/${post.id}`}
-            className="group/btn inline-flex items-center gap-3 text-xs tracking-[0.15em] uppercase text-[#383636]/45 hover:text-[#383636] transition-colors duration-300 font-light self-start pt-2"
+            href={`/news/${post.slug}`}
+            className="group/btn inline-flex items-center gap-3 text-xs tracking-[0.15em] uppercase text-[#383636]/45 hover:text-[#383636] transition-colors duration-300 font-normal self-start pt-2"
           >
             <span>Read Article</span>
             <span className="inline-block w-6 h-px bg-current group-hover/btn:w-10 transition-all duration-300" />
@@ -76,26 +76,26 @@ const PostCard = ({ post, featured }) => {
 
         <div className="sm:col-span-3 flex flex-col gap-3 sm:py-1">
           <div className="flex items-center gap-3">
-            <span className="text-[9px] tracking-[0.3em] uppercase text-[#383636] font-light">
+            <span className="text-[9px] tracking-[0.3em] uppercase text-[#383636] font-normal">
               {post.category}
             </span>
             <span className="w-3 h-px bg-[#383636]/20" />
-            <span className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/35 font-light">
+            <span className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/35 font-normal">
               {post.date}
             </span>
           </div>
 
-          <h2 className="text-lg font-light text-[#383636] leading-snug group-hover:text-[#383636]/60 transition-colors duration-300">
+          <h2 className="text-lg font-normal text-[#383636] leading-snug group-hover:text-[#383636]/60 transition-colors duration-300">
             {post.title}
           </h2>
 
-          <p className="text-xs text-[#383636]/45 font-light leading-relaxed line-clamp-3">
+          <p className="text-xs text-[#383636]/45 font-normal leading-relaxed line-clamp-3">
             {post.excerpt}
           </p>
 
           <Link
-            href={`/blogs/${post.id}`}
-            className="group/btn inline-flex items-center gap-2.5 text-[10px] tracking-[0.15em] uppercase text-[#383636]/35 hover:text-[#383636] transition-colors duration-300 font-light self-start mt-2"
+            href={`/news/${post.slug}`}
+            className="group/btn inline-flex items-center gap-2.5 text-[10px] tracking-[0.15em] uppercase text-[#383636]/35 hover:text-[#383636] transition-colors duration-300 font-normal self-start mt-2"
           >
             <span>Read Article</span>
             <span className="inline-block w-4 h-px bg-current group-hover/btn:w-7 transition-all duration-300" />

@@ -23,11 +23,11 @@ const PortfolioHero = () => {
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pb-14 sm:pb-20">
-        <p className="text-[10px] tracking-[0.3em] uppercase text-white/60 font-light mb-5">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-white/60 font-normal mb-5">
           / Portfolio
         </p>
         <h1
-          className="font-thin text-white leading-tight mb-8"
+          className="font-normal text-white leading-tight mb-8"
           style={{ fontSize: "clamp(2.2rem, 5vw, 4.5rem)" }}
         >
           If You Can Imagine It,
@@ -36,7 +36,7 @@ const PortfolioHero = () => {
         </h1>
         <Link
           href="/contact"
-          className="group inline-flex items-center gap-4 text-sm tracking-[0.15em] uppercase text-white/70 hover:text-white font-light transition-colors duration-300"
+          className="group inline-flex items-center gap-4 text-sm tracking-[0.15em] uppercase text-white/70 hover:text-white font-normal transition-colors duration-300"
         >
           <span>Book Consultation</span>
           <span className="inline-block w-8 h-px bg-white/50 group-hover:w-14 transition-all duration-400" />

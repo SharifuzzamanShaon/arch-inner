@@ -5,10 +5,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
 const STATS = [
-  { number: "10+", label: "Years Experience" },
-  { number: "240+", label: "Projects Completed" },
-  { number: "40+", label: "Design Awards" },
-  { number: "100+", label: "Happy Clients" },
+  { number: "7+", label: "Years Experience" },
+  { number: "50+", label: "Projects Completed" },
+  { number: "30+", label: "Happy Clients" },
+  { number: "80K+", label: "Sq. Ft. Designed" },
 ];
 
 const parseNum = (str) => {
@@ -89,10 +89,10 @@ const StatsSection = () => {
           ref={headerRef}
           className="flex items-center justify-between py-5 border-b border-[#383636]/12"
         >
-          <span className="text-[10px] tracking-[0.3em] uppercase text-[#383636] font-light">
+          <span className="text-[10px] tracking-[0.3em] uppercase text-[#383636] font-normal">
             / By The Numbers
           </span>
-          <span className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/55 font-light">
+          <span className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/55 font-normal">
             Est. 2014
           </span>
         </div>
@@ -108,12 +108,12 @@ const StatsSection = () => {
               >
                 <div className="w-6 h-px bg-[#383636]/25 group-hover:w-10 group-hover:bg-[#383636] transition-all duration-400 mb-6" />
                 <div className="flex items-baseline gap-0.5 mb-4">
-                  <span className="stat-num text-6xl sm:text-7xl lg:text-8xl font-thin text-[#383636] tracking-tight leading-none tabular-nums">
+                  <span className="stat-num text-6xl sm:text-7xl lg:text-8xl font-normal text-[#383636] tracking-tight leading-none tabular-nums">
                     {value}
                   </span>
-                  <span className="stat-suf text-3xl sm:text-4xl font-thin text-[#383636]" />
+                  <span className="stat-suf text-3xl sm:text-4xl font-normal text-[#383636]" />
                 </div>
-                <span className="text-[14px] sm:text-[16px] tracking-[0.3em] uppercase text-[#383636]/45 font-light">
+                <span className="text-[14px] sm:text-[16px] tracking-[0.3em] uppercase text-[#383636]/45 font-normal">
                   {stat.label}
                 </span>
               </div>

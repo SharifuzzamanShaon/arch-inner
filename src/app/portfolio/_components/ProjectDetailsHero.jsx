@@ -23,7 +23,7 @@ const ProjectDetailsHero = ({ project }) => {
     <section className="bg-white pt-24 sm:pt-28 pb-0 border-b border-[#383636]/10">
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16">
         {/* Breadcrumb */}
-        <p className="text-xs tracking-[0.3em] uppercase text-black/50 font-light mb-10 flex items-center gap-2">
+        <p className="text-xs tracking-[0.3em] uppercase text-black/50 font-normal mb-10 flex items-center gap-2">
           <Link
             href="/portfolio"
             className="hover:text-black transition-colors duration-200"
@@ -33,7 +33,7 @@ const ProjectDetailsHero = ({ project }) => {
           <span className="opacity-50">/</span>
           <span>{project.category}</span>
           <span className="opacity-50">/</span>
-          <span className="text-black truncate max-w-xs">
+          <span className="text-black font-medium truncate max-w-xs">
             {project.title}
           </span>
         </p>
@@ -44,8 +44,8 @@ const ProjectDetailsHero = ({ project }) => {
           <div className="flex flex-col gap-10">
             <div>
               <h1
-                className="font-light text-black leading-[1.08] mb-8"
-                style={{ fontSize: "clamp(3.2rem, 6.5vw, 6.5rem)" }}
+                className="font-normal text-black leading-[1.08] mb-8"
+                style={{ fontSize: "clamp(2rem, 4vw, 4rem)" }}
               >
                 {titleLine1}
                 <br />
@@ -63,10 +63,10 @@ const ProjectDetailsHero = ({ project }) => {
                   key={i}
                   className="flex flex-col gap-1.5 py-5 pr-4 border-b border-[#383636]/10 border-r border-r-[#383636]/10 [&:nth-child(2n)]:border-r-0 sm:[&:nth-child(2n)]:border-r sm:[&:nth-child(2n)]:border-r-[#383636]/10 sm:[&:nth-child(3n)]:border-r-0"
                 >
-                  <span className="text-[11px] tracking-[0.3em] uppercase text-black/40 font-medium">
+                  <span className="text-[11px] tracking-[0.3em] uppercase text-black/40 font-medium pl-2">
                     {label}
                   </span>
-                  <span className="text-base text-black font-normal tracking-wide leading-snug">
+                  <span className="text-base text-black font-normal tracking-wide leading-snug pl-2">
                     {value}
                   </span>
                 </div>
@@ -101,10 +101,10 @@ const ProjectDetailsHero = ({ project }) => {
 
               {/* Location bottom */}
               <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 font-light">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 font-normal">
                   {project.location}
                 </span>
-                <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-light">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-normal">
                   {project.year}
                 </span>
               </div>

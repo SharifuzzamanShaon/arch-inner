@@ -22,12 +22,12 @@ const ServiceCard = ({ service }) => {
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-8 py-7 sm:py-8 min-h-75">
         <h4
-          className="font-light text-white leading-tight mb-3"
+          className="font-normal text-white leading-tight mb-3"
           style={{ fontSize: "clamp(1rem, 1.8vw, 1.2rem)" }}
         >
           {service?.title || "Residential Interior Design"}
         </h4>
-        <p className="text-sm text-white/50 font-light leading-relaxed mb-5 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <p className="text-sm text-white/50 font-normal leading-relaxed mb-5 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {service?.description ||
             "Creating homes that blend comfort with sophistication."}
         </p>

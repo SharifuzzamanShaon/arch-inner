@@ -32,16 +32,16 @@ const InquiryForm = () => {
   };
 
   const inputClass =
-    "w-full bg-transparent border-b border-[#383636]/15 py-4 text-sm text-[#383636]/80 placeholder-[#383636]/25 font-light tracking-wide outline-none focus:border-[#383636] transition-colors duration-300";
+    "w-full bg-transparent border-b border-[#383636]/15 py-4 text-base text-[#383636]/80 placeholder-[#383636]/30 font-medium tracking-wide outline-none focus:border-[#383636] transition-colors duration-300";
 
   const labelClass =
-    "block text-[14px] tracking-[0.25em] uppercase text-[#383636]/35 font- mb-2";
+    "block text-[13px] tracking-[0.25em] uppercase text-[#383636]/50 font-semibold mb-2";
 
   return (
     <section className="bg-white border-t border-[#383636]/10">
       <div className="max-w-360 mx-auto px-6 sm:px-14 lg:px-16 py-20 sm:py-28">
         {/* Section label */}
-        <p className="text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-light">
+        <p className="text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
           / Get In Touch
         </p>
 
@@ -49,7 +49,7 @@ const InquiryForm = () => {
           {/* Left — image + info */}
           <div className="flex flex-col gap-10">
             <h2
-              className="font-light text-[#383636] leading-tight"
+              className="font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
             >
               Let&apos;s Talk About
@@ -67,10 +67,10 @@ const InquiryForm = () => {
               />
               <div className="absolute inset-0 bg-white/10" />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-white/70 to-transparent">
-                <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636] font-light mb-1">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636] font-normal mb-1">
                   / Studio
                 </p>
-                <p className="text-sm text-[#383636]/60 font-light">
+                <p className="text-sm text-[#383636]/60 font-normal">
                   Dhaka, Bangladesh
                 </p>
               </div>
@@ -84,10 +84,10 @@ const InquiryForm = () => {
                 { label: "Hours", value: "Sun – Thu, 10am – 7pm" },
               ].map(({ label, value }) => (
                 <div key={label} className="flex items-start gap-6">
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-[#383636]/30 font-light w-14 pt-0.5">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-[#383636]/30 font-normal w-14 pt-0.5">
                     {label}
                   </span>
-                  <span className="text-sm text-[#383636]/60 font-light">
+                  <span className="text-sm text-[#383636]/60 font-normal">
                     {value}
                   </span>
                 </div>
@@ -158,7 +158,7 @@ const InquiryForm = () => {
                     <button
                       type="button"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="flex items-center gap-2 pb-4 border-b border-[#383636]/15 text-[#383636]/50 hover:text-[#383636]/80 transition-colors duration-300 text-sm font-light"
+                      className="flex items-center gap-2 pb-4 border-b border-[#383636]/15 text-[#383636]/50 hover:text-[#383636]/80 transition-colors duration-300 text-base font-medium"
                     >
                       <span className="text-lg">{selectedCountry.flag}</span>
                       <span className="text-xs tracking-wide">
@@ -184,7 +184,7 @@ const InquiryForm = () => {
                             className="flex items-center gap-3 w-full px-4 py-3 hover:bg-[#383636]/4 transition-colors text-left"
                           >
                             <span className="text-lg">{c.flag}</span>
-                            <span className="text-xs text-[#383636]/60 font-light flex-1">
+                            <span className="text-xs text-[#383636]/60 font-normal flex-1">
                               {c.name}
                             </span>
                             <span className="text-[10px] text-[#383636]/30">
@@ -217,13 +217,13 @@ const InquiryForm = () => {
                 />
               </div>
 
-              <p className="text-[10px] text-[#383636]/30 tracking-[0.15em] uppercase font-light">
+              <p className="text-xs text-[#383636]/40 tracking-[0.15em] uppercase font-medium">
                 * We respond within 24–48 hours.
               </p>
 
               <button
                 type="submit"
-                className="group relative w-full py-5 bg-transparent border border-[#383636]/20 text-[#383636]/60 hover:border-[#383636] hover:text-[#383636] text-sm tracking-[0.2em] uppercase font-light transition-all duration-400 overflow-hidden"
+                className="group relative w-full py-5 bg-transparent border border-[#383636]/20 text-[#383636]/60 hover:border-[#383636] hover:text-[#383636] text-base tracking-[0.2em] uppercase font-semibold transition-all duration-400 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center justify-center gap-4">
                   Send Inquiry

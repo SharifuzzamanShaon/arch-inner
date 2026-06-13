@@ -2,6 +2,7 @@ import "./globals.css";
 import localFont from 'next/font/local';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PageLoader from "./_components/PageLoader";
 
 const clashGrotesk = localFont({
   src: [
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={clashGrotesk.variable}>
       <body className={clashGrotesk.className}>
+        <PageLoader />
         <ToastContainer />
         {children}
       </body>

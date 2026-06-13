@@ -64,9 +64,15 @@ const PortfolioSection = () => {
       ? PROJECTS
       : PROJECTS.filter((p) => p.categoryId === activeTab);
 
+  const projectCategoryIds = new Set(PROJECTS.map((p) => p.categoryId));
+
   const tabs = [
-    "All",
-    ...CATEGORIES.map((c) => ({ id: c.id, name: c.name })),
+    { id: "All", name: "All", disabled: false },
+    ...CATEGORIES.map((c) => ({
+      id: c.id,
+      name: c.name,
+      disabled: !projectCategoryIds.has(c.id),
+    })),
   ];
 
   const renderProjects = (projects) => (
@@ -97,12 +103,12 @@ const PortfolioSection = () => {
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
         {/* Heading */}
         <div ref={headingRef} className="mb-12 sm:mb-16">
-          <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-light">
+          <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
             / Portfolio
           </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <h2
-              className="reveal font-thin text-[#383636] leading-tight"
+              className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
               Selected{" "}
@@ -110,7 +116,7 @@ const PortfolioSection = () => {
             </h2>
             <button
               onClick={() => router.push("/portfolio")}
-              className="reveal group hidden sm:inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-light pb-1"
+              className="reveal group hidden sm:inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal pb-1"
             >
               <span>Explore All</span>
               <span className="inline-block w-8 h-px bg-current group-hover:w-14 transition-all duration-400" />
@@ -124,22 +130,23 @@ const PortfolioSection = () => {
           ref={filtersRef}
           className="flex items-center gap-1 flex-wrap mb-10 sm:mb-14 border-b border-[#383636]/10"
         >
-          {tabs.map((tab) => {
-            const id = typeof tab === "string" ? tab : tab.id;
-            const name = typeof tab === "string" ? tab : tab.name;
+          {tabs.map(({ id, name, disabled }) => {
             const active = activeTab === id;
             return (
               <button
                 key={id}
-                onClick={() => setActiveTab(id)}
-                className={`relative px-4 py-3 text-sm font-light tracking-[0.08em] transition-colors duration-200 ${
-                  active
-                    ? "text-[#383636]"
-                    : "text-[#383636]/35 hover:text-[#383636]/70"
+                onClick={() => !disabled && setActiveTab(id)}
+                disabled={disabled}
+                className={`relative px-4 py-3 text-sm font-normal tracking-[0.08em] transition-colors duration-200 ${
+                  disabled
+                    ? "text-[#383636]/18 cursor-not-allowed select-none"
+                    : active
+                      ? "text-[#383636]"
+                      : "text-[#383636]/35 hover:text-[#383636]/70"
                 }`}
               >
                 {name}
-                {active && (
+                {active && !disabled && (
                   <span className="absolute bottom-0 left-0 right-0 h-px bg-[#383636]" />
                 )}
               </button>
@@ -154,7 +161,7 @@ const PortfolioSection = () => {
         <div className="flex justify-center mt-10 sm:hidden">
           <button
             onClick={() => router.push("/portfolio")}
-            className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-light"
+            className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal"
           >
             <span>Explore All Projects</span>
             <span className="inline-block w-6 h-px bg-current" />

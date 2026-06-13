@@ -27,7 +27,7 @@ const Sidebar = ({ posts, activeCategory, setActiveCategory }) => {
     <div className="space-y-12 lg:sticky lg:top-28">
       {/* Search */}
       <div>
-        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-light mb-5">
+        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-normal mb-5">
           / Search
         </p>
         <div className="relative">
@@ -36,7 +36,7 @@ const Sidebar = ({ posts, activeCategory, setActiveCategory }) => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search articles..."
-            className="w-full bg-transparent border-b border-[#383636]/15 py-3 text-base text-[#383636]/70 placeholder-[#383636]/25 font-light tracking-wide outline-none focus:border-[#383636] transition-colors duration-300 pr-6"
+            className="w-full bg-transparent border-b border-[#383636]/15 py-3 text-base text-[#383636]/70 placeholder-[#383636]/25 font-normal tracking-wide outline-none focus:border-[#383636] transition-colors duration-300 pr-6"
           />
           <span className="absolute right-0 top-3 text-[#383636]/25 text-xs pointer-events-none">
             ↗
@@ -49,10 +49,10 @@ const Sidebar = ({ posts, activeCategory, setActiveCategory }) => {
                 key={p.id}
                 className="px-4 py-3 border-b border-[#383636]/8 last:border-0 hover:bg-[#F7F4F0] cursor-pointer transition-colors duration-200"
               >
-                <p className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/35 font-light mb-0.5">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/35 font-normal mb-0.5">
                   {p.category}
                 </p>
-                <p className="text-xs text-[#383636]/60 font-light line-clamp-2">
+                <p className="text-xs text-[#383636]/60 font-normal line-clamp-2">
                   {p.title}
                 </p>
               </div>
@@ -63,7 +63,7 @@ const Sidebar = ({ posts, activeCategory, setActiveCategory }) => {
 
       {/* Categories */}
       <div>
-        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-light mb-5">
+        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-normal mb-5">
           / Categories
         </p>
         <ul className="border-t border-[#383636]/10">
@@ -79,7 +79,7 @@ const Sidebar = ({ posts, activeCategory, setActiveCategory }) => {
                     : "text-[#383636]/40 hover:text-[#383636]/70"
                 }`}
               >
-                <span className="text-xs font-light tracking-[0.08em]">
+                <span className="text-xs font-normal tracking-[0.08em]">
                   {cat}
                 </span>
                 {activeCategory === cat && (
@@ -93,7 +93,7 @@ const Sidebar = ({ posts, activeCategory, setActiveCategory }) => {
 
       {/* Recent posts */}
       <div>
-        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-light mb-5">
+        <p className="text-[9px] tracking-[0.3em] uppercase text-[#383636]/35 font-normal mb-5">
           / Recent
         </p>
         <div className="space-y-6">
@@ -112,10 +112,10 @@ const Sidebar = ({ posts, activeCategory, setActiveCategory }) => {
                 />
               </div>
               <div className="flex flex-col gap-1 justify-center">
-                <p className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/30 font-light">
+                <p className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/30 font-normal">
                   {post.date}
                 </p>
-                <p className="text-xs text-[#383636]/55 font-light leading-snug line-clamp-2 group-hover:text-[#383636] transition-colors duration-200">
+                <p className="text-xs text-[#383636]/55 font-normal leading-snug line-clamp-2 group-hover:text-[#383636] transition-colors duration-200">
                   {post.title}
                 </p>
               </div>

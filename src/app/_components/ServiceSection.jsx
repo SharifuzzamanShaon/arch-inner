@@ -97,12 +97,12 @@ const ServiceSection = () => {
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
         {/* Heading */}
         <div ref={headingRef} className="mb-12 sm:mb-16">
-          <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-light">
+          <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
             / Services
           </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <h2
-              className="reveal font-thin text-[#383636] leading-tight"
+              className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
               We Shape Interiors That
@@ -110,7 +110,7 @@ const ServiceSection = () => {
               <span className="text-[#383636]/40">Reflect</span>{" "}
               <span className="text-[#383636]">Your Story</span>
             </h2>
-            <p className="reveal text-sm text-[#383636]/50 font-light max-w-xs leading-relaxed">
+            <p className="reveal text-sm text-[#383636]/50 font-normal max-w-xs leading-relaxed">
               From concept to completion — every space is crafted with
               precision, purpose, and deep respect for your vision.
             </p>

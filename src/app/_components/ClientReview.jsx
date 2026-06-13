@@ -6,14 +6,13 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const CLIENTS = [
-  { id: 1, name: "Studio Eleven", logo: "/images/client-logo-1.png" },
-  { id: 2, name: "Urban Space Co.", logo: "/images/client-logo-2.png" },
-  { id: 3, name: "Meridian Group", logo: "/images/client-logo-1.png" },
-  { id: 4, name: "Verde Living", logo: "/images/client-logo-2.png" },
-  { id: 5, name: "Axis Partners", logo: "/images/client-logo-1.png" },
-  { id: 6, name: "Lumen Studio", logo: "/images/client-logo-2.png" },
-  { id: 7, name: "Prism Interiors", logo: "/images/client-logo-1.png" },
-  { id: 8, name: "Halo Hospitality", logo: "/images/client-logo-2.png" },
+  { id: 1, name: "University of Dhaka",          logo: "/images/dhaka-university-logo.png" },
+  { id: 2, name: "Bashundhara Group",             logo: "/images/bashundhara-logo.svg" },
+  { id: 3, name: "Fervent Multiboard Industries", logo: "/images/fervent-logo.svg" },
+  { id: 4, name: "BAT Bangladesh",                logo: "/images/bat-logo.png" },
+  { id: 5, name: "Servisol ITES",                 logo: "/images/servisol-logo.png" },
+  { id: 6, name: "Dot Birth",                     logo: "/images/dot-birth-logo.png" },
+  { id: 7, name: "Dhaka Bank PLC",                logo: "/images/dhaka-bank-logo.png" },
 ];
 
 const TRUST = { score: "4.9", review_count: "180+" };
@@ -67,11 +66,11 @@ const ClientReview = () => {
           className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
         >
           <div>
-            <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636]/50 mb-4 font-light">
+            <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636]/50 mb-4 font-normal">
               / Trusted By
             </p>
             <h2
-              className="reveal font-thin text-[#383636] leading-tight"
+              className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
             >
               Clients Who Trust
@@ -89,9 +88,9 @@ const ClientReview = () => {
                   </span>
                 ))}
               </div>
-              <p className="text-[#383636] text-xl font-thin tracking-tight">
+              <p className="text-[#383636] text-xl font-normal tracking-tight">
                 {TRUST.score}
-                <span className="text-[#383636]/40 text-sm ml-1 font-light">
+                <span className="text-[#383636]/40 text-sm ml-1 font-normal">
                   / 5.0
                 </span>
               </p>

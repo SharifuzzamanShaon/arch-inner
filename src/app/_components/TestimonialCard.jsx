@@ -40,7 +40,7 @@ const TestimonialCard = ({ service, dark }) => {
             &ldquo;
           </span>
           <p
-            className={`text-base font-light leading-relaxed italic pl-4 ${
+            className={`text-base font-normal leading-relaxed italic pl-4 ${
               dark ? "text-white/50" : "text-[#383636]/60"
             }`}
           >
@@ -53,7 +53,7 @@ const TestimonialCard = ({ service, dark }) => {
           className={`pt-5 border-t ${dark ? "border-white/10" : "border-[#383636]/10"}`}
         >
           <p
-            className={`text-sm font-light tracking-wide ${
+            className={`text-sm font-normal tracking-wide ${
               dark ? "text-white/80" : "text-[#383636]"
             }`}
           >
