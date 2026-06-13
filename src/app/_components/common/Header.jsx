@@ -12,7 +12,7 @@ const navItems = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/about-us" },
   { name: "Contact", href: "/contact" },
-  { name: "Blogs", href: "/blogs" },
+  { name: "News", href: "/news" },
 ];
 
 const Header = () => {
@@ -97,7 +97,7 @@ const Header = () => {
             {/* Desktop nav — slash-separated items */}
             <nav className="hidden md:block">
               <ul className="flex items-center">
-                <li className="text-[11px] font-light select-none px-1 text-black/30">
+                <li className="text-[11px] font-normal select-none px-1 text-black/30">
                   /
                 </li>
                 {navItems.map((item) => {
@@ -114,7 +114,7 @@ const Header = () => {
                       >
                         {item.name}
                       </Link>
-                      <span className="text-[11px] font-light select-none px-0.5 text-black/30">
+                      <span className="text-[11px] font-normal select-none px-0.5 text-black/30">
                         /
                       </span>
                     </li>
@@ -127,7 +127,7 @@ const Header = () => {
             <div className="hidden md:block flex-shrink-0">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 text-sm tracking-[0.12em] uppercase font-light text-[#383636] hover:text-[#383636]/60 transition-colors duration-200"
+                className="group inline-flex items-center gap-2 text-sm tracking-[0.12em] uppercase font-normal text-[#383636] hover:text-[#383636]/60 transition-colors duration-200"
               >
                 <span>Get In Touch</span>
                 <span className="inline-block w-5 h-px bg-current opacity-50 group-hover:w-7 transition-all duration-300" />
@@ -184,10 +184,10 @@ const Header = () => {
                     : "text-[#383636]/40 hover:text-[#383636]"
                 }`}
               >
-                <span className="text-xs text-[#383636]/30 tracking-widest font-light w-6">
+                <span className="text-xs text-[#383636]/30 tracking-widest font-normal w-6">
                   /{String(idx + 1).padStart(2, "0")}
                 </span>
-                <span className="text-4xl sm:text-5xl font-thin tracking-tight leading-tight">
+                <span className="text-4xl sm:text-5xl font-normal tracking-tight leading-tight">
                   {item.name}
                 </span>
               </Link>

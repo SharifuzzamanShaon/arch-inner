@@ -24,7 +24,7 @@ export function Button({
     <button
       type={type}
       className={cn(
-        "inline-flex items-center justify-center rounded-none text-sm font-light tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#383636] focus-visible:ring-offset-2 disabled:opacity-40 disabled:pointer-events-none",
+        "inline-flex items-center justify-center rounded-none text-sm font-normal tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#383636] focus-visible:ring-offset-2 disabled:opacity-40 disabled:pointer-events-none",
         variants[variant] || variants.default,
         sizes[size] || sizes.default,
         className,

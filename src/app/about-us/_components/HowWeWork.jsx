@@ -66,22 +66,23 @@ const HowWeWork = () => {
 
   return (
     <section className="py-20">
-      <div className="max-w-3xl mx-auto text-center space-y-4 pb-12">
-        <span className="text-[#FE5443] text-sm sm:text-base font-bold uppercase tracking-[0.2em]">
-          Our Process
+      <div className="max-w-3xl mx-auto text-center space-y-5 pb-12">
+        <span className="text-[10px] tracking-[0.3em] uppercase text-[#FE5443] font-normal">
+          / Our Process
         </span>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 tracking-tight">
+        <h2
+          className="font-semibold text-[#383636] leading-tight"
+          style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+        >
           How We Work
         </h2>
 
-        <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl font-light leading-relaxed">
-          {`We've been making people's dreams come true`}{" "}
-          <br className="hidden sm:block" />
-          for decades.{" "}
+        <p className="text-[#383636]/55 max-w-sm mx-auto text-sm sm:text-base font-normal leading-relaxed">
+          {`We've been making people's dreams come true for decades.`}{" "}
           <a
             href="#contact"
-            className="text-[#FE5443] hover:underline transition-all duration-300 decoration-2 underline-offset-4"
+            className="text-[#FE5443] hover:underline transition-all duration-300 underline-offset-4"
           >
             Reach out today
           </a>
@@ -123,17 +124,20 @@ const HowWeWork = () => {
 
                   {/* Content Area */}
                   <div className="p-5 sm:p-6 md:p-8 flex flex-col relative rounded-[10px]">
-                    <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-semibold mb-3 md:mb-4 tracking-tight">
+                    <h3 className="text-white text-lg sm:text-xl font-semibold mb-2 tracking-tight">
                       {step.title}
                     </h3>
 
-                    <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-snug font-light max-w-[90%]">
+                    <p className="text-white/45 text-sm leading-relaxed font-normal max-w-[95%]">
                       {step.desc}
                     </p>
 
                     {/* Numbering - Positioned Bottom Right */}
-                    <div className="mt-auto flex justify-end">
-                      <span className="text-white/20 text-6xl sm:text-7xl md:text-8xl font-bold leading-none select-none">
+                    <div className="mt-auto flex justify-end pt-4">
+                      <span
+                        className="text-white/10 font-semibold leading-none select-none"
+                        style={{ fontSize: "clamp(4rem, 8vw, 6rem)" }}
+                      >
                         {step.id}
                       </span>
                     </div>

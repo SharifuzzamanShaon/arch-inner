@@ -80,19 +80,19 @@ const TestimonialSection = () => {
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
         {/* Heading */}
         <div ref={headingRef} className="mb-12 sm:mb-16">
-          <p className="reveal text-xs tracking-[0.3em] uppercase text-white/30 mb-5 font-light">
+          <p className="reveal text-xs tracking-[0.3em] uppercase text-white/30 mb-5 font-normal">
             / Client Stories
           </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <h2
-              className="reveal font-light text-white leading-tight"
+              className="reveal font-normal text-white leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
               What Our Clients
               <br />
               <span className="text-white/35">Say About Us</span>
             </h2>
-            <p className="reveal text-base text-white/30 font-light max-w-sm leading-relaxed">
+            <p className="reveal text-base text-white/30 font-normal max-w-sm leading-relaxed">
               Their trust and satisfaction are the foundations of our continued
               success — from concept to completion.
             </p>

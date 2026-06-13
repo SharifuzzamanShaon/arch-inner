@@ -1,105 +1,88 @@
 "use client";
 
-import Container from "@/app/_components/common/Container";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
+const cells = [
+  { type: "text", key: "arch" },
+  { type: "image", src: "/images/mission-img.png",   alt: "Architecture studio" },
+  { type: "image", src: "/images/contact-img-1.png", alt: "Team at work" },
+  { type: "image", src: "/images/contact-img.png",   alt: "Design review" },
+  { type: "text", key: "interior" },
+  { type: "image", src: "/images/vision-img.png",    alt: "Interior detail" },
+];
+
+const TEXT = {
+  arch: {
+    label: "Architecture",
+    body: "We follow the 'less is more' principle when designing — from small-scale residences to large-scale commercial complexes — keeping in consideration the climate, surroundings, and the impact a building has on society. We believe in quality spaces that are well ventilated, well-lit, and efficient.",
+  },
+  interior: {
+    label: "Interior",
+    body: "Our interior work spans corporate head offices, residential apartments, schools, and recreational spaces. We strive for perfection and spend considerable time on the meticulous details that elevate an interior from good to memorable.",
+  },
+};
+
 const MissionSection = () => {
-  const sectionRef = useRef(null);
-  const textRef = useRef(null);
-  const imageRef = useRef(null);
+  const gridRef = useRef(null);
 
   useEffect(() => {
-    // Only run animations on screens larger than 768px (md breakpoint)
-    if (window.innerWidth < 768) return;
-
     gsap.registerPlugin(ScrollTrigger);
+    const items = gridRef.current?.querySelectorAll(".grid-cell");
+    if (!items) return;
 
-    const ctx = gsap.context(() => {
-      // Text content animation
-      gsap.from(textRef.current, {
-        opacity: 0,
-        x: -50,
-        duration: 1,
+    gsap.fromTo(
+      items,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.08,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      // Image animation with rotation
-      gsap.from(imageRef.current, {
-        opacity: 0,
-        x: 50,
-        rotation: 10,
-        scale: 0.8,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
+        scrollTrigger: { trigger: gridRef.current, start: "top 80%" },
+      },
+    );
   }, []);
 
   return (
-    <Container>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 md:py-20">
-        {/* Image - shown first on mobile, second on desktop */}
-        <div
-          ref={imageRef}
-          className="relative flex justify-center lg:justify-end order-1 lg:order-2"
-        >
-          <div
-            className="relative w-full max-w-md aspect-square overflow-hidden rounded-lg"
-            style={{
-              clipPath:
-                "polygon(0% 10%, 10% 10%, 10% 0%, 90% 0%, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0% 90%)",
-            }}
-          >
-            <Image
-              src="/images/mission-img.png"
-              alt="Interior Design Sketch"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+    <section ref={gridRef} className="grid grid-cols-1 sm:grid-cols-3 border-t border-[#383636]/10 pt-16 sm:pt-18 lg:pt-20">
+      {cells.map((cell, i) => {
+        if (cell.type === "image") {
+          return (
+            <div key={i} className="grid-cell relative aspect-4/3 overflow-hidden">
+              <Image
+                src={cell.src}
+                alt={cell.alt}
+                fill
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+          );
+        }
 
-        {/* Text Content - shown second on mobile, first on desktop */}
-        <div
-          ref={textRef}
-          className="space-y-6 order-2 lg:order-1 text-center lg:text-left"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
-            Our Mission
-          </h2>
-          <p className="text-gray-500 leading-relaxed text-lg">
-            Our mission is to transform ordinary spaces into extraordinary
-            experiences. At Arch Inner, we are committed to delivering
-            innovative interior solutions that balance aesthetics,
-            functionality, and sustainability. We believe every space has a
-            story to tell, and we craft designs that honor your vision while
-            exceeding expectations.
-          </p>
-          <button
-            className="px-8 py-3 border border-[#383636] text-[#383636] cursor-pointer hover:bg-[#383636] hover:text-white transition-all font-light tracking-wide"
+        const { label, body } = TEXT[cell.key];
+        return (
+          <div
+            key={i}
+            className="grid-cell aspect-4/3 flex flex-col justify-center px-10 sm:px-8 lg:px-12 bg-[#F7F4F0] border-[#383636]/8"
           >
-            Learn More
-          </button>
-        </div>
-      </div>
-    </Container>
+            <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/40 mb-4 font-normal">
+              / {cell.key === "arch" ? "01" : "02"}
+            </p>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#383636] tracking-tight mb-4 uppercase">
+              {label}
+            </h2>
+            <p className="text-[#383636]/55 text-sm leading-relaxed font-normal max-w-xs">
+              {body}
+            </p>
+          </div>
+        );
+      })}
+    </section>
   );
 };
 

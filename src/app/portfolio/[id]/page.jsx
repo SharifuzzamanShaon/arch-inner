@@ -13,10 +13,10 @@ const MoreProjects = ({ currentId }) => {
   const others = PROJECTS.filter((p) => p.id !== currentId).slice(0, 3);
   return (
     <section className="bg-white border-t border-[#383636]/10">
-      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-14 py-20 sm:py-28">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-sm tracking-[0.3em] uppercase text-[#383636] font-light mb-4">
+            <p className="text-sm tracking-[0.3em] uppercase text-[#383636] font-normal mb-4">
               / More Work
             </p>
             <h2
@@ -28,7 +28,7 @@ const MoreProjects = ({ currentId }) => {
           </div>
           <Link
             href="/portfolio"
-            className="hidden sm:inline-flex items-center gap-3 text-base tracking-[0.15em] uppercase text-[#383636]/50 hover:text-[#383636] transition-colors duration-300 font-light pb-1"
+            className="hidden sm:inline-flex items-center gap-3 text-base tracking-[0.15em] uppercase text-[#383636]/50 hover:text-[#383636] transition-colors duration-300 font-normal pb-1"
           >
             <span>All Projects</span>
             <span className="inline-block w-6 h-px bg-current" />
@@ -55,10 +55,10 @@ const MoreProjects = ({ currentId }) => {
               )}
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent z-10" />
               <div className="absolute bottom-0 left-0 right-0 z-20 p-5">
-                <span className="text-xs tracking-[0.2em] uppercase text-white/45 font-light block mb-1.5">
+                <span className="text-xs tracking-[0.2em] uppercase text-white/45 font-normal block mb-1.5">
                   {p.category}
                 </span>
-                <h3 className="text-lg font-light text-white leading-snug">
+                <h3 className="text-base font-normal text-white leading-snug">
                   {p.title}
                 </h3>
               </div>

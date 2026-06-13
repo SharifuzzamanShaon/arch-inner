@@ -4,10 +4,7 @@ import PortfolioHero from "./_components/PortfolioHero";
 const page = () => {
   return (
     <>
-      {/* <Header/> */}
-      {/* <PortfolioHero /> */}
       <PortfolioSection />
-      {/* <Footer/> */}
     </>
   );
 };

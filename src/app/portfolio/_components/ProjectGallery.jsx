@@ -21,11 +21,11 @@ const ProjectGallery = ({ project }) => {
         {/* Heading row */}
         <div className="flex items-end justify-between mb-10 sm:mb-14">
           <div>
-            <p className="text-[10px] tracking-[0.35em] uppercase text-[#383636]/40 font-light mb-3">
+            <p className="text-[10px] tracking-[0.35em] uppercase text-[#383636]/40 font-normal mb-3">
               / Gallery
             </p>
             <h2
-              className="font-thin text-[#383636] leading-none"
+              className="font-normal text-[#383636] leading-none"
               style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
             >
               Project{" "}
@@ -34,13 +34,13 @@ const ProjectGallery = ({ project }) => {
           </div>
           <div className="text-right pb-0.5">
             <span
-              className="font-thin text-[#383636]"
+              className="font-normal text-[#383636]"
               style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}
             >
               {String(active + 1).padStart(2, "0")}
             </span>
             <span
-              className="text-[#383636]/25 font-thin"
+              className="text-[#383636]/25 font-normal"
               style={{ fontSize: "clamp(1rem, 2vw, 1.4rem)" }}
             >
               {" "}/ {String(images.length).padStart(2, "0")}
@@ -68,10 +68,10 @@ const ProjectGallery = ({ project }) => {
 
             {/* Label + location */}
             <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 z-10 flex items-end justify-between">
-              <span className="text-[11px] tracking-[0.28em] uppercase text-white/60 font-light">
+              <span className="text-[11px] tracking-[0.28em] uppercase text-white/60 font-normal">
                 {labels[active] || `View ${active + 1}`}
               </span>
-              <span className="text-[10px] tracking-[0.2em] text-white/30 font-light">
+              <span className="text-[10px] tracking-[0.2em] text-white/30 font-normal">
                 {project?.location}
               </span>
             </div>
@@ -134,12 +134,12 @@ const ProjectGallery = ({ project }) => {
                   {active === i && (
                     <div className="absolute inset-0 bg-[#383636]/8 pointer-events-none" />
                   )}
-                  <span className="absolute top-2 right-2.5 text-[9px] tracking-[0.22em] text-white/50 font-light">
+                  <span className="absolute top-2 right-2.5 text-[9px] tracking-[0.22em] text-white/50 font-normal">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {active === i && (
                     <div className="absolute bottom-0 left-0 right-0 px-3 pb-2.5">
-                      <span className="text-[8px] tracking-[0.18em] uppercase text-white/55 font-light line-clamp-1">
+                      <span className="text-[8px] tracking-[0.18em] uppercase text-white/55 font-normal line-clamp-1">
                         {labels[i] || `View ${i + 1}`}
                       </span>
                     </div>
@@ -178,7 +178,7 @@ const ProjectGallery = ({ project }) => {
                   alt={labels[i] || `View ${i + 1}`}
                   className="object-cover"
                 />
-                <span className="absolute bottom-1.5 right-1.5 text-[8px] tracking-[0.2em] text-white/50 font-light">
+                <span className="absolute bottom-1.5 right-1.5 text-[8px] tracking-[0.2em] text-white/50 font-normal">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </button>

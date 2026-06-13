@@ -57,18 +57,18 @@ const AboutDesign = () => {
         <div className="flex flex-col lg:flex-row items-start gap-12 sm:gap-16 lg:gap-28">
           {/* Text */}
           <div ref={contentRef} className="flex-1 lg:max-w-120">
-            <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-7 font-light">
+            <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-7 font-normal">
               / About Us
             </p>
             <h2
-              className="reveal font-thin text-[#383636] leading-[1.1] mb-8"
+              className="reveal font-normal text-[#383636] leading-[1.1] mb-8"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
               Design Rooted in Craft,{" "}
               <em className="not-italic text-[#383636]/40">Materiality</em>
               <br />& Emotion
             </h2>
-            <p className="reveal text-sm sm:text-base text-[#383636]/55 font-light leading-relaxed mb-10 max-w-md">
+            <p className="reveal text-sm sm:text-base text-[#383636]/55 font-normal leading-relaxed mb-10 max-w-md">
               At Arch Inner, we blend architecture and interior design seamlessly. We
               don&apos;t just decorate within boundaries — we reimagine them. Our studio
               specializes in creating spaces that feel both deeply personal and
@@ -82,7 +82,7 @@ const AboutDesign = () => {
                 { n: "240+", l: "Projects" },
               ].map(({ n, l }) => (
                 <div key={l} className="py-6 pr-8 border-r border-[#383636]/12 last:border-r-0 last:pl-8 last:pr-0">
-                  <span className="block text-3xl font-thin text-[#383636] tracking-tight">{n}</span>
+                  <span className="block text-3xl font-normal text-[#383636] tracking-tight">{n}</span>
                   <span className="text-xs tracking-[0.2em] uppercase text-[#383636]/40">{l}</span>
                 </div>
               ))}
@@ -90,7 +90,7 @@ const AboutDesign = () => {
 
             <Link
               href="/about-us"
-              className="reveal group inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-light"
+              className="reveal group inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal"
             >
               <span>Learn More</span>
               <span className="inline-block w-8 h-px bg-current group-hover:w-14 transition-all duration-400" />
@@ -115,7 +115,7 @@ const AboutDesign = () => {
               <div className="absolute bottom-4 left-4 w-7 h-7 border-b-2 border-l-2 border-[#383636]/30" />
               <div className="absolute bottom-4 right-4 w-7 h-7 border-b-2 border-r-2 border-[#383636]/30" />
             </div>
-            <p className="mt-3 text-right text-xs tracking-[0.18em] uppercase text-[#383636]/40 font-light">
+            <p className="mt-3 text-right text-xs tracking-[0.18em] uppercase text-[#383636]/40 font-normal">
               Dhaka, Bangladesh · 2024
             </p>
           </div>

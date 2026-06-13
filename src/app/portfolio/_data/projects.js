@@ -1,8 +1,8 @@
 export const CATEGORIES = [
-  { id: "institutional", name: "Institutional" },
-  { id: "residential", name: "Residential" },
   { id: "commercial", name: "Commercial" },
-  { id: "hospitality", name: "Hospitality" },
+  { id: "interior", name: "Interior" },
+  { id: "architecture", name: "Architecture" },
+  { id: "residential", name: "Residential" },
 ];
 
 export const PROJECTS = [
@@ -99,6 +99,38 @@ export const PROJECTS = [
       "/images/fervent-chairman.jpg",
       "/images/fervent-lounge.jpg",
       "/images/fervent-dining.jpg",
+    ],
+  },
+  {
+    id: 5,
+    title: "Dhaka Bank PLC — Kalatia Branch",
+    category: "Commercial",
+    categoryId: "commercial",
+    location: "Kalatia, Keraniganj, Dhaka",
+    thumbnail: "/images/dhaka-bank-lounge.jpg",
+    description:
+      "A full-branch interior for Dhaka Bank PLC at Kalatia — a calm, trust-inspiring banking environment built around warm wood tones, acoustic comfort, and clear spatial zoning for customers and staff.",
+    longDescription:
+      "Commissioned by Dhaka Bank PLC for their Kalatia Branch, this interior project covers the complete fit-out of a modern retail bank. The design is guided by the bank's brand ethos — 'Your Trust. Our Commitment.' — translated into a material palette of warm oak veneer, grey stone-finish tiles, and cream texture walls that communicate reliability without formality. The open banking floor is organised around a central teller counter with perforated timber cladding and under-counter lighting, flanked by a customer waiting lounge featuring blue upholstered seating beneath circular ring pendant lights. Glass-partitioned officer rooms and a dedicated meeting room maintain visual openness while providing acoustic separation. Wall graphics carrying the bank's vision, mission, and brand identity are integrated as spatial elements rather than afterthoughts. Floor finishes include Flotex carpet in the waiting zone and vinyl and ceramic tiles in the transactional areas — each zone coded by material.",
+    client: "Dhaka Bank PLC",
+    architect: "arch INNER",
+    type: "Commercial Interior",
+    concept: "Banking Excellence — Trust · Clarity · Warmth",
+    year: "2026",
+    galleryAspectRatio: "4/3",
+    galleryLabels: [
+      "Customer Waiting Lounge",
+      "Banking Floor — Overview",
+      "Teller Counter Zone",
+      "Manager's Room",
+      "Reception Counter",
+    ],
+    gallery: [
+      "/images/dhaka-bank-lounge.jpg",
+      "/images/dhaka-bank-floor-1.jpg",
+      "/images/dhaka-bank-floor-2.jpg",
+      "/images/dhaka-bank-manager.jpg",
+      "/images/dhaka-bank-reception.jpg",
     ],
   },
   {

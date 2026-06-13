@@ -55,10 +55,10 @@ const Footer = () => {
               alt="Arch Inner"
               className="w-12 h-12 object-contain mb-6 brightness-0 invert opacity-60"
             />
-            <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-4 font-light">
+            <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-4 font-normal">
               / Arch Inner
             </p>
-            <p className="text-base text-white/30 font-light leading-relaxed max-w-xs">
+            <p className="text-base text-white/30 font-normal leading-relaxed max-w-xs">
               We design spaces that bridge architecture and emotion — crafting
               interiors that feel timeless and deeply personal.
             </p>
@@ -83,7 +83,7 @@ const Footer = () => {
           {/* Links */}
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10">
             <div className="f-reveal">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-white/35 mb-6 font-light">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-white/35 mb-6 font-normal">
                 / Studio
               </p>
               <ul className="space-y-4">
@@ -95,7 +95,7 @@ const Footer = () => {
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-base text-white/30 hover:text-white/70 font-light tracking-wide transition-colors duration-300"
+                      className="text-base text-white/30 hover:text-white/70 font-normal tracking-wide transition-colors duration-300"
                     >
                       {label}
                     </Link>
@@ -105,7 +105,7 @@ const Footer = () => {
             </div>
 
             <div className="f-reveal">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-white/35 mb-6 font-light">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-white/35 mb-6 font-normal">
                 / Work
               </p>
               <ul className="space-y-4">
@@ -116,7 +116,7 @@ const Footer = () => {
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-base text-white/30 hover:text-white/70 font-light tracking-wide transition-colors duration-300"
+                      className="text-base text-white/30 hover:text-white/70 font-normal tracking-wide transition-colors duration-300"
                     >
                       {label}
                     </Link>
@@ -126,7 +126,7 @@ const Footer = () => {
             </div>
 
             <div className="f-reveal">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-white/35 mb-6 font-light">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-white/35 mb-6 font-normal">
                 / Contact
               </p>
               <ul className="space-y-4">
@@ -137,7 +137,7 @@ const Footer = () => {
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-base text-white/30 hover:text-white/70 font-light tracking-wide transition-colors duration-300"
+                      className="text-base text-white/30 hover:text-white/70 font-normal tracking-wide transition-colors duration-300"
                     >
                       {label}
                     </Link>
@@ -153,10 +153,10 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="f-reveal py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/20 font-light tracking-widest">
+          <p className="text-xs text-white/20 font-normal tracking-widest">
             © {new Date().getFullYear()} Arch Inner. All rights reserved.
           </p>
-          <p className="text-xs text-white/12 font-light tracking-[0.15em] uppercase">
+          <p className="text-xs text-white/12 font-normal tracking-[0.15em] uppercase">
             Dhaka, Bangladesh
           </p>
         </div>
