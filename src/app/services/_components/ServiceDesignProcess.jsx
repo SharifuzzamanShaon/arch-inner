@@ -1,106 +1,65 @@
-import Container from "@/app/_components/common/Container";
 import Image from "next/image";
-import { FaMessage, FaPen, FaTruck } from "react-icons/fa6";
-import { FiLayout, FiSettings } from "react-icons/fi";
-import { MdCheckCircleOutline } from "react-icons/md";
+import { DESIGN_PROCESS } from "../_data/services";
 
 const ServiceDesignProcess = () => {
-  const processes = [
-    {
-      title: "Project Brief & Consultation",
-      description: "Understand your vision, needs and budget.",
-      icon: <FaMessage className="text-orange-500" size={24} />,
-      align: "text-right",
-      flexDir: "flex-row-reverse",
-    },
-    {
-      title: "Concept Development",
-      description: "Create design concepts, color schemes and mood boards.",
-      icon: <FaPen className="text-orange-500" size={24} />,
-      align: "text-left",
-      flexDir: "flex-row",
-    },
-    {
-      title: "Detailed Planning & Visualization",
-      description: "Produce floor plans, 3D renderings and material boards.",
-      icon: <FiLayout className="text-orange-500" size={24} />,
-      align: "text-right",
-      flexDir: "flex-row-reverse",
-    },
-    {
-      title: "Design Approval & Finalization",
-      description:
-        "Review and finalize all design elements with your approval before execution begins.",
-      icon: <MdCheckCircleOutline className="text-orange-500" size={24} />,
-      align: "text-left",
-      flexDir: "flex-row",
-    },
-    {
-      title: "Final Walkthrough & Delivery",
-      description: "Ensure quality and client satisfaction.",
-      icon: <FaTruck className="text-orange-500" size={24} />,
-      align: "text-right",
-      flexDir: "flex-row-reverse",
-    },
-    {
-      title: "Implementation & Project Management",
-      description: "Oversee construction, procurement and installation.",
-      icon: <FiSettings className="text-orange-500" size={24} />,
-      align: "text-left",
-      flexDir: "flex-row",
-    },
-  ];
-
   return (
-    <Container>
-      <div className="py-10 sm:py-12 md:py-16">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 sm:mb-16 md:mb-20 text-gray-900">
-          Design Process
-        </h2>
-        <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 items-center">
-          <div className="space-y-10 sm:space-y-14 lg:space-y-24 order-1 lg:order-1">
-            {[processes[0], processes[1], processes[2]].map((item, idx) => (
-              <div key={idx} className="flex gap-4 flex-row text-left">
-                <div className="mt-1">{item.icon}</div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+    <section className="bg-[#383636]/3 border-t border-[#383636]/10">
+      <div className="max-w-360 mx-auto px-6 sm:px-14 lg:px-16 py-20 sm:py-28">
+        <p className="text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
+          / How We Work
+        </p>
+
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16 sm:mb-20">
+          <h2
+            className="font-normal text-[#383636] leading-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+          >
+            Design Process
+          </h2>
+          <p className="text-sm text-[#383636]/50 font-normal max-w-xs leading-relaxed">
+            A structured seven-stage framework that ensures every project is
+            delivered with precision and clarity.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 divide-[#383636]/8">
+          {DESIGN_PROCESS.map((process, i) => (
+            <div
+              key={i}
+              className="py-8 pr-0 sm:pr-8 lg:pr-12 border-r-0 sm:border-r border-[#383636]/8 last:border-r-0 nth-[2n]:border-r-0 sm:nth-[2n]:border-r lg:nth-[2n]:border-r lg:nth-[4n]:border-r-0"
+            >
+              {/* B&W image */}
+              <div className="w-full aspect-video overflow-hidden mb-6 bg-[#383636]/5">
+                <Image
+                  src={process.image}
+                  width={400}
+                  height={225}
+                  alt={process.title}
+                  className="w-full h-full object-cover grayscale"
+                />
               </div>
-            ))}
-          </div>
-          <div className="order-2 lg:order-2 flex justify-center items-end lg:items-center">
-            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md h-auto aspect-square transform scale-100 lg:scale-110 translate-y-6 sm:translate-y-8 lg:translate-y-12">
-              <Image
-                width={400}
-                height={400}
-                src="/images/design-porcess-img.png"
-                alt="Room Isometric View"
-              />
+
+              <span className="text-[10px] tracking-[0.3em] pl-2 uppercase text-[#383636]/25 font-normal block mb-4">
+                {process.step}
+              </span>
+              <h3 className="text-base font-medium text-[#383636] pl-2 mb-3 leading-snug">
+                {process.title}
+              </h3>
+              <p className="text-sm text-[#383636]/50 pl-2 font-normal leading-relaxed">
+                {process.description}
+              </p>
             </div>
-          </div>
-          <div className="space-y-10 sm:space-y-14 lg:space-y-24 order-3 lg:order-3">
-            {[processes[3], processes[4], processes[5]].map((item, idx) => (
-              <div key={idx} className="flex gap-4 flex-row text-left">
-                <div className="mt-1">{item.icon}</div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
+        </div>
+
+        <div className="mt-16 pt-10 border-t border-[#383636]/10">
+          <p className="text-[11px] tracking-[0.25em] uppercase text-[#383636]/30 font-normal">
+            We follow local good practice standards across all stages of
+            delivery.
+          </p>
         </div>
       </div>
-    </Container>
+    </section>
   );
 };
 

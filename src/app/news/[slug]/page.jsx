@@ -21,7 +21,9 @@ export default async function NewsDetailPage({ params }) {
   const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
 
-  const related = posts.filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 2);
+  const related = posts
+    .filter((p) => p.slug !== post.slug && p.category === post.category)
+    .slice(0, 2);
   const fallback = posts.filter((p) => p.slug !== post.slug).slice(0, 2);
   const relatedPosts = related.length ? related : fallback;
 
@@ -30,7 +32,7 @@ export default async function NewsDetailPage({ params }) {
       <Header />
 
       {/* Hero image */}
-      <div className="relative w-full h-[55vw] max-h-150 min-h-70 pt-16 sm:pt-18 lg:pt-20">
+      <div className="relative w-full h-[55vw] max-h-150 min-h-70 mt-16 sm:mt-18 lg:mt-20">
         <Image
           src={post.image}
           alt={post.title}
@@ -44,14 +46,19 @@ export default async function NewsDetailPage({ params }) {
       {/* Article */}
       <article className="bg-white">
         <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16">
-
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 pt-10 pb-8 border-b border-[#383636]/8">
-            <Link href="/" className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/35 hover:text-[#383636] transition-colors duration-200">
+            <Link
+              href="/"
+              className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/35 hover:text-[#383636] transition-colors duration-200"
+            >
               Home
             </Link>
             <span className="text-[#383636]/20 text-xs">/</span>
-            <Link href="/blogs" className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/35 hover:text-[#383636] transition-colors duration-200">
+            <Link
+              href="/blogs"
+              className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/35 hover:text-[#383636] transition-colors duration-200"
+            >
               News
             </Link>
             <span className="text-[#383636]/20 text-xs">/</span>
@@ -91,12 +98,14 @@ export default async function NewsDetailPage({ params }) {
           {/* Body */}
           <div className="max-w-3xl pb-16 sm:pb-24 space-y-7 border-t border-[#383636]/8 pt-12">
             {post.content.map((para, i) => (
-              <p key={i} className="text-[#383636]/70 text-base leading-[1.85] font-normal">
+              <p
+                key={i}
+                className="text-[#383636]/70 text-base leading-[1.85] font-normal"
+              >
                 {para}
               </p>
             ))}
           </div>
-
         </div>
       </article>
 
@@ -109,8 +118,15 @@ export default async function NewsDetailPage({ params }) {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {relatedPosts.map((p) => (
-                <Link key={p.id} href={`/news/${p.slug}`} className="group flex flex-col gap-4">
-                  <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
+                <Link
+                  key={p.id}
+                  href={`/news/${p.slug}`}
+                  className="group flex flex-col gap-4"
+                >
+                  <div
+                    className="relative overflow-hidden"
+                    style={{ aspectRatio: "16/10" }}
+                  >
                     <Image
                       src={p.image}
                       fill
@@ -120,9 +136,13 @@ export default async function NewsDetailPage({ params }) {
                     />
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-[9px] tracking-[0.3em] uppercase text-[#383636] font-normal">{p.category}</span>
+                    <span className="text-[9px] tracking-[0.3em] uppercase text-[#383636] font-normal">
+                      {p.category}
+                    </span>
                     <span className="w-3 h-px bg-[#383636]/20" />
-                    <span className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/35 font-normal">{p.date}</span>
+                    <span className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/35 font-normal">
+                      {p.date}
+                    </span>
                   </div>
                   <h3 className="text-base sm:text-lg font-semibold text-[#383636] leading-snug group-hover:text-[#383636]/60 transition-colors duration-300">
                     {p.title}

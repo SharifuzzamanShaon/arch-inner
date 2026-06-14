@@ -21,7 +21,11 @@ const NewsSection = () => {
         headingRef.current?.querySelectorAll(".reveal"),
         { y: 32, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out",
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
           scrollTrigger: { trigger: headingRef.current, start: "top 84%" },
         },
       );
@@ -29,7 +33,11 @@ const NewsSection = () => {
         cardsRef.current?.querySelectorAll(".news-card"),
         { y: 40, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "power3.out",
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: "power3.out",
           scrollTrigger: { trigger: cardsRef.current, start: "top 84%" },
         },
       );
@@ -38,17 +46,22 @@ const NewsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white border-t border-[#383636]/10 py-20 sm:py-28">
+    <section
+      ref={sectionRef}
+      className="bg-white border-t border-[#383636]/10 py-20 sm:py-28"
+    >
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16">
-
         {/* Heading */}
-        <div ref={headingRef} className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 sm:mb-16">
+        <div
+          ref={headingRef}
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 sm:mb-16"
+        >
           <div>
             <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636]/50 mb-4 font-normal">
               / News &amp; Insights
             </p>
             <h2
-              className="reveal font-semibold text-[#383636] leading-tight"
+              className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
             >
               Latest from <span className="text-[#383636]/40">Arch Inner</span>
@@ -57,11 +70,21 @@ const NewsSection = () => {
         </div>
 
         {/* Cards grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+        <div
+          ref={cardsRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
+        >
           {latest.map((post) => (
-            <Link key={post.id} href={`/news/${post.slug}`} className="news-card group flex flex-col gap-4">
+            <Link
+              key={post.id}
+              href={`/news/${post.slug}`}
+              className="news-card group flex flex-col gap-4"
+            >
               {/* Image */}
-              <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
+              <div
+                className="relative overflow-hidden"
+                style={{ aspectRatio: "16/10" }}
+              >
                 <Image
                   src={post.image}
                   fill
@@ -102,7 +125,6 @@ const NewsSection = () => {
             </Link>
           ))}
         </div>
-
       </div>
     </section>
   );
