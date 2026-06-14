@@ -5,6 +5,12 @@ export const CATEGORIES = [
   { id: "residential", name: "Residential" },
 ];
 
+const BAT = "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD.";
+const DIU = "/images/DIU";
+const FERVENT = "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION";
+const DBPLC = "/images/DBPlc%20Kalatia%20Branch%20Presentation";
+const IELTS = "/images/IELTS";
+
 export const PROJECTS = [
   {
     id: 1,
@@ -12,7 +18,7 @@ export const PROJECTS = [
     category: "Institutional",
     categoryId: "institutional",
     location: "MLD, Kushtia",
-    thumbnail: "/images/bat-kushtia-night.jpg",
+    thumbnail: `${BAT}/VIEW%20FROM%20ENTRY%20GATE.png`,
     description:
       "A community facility rooted in the Bangladeshi courtyard tradition, with tobacco-leaf-inspired facade screens and warm material honesty.",
     longDescription:
@@ -24,17 +30,17 @@ export const PROJECTS = [
     year: "2024",
     galleryLabels: [
       "View from Entry Gate",
-      "Front Elevation",
-      "Courtyard",
+      "Farmers Lounge Courtyard",
       "Lounge Interior",
-      "Night View",
+      "Master Plan",
+      "Plan in Scale",
     ],
     gallery: [
-      "/images/bat-kushtia-exterior.jpg",
-      "/images/bat-kushtia-elevation.jpg",
-      "/images/bat-kushtia-courtyard.jpg",
-      "/images/bat-kushtia-lounge.jpg",
-      "/images/bat-kushtia-night.jpg",
+      `${BAT}/VIEW%20FROM%20ENTRY%20GATE.png`,
+      `${BAT}/FARMERS%20LOUNGE%20COURTYARD%20ARCHEGROUND%20LTD.png`,
+      `${BAT}/LOUNGE%20INTERIOR.png`,
+      `${BAT}/MASTER%20PLAN.png`,
+      `${BAT}/PALN%20IN%20SCALE.png`,
     ],
   },
   {
@@ -43,7 +49,7 @@ export const PROJECTS = [
     category: "Institutional",
     categoryId: "institutional",
     location: "University of Dhaka",
-    thumbnail: "/images/du-dean-room.jpg",
+    thumbnail: `${DIU}/DEAN%20ROOM.png`,
     description:
       "A comprehensive interior design for the Faculty of Earth & Environmental Science and Engineering & Technology Building — warm timber tones and refined detailing for academic excellence.",
     longDescription:
@@ -57,16 +63,18 @@ export const PROJECTS = [
     galleryLabels: [
       "Dean's Room",
       "Dean's Room — View 2",
-      "Dean's Waiting Area",
       "Officer's Room",
       "Conference Room",
+      "Meeting Room",
+      "Hall Room Plan",
     ],
     gallery: [
-      "/images/du-dean-room.jpg",
-      "/images/du-dean-room-2.jpg",
-      "/images/du-waiting.jpg",
-      "/images/du-officers.jpg",
-      "/images/du-conference.jpg",
+      `${DIU}/DEAN%20ROOM.png`,
+      `${DIU}/DEAN%20ROOM%201.png`,
+      `${DIU}/OFFICER%E2%80%99S%20FOR%20DEAN.png`,
+      `${DIU}/CONFERENCE%20ROOM.png`,
+      `${DIU}/MEETING%20ROOM.png`,
+      `${DIU}/HALL%20ROOM%20PLAN.png`,
     ],
   },
   {
@@ -75,7 +83,7 @@ export const PROJECTS = [
     category: "Commercial",
     categoryId: "commercial",
     location: "Mohakhali C/A, Dhaka",
-    thumbnail: "/images/fervent-reception.jpg",
+    thumbnail: `${FERVENT}/RECEPTION.png`,
     description:
       "An executive interior for a prominent industrial conglomerate — structured opulence expressed through bespoke millwork, curated stone finishes, and precision lighting.",
     longDescription:
@@ -87,18 +95,20 @@ export const PROJECTS = [
     year: "2025",
     galleryAspectRatio: "4/3",
     galleryLabels: [
-      "Reception Area",
-      "Lobby Corridor",
-      "Chairman's Room",
-      "Chairman's Lounge",
-      "Dining Area",
+      "Reception",
+      "Interior View — Chairman Room",
+      "Reception Area — View 1",
+      "Reception Area — View 2",
+      "Reception Area — View 3",
+      "Floor Plan",
     ],
     gallery: [
-      "/images/fervent-reception.jpg",
-      "/images/fervent-lobby.jpg",
-      "/images/fervent-chairman.jpg",
-      "/images/fervent-lounge.jpg",
-      "/images/fervent-dining.jpg",
+      `${FERVENT}/RECEPTION.png`,
+      `${FERVENT}/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png`,
+      `${FERVENT}/INTERIOR%20VIEW%20RECEPTION%20AREA.png`,
+      `${FERVENT}/INTERIOR%20VIEW%20RECEPTION%20AREA_2.png`,
+      `${FERVENT}/INTERIOR%20VIEW%20RECEPTION%20AREA_3.png`,
+      `${FERVENT}/FLOOR%20PLAN.png`,
     ],
   },
   {
@@ -107,7 +117,7 @@ export const PROJECTS = [
     category: "Commercial",
     categoryId: "commercial",
     location: "Kalatia, Keraniganj, Dhaka",
-    thumbnail: "/images/dhaka-bank-lounge.jpg",
+    thumbnail: `${DBPLC}/image.png`,
     description:
       "A full-branch interior for Dhaka Bank PLC at Kalatia — a calm, trust-inspiring banking environment built around warm wood tones, acoustic comfort, and clear spatial zoning for customers and staff.",
     longDescription:
@@ -119,18 +129,18 @@ export const PROJECTS = [
     year: "2026",
     galleryAspectRatio: "4/3",
     galleryLabels: [
-      "Customer Waiting Lounge",
-      "Banking Floor — Overview",
-      "Teller Counter Zone",
-      "Manager's Room",
-      "Reception Counter",
+      "View 1",
+      "View 2",
+      "View 3",
+      "View 4",
+      "View 5",
     ],
     gallery: [
-      "/images/dhaka-bank-lounge.jpg",
-      "/images/dhaka-bank-floor-1.jpg",
-      "/images/dhaka-bank-floor-2.jpg",
-      "/images/dhaka-bank-manager.jpg",
-      "/images/dhaka-bank-reception.jpg",
+      `${DBPLC}/image.png`,
+      `${DBPLC}/image%20copy.png`,
+      `${DBPLC}/image%20copy%202.png`,
+      `${DBPLC}/image%20copy%203.png`,
+      `${DBPLC}/image%20copy%204.png`,
     ],
   },
   {
@@ -139,7 +149,7 @@ export const PROJECTS = [
     category: "Commercial",
     categoryId: "commercial",
     location: "Bhai Bhai Plaza, Khilkhet, Dhaka-1229",
-    thumbnail: "/images/servisol-reception.jpg",
+    thumbnail: `${IELTS}/WAITING%20AREA%20OP-1.png`,
     description:
       "A vibrant IT-enabled services office where bold colour zoning, acoustic panels, and open workstation planning create an energising environment for a growing tech workforce.",
     longDescription:
@@ -151,18 +161,22 @@ export const PROJECTS = [
     year: "2025",
     galleryAspectRatio: "4/3",
     galleryLabels: [
-      "Reception & Waiting Area",
-      "Director's Waiting Lounge",
-      "Director's Room",
-      "Workstation Zone",
-      "Meeting Room",
+      "Waiting Area",
+      "Director's Waiting",
+      "Director's Room — Front",
+      "Working Zone",
+      "Working Zone — View 2",
+      "Waiting",
+      "2D Plan",
     ],
     gallery: [
-      "/images/servisol-reception.jpg",
-      "/images/servisol-waiting.jpg",
-      "/images/servisol-director-room.jpg",
-      "/images/servisol-workstation.jpg",
-      "/images/servisol-meeting.jpg",
+      `${IELTS}/WAITING%20AREA%20OP-1.png`,
+      `${IELTS}/DIRECTORS%20WAITING.png`,
+      `${IELTS}/DIRECTORS%20RM%20FRONT.png`,
+      `${IELTS}/WORKING%20ZONE.png`,
+      `${IELTS}/WORKING%20ZONE%202.png`,
+      `${IELTS}/WAITING.png`,
+      `${IELTS}/2D%20PLAN.png`,
     ],
   },
 ];

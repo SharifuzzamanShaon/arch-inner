@@ -168,21 +168,21 @@ export const DESIGN_PROCESS = [
   {
     step: "05",
     title: "Manufacturing & Construction",
-    image: "/images/gallery-1.png",
+    image: "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD./MASTER%20PLAN.png",
     description:
       "Our team oversees the fabrication, procurement, and on-site construction — ensuring that every element is executed to the standard set in the design documentation.",
   },
   {
     step: "06",
     title: "Handover",
-    image: "/images/gallery-2.png",
+    image: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20RECEPTION%20AREA.png",
     description:
       "A final walkthrough is conducted to verify quality, completeness, and client satisfaction before the space is formally handed over — with all snag items resolved.",
   },
   {
     step: "07",
     title: "Use",
-    image: "/images/gallery-3.png",
+    image: "/images/IELTS/WORKING%20ZONE%202.png",
     description:
       "Post-handover, we remain available for any follow-up, maintenance guidance, or future phase planning — ensuring the space continues to serve its intended purpose.",
   },

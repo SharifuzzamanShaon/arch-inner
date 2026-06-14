@@ -97,9 +97,6 @@ const Header = () => {
             {/* Desktop nav — slash-separated items */}
             <nav className="hidden md:block">
               <ul className="flex items-center">
-                <li className="text-[11px] font-normal select-none px-1 text-black/30">
-                  /
-                </li>
                 {navItems.map((item) => {
                   const active = pathname === item.href;
                   return (
@@ -114,9 +111,6 @@ const Header = () => {
                       >
                         {item.name}
                       </Link>
-                      <span className="text-[11px] font-normal select-none px-0.5 text-black/30">
-                        /
-                      </span>
                     </li>
                   );
                 })}

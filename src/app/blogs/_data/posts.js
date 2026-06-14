@@ -34,7 +34,7 @@ export const posts = [
     title: "Designing Executive Spaces: Authority Through Material",
     excerpt:
       "How high-end material selection — stone, veneer, and precision lighting — communicates leadership and refinement in corporate environments.",
-    image: "/images/fervent-chairman.jpg",
+    image: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png",
     content: [
       "An executive floor is not simply an office — it is an extension of corporate identity, a physical statement about how an organisation sees itself and wants to be seen. At Fervent Multiboard Industries, the chairman floor brief asked for authority, refinement, and a sense of permanence. The challenge was to achieve all three without tipping into ostentation.",
       "Material selection is where executive interiors succeed or fail. Stone, in its natural variation, conveys permanence — it is the material of institutions and cathedrals, and it carries that cultural weight into any room it enters. We specified a warm-vein marble for the reception counter and selected book-matched stone panels for the chairman's feature wall. The colour temperature of the stone — warm ivory with gold undertones — was chosen to complement the oak veneer used throughout the joinery.",
@@ -51,7 +51,7 @@ export const posts = [
     title: "Academic Interiors: Crafting Environments for Focused Learning",
     excerpt:
       "Thoughtful spatial design in educational buildings supports concentration, collaboration, and institutional identity.",
-    image: "/images/du-conference.jpg",
+    image: "/images/DIU/CONFERENCE%20ROOM.png",
     content: [
       "Universities are among the most complex briefs in institutional interior design. A faculty building must serve radically different needs simultaneously: the focused solitude of a researcher's office, the collaborative energy of a seminar room, the formal authority of a dean's chamber, and the transitional ease of a waiting area. Each space carries distinct functional requirements, yet together they must read as a coherent whole.",
       "For the Faculty of Earth Sciences and Engineering Technology at the University of Dhaka, we began with a material palette that could span all these contexts without feeling either too clinical or too domestic. Warm oak veneer, off-white plaster, and dark metal accents formed the base system. The veneer brings warmth and scholarly gravitas; the plaster keeps the palette clean and light-reflective; the metal provides precision at junctions and edges.",
@@ -68,7 +68,7 @@ export const posts = [
     title: "The Open Office Reimagined: Energy, Acoustics, and Brand",
     excerpt:
       "Modern IT offices demand more than rows of desks. Colour zoning, acoustic panels, and branded environments drive productivity and retention.",
-    image: "/images/servisol-workstation.jpg",
+    image: "/images/IELTS/WORKING%20ZONE.png",
     content: [
       "The open-plan office has been under scrutiny for over a decade. Research consistently shows that unmanaged open environments reduce concentration and increase stress — yet the format persists because density and collaboration remain valid business requirements. The answer is not to abandon the open plan but to design it properly: with acoustic control, spatial zoning, and a physical environment that reflects the organisation's identity.",
       "At Servisol ITES, the brief was for a tech-enabled services workspace that could accommodate high-density IT operations while communicating the company's energy and ambition. The reception sets the tone immediately — a bold colour-block wall, a signature circular coved ceiling, and modular seating in accent tones signal that this is not a conventional corporate environment. Brand expression was a primary design driver from the outset.",
@@ -85,7 +85,7 @@ export const posts = [
     title: "Warm Minimalism: The Case for Restraint in Home Design",
     excerpt:
       "How limiting a palette to three materials and two tones creates spaces that feel curated rather than sparse.",
-    image: "/images/du-dean-room.jpg",
+    image: "/images/DIU/DEAN%20ROOM.png",
     content: [
       "There is a common misunderstanding that minimalism means empty. In residential design, the spaces that read as minimal — that feel uncluttered, serene, and resolved — are almost always the result of enormous design effort. Restraint is not the absence of decision-making; it is the product of it. Every element that remains has been justified; every element that was removed has been considered.",
       "The practical starting point for warm minimalism is material selection. Three is a useful limit: one primary surface material, one secondary, one accent. On a recent project, we worked with off-white limewash as the primary wall treatment, white oak as the secondary material across flooring and joinery, and black oxidised steel as the accent at door frames, handles, and shelf brackets. The result is a space where every material is in conversation with the others — nothing competes, nothing is neutral.",
