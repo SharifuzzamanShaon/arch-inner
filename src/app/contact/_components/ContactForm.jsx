@@ -58,13 +58,6 @@ const InquiryForm = () => {
             </h2>
 
             <div className="relative overflow-hidden">
-              <Image
-                src="/images/contact-img.png"
-                width={800}
-                height={600}
-                alt="Interior Design"
-                className="w-full object-cover grayscale"
-              />
               <div className="absolute inset-0 bg-white/10" />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-white/70 to-transparent">
                 <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636] font-normal mb-1">
@@ -224,7 +217,7 @@ const InquiryForm = () => {
                 type="submit"
                 className="group relative w-full py-5 bg-transparent border border-[#383636]/20 text-[#383636]/60 hover:border-[#383636] hover:text-[#383636] text-base tracking-[0.2em] uppercase font-semibold transition-all duration-400 overflow-hidden"
               >
-                <span className="relative z-10 flex items-center justify-center gap-4">
+                <span className="relative z-10 flex cursor-pointer items-center justify-center gap-4">
                   Send Inquiry
                   <span className="inline-block w-6 h-px bg-current group-hover:w-12 transition-all duration-400" />
                   <span>→</span>
