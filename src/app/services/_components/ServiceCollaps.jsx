@@ -1,128 +1,106 @@
 "use client";
-import Container from "@/app/_components/common/Container";
-import axios from "axios";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { useState } from "react";
+import { SERVICES } from "../_data/services";
 
 const ServiceCollaps = () => {
-  const [openIndex, setOpenIndex] = useState(0);
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/public/services`,
-        );
-
-        setServices([...response?.data.data]);
-      } catch {
-        // services remain empty
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchServices();
-  }, []);
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <Container>
-      <div className="py-10 sm:py-12 md:py-16">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 sm:mb-14 md:mb-16 text-gray-900">
-          Services
-        </h2>
+    <section className="bg-white border-t border-[#383636]/10">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-10 sm:py-28">
+        <p className="text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
+          / What We Do
+        </p>
 
-        {loading ? (
-          <div className="text-center py-20">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
-            <p className="mt-4 text-gray-600">Loading services...</p>
-          </div>
-        ) : services.length > 0 ? (
-          <>
-            <div className="space-y-12 lg:space-y-16">
-              {services.map((service, serviceIndex) => (
-                <div
-                  key={service.id || serviceIndex}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start"
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16 sm:mb-20">
+          <h2
+            className="font-normal text-[#383636] leading-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+          >
+            Our Services
+          </h2>
+          <p className="text-sm text-[#383636]/50 font-normal max-w-xs leading-relaxed">
+            Seven stages of design — from brief to handover — across five core
+            disciplines.
+          </p>
+        </div>
+
+        <div className="space-y-0 divide-y divide-[#383636]/8">
+          {SERVICES.map((service, serviceIndex) => (
+            <div key={service.id}>
+              {/* Service header row */}
+              <button
+                onClick={() =>
+                  setOpenIndex(openIndex === serviceIndex ? null : serviceIndex)
+                }
+                className="w-full flex items-start justify-between gap-8 py-8 text-left group"
+              >
+                <div className="flex items-start gap-6 flex-1 min-w-0">
+                  <span className="text-[11px] tracking-[0.2em] text-[#383636]/30 font-normal pt-1 shrink-0 w-6">
+                    {String(serviceIndex + 1).padStart(2, "0")}
+                  </span>
+                  <h3
+                    className="font-normal text-[#383636] group-hover:text-[#383636]/70 transition-colors duration-300"
+                    style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
+                  >
+                    {service.name}
+                  </h3>
+                </div>
+                <span
+                  className={`text-[#383636]/30 text-sm shrink-0 transition-transform duration-300 mt-1 ${openIndex === serviceIndex ? "rotate-45" : ""}`}
                 >
-                  {/* Left Side: Service Image */}
-                  <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] max-w-xl mx-auto w-full">
-                    <Image
-                      width={1200}
-                      height={800}
-                      src={
-                        service.thumbnail || "/images/service-collaps-img.png"
-                      }
-                      alt={`${service.name} Image`}
-                      className="w-full h-full object-cover"
-                      unoptimized
-                      onError={(e) => {
-                        e.target.src = "/images/service-collaps-img.png";
-                      }}
-                    />
-                  </div>
+                  +
+                </span>
+              </button>
 
-                  {/* Right Side: Service Accordion */}
-                  <div className="space-y-2">
-                    {/* Service Name Header */}
-                    <div className="mb-3">
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-                        {service.name}
-                      </h3>
-                    </div>
-
-                    {/* Service Details */}
-                    {service.details?.map((detail, detailIndex) => (
-                      <div
-                        key={`${service.id}-${detailIndex}`}
-                        className="border-b border-orange-200 last:border-0"
-                      >
-                        <button
-                          onClick={() =>
-                            setOpenIndex(
-                              openIndex === `${serviceIndex}-${detailIndex}`
-                                ? -1
-                                : `${serviceIndex}-${detailIndex}`,
-                            )
-                          }
-                          className="w-full py-3 sm:py-4 flex justify-between items-center text-left hover:text-orange-500 transition-colors"
-                        >
-                          <span
-                            className={`text-lg md:text-xl font-semibold ${openIndex === `${serviceIndex}-${detailIndex}` ? "text-gray-900" : "text-gray-700"}`}
-                          >
-                            {detail.title}
-                          </span>
-                          {openIndex === `${serviceIndex}-${detailIndex}` ? (
-                            <FaChevronUp className="text-orange-500" />
-                          ) : (
-                            <FaChevronDown className="text-orange-400" />
-                          )}
-                        </button>
-
-                        <div
-                          className={`overflow-hidden transition-all duration-300 ${openIndex === `${serviceIndex}-${detailIndex}` ? "max-h-[260px] sm:max-h-[300px] md:max-h-40 pb-4 sm:pb-6" : "max-h-0"}`}
-                        >
-                          <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-lg whitespace-pre-line">
-                            {detail.description}
-                          </p>
-                        </div>
+              {/* Expanded content */}
+              <div
+                className={`overflow-hidden transition-all duration-500 ${openIndex === serviceIndex ? "max-h-200 pb-10" : "max-h-0"}`}
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 pl-12">
+                  {/* Details list */}
+                  <div className="space-y-0 divide-y divide-[#383636]/8">
+                    {service.details.map((detail, detailIndex) => (
+                      <div key={detailIndex} className="py-6">
+                        <p className="text-[11px] tracking-[0.25em] uppercase text-[#383636]/35 font-medium mb-3">
+                          {String(detailIndex + 1).padStart(2, "0")} —{" "}
+                          {detail.title}
+                        </p>
+                        <p className="text-sm text-[#383636]/60 font-normal leading-relaxed">
+                          {detail.description}
+                        </p>
                       </div>
                     ))}
                   </div>
+
+                  {/* Service image / logo */}
+                  <div className="flex items-center justify-center lg:justify-end">
+                    <div className="w-full max-w-sm aspect-4/3 relative overflow-hidden bg-[#383636]/3 flex items-center justify-center">
+                      <Image
+                        src={service.thumbnail}
+                        width={400}
+                        height={300}
+                        alt={service.name}
+                        className="w-32 h-auto object-contain opacity-40 grayscale"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                        }}
+                      />
+                      <div className="absolute bottom-4 right-4">
+                        <span className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/20 font-normal">
+                          arch INNER
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
-          </>
-        ) : (
-          <div className="text-center py-20">
-            <p className="text-red-600">No services available</p>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
-    </Container>
+    </section>
   );
 };
 

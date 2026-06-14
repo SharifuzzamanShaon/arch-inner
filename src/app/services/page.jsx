@@ -11,7 +11,6 @@ const page = () => {
   return (
     <>
       <Header />
-      <div className="pt-24 sm:pt-28" />
       <ServiceCollaps />
       <ServiceDesignProcess />
       <ShowcaseProject />

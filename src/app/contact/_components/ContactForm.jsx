@@ -79,8 +79,7 @@ const InquiryForm = () => {
             {/* Contact details */}
             <div className="space-y-6 border-t border-[#383636]/12 pt-8">
               {[
-                { label: "Email", value: "hello@archinner.com" },
-                { label: "Phone", value: "+880 1700-000000" },
+                { label: "Phone", value: "+880 1721-700702" },
                 { label: "Hours", value: "Sun – Thu, 10am – 7pm" },
               ].map(({ label, value }) => (
                 <div key={label} className="flex items-start gap-6">

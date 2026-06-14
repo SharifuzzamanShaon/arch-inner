@@ -1,0 +1,189 @@
+export const SERVICES = [
+  {
+    id: 1,
+    name: "Corporate & Office Interior Design",
+    thumbnail: "/images/servisol-logo.png",
+    details: [
+      {
+        title: "Workstation Zone Planning",
+        description:
+          "We design high-density, ergonomic workstation layouts that balance collaborative open-plan zones with focused individual work areas. Material selection — including Flotex carpet, vinyl, and epoxy flooring — ensures acoustic comfort and long-hour productivity.",
+      },
+      {
+        title: "Executive & Director Rooms",
+        description:
+          "From Director waiting areas to private executive suites, we craft spaces that communicate authority and calm. Finishes draw from our curated mood board — warm wood tones, fabric panels, and acoustic wall treatments — for a composed, professional atmosphere.",
+      },
+      {
+        title: "Reception & Waiting Areas",
+        description:
+          "First impressions are designed with precision. Our reception and waiting zone concepts combine spatial flow, brand identity, and comfort — using a refined palette of grey, wood, and white to create welcoming yet structured spaces.",
+      },
+      {
+        title: "Mood Board & Material Consultation",
+        description:
+          "Every project begins with a thorough mood board selection covering colour psychology — blue-green for focus, yellow for positivity, brown-wood for warmth — alongside floor and wall finish references tailored to the project brief.",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Commercial Banking & Financial Interior",
+    thumbnail: "/images/dhaka-bank-logo.png",
+    details: [
+      {
+        title: "Branch Office Layout & Planning",
+        description:
+          "We design fully functional bank branch interiors that optimise customer flow, teller zones, and back-office operations. Spatial coordination ensures regulatory compliance alongside a welcoming public-facing environment.",
+      },
+      {
+        title: "Customer Experience Zones",
+        description:
+          "Waiting areas, consultation booths, and service counters are designed to reduce perceived wait times and reinforce brand trust. Tufted carpet and ceramic tile combinations provide comfort underfoot while maintaining a professional aesthetic.",
+      },
+      {
+        title: "Wall & Ceiling Finish Design",
+        description:
+          "Acoustic panels, fabric panels, royal paint, and texture finishes are specified to meet both visual and functional requirements — controlling noise, managing light, and projecting institutional credibility.",
+      },
+      {
+        title: "Branding & Identity Integration",
+        description:
+          "Corporate colour palettes and branding elements are woven into the interior architecture — from signage placement to accent lighting — creating a coherent identity throughout every area of the branch.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Institutional & Academic Interior Design",
+    thumbnail: "/images/dhaka-university-logo.png",
+    details: [
+      {
+        title: "Large-Scale Floor Planning",
+        description:
+          "We have delivered institutional interiors exceeding 15,650 SFT — covering Dean's offices, officer rooms, conference halls, and meeting rooms within a single cohesive design language. Our team manages spatial coordination across complex, multi-zone academic floors.",
+      },
+      {
+        title: "Dean's Office & VIP Academic Suites",
+        description:
+          "Executive academic spaces are designed with warm oak veneer, off-white plaster, and dark metal accents — projecting scholarly authority and contemporary clarity. Slatted ceiling elements and layered lighting define each room's distinct identity.",
+      },
+      {
+        title: "Conference & Meeting Room Design",
+        description:
+          "Formal conference rooms and collaborative meeting spaces are planned for functionality and presentation impact. AV integration, acoustic treatment, and flexible furniture arrangements are central to every brief.",
+      },
+      {
+        title: "Wayfinding & Functional Layout",
+        description:
+          "For institutions with high daily footfall, we design intuitive circulation paths, clear zoning, and robust material choices — ensuring spaces remain dignified and durable through years of active use.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Executive Chairman Floor & VIP Suite Design",
+    thumbnail: "/images/fervent-logo.svg",
+    details: [
+      {
+        title: "Chairman's Office & Private Suite",
+        description:
+          "We design the highest tier of corporate interiors — chairman rooms that balance gravitas with livability. Rich material layering, bespoke joinery, and curated lighting create a space that reflects leadership without ostentation.",
+      },
+      {
+        title: "Private Lounge & Dining Area",
+        description:
+          "Adjacent to the chairman suite, private lounges and dining areas are designed for informal leadership conversations and hosted engagements. Materials are selected for warmth — wood, deep upholstery, and controlled ambient lighting.",
+      },
+      {
+        title: "Lobby & Reception Design",
+        description:
+          "The chairman floor lobby sets the tone from the moment of arrival. Grand yet restrained, our reception area designs use a considered play of light, material, and spatial proportion to signal exclusivity.",
+      },
+      {
+        title: "Director & Senior Management Rooms",
+        description:
+          "Supporting the chairman suite, director rooms are designed with complementary but distinct identities — reinforcing hierarchy while maintaining the overall floor's design coherence.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Architectural Design & Outdoor Facilities",
+    thumbnail: "/images/bat-logo.png",
+    details: [
+      {
+        title: "Building Design & Facade Development",
+        description:
+          "We design buildings rooted in their context — such as the BAT Farmer Waiting Station in Kushtia, where the facade was articulated with metal screens abstracting the form of tobacco leaves, giving the building a site-specific agricultural identity.",
+      },
+      {
+        title: "Courtyard & Outdoor Space Planning",
+        description:
+          "Drawing from the Bangladeshi courtyard tradition (uthan), we organise programmes around central green courts that foster community and natural ventilation — creating shared outdoor hearts that bring life to the building.",
+      },
+      {
+        title: "Training & Community Facility Design",
+        description:
+          "We design purpose-built training centres, farmer waiting stations, and community hubs — balancing practical operational needs with dignified, humane architecture using brick, timber, and steel in honest expression.",
+      },
+      {
+        title: "Night Facade & Exterior Lighting",
+        description:
+          "Exterior lighting design is treated as an architectural layer — defining the building's nighttime identity, guiding movement, and ensuring safety, while preserving the integrity of the daytime facade concept.",
+      },
+    ],
+  },
+];
+
+export const DESIGN_PROCESS = [
+  {
+    step: "01",
+    title: "Preparation & Briefing",
+    image: "/images/step-1.png",
+    description:
+      "We begin by understanding your vision, functional requirements, budget, and timeline — establishing a clear project brief that guides all subsequent design decisions.",
+  },
+  {
+    step: "02",
+    title: "Concept Design",
+    image: "/images/step-2.png",
+    description:
+      "Mood boards, colour schemes, and spatial concepts are developed — selecting finishes, material palettes, and design direction that align with the project's identity and purpose.",
+  },
+  {
+    step: "03",
+    title: "Spatial Coordination",
+    image: "/images/step-3.png",
+    description:
+      "Floor plans, furniture layouts, and zone definitions are refined to ensure every square foot is purposeful — balancing flow, function, and aesthetic cohesion across the entire space.",
+  },
+  {
+    step: "04",
+    title: "Technical Design",
+    image: "/images/step-4.png",
+    description:
+      "Detailed drawings, 3D visualisations, material specifications, and construction documentation are produced — giving contractors, clients, and suppliers a precise reference for execution.",
+  },
+  {
+    step: "05",
+    title: "Manufacturing & Construction",
+    image: "/images/gallery-1.png",
+    description:
+      "Our team oversees the fabrication, procurement, and on-site construction — ensuring that every element is executed to the standard set in the design documentation.",
+  },
+  {
+    step: "06",
+    title: "Handover",
+    image: "/images/gallery-2.png",
+    description:
+      "A final walkthrough is conducted to verify quality, completeness, and client satisfaction before the space is formally handed over — with all snag items resolved.",
+  },
+  {
+    step: "07",
+    title: "Use",
+    image: "/images/gallery-3.png",
+    description:
+      "Post-handover, we remain available for any follow-up, maintenance guidance, or future phase planning — ensuring the space continues to serve its intended purpose.",
+  },
+];

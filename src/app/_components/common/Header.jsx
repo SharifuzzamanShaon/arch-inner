@@ -106,7 +106,7 @@ const Header = () => {
                     <li key={item.name} className="flex items-center">
                       <Link
                         href={item.href}
-                        className={`px-2.5 lg:px-3 py-1 text-[16px] uppercase tracking-[0.2em] transition-colors duration-200 ${
+                        className={`px-2.5 lg:px-3 py-1 text-[14px] uppercase tracking-[0.2em] transition-colors duration-200 ${
                           active
                             ? "text-black font-semibold"
                             : "text-black/40  hover:text-black/75"
