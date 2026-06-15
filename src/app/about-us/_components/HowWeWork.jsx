@@ -42,47 +42,47 @@ const HowWeWork = () => {
       id: "01",
       title: "Initial Consultation",
       desc: "We begin by understanding your vision, preferences, and requirements through an in-depth consultation session.",
-      img: "/images/step-1.png",
+      img: "/images/DIU/MEETING%20ROOM.png",
     },
     {
       id: "02",
       title: "Design & Planning",
       desc: "Our team creates detailed design concepts, 3D visualizations, and comprehensive plans tailored to your needs.",
-      img: "/images/step-2.png",
+      img: "/images/IELTS/2D%20PLAN.png",
     },
     {
       id: "03",
       title: "Implementation",
       desc: "We coordinate seamlessly with contractors and vendors to bring your design to life with precision and care.",
-      img: "/images/step-3.png",
+      img: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20RECEPTION%20AREA_3.png",
     },
     {
       id: "04",
       title: "Project Handover",
       desc: "Upon completion, we ensure every detail meets our high standards before handing over your dream space.",
-      img: "/images/step-4.png",
+      img: "/images/DBPlc%20Kalatia%20Branch%20Presentation/image.png",
     },
   ];
 
   return (
     <section className="py-20">
       <div className="max-w-3xl mx-auto text-center space-y-5 pb-12">
-        <span className="text-[10px] tracking-[0.3em] uppercase text-[#FE5443] font-normal">
+        <p className="text-xs tracking-[0.3em] uppercase text-[#383636]/40 font-normal">
           / Our Process
-        </span>
+        </p>
 
         <h2
-          className="font-semibold text-[#383636] leading-tight"
-          style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+          className="font-normal text-[#383636] leading-tight"
+          style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
         >
           How We Work
         </h2>
 
-        <p className="text-[#383636]/55 max-w-sm mx-auto text-sm sm:text-base font-normal leading-relaxed">
+        <p className="text-[#383636]/50 max-w-sm mx-auto text-sm font-normal leading-relaxed">
           {`We've been making people's dreams come true for decades.`}{" "}
           <a
             href="#contact"
-            className="text-[#FE5443] hover:underline transition-all duration-300 underline-offset-4"
+            className="text-[#383636] underline underline-offset-4 hover:text-[#383636]/60 transition-colors duration-300"
           >
             Reach out today
           </a>
@@ -90,8 +90,8 @@ const HowWeWork = () => {
       </div>
       <div className="relative min-h-screen w-full py-20 overflow-hidden bg-gray-900">
         <Image
-          src="/images/our-work.png"
-          alt="Background"
+          src="/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20RECEPTION%20AREA_2.png"
+          alt="Fervent Chairman Floor"
           fill
           className="absolute inset-0 object-cover"
           priority
@@ -124,7 +124,7 @@ const HowWeWork = () => {
 
                   {/* Content Area */}
                   <div className="p-5 sm:p-6 md:p-8 flex flex-col relative rounded-[10px]">
-                    <h3 className="text-white text-lg sm:text-xl font-semibold mb-2 tracking-tight">
+                    <h3 className="text-white text-base sm:text-lg font-normal mb-2">
                       {step.title}
                     </h3>
 
@@ -135,7 +135,7 @@ const HowWeWork = () => {
                     {/* Numbering - Positioned Bottom Right */}
                     <div className="mt-auto flex justify-end pt-4">
                       <span
-                        className="text-white/10 font-semibold leading-none select-none"
+                        className="text-white/10 font-normal leading-none select-none"
                         style={{ fontSize: "clamp(4rem, 8vw, 6rem)" }}
                       >
                         {step.id}

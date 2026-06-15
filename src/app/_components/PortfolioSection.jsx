@@ -111,8 +111,7 @@ const PortfolioSection = () => {
               className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
-              Selected{" "}
-              <span className="text-[#383636]/50">Works</span>
+              Selected <span className="text-[#383636]/50">Works</span>
             </h2>
             <button
               onClick={() => router.push("/portfolio")}
@@ -137,7 +136,7 @@ const PortfolioSection = () => {
                 key={id}
                 onClick={() => !disabled && setActiveTab(id)}
                 disabled={disabled}
-                className={`relative px-4 py-3 text-sm font-normal tracking-[0.08em] transition-colors duration-200 ${
+                className={`relative px-4 py-3 text-sm font-semibold cursor-pointer tracking-[0.08em] transition-colors duration-200 ${
                   disabled
                     ? "text-[#383636]/18 cursor-not-allowed select-none"
                     : active
