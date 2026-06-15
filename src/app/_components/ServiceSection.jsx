@@ -10,45 +10,50 @@ import ServiceCard from "./ServiceCard";
 const SERVICES = [
   {
     id: 1,
-    title: "Residential Interior Design",
+    title: "BAT BD Farmer Waiting Station & Training Center",
     description:
-      "Creating homes that blend comfort with sophistication. Every element is chosen to reflect your lifestyle and aspirations.",
-    thumbnail: "/images/service-1.png",
+      "A community facility rooted in the Bangladeshi courtyard tradition, with tobacco-leaf-inspired facade screens and warm material honesty.",
+    location: "MLD, Kushtia",
+    thumbnail:
+      "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD./VIEW%20FROM%20ENTRY%20GATE.png",
+    href: "/portfolio/1",
   },
   {
     id: 2,
-    title: "Commercial Spaces",
+    title: "Faculty of Earth Sciences & Engineering, University of Dhaka",
     description:
-      "Transforming workplaces into environments that inspire productivity and reflect your brand identity.",
-    thumbnail: "/images/service-2.png",
+      "15,650 SFT of academic interiors — Dean's suite, officer rooms, conference and meeting spaces unified by warm oak veneer and restrained detailing.",
+    location: "University of Dhaka",
+    thumbnail: "/images/DIU/DEAN%20ROOM.png",
+    href: "/portfolio/2",
   },
   {
     id: 3,
-    title: "Hospitality Design",
+    title: "Fervent Multiboard Industries — Chairman Floor",
     description:
-      "Crafting immersive hotel and restaurant experiences that leave a lasting impression on every guest.",
-    thumbnail: "/images/service-3.png",
+      "An executive interior for a prominent industrial conglomerate — bespoke millwork, curated stone finishes, and precision lighting across a full chairman floor.",
+    location: "Mohakhali C/A, Dhaka",
+    thumbnail:
+      "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/RECEPTION.png",
+    href: "/portfolio/3",
   },
   {
     id: 4,
-    title: "Space Planning",
+    title: "Dhaka Bank PLC — Kalatia Branch",
     description:
-      "Optimizing spatial flow and functionality to ensure every square metre works beautifully for you.",
-    thumbnail: "/images/service-5.png",
+      "A full-branch interior built around warm wood tones, acoustic comfort, and clear spatial zoning — trust and clarity expressed through material and light.",
+    location: "Kalatia, Keraniganj, Dhaka",
+    thumbnail: "/images/DBPlc%20Kalatia%20Branch%20Presentation/image.png",
+    href: "/portfolio/5",
   },
   {
     id: 5,
-    title: "Material Consultation",
+    title: "Servisol ITES — Office Interior",
     description:
-      "Selecting the finest materials, textures, and finishes that bring depth and character to your space.",
-    thumbnail: "/images/service-6.png",
-  },
-  {
-    id: 6,
-    title: "3D Visualization",
-    description:
-      "Photorealistic renders that bring your vision to life before a single detail is finalized.",
-    thumbnail: "/images/service-collaps-img.png",
+      "4,752 SFT of vibrant IT office space — bold colour zoning, acoustic panels, and open workstation planning for a growing tech workforce.",
+    location: "Khilkhet, Dhaka-1229",
+    thumbnail: "/images/IELTS/WAITING%20AREA%20OP-1.png",
+    href: "/portfolio/4",
   },
 ];
 
@@ -98,21 +103,21 @@ const ServiceSection = () => {
         {/* Heading */}
         <div ref={headingRef} className="mb-12 sm:mb-16">
           <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
-            / Services
+            / Featured Projects
           </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <h2
               className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
-              We Shape Interiors That
+              Work That Speaks
               <br />
-              <span className="text-[#383636]/40">Reflect</span>{" "}
-              <span className="text-[#383636]">Your Story</span>
+              <span className="text-[#383636]/40">For</span>{" "}
+              <span className="text-[#383636]">Itself</span>
             </h2>
             <p className="reveal text-sm text-[#383636]/50 font-normal max-w-xs leading-relaxed">
-              From concept to completion — every space is crafted with
-              precision, purpose, and deep respect for your vision.
+              Five completed projects — each shaped by a specific brief, a
+              specific place, and a commitment to precision.
             </p>
           </div>
         </div>

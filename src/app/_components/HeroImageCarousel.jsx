@@ -7,20 +7,25 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
+const BAT    = "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD.";
+const DIU    = "/images/DIU";
+const FERV   = "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION";
+const DBPLC  = "/images/DBPlc%20Kalatia%20Branch%20Presentation";
+const IELTS  = "/images/IELTS";
+
 const slides = [
-  { src: "/images/bat-kushtia-exterior.jpg",  label: "Bat Kushtia Residence", tag: "Exterior" },
-  { src: "/images/slide-1.png",               label: "Arch Inner Projects",   tag: "Architecture" },
-  { src: "/images/bat-kushtia-courtyard.jpg", label: "Bat Kushtia Residence", tag: "Courtyard" },
-  { src: "/images/gallery-3.png",             label: "Arch Inner Projects",   tag: "Interior" },
-  { src: "/images/bat-kushtia-elevation.jpg", label: "Bat Kushtia Residence", tag: "Elevation" },
-  { src: "/images/slide-2.png",               label: "Arch Inner Projects",   tag: "Design" },
-  { src: "/images/bat-kushtia-lounge.jpg",    label: "Bat Kushtia Residence", tag: "Lounge" },
-  { src: "/images/gallery-4.png",             label: "Arch Inner Projects",   tag: "Gallery" },
-  { src: "/images/bat-kushtia-night.jpg",     label: "Bat Kushtia Residence", tag: "Night View" },
-  { src: "/images/slide-3.png",               label: "Arch Inner Projects",   tag: "Architecture" },
-  { src: "/images/gallery-1.png",             label: "Arch Inner Projects",   tag: "Design" },
-  { src: "/images/project-1.webp",            label: "Arch Inner Projects",   tag: "Project" },
-  { src: "/images/gallery-2.png",             label: "Arch Inner Projects",   tag: "Interior" },
+  { src: `${BAT}/VIEW%20FROM%20ENTRY%20GATE.png`,                          label: "BAT Farmer Station · Kushtia",       tag: "Exterior" },
+  { src: `${FERV}/RECEPTION.png`,                                          label: "Fervent Chairman Floor · Dhaka",     tag: "Reception" },
+  { src: `${DIU}/DEAN%20ROOM.png`,                                         label: "University of Dhaka · Interior",     tag: "Dean's Suite" },
+  { src: `${IELTS}/WORKING%20ZONE.png`,                                    label: "Servisol ITES · Khilkhet",           tag: "Workspace" },
+  { src: `${DBPLC}/image.png`,                                             label: "Dhaka Bank PLC · Kalatia",           tag: "Branch Interior" },
+  { src: `${BAT}/FARMERS%20LOUNGE%20COURTYARD%20ARCHEGROUND%20LTD.png`,   label: "BAT Farmer Station · Kushtia",       tag: "Courtyard" },
+  { src: `${FERV}/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png`,                 label: "Fervent Chairman Floor · Dhaka",     tag: "Chairman's Room" },
+  { src: `${DIU}/CONFERENCE%20ROOM.png`,                                   label: "University of Dhaka · Interior",     tag: "Conference Room" },
+  { src: `${IELTS}/WAITING%20AREA%20OP-1.png`,                            label: "Servisol ITES · Khilkhet",           tag: "Waiting Area" },
+  { src: `${DBPLC}/image%20copy.png`,                                      label: "Dhaka Bank PLC · Kalatia",           tag: "Banking Floor" },
+  { src: `${BAT}/LOUNGE%20INTERIOR.png`,                                   label: "BAT Farmer Station · Kushtia",       tag: "Lounge Interior" },
+  { src: `${IELTS}/DIRECTORS%20RM%20FRONT.png`,                           label: "Servisol ITES · Khilkhet",           tag: "Director's Room" },
 ];
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -57,7 +62,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
                 src={slide.src}
                 alt={slide.label}
                 fill
-                className="object-cover"
+                className="object-cover grayscale"
                 sizes={fullWidth ? "100vw" : "(max-width: 768px) 100vw, 560px"}
                 priority={i === 0}
               />

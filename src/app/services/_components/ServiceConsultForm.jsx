@@ -20,18 +20,21 @@ const ServiceConsultForm = () => {
         <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center py-12 sm:py-14 md:py-16">
           {/* Left Side: Content */}
           <div className="text-white max-w-xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-500 bg-black/20 text-sm mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#FE5443] animate-pulse"></span>
-              Free Consultation
-            </div>
+            <p className="text-xs tracking-[0.3em] uppercase text-white/40 font-normal mb-5">
+              / Free Consultation
+            </p>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 sm:mb-6">
-              Start Your <span className="text-[#FE5443]">Interior</span>
+            <h2
+              className="font-normal text-white leading-tight mb-4 sm:mb-6"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
+            >
+              Start Your{" "}
+              <span className="text-white/40">Interior</span>
               <br />
-              Design journey Today
+              Design Journey
             </h2>
 
-            <p className="text-gray-300 text-base sm:text-lg mb-6 sm:mb-8 max-w-lg">
+            <p className="text-white/50 text-sm font-normal mb-8 max-w-lg leading-relaxed">
               Schedule a free consultation with Arch Inner to explore your
               interior design goals. Our team listens carefully to your needs
               while evaluating style, space and functionality.
@@ -39,56 +42,56 @@ const ServiceConsultForm = () => {
 
             <ul className="space-y-4">
               {benefits.map((benefit, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-gray-200">
-                  <FaCheck size={18} className="text-[#FE5443]" />
+                <li key={idx} className="flex items-center gap-3 text-white/60 text-sm font-normal">
+                  <FaCheck size={14} className="text-white/40 shrink-0" />
                   {benefit}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Right Side: Glassmorphism Form */}
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 md:p-10 rounded-[2.5rem] shadow-2xl">
+          {/* Right Side: Form */}
+          <div className="bg-white/8 backdrop-blur-xl border border-white/12 p-8 md:p-10 rounded-2xl">
             <form className="space-y-6">
               <div>
-                <label className="block text-white text-sm font-medium mb-2">
+                <label className="block text-[10px] tracking-[0.25em] uppercase text-white/40 font-normal mb-2">
                   Full Name
                 </label>
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FE5443]/50 transition-all"
+                  className="w-full bg-transparent border-b border-white/15 py-3 text-sm text-white font-normal placeholder:text-white/25 focus:outline-none focus:border-white/50 transition-colors duration-300"
                 />
               </div>
 
               <div>
-                <label className="block text-white text-sm font-medium mb-2">
+                <label className="block text-[10px] tracking-[0.25em] uppercase text-white/40 font-normal mb-2">
                   Email
                 </label>
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FE5443]/50 transition-all"
+                  className="w-full bg-transparent border-b border-white/15 py-3 text-sm text-white font-normal placeholder:text-white/25 focus:outline-none focus:border-white/50 transition-colors duration-300"
                 />
               </div>
 
               <div>
-                <label className="block text-white text-sm font-medium mb-2">
+                <label className="block text-[10px] tracking-[0.25em] uppercase text-white/40 font-normal mb-2">
                   Message
                 </label>
                 <textarea
                   rows="4"
                   placeholder="Tell us about your project"
-                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all"
+                  className="w-full bg-transparent border-b border-white/15 py-3 text-sm text-white font-normal placeholder:text-white/25 focus:outline-none focus:border-white/50 transition-colors duration-300 resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="cursor-pointer w-full py-4 bg-[#FE5443] hover:bg-transparent text-white hover:text-[#FE5443] font-bold rounded-xl transition-all  active:scale-[0.98] border-2 border-transparent hover:border-[#FE5443] box-border shrink-0 flex items-center justify-center gap-2"
+                className="cursor-pointer w-full py-4 bg-transparent border border-white/25 hover:border-white text-white text-xs tracking-[0.25em] uppercase font-normal transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-3"
               >
-                Consultation Now
-                <FaArrowRight size={20} />
+                Book Consultation
+                <FaArrowRight size={12} />
               </button>
             </form>
           </div>

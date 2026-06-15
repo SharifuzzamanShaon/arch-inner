@@ -12,7 +12,7 @@ const TESTIMONIALS = [
     role: "Dean, Faculty of Fine Arts — University of Dhaka",
     testimonial:
       "The conference room and dean's chamber now carry a presence that commands respect. Arch Inner understood institutional dignity — every material choice, every proportion felt deliberate and considered.",
-    image: "/images/du-dean-room.jpg",
+    image: "/images/DIU/DEAN%20ROOM.png",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     role: "Managing Director — Fervent Group",
     testimonial:
       "Our executive floor needed to reflect the authority of our brand without feeling cold. Arch Inner delivered exactly that — a space that speaks before anyone in it does.",
-    image: "/images/fervent-chairman.jpg",
+    image: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const TESTIMONIALS = [
     role: "CEO — Servisol Technologies",
     testimonial:
       "We wanted an office that energises the team and impresses clients. The workstation layout, acoustics, lighting — every detail was thought through. Our team genuinely loves coming to work now.",
-    image: "/images/servisol-director-room.jpg",
+    image: "/images/IELTS/DIRECTORS%20RM%20FRONT.png",
   },
 ];
 
