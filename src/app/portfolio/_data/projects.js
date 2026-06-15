@@ -15,8 +15,8 @@ export const PROJECTS = [
   {
     id: 1,
     title: "BAT BD Farmer Waiting Station & Training Center",
-    category: "Institutional",
-    categoryId: "institutional",
+    category: "Architecture",
+    categoryId: "architecture",
     location: "MLD, Kushtia",
     thumbnail: `${BAT}/VIEW%20FROM%20ENTRY%20GATE.png`,
     description:
@@ -46,8 +46,8 @@ export const PROJECTS = [
   {
     id: 2,
     title: "Faculty of Earth Sciences & Engineering, University of Dhaka",
-    category: "Institutional",
-    categoryId: "institutional",
+    category: "Interior",
+    categoryId: "interior",
     location: "University of Dhaka",
     thumbnail: `${DIU}/DEAN%20ROOM.png`,
     description:
@@ -146,8 +146,8 @@ export const PROJECTS = [
   {
     id: 4,
     title: "Servisol ITES — Office Interior",
-    category: "Commercial",
-    categoryId: "commercial",
+    category: "Interior",
+    categoryId: "interior",
     location: "Bhai Bhai Plaza, Khilkhet, Dhaka-1229",
     thumbnail: `${IELTS}/WAITING%20AREA%20OP-1.png`,
     description:

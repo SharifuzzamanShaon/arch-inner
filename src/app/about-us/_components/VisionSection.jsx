@@ -68,8 +68,8 @@ const VisionSection = () => {
             }}
           >
             <Image
-              src="/images/vision-img.png"
-              alt="Interior Design Vision"
+              src="/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png"
+              alt="Fervent Chairman Floor Interior"
               fill
               className="object-cover"
             />
@@ -78,10 +78,13 @@ const VisionSection = () => {
 
         {/* Text Content */}
         <div ref={textRef} className="space-y-1 md:space-y-6">
-          <h2 className="text-xl sm:text-4xl md:text-2xl font-semibold text-gray-900">
+          <h2
+            className="font-normal text-[#383636] leading-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
+          >
             Our Vision
           </h2>
-          <p className="text-gray-500 leading-relaxed text-lg">
+          <p className="text-[#383636]/50 text-sm leading-relaxed font-normal">
             Our vision is to become a leading name in interior design,
             recognized for excellence, integrity, and innovation. We aspire to
             set new standards in the industry by continuously pushing creative

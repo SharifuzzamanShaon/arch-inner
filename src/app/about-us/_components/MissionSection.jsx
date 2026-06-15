@@ -7,11 +7,11 @@ import { useEffect, useRef } from "react";
 
 const cells = [
   { type: "text", key: "arch" },
-  { type: "image", src: "/images/mission-img.png",   alt: "Architecture studio" },
-  { type: "image", src: "/images/contact-img-1.png", alt: "Team at work" },
-  { type: "image", src: "/images/contact-img.png",   alt: "Design review" },
+  { type: "image", src: "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD./FARMERS%20LOUNGE%20COURTYARD%20ARCHEGROUND%20LTD.png", alt: "BAT Farmer Station courtyard" },
+  { type: "image", src: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20RECEPTION%20AREA.png", alt: "Fervent reception interior" },
+  { type: "image", src: "/images/DIU/CONFERENCE%20ROOM.png", alt: "University of Dhaka conference room" },
   { type: "text", key: "interior" },
-  { type: "image", src: "/images/vision-img.png",    alt: "Interior detail" },
+  { type: "image", src: "/images/IELTS/WORKING%20ZONE.png", alt: "Servisol ITES workspace" },
 ];
 
 const TEXT = {
@@ -73,7 +73,7 @@ const MissionSection = () => {
             <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/40 mb-4 font-normal">
               / {cell.key === "arch" ? "01" : "02"}
             </p>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#383636] tracking-tight mb-4 uppercase">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-normal text-[#383636] mb-4 uppercase tracking-widest">
               {label}
             </h2>
             <p className="text-[#383636]/55 text-sm leading-relaxed font-normal max-w-xs">
