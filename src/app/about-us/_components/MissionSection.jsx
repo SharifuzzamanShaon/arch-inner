@@ -68,7 +68,7 @@ const MissionSection = () => {
         return (
           <div
             key={i}
-            className="grid-cell aspect-4/3 flex flex-col justify-center px-10 sm:px-8 lg:px-12 bg-[#F7F4F0] border-[#383636]/8"
+            className="grid-cell py-12 sm:aspect-4/3 flex flex-col justify-center px-8 sm:px-8 lg:px-12 bg-[#F7F4F0] border-[#383636]/8"
           >
             <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/40 mb-4 font-normal">
               / {cell.key === "arch" ? "01" : "02"}

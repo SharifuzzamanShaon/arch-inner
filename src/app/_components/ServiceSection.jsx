@@ -2,60 +2,43 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ServiceCard from "./ServiceCard";
+import { SERVICES } from "../services/_data/services";
 
-const SERVICES = [
-  {
-    id: 1,
-    title: "BAT BD Farmer Waiting Station & Training Center",
-    description:
-      "A community facility rooted in the Bangladeshi courtyard tradition, with tobacco-leaf-inspired facade screens and warm material honesty.",
-    location: "MLD, Kushtia",
-    thumbnail:
-      "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD./VIEW%20FROM%20ENTRY%20GATE.png",
-    href: "/portfolio/1",
-  },
-  {
-    id: 2,
-    title: "Faculty of Earth Sciences & Engineering, University of Dhaka",
-    description:
-      "15,650 SFT of academic interiors — Dean's suite, officer rooms, conference and meeting spaces unified by warm oak veneer and restrained detailing.",
-    location: "University of Dhaka",
-    thumbnail: "/images/DIU/DEAN%20ROOM.png",
-    href: "/portfolio/2",
-  },
-  {
-    id: 3,
-    title: "Fervent Multiboard Industries — Chairman Floor",
-    description:
-      "An executive interior for a prominent industrial conglomerate — bespoke millwork, curated stone finishes, and precision lighting across a full chairman floor.",
-    location: "Mohakhali C/A, Dhaka",
-    thumbnail:
-      "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/RECEPTION.png",
-    href: "/portfolio/3",
-  },
-  {
-    id: 4,
-    title: "Dhaka Bank PLC — Kalatia Branch",
-    description:
-      "A full-branch interior built around warm wood tones, acoustic comfort, and clear spatial zoning — trust and clarity expressed through material and light.",
-    location: "Kalatia, Keraniganj, Dhaka",
-    thumbnail: "/images/DBPlc%20Kalatia%20Branch%20Presentation/image.png",
-    href: "/portfolio/5",
-  },
-  {
-    id: 5,
-    title: "Servisol ITES — Office Interior",
-    description:
-      "4,752 SFT of vibrant IT office space — bold colour zoning, acoustic panels, and open workstation planning for a growing tech workforce.",
-    location: "Khilkhet, Dhaka-1229",
-    thumbnail: "/images/IELTS/WAITING%20AREA%20OP-1.png",
-    href: "/portfolio/4",
-  },
-];
+const ServiceCard = ({ service, aspectRatio }) => (
+  <Link
+    href={`/services/${service.slug}`}
+    className="service-card group relative overflow-hidden bg-[#1C1917] block"
+    style={{ aspectRatio }}
+  >
+    <Image
+      src={service.image}
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      alt={service.name}
+      className="object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
+    />
+    <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/15 to-transparent" />
+    <div className="absolute top-5 right-5 w-8 h-8 border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:border-white/50">
+      <span className="text-white text-sm leading-none">→</span>
+    </div>
+    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+      <h3
+        className="font-normal text-white leading-snug mb-2"
+        style={{ fontSize: "clamp(1.15rem, 2vw, 1.5rem)" }}
+      >
+        {service.name}
+      </h3>
+      <p className="text-[15px] text-white/45 font-normal leading-relaxed line-clamp-2 max-w-[90%] translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
+        {service.shortDescription}
+      </p>
+    </div>
+  </Link>
+);
 
 const ServiceSection = () => {
   const sectionRef = useRef(null);
@@ -81,13 +64,13 @@ const ServiceSection = () => {
         },
       );
       gsap.fromTo(
-        gridRef.current.querySelectorAll(".service-item"),
-        { y: 50, opacity: 0 },
+        gridRef.current.querySelectorAll(".service-card"),
+        { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          stagger: 0.12,
+          stagger: 0.1,
           ease: "power3.out",
           scrollTrigger: { trigger: gridRef.current, start: "top 85%" },
         },
@@ -98,51 +81,69 @@ const ServiceSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#F7F4F0] border-t border-[#383636]/8">
+    <section
+      ref={sectionRef}
+      className="bg-[#F7F4F0] border-t border-[#383636]/8"
+    >
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
         {/* Heading */}
         <div ref={headingRef} className="mb-12 sm:mb-16">
           <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
-            / Featured Projects
+            / What We Do
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <h2
               className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
-              Work That Speaks
-              <br />
-              <span className="text-[#383636]/40">For</span>{" "}
-              <span className="text-[#383636]">Itself</span>
+              Our Services
             </h2>
-            <p className="reveal text-sm text-[#383636]/50 font-normal max-w-xs leading-relaxed">
-              Five completed projects — each shaped by a specific brief, a
-              specific place, and a commitment to precision.
-            </p>
+            <Link
+              href="/services"
+              className="reveal group hidden sm:inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal pb-1"
+            >
+              <span>View All</span>
+              <span className="inline-block w-8 h-px bg-current group-hover:w-14 transition-all duration-400" />
+              <span className="text-base leading-none">→</span>
+            </Link>
           </div>
         </div>
 
-        {/* Grid */}
+        {/* Cards */}
         <div ref={gridRef}>
-          <div className="block md:hidden">
-            <Swiper spaceBetween={16} slidesPerView={1.1}>
+          {/* Mobile: swipeable, no autoplay */}
+          <div className="block sm:hidden -mx-6">
+            <Swiper spaceBetween={12} slidesPerView={1.15}>
               {SERVICES.map((service) => (
                 <SwiperSlide key={service.id}>
-                  <div className="service-item">
-                    <ServiceCard service={service} />
-                  </div>
+                  <ServiceCard service={service} aspectRatio="3/4" />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
 
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {SERVICES.map((service) => (
-              <div key={service.id} className="service-item">
-                <ServiceCard service={service} />
-              </div>
+          {/* Desktop: grid */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            {SERVICES.map((service, i) => (
+              <ServiceCard
+                key={service.id}
+                service={service}
+                aspectRatio={i === 0 ? "3/4" : i === 1 ? "3/4" : "4/3"}
+              />
             ))}
           </div>
+        </div>
+
+        {/* Mobile CTA */}
+        <div className="flex justify-center mt-10 sm:hidden">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal"
+          >
+            <span>View All Services</span>
+            <span className="inline-block w-6 h-px bg-current" />
+            <span>→</span>
+          </Link>
         </div>
       </div>
     </section>

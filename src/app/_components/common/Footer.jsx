@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10">
             <div className="f-reveal">
               <p className="text-[10px] tracking-[0.3em] uppercase text-white/35 mb-6 font-normal">
                 / Studio
@@ -166,7 +166,7 @@ const Footer = () => {
       <div className="overflow-hidden border-t border-white/4">
         <p
           className="f-reveal text-center font-normal tracking-[0.35em] text-white/4 select-none pointer-events-none py-4 sm:py-6 whitespace-nowrap"
-          style={{ fontSize: "clamp(3.5rem, 13vw, 10rem)" }}
+          style={{ fontSize: "clamp(2rem, 10vw, 10rem)" }}
         >
           ARCH INNER
         </p>

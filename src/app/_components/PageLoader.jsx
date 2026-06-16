@@ -26,11 +26,11 @@ export default function PageLoader() {
       <div className="loader-inner">
         <div className="logo-wrap">
           <Image
-            src="/images/site-logo.png"
+            src="/images/footer-logo.png"
             alt="Arch Inner"
             width={140}
             height={56}
-            className="object-contain brightness-0 invert"
+            className="object-contain"
             priority
           />
         </div>

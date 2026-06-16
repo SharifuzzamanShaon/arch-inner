@@ -6,11 +6,11 @@ import ProjectGallery from "../_components/ProjectGallery";
 import { PROJECTS } from "../_data/projects";
 
 export async function generateStaticParams() {
-  return PROJECTS.map((p) => ({ id: String(p.id) }));
+  return PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
-const MoreProjects = ({ currentId }) => {
-  const others = PROJECTS.filter((p) => p.id !== currentId).slice(0, 3);
+const MoreProjects = ({ currentSlug }) => {
+  const others = PROJECTS.filter((p) => p.slug !== currentSlug).slice(0, 3);
   return (
     <section className="bg-white border-t border-[#383636]/10">
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-14 py-20 sm:py-28">
@@ -40,7 +40,7 @@ const MoreProjects = ({ currentId }) => {
           {others.map((p) => (
             <Link
               key={p.id}
-              href={`/portfolio/${p.id}`}
+              href={`/portfolio/${p.slug}`}
               className="group relative overflow-hidden bg-[#1C1917] block"
               style={{ aspectRatio: "4/3" }}
             >
@@ -71,8 +71,8 @@ const MoreProjects = ({ currentId }) => {
 };
 
 const ProjectDetailPage = async ({ params }) => {
-  const { id } = await params;
-  const project = PROJECTS.find((p) => p.id === parseInt(id, 10));
+  const { slug } = await params;
+  const project = PROJECTS.find((p) => p.slug === slug);
 
   if (!project) return notFound();
 
@@ -80,7 +80,7 @@ const ProjectDetailPage = async ({ params }) => {
     <>
       <ProjectDetailsHero project={project} />
       <ProjectGallery project={project} />
-      <MoreProjects currentId={project.id} />
+      <MoreProjects currentSlug={project.slug} />
     </>
   );
 };

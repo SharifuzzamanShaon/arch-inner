@@ -1,7 +1,10 @@
 export const SERVICES = [
   {
     id: 1,
-    name: "Corporate & Office Interior Design",
+    slug: "corporate-office-interior",
+    name: "Corporate Office Interiors",
+    shortDescription: "Ergonomic workstation planning, executive suites, and reception zones designed for focus, comfort, and brand identity.",
+    image: "/images/IELTS/WORKING%20ZONE.png",
     thumbnail: "/images/servisol-logo.png",
     details: [
       {
@@ -28,7 +31,10 @@ export const SERVICES = [
   },
   {
     id: 2,
-    name: "Commercial Banking & Financial Interior",
+    slug: "banking-financial-interior",
+    name: "Banking & Financial Interiors",
+    shortDescription: "Full branch fit-outs that balance regulatory compliance with a trust-inspiring customer experience through warm materials and clear zoning.",
+    image: "/images/DBPlc%20Kalatia%20Branch%20Presentation/image.png",
     thumbnail: "/images/dhaka-bank-logo.png",
     details: [
       {
@@ -54,35 +60,11 @@ export const SERVICES = [
     ],
   },
   {
-    id: 3,
-    name: "Institutional & Academic Interior Design",
-    thumbnail: "/images/dhaka-university-logo.png",
-    details: [
-      {
-        title: "Large-Scale Floor Planning",
-        description:
-          "We have delivered institutional interiors exceeding 15,650 SFT — covering Dean's offices, officer rooms, conference halls, and meeting rooms within a single cohesive design language. Our team manages spatial coordination across complex, multi-zone academic floors.",
-      },
-      {
-        title: "Dean's Office & VIP Academic Suites",
-        description:
-          "Executive academic spaces are designed with warm oak veneer, off-white plaster, and dark metal accents — projecting scholarly authority and contemporary clarity. Slatted ceiling elements and layered lighting define each room's distinct identity.",
-      },
-      {
-        title: "Conference & Meeting Room Design",
-        description:
-          "Formal conference rooms and collaborative meeting spaces are planned for functionality and presentation impact. AV integration, acoustic treatment, and flexible furniture arrangements are central to every brief.",
-      },
-      {
-        title: "Wayfinding & Functional Layout",
-        description:
-          "For institutions with high daily footfall, we design intuitive circulation paths, clear zoning, and robust material choices — ensuring spaces remain dignified and durable through years of active use.",
-      },
-    ],
-  },
-  {
     id: 4,
-    name: "Executive Chairman Floor & VIP Suite Design",
+    slug: "executive-chairman-vip-suite",
+    name: "Executive Chairman Suites",
+    shortDescription: "Bespoke chairman suites, private lounges, and director rooms where structured opulence meets leadership — rich veneers, curated stone, and precision lighting.",
+    image: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png",
     thumbnail: "/images/fervent-logo.svg",
     details: [
       {
@@ -109,7 +91,10 @@ export const SERVICES = [
   },
   {
     id: 5,
-    name: "Architectural Design & Outdoor Facilities",
+    slug: "architectural-outdoor-design",
+    name: "Architecture & Outdoors",
+    shortDescription: "Site-specific buildings rooted in context — courtyard planning, facade development, and community facilities built with honest materials.",
+    image: "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD./VIEW%20FROM%20ENTRY%20GATE.png",
     thumbnail: "/images/bat-logo.png",
     details: [
       {

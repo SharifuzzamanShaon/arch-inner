@@ -1,4 +1,3 @@
-import AboutDesign from "./_components/AboutDesign";
 import ClientReview from "./_components/ClientReview";
 import HeroSectionSecondary from "./_components/HeroSectionSecondary";
 import PortfolioSection from "./_components/PortfolioSection";
@@ -19,7 +18,6 @@ export default function Home() {
       <ServiceSection />
       <ClientReview />
       <TestimonialSection />
-      {/* <AboutDesign /> */}
       <NewsSection />
       <Footer />
     </>

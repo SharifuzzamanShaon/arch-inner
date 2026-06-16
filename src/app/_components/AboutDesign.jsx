@@ -48,7 +48,7 @@ const AboutDesign = () => {
 
   return (
     <section ref={sectionRef} className="bg-white overflow-hidden">
-      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28 lg:py-36">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-24 lg:py-36">
         <div
           ref={lineRef}
           className="w-full h-px bg-[#383636]/12 mb-16 sm:mb-20 origin-left"

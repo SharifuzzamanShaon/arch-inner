@@ -39,7 +39,7 @@ const InquiryForm = () => {
 
   return (
     <section className="bg-white border-t border-[#383636]/10">
-      <div className="max-w-360 mx-auto px-6 sm:px-14 lg:px-16 py-20 sm:py-28">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-28">
         {/* Section label */}
         <p className="text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
           / Get In Touch
@@ -89,8 +89,8 @@ const InquiryForm = () => {
 
           {/* Right — form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
                 <div>
                   <label className={labelClass}>Full Name *</label>
                   <input

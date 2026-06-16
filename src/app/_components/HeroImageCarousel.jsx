@@ -28,7 +28,6 @@ const slides = [
   { src: `${IELTS}/DIRECTORS%20RM%20FRONT.png`,                           label: "Servisol ITES · Khilkhet",           tag: "Director's Room" },
 ];
 
-const pad = (n) => String(n).padStart(2, "0");
 
 export default function HeroImageCarousel({ fullWidth = false }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -39,9 +38,6 @@ export default function HeroImageCarousel({ fullWidth = false }) {
       {/* Top info bar — overlaid on the image */}
       <div className="top-bar">
         <span className="top-label">{slides[activeIndex].tag}</span>
-        <span className="top-counter">
-          {pad(activeIndex + 1)}<span className="sep"> / </span>{pad(slides.length)}
-        </span>
       </div>
 
       {/* Image */}
@@ -100,7 +96,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
 
         .carousel-root.full-width .stage {
           aspect-ratio: unset;
-          height: 80vh;
+          height: clamp(260px, 55vh, 90vh);
         }
 
         .gradient {
