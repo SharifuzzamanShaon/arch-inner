@@ -23,7 +23,7 @@ const ProjectDetailsHero = ({ project }) => {
     <section className="bg-white pt-24 sm:pt-28 pb-0 border-b border-[#383636]/10">
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16">
         {/* Breadcrumb */}
-        <p className="text-xs tracking-[0.3em] uppercase text-black/50 font-normal mb-10 flex items-center gap-2">
+        <p className="text-xs tracking-[0.3em] uppercase text-black/50 font-normal mb-6 sm:mb-10 flex items-center gap-2">
           <Link
             href="/portfolio"
             className="hover:text-black transition-colors duration-200"
@@ -51,7 +51,7 @@ const ProjectDetailsHero = ({ project }) => {
                 <br />
                 <span className="text-black">{titleLine2}</span>
               </h1>
-              <p className="text-black/70 text-lg leading-relaxed max-w-sm">
+              <p className="text-black/70 text-sm sm:text-base lg:text-lg leading-relaxed max-w-sm">
                 {project.longDescription || project.description}
               </p>
             </div>

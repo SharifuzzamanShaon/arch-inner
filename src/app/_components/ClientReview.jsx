@@ -24,6 +24,7 @@ const ClientReview = () => {
 
   useEffect(() => {
     if (!marqueeRef.current) return;
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
     const ctx = gsap.context(() => {
       gsap.to(marqueeRef.current, {
         xPercent: -50,
@@ -60,10 +61,10 @@ const ClientReview = () => {
       ref={sectionRef}
       className="bg-[#F7F4F0] border-t border-[#383636]/8 py-20 sm:py-28 overflow-hidden"
     >
-      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 mb-14">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 mb-10 sm:mb-14">
         <div
           ref={headerRef}
-          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
+          className="flex flex-row items-end justify-between gap-4"
         >
           <div>
             <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636]/50 mb-4 font-normal">
@@ -83,22 +84,18 @@ const ClientReview = () => {
             <div className="text-right">
               <div className="flex items-center justify-end gap-1 text-[#383636] mb-1">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-sm">
-                    ★
-                  </span>
+                  <span key={i} className="text-sm">★</span>
                 ))}
               </div>
               <p className="text-[#383636] text-xl font-normal tracking-tight">
                 {TRUST.score}
-                <span className="text-[#383636]/40 text-sm ml-1 font-normal">
-                  / 5.0
-                </span>
+                <span className="text-[#383636]/40 text-sm ml-1 font-normal">/ 5.0</span>
               </p>
               <p className="text-[#383636]/50 text-xs tracking-[0.15em] uppercase mt-0.5">
                 {TRUST.review_count} reviews
               </p>
             </div>
-            <div className="w-px h-12 bg-[#383636]/12" />
+            <div className="hidden sm:block w-px h-12 bg-[#383636]/12" />
           </div>
         </div>
       </div>

@@ -16,17 +16,17 @@ const ProjectGallery = ({ project }) => {
 
   return (
     <section className="bg-[#F7F4F0] border-t border-[#383636]/8">
-      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-14 sm:py-20 lg:py-28">
 
         {/* Heading row */}
-        <div className="flex items-end justify-between mb-10 sm:mb-14">
+        <div className="flex items-end justify-between mb-8 sm:mb-12">
           <div>
             <p className="text-[10px] tracking-[0.35em] uppercase text-[#383636]/40 font-normal mb-3">
               / Gallery
             </p>
             <h2
               className="font-normal text-[#383636] leading-none"
-              style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
+              style={{ fontSize: "clamp(1.5rem, 3.5vw, 3rem)" }}
             >
               Project{" "}
               <span className="text-[#383636]/25">Showcase</span>
@@ -35,13 +35,13 @@ const ProjectGallery = ({ project }) => {
           <div className="text-right pb-0.5">
             <span
               className="font-normal text-[#383636]"
-              style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}
+              style={{ fontSize: "clamp(1.4rem, 3vw, 2.5rem)" }}
             >
               {String(active + 1).padStart(2, "0")}
             </span>
             <span
               className="text-[#383636]/25 font-normal"
-              style={{ fontSize: "clamp(1rem, 2vw, 1.4rem)" }}
+              style={{ fontSize: "clamp(0.8rem, 2vw, 1.4rem)" }}
             >
               {" "}/ {String(images.length).padStart(2, "0")}
             </span>
@@ -81,7 +81,7 @@ const ProjectGallery = ({ project }) => {
               <>
                 <button
                   onClick={prev}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white/8 backdrop-blur-xs border border-white/12 text-white/50 hover:text-white hover:bg-white/18 transition-all duration-200 opacity-0 group-hover:opacity-100"
+                  className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-10 sm:h-10 flex items-center justify-center bg-white/15 sm:bg-white/8 backdrop-blur-xs border border-white/20 sm:border-white/12 text-white/70 sm:text-white/50 hover:text-white hover:bg-white/25 sm:hover:bg-white/18 transition-all duration-200 sm:opacity-0 sm:group-hover:opacity-100"
                   aria-label="Previous image"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -90,7 +90,7 @@ const ProjectGallery = ({ project }) => {
                 </button>
                 <button
                   onClick={next}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white/8 backdrop-blur-xs border border-white/12 text-white/50 hover:text-white hover:bg-white/18 transition-all duration-200 opacity-0 group-hover:opacity-100"
+                  className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-10 sm:h-10 flex items-center justify-center bg-white/15 sm:bg-white/8 backdrop-blur-xs border border-white/20 sm:border-white/12 text-white/70 sm:text-white/50 hover:text-white hover:bg-white/25 sm:hover:bg-white/18 transition-all duration-200 sm:opacity-0 sm:group-hover:opacity-100"
                   aria-label="Next image"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -154,9 +154,11 @@ const ProjectGallery = ({ project }) => {
         {images.length > 1 && (
           <div
             className={`lg:hidden grid gap-2 mt-3 ${
-              images.length <= 4
+              images.length <= 3
                 ? `grid-cols-${images.length}`
-                : "grid-cols-5"
+                : images.length === 4
+                  ? "grid-cols-4"
+                  : "grid-cols-4 sm:grid-cols-5"
             }`}
           >
             {images.map((src, i) => (

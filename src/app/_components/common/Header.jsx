@@ -158,14 +158,14 @@ const Header = () => {
       <div
         ref={overlayRef}
         style={{ display: "none", clipPath: "inset(0 0 100% 0)" }}
-        className="fixed inset-0 z-40 bg-white flex flex-col px-8 pt-28 pb-12"
+        className="fixed inset-0 z-40 bg-white flex flex-col px-6 sm:px-8 pt-22 sm:pt-28 pb-10 sm:pb-12"
       >
         {/* Nav items */}
         <nav
           ref={overlayNavRef}
           className="flex-1 flex flex-col justify-center gap-1"
         >
-          {navItems.map((item, idx) => {
+          {navItems.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
@@ -178,10 +178,7 @@ const Header = () => {
                     : "text-[#383636]/40 hover:text-[#383636]"
                 }`}
               >
-                <span className="text-xs text-[#383636]/30 tracking-widest font-normal w-6">
-                  /{String(idx + 1).padStart(2, "0")}
-                </span>
-                <span className="text-4xl sm:text-5xl font-normal tracking-tight leading-tight">
+                <span className="text-2xl  font-normal tracking-tight leading-tight">
                   {item.name}
                 </span>
               </Link>

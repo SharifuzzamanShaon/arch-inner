@@ -152,7 +152,7 @@ const ShowcaseProjectCard = ({ project }) => {
         ref={buttonRef}
         className="absolute bottom-[38px] right-[10px] md:bottom-px md:right-[2px] z-20 p-1"
       >
-        <Link href={`/portfolio/${project?.id}`}>
+        <Link href={`/portfolio/${project?.slug}`}>
           <Button className="flex items-center gap-3 rounded-full cursor-pointer hover:bg-transparent hover:border hover:border-[#FE5443] hover:text-[#FE5443] bg-[#FE5443] h-8 sm:h-10 px-4 text-xs sm:text-sm font-bold text-white transition-all active:scale-95">
             <span className="hidden lg:inline">View Project</span>
             <span className="lg:hidden">View</span>

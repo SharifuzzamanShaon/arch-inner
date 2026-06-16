@@ -136,7 +136,7 @@ const HowWeWork = () => {
                     <div className="mt-auto flex justify-end pt-4">
                       <span
                         className="text-white/10 font-normal leading-none select-none"
-                        style={{ fontSize: "clamp(4rem, 8vw, 6rem)" }}
+                        style={{ fontSize: "clamp(3rem, 6vw, 6rem)" }}
                       >
                         {step.id}
                       </span>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="group relative w-full overflow-hidden bg-[#1C1917]" style={{ minHeight: "420px" }}>
+    <div className="group relative w-full overflow-hidden bg-[#1C1917] min-h-70 sm:min-h-105">
       {/* Background image */}
       {project?.thumbnail && (
         <Image
@@ -42,7 +42,7 @@ const ProjectCard = ({ project }) => {
             "A beautiful blend of modern aesthetics and functional design."}
         </p>
         <Link
-          href={`/portfolio/${project?.id}`}
+          href={`/portfolio/${project?.slug}`}
           className="group/btn inline-flex items-center gap-3 text-white/50 hover:text-white text-xs tracking-[0.18em] uppercase transition-colors duration-300"
         >
           <span>View Project</span>

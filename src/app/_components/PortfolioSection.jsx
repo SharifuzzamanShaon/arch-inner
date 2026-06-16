@@ -16,7 +16,12 @@ const PortfolioSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const filtersRef = useRef(null);
+  const tabsScrollRef = useRef(null);
   const gridRef = useRef(null);
+
+  const scrollTabs = (dir) => {
+    tabsScrollRef.current?.scrollBy({ left: dir * 120, behavior: "smooth" });
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.innerWidth < 768) return;
@@ -77,8 +82,8 @@ const PortfolioSection = () => {
 
   const renderProjects = (projects) => (
     <>
-      <div className="block md:hidden">
-        <Swiper spaceBetween={16} slidesPerView={1.1}>
+      <div className="block md:hidden -mx-6">
+        <Swiper spaceBetween={12} slidesPerView={1.15}>
           {projects.map((p) => (
             <SwiperSlide key={p.id}>
               <div className="project-item">
@@ -125,32 +130,51 @@ const PortfolioSection = () => {
         </div>
 
         {/* Filter tabs */}
-        <div
-          ref={filtersRef}
-          className="flex items-center gap-1 flex-wrap mb-10 sm:mb-14 border-b border-[#383636]/10"
-        >
-          {tabs.map(({ id, name, disabled }) => {
-            const active = activeTab === id;
-            return (
-              <button
-                key={id}
-                onClick={() => !disabled && setActiveTab(id)}
-                disabled={disabled}
-                className={`relative px-4 py-3 text-sm font-semibold cursor-pointer tracking-[0.08em] transition-colors duration-200 ${
-                  disabled
-                    ? "text-[#383636]/18 cursor-not-allowed select-none"
-                    : active
-                      ? "text-[#383636]"
-                      : "text-[#383636]/35 hover:text-[#383636]/70"
-                }`}
-              >
-                {name}
-                {active && !disabled && (
-                  <span className="absolute bottom-0 left-0 right-0 h-px bg-[#383636]" />
-                )}
-              </button>
-            );
-          })}
+        <div ref={filtersRef} className="relative mb-10 sm:mb-14">
+          {/* Mobile scroll arrows */}
+          <button
+            onClick={() => scrollTabs(-1)}
+            className="md:hidden absolute left-0 top-0 bottom-0 z-10 flex items-center pr-3 bg-linear-to-r from-white via-white/90 to-transparent"
+            aria-label="Scroll left"
+          >
+            <span className="text-[#383636]/50 text-2xl leading-none">‹</span>
+          </button>
+          <button
+            onClick={() => scrollTabs(1)}
+            className="md:hidden absolute right-0 top-0 bottom-0 z-10 flex items-center pl-3 bg-linear-to-l from-white via-white/90 to-transparent"
+            aria-label="Scroll right"
+          >
+            <span className="text-[#383636]/50 text-2xl leading-none">›</span>
+          </button>
+
+          {/* Scrollable strip */}
+          <div
+            ref={tabsScrollRef}
+            className="flex items-center gap-1 overflow-x-auto scrollbar-none border-b border-[#383636]/10 md:flex-wrap"
+          >
+            {tabs.map(({ id, name, disabled }) => {
+              const active = activeTab === id;
+              return (
+                <button
+                  key={id}
+                  onClick={() => !disabled && setActiveTab(id)}
+                  disabled={disabled}
+                  className={`relative shrink-0 px-4 py-3 text-sm font-semibold cursor-pointer tracking-[0.08em] transition-colors duration-200 ${
+                    disabled
+                      ? "text-[#383636]/18 cursor-not-allowed select-none"
+                      : active
+                        ? "text-[#383636]"
+                        : "text-[#383636]/35 hover:text-[#383636]/70"
+                  }`}
+                >
+                  {name}
+                  {active && !disabled && (
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-[#383636]" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Grid */}

@@ -3,6 +3,8 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 import TestimonialCard from "./TestimonialCard";
 
 const TESTIMONIALS = [
@@ -100,15 +102,26 @@ const TestimonialSection = () => {
         </div>
 
         {/* Cards */}
-        <div
-          ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5"
-        >
-          {TESTIMONIALS.map((t) => (
-            <div key={t.id} className="tcard">
-              <TestimonialCard service={t} dark />
-            </div>
-          ))}
+        <div ref={gridRef}>
+          {/* Mobile: swipeable, no autoplay */}
+          <div className="block md:hidden -mx-6">
+            <Swiper spaceBetween={12} slidesPerView={1.1}>
+              {TESTIMONIALS.map((t) => (
+                <SwiperSlide key={t.id} className="tcard">
+                  <TestimonialCard service={t} dark />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* Desktop: grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-4 sm:gap-5">
+            {TESTIMONIALS.map((t) => (
+              <div key={t.id} className="tcard">
+                <TestimonialCard service={t} dark />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

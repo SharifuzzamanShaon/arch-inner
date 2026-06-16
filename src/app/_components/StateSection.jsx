@@ -83,12 +83,9 @@ const StatsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white border-t-2 border-[#383636]">
+    <section ref={sectionRef} className="bg-white pt-10 sm:pt-14">
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16">
-        <div
-          ref={headerRef}
-          className="flex items-center justify-between py-5 border-b border-[#383636]/12"
-        >
+        <div ref={headerRef} className="flex items-center justify-between py-5">
           <span className="text-[10px] tracking-[0.3em] uppercase text-[#383636] font-normal">
             / By The Numbers
           </span>
@@ -104,14 +101,14 @@ const StatsSection = () => {
               <div
                 key={i}
                 ref={(el) => (itemRefs.current[i] = el)}
-                className="group flex flex-col items-center text-center py-14 sm:py-18 lg:py-24 px-4 sm:px-8"
+                className="group flex flex-col items-center text-center py-10 sm:py-14 lg:py-24 px-4 sm:px-8"
               >
                 <div className="w-6 h-px bg-[#383636]/25 group-hover:w-10 group-hover:bg-[#383636] transition-all duration-400 mb-6" />
                 <div className="flex items-baseline gap-0.5 mb-4">
-                  <span className="stat-num text-6xl sm:text-7xl lg:text-8xl font-normal text-[#383636] tracking-tight leading-none tabular-nums">
+                  <span className="stat-num text-5xl sm:text-6xl lg:text-8xl font-normal text-[#383636] tracking-tight leading-none tabular-nums">
                     {value}
                   </span>
-                  <span className="stat-suf text-3xl sm:text-4xl font-normal text-[#383636]" />
+                  <span className="stat-suf text-2xl sm:text-3xl font-normal text-[#383636]" />
                 </div>
                 <span className="text-[14px] sm:text-[16px] tracking-[0.3em] uppercase text-[#383636]/45 font-normal">
                   {stat.label}
