@@ -8,12 +8,8 @@ const ServiceCollaps = () => {
 
   return (
     <section className="bg-white border-t border-[#383636]/10">
-      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-10 sm:py-28">
-        <p className="text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
-          / What We Do
-        </p>
-
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16 sm:mb-20">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-10 sm:py-28">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10 sm:mb-20">
           <h2
             className="font-normal text-[#383636] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}

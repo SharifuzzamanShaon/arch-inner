@@ -67,26 +67,12 @@ const HowWeWork = () => {
   return (
     <section className="py-20">
       <div className="max-w-3xl mx-auto text-center space-y-5 pb-12">
-        <p className="text-xs tracking-[0.3em] uppercase text-[#383636]/40 font-normal">
-          / Our Process
-        </p>
-
         <h2
           className="font-normal text-[#383636] leading-tight"
-          style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
+          style={{ fontSize: "clamp(1rem, 4vw, 3.75rem)" }}
         >
           How We Work
         </h2>
-
-        <p className="text-[#383636]/50 max-w-sm mx-auto text-sm font-normal leading-relaxed">
-          {`We've been making people's dreams come true for decades.`}{" "}
-          <a
-            href="#contact"
-            className="text-[#383636] underline underline-offset-4 hover:text-[#383636]/60 transition-colors duration-300"
-          >
-            Reach out today
-          </a>
-        </p>
       </div>
       <div className="relative min-h-screen w-full py-20 overflow-hidden bg-gray-900">
         <Image
