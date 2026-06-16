@@ -10,7 +10,7 @@ import ProjectCard from "./ProjectCard";
 
 import { CATEGORIES, PROJECTS } from "../portfolio/_data/projects";
 
-const PortfolioSection = () => {
+const PortfolioSection = ({ hideTabs = false }) => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("All");
   const sectionRef = useRef(null);
@@ -65,7 +65,7 @@ const PortfolioSection = () => {
   }, [activeTab]);
 
   const activeProjects =
-    activeTab === "All"
+    hideTabs || activeTab === "All"
       ? PROJECTS
       : PROJECTS.filter((p) => p.categoryId === activeTab);
 
@@ -118,79 +118,85 @@ const PortfolioSection = () => {
             >
               Selected <span className="text-[#383636]/50">Works</span>
             </h2>
-            <button
-              onClick={() => router.push("/portfolio")}
-              className="reveal group hidden sm:inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal pb-1"
-            >
-              <span>Explore All</span>
-              <span className="inline-block w-8 h-px bg-current group-hover:w-14 transition-all duration-400" />
-              <span className="text-base leading-none">→</span>
-            </button>
+            {!hideTabs && (
+              <button
+                onClick={() => router.push("/portfolio")}
+                className="reveal group hidden sm:inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal pb-1"
+              >
+                <span>Explore All</span>
+                <span className="inline-block w-8 h-px bg-current group-hover:w-14 transition-all duration-400" />
+                <span className="text-base leading-none">→</span>
+              </button>
+            )}
           </div>
         </div>
 
         {/* Filter tabs */}
-        <div ref={filtersRef} className="relative mb-10 sm:mb-14">
-          {/* Mobile scroll arrows */}
-          <button
-            onClick={() => scrollTabs(-1)}
-            className="md:hidden absolute left-0 top-0 bottom-0 z-10 flex items-center pr-3 bg-linear-to-r from-white via-white/90 to-transparent"
-            aria-label="Scroll left"
-          >
-            <span className="text-[#383636]/50 text-2xl leading-none">‹</span>
-          </button>
-          <button
-            onClick={() => scrollTabs(1)}
-            className="md:hidden absolute right-0 top-0 bottom-0 z-10 flex items-center pl-3 bg-linear-to-l from-white via-white/90 to-transparent"
-            aria-label="Scroll right"
-          >
-            <span className="text-[#383636]/50 text-2xl leading-none">›</span>
-          </button>
+        {!hideTabs && (
+          <div ref={filtersRef} className="relative mb-10 sm:mb-14">
+            {/* Mobile scroll arrows */}
+            <button
+              onClick={() => scrollTabs(-1)}
+              className="md:hidden absolute left-0 top-0 bottom-0 z-10 flex items-center pr-3 bg-linear-to-r from-white via-white/90 to-transparent"
+              aria-label="Scroll left"
+            >
+              <span className="text-[#383636]/50 text-2xl leading-none">‹</span>
+            </button>
+            <button
+              onClick={() => scrollTabs(1)}
+              className="md:hidden absolute right-0 top-0 bottom-0 z-10 flex items-center pl-3 bg-linear-to-l from-white via-white/90 to-transparent"
+              aria-label="Scroll right"
+            >
+              <span className="text-[#383636]/50 text-2xl leading-none">›</span>
+            </button>
 
-          {/* Scrollable strip */}
-          <div
-            ref={tabsScrollRef}
-            className="flex items-center gap-1 overflow-x-auto scrollbar-none border-b border-[#383636]/10 md:flex-wrap"
-          >
-            {tabs.map(({ id, name, disabled }) => {
-              const active = activeTab === id;
-              return (
-                <button
-                  key={id}
-                  onClick={() => !disabled && setActiveTab(id)}
-                  disabled={disabled}
-                  className={`relative shrink-0 px-4 py-3 text-sm font-semibold cursor-pointer tracking-[0.08em] transition-colors duration-200 ${
-                    disabled
-                      ? "text-[#383636]/18 cursor-not-allowed select-none"
-                      : active
-                        ? "text-[#383636]"
-                        : "text-[#383636]/35 hover:text-[#383636]/70"
-                  }`}
-                >
-                  {name}
-                  {active && !disabled && (
-                    <span className="absolute bottom-0 left-0 right-0 h-px bg-[#383636]" />
-                  )}
-                </button>
-              );
-            })}
+            {/* Scrollable strip */}
+            <div
+              ref={tabsScrollRef}
+              className="flex items-center gap-1 overflow-x-auto scrollbar-none border-b border-[#383636]/10 md:flex-wrap"
+            >
+              {tabs.map(({ id, name, disabled }) => {
+                const active = activeTab === id;
+                return (
+                  <button
+                    key={id}
+                    onClick={() => !disabled && setActiveTab(id)}
+                    disabled={disabled}
+                    className={`relative shrink-0 px-4 py-3 text-sm font-semibold cursor-pointer tracking-[0.08em] transition-colors duration-200 ${
+                      disabled
+                        ? "text-[#383636]/18 cursor-not-allowed select-none"
+                        : active
+                          ? "text-[#383636]"
+                          : "text-[#383636]/35 hover:text-[#383636]/70"
+                    }`}
+                  >
+                    {name}
+                    {active && !disabled && (
+                      <span className="absolute bottom-0 left-0 right-0 h-px bg-[#383636]" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Grid */}
         <div ref={gridRef}>{renderProjects(activeProjects)}</div>
 
         {/* Mobile CTA */}
-        <div className="flex justify-center mt-10 sm:hidden">
-          <button
-            onClick={() => router.push("/portfolio")}
-            className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal"
-          >
-            <span>Explore All Projects</span>
-            <span className="inline-block w-6 h-px bg-current" />
-            <span>→</span>
-          </button>
-        </div>
+        {!hideTabs && (
+          <div className="flex justify-center mt-10 sm:hidden">
+            <button
+              onClick={() => router.push("/portfolio")}
+              className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal"
+            >
+              <span>Explore All Projects</span>
+              <span className="inline-block w-6 h-px bg-current" />
+              <span>→</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
