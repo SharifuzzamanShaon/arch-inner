@@ -35,7 +35,7 @@ const ServiceDesignProcess = () => {
                   width={400}
                   height={225}
                   alt={process.title}
-                  className="w-full h-full object-cover grayscale"
+                  className="w-full h-full pl-2 object-cover grayscale"
                 />
               </div>
 

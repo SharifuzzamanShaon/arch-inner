@@ -9,33 +9,37 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SERVICES } from "../services/_data/services";
 
-const ServiceCard = ({ service, aspectRatio }) => (
+const ServiceCard = ({ service }) => (
   <Link
     href={`/services/${service.slug}`}
-    className="service-card group relative overflow-hidden bg-[#1C1917] block"
-    style={{ aspectRatio }}
+    className="service-card group relative overflow-hidden bg-[#1C1917] block rounded-xl"
+    style={{ aspectRatio: "4/3" }}
   >
     <Image
       src={service.image}
       fill
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       alt={service.name}
-      className="object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
+      className="object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700"
     />
-    <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/15 to-transparent" />
-    <div className="absolute top-5 right-5 w-8 h-8 border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:border-white/50">
+    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent" />
+    <div className="absolute top-4 right-4 w-8 h-8 border border-white/30 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
       <span className="text-white text-sm leading-none">→</span>
     </div>
-    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
       <h3
         className="font-normal text-white leading-snug mb-2"
-        style={{ fontSize: "clamp(1.15rem, 2vw, 1.5rem)" }}
+        style={{ fontSize: "clamp(1rem, 1.8vw, 1.3rem)" }}
       >
         {service.name}
       </h3>
-      <p className="text-[15px] text-white/45 font-normal leading-relaxed line-clamp-2 max-w-[90%] translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
+      <p className="text-[13px] text-white/55 font-normal leading-relaxed line-clamp-2 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
         {service.shortDescription}
       </p>
+      <div className="mt-3 inline-flex items-center gap-2 text-white/50 group-hover:text-white/80 text-[11px] tracking-[0.18em] uppercase transition-colors duration-300 opacity-0 group-hover:opacity-100">
+        <span>Learn More</span>
+        <span className="w-4 h-px bg-current group-hover:w-6 transition-all duration-300" />
+      </div>
     </div>
   </Link>
 );
@@ -83,14 +87,11 @@ const ServiceSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#F7F4F0] border-t border-[#383636]/8"
+      className="bg-[#F2F2F2] border-t border-[#383636]/8"
     >
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
         {/* Heading */}
         <div ref={headingRef} className="mb-12 sm:mb-16">
-          <p className="reveal text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">
-            / What We Do
-          </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <h2
               className="reveal font-normal text-[#383636] leading-tight"
@@ -111,25 +112,21 @@ const ServiceSection = () => {
 
         {/* Cards */}
         <div ref={gridRef}>
-          {/* Mobile: swipeable, no autoplay */}
+          {/* Mobile: swipeable */}
           <div className="block sm:hidden -mx-6">
             <Swiper spaceBetween={12} slidesPerView={1.15}>
               {SERVICES.map((service) => (
                 <SwiperSlide key={service.id}>
-                  <ServiceCard service={service} aspectRatio="3/4" />
+                  <ServiceCard service={service} />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
 
           {/* Desktop: grid */}
-          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {SERVICES.map((service, i) => (
-              <ServiceCard
-                key={service.id}
-                service={service}
-                aspectRatio={i === 0 ? "3/4" : i === 1 ? "3/4" : "4/3"}
-              />
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            {SERVICES.map((service) => (
+              <ServiceCard key={service.id} service={service} />
             ))}
           </div>
         </div>

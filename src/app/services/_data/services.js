@@ -1,121 +1,105 @@
 export const SERVICES = [
   {
-    id: 1,
-    slug: "corporate-office-interior",
-    name: "Corporate Office Interiors",
-    shortDescription: "Ergonomic workstation planning, executive suites, and reception zones designed for focus, comfort, and brand identity.",
-    image: "/images/IELTS/WORKING%20ZONE.png",
-    thumbnail: "/images/servisol-logo.png",
+    id: 3,
+    slug: "corporate-interior-design",
+    name: "Corporate Interior Design",
+    shortDescription: "Ergonomic workspaces, executive suites, and collaborative zones designed for focus, brand identity, and the modern way of working.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80",
     details: [
       {
         title: "Workstation Zone Planning",
-        description:
-          "We design high-density, ergonomic workstation layouts that balance collaborative open-plan zones with focused individual work areas. Material selection — including Flotex carpet, vinyl, and epoxy flooring — ensures acoustic comfort and long-hour productivity.",
+        description: "We design high-density ergonomic workstation layouts that balance collaborative open-plan areas with focused individual work zones — using acoustic solutions and smart storage throughout.",
       },
       {
         title: "Executive & Director Rooms",
-        description:
-          "From Director waiting areas to private executive suites, we craft spaces that communicate authority and calm. Finishes draw from our curated mood board — warm wood tones, fabric panels, and acoustic wall treatments — for a composed, professional atmosphere.",
+        description: "From director waiting areas to private executive suites, we craft spaces that communicate authority and calm through warm wood tones, fabric panels, and acoustic wall treatments.",
       },
       {
         title: "Reception & Waiting Areas",
-        description:
-          "First impressions are designed with precision. Our reception and waiting zone concepts combine spatial flow, brand identity, and comfort — using a refined palette of grey, wood, and white to create welcoming yet structured spaces.",
+        description: "First impressions are designed with precision — combining spatial flow, brand identity, and comfort using a refined palette of grey, timber, and white to create welcoming yet structured spaces.",
       },
       {
-        title: "Mood Board & Material Consultation",
-        description:
-          "Every project begins with a thorough mood board selection covering colour psychology — blue-green for focus, yellow for positivity, brown-wood for warmth — alongside floor and wall finish references tailored to the project brief.",
+        title: "Meeting Rooms & Boardrooms",
+        description: "Collaboration-focused meeting spaces with integrated AV, acoustic privacy, and branded environments that support decision-making at every level of the organisation.",
+      },
+    ],
+  },
+  {
+    id: 1,
+    slug: "residential-interior-design",
+    name: "Residential Interior Design",
+    shortDescription: "Crafting personalised living spaces — from single rooms to entire homes — where every detail reflects the way you live and the things you love.",
+    image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=600&q=80",
+    details: [
+      {
+        title: "Living & Dining Spaces",
+        description: "We design open-plan living and dining areas that balance daily function with visual warmth — layering materials, furniture, and lighting to create spaces that feel both refined and genuinely liveable.",
+      },
+      {
+        title: "Bedroom & Private Suites",
+        description: "Bedrooms are designed as personal sanctuaries — with bespoke storage, considered lighting, and a material palette that promotes calm and reflects individual character.",
+      },
+      {
+        title: "Kitchen & Utility Design",
+        description: "Functional kitchen layouts are combined with considered finishes and integrated storage to create spaces that are as beautiful to look at as they are efficient to work in.",
+      },
+      {
+        title: "Furniture & Styling",
+        description: "Custom and curated furniture selections, soft furnishings, and decorative layers are brought together to complete each space — ensuring every element coheres with the overall design vision.",
+      },
+    ],
+  },
+  {
+    id: 7,
+    slug: "architectural-design",
+    name: "Architectural Design",
+    shortDescription: "Shaping buildings from the outside in — integrating structural logic, spatial flow, and material expression into coherent architectural statements.",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=600&q=80",
+    details: [
+      {
+        title: "Concept & Massing",
+        description: "We develop the architectural concept from site analysis and programmatic requirements — exploring form, massing, and orientation to establish a building that responds intelligently to its context.",
+      },
+      {
+        title: "Façade & Envelope Design",
+        description: "Exterior skin, fenestration, and cladding systems are designed to balance aesthetics, climate performance, and material longevity — giving each building a distinct and enduring identity.",
+      },
+      {
+        title: "Spatial Planning & Flow",
+        description: "Internal circulation, zone relationships, and spatial hierarchies are resolved through detailed planning — ensuring the building functions as well as it looks from every angle.",
+      },
+      {
+        title: "Technical Documentation",
+        description: "Complete construction documentation, planning submissions, and specification packages are produced to the standard required for regulatory approval and contractor tender.",
       },
     ],
   },
   {
     id: 2,
-    slug: "banking-financial-interior",
-    name: "Banking & Financial Interiors",
-    shortDescription: "Full branch fit-outs that balance regulatory compliance with a trust-inspiring customer experience through warm materials and clear zoning.",
-    image: "/images/DBPlc%20Kalatia%20Branch%20Presentation/image.png",
-    thumbnail: "/images/dhaka-bank-logo.png",
+    slug: "restaurant-interior-design",
+    name: "Restaurant Interior Design",
+    shortDescription: "Designing immersive dining atmospheres where spatial flow, lighting, and material storytelling come together to elevate every guest experience.",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+    thumbnail: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80",
     details: [
       {
-        title: "Branch Office Layout & Planning",
-        description:
-          "We design fully functional bank branch interiors that optimise customer flow, teller zones, and back-office operations. Spatial coordination ensures regulatory compliance alongside a welcoming public-facing environment.",
+        title: "Dining Area & Seating Layout",
+        description: "We plan seating arrangements that balance capacity with comfort — creating intimate zones, communal tables, and private dining areas to cater to every occasion.",
       },
       {
-        title: "Customer Experience Zones",
-        description:
-          "Waiting areas, consultation booths, and service counters are designed to reduce perceived wait times and reinforce brand trust. Tufted carpet and ceramic tile combinations provide comfort underfoot while maintaining a professional aesthetic.",
+        title: "Bar & Counter Design",
+        description: "From statement bar counters to open kitchen pass-throughs, we design focal points that drive energy, brand identity, and efficient service flow.",
       },
       {
-        title: "Wall & Ceiling Finish Design",
-        description:
-          "Acoustic panels, fabric panels, royal paint, and texture finishes are specified to meet both visual and functional requirements — controlling noise, managing light, and projecting institutional credibility.",
+        title: "Lighting & Atmosphere",
+        description: "Layered lighting — ambient, task, and accent — is designed to shift the mood from daytime café to evening dining, enhancing the guest's emotional connection to the space.",
       },
       {
-        title: "Branding & Identity Integration",
-        description:
-          "Corporate colour palettes and branding elements are woven into the interior architecture — from signage placement to accent lighting — creating a coherent identity throughout every area of the branch.",
-      },
-    ],
-  },
-  {
-    id: 4,
-    slug: "executive-chairman-vip-suite",
-    name: "Executive Chairman Suites",
-    shortDescription: "Bespoke chairman suites, private lounges, and director rooms where structured opulence meets leadership — rich veneers, curated stone, and precision lighting.",
-    image: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png",
-    thumbnail: "/images/fervent-logo.svg",
-    details: [
-      {
-        title: "Chairman's Office & Private Suite",
-        description:
-          "We design the highest tier of corporate interiors — chairman rooms that balance gravitas with livability. Rich material layering, bespoke joinery, and curated lighting create a space that reflects leadership without ostentation.",
-      },
-      {
-        title: "Private Lounge & Dining Area",
-        description:
-          "Adjacent to the chairman suite, private lounges and dining areas are designed for informal leadership conversations and hosted engagements. Materials are selected for warmth — wood, deep upholstery, and controlled ambient lighting.",
-      },
-      {
-        title: "Lobby & Reception Design",
-        description:
-          "The chairman floor lobby sets the tone from the moment of arrival. Grand yet restrained, our reception area designs use a considered play of light, material, and spatial proportion to signal exclusivity.",
-      },
-      {
-        title: "Director & Senior Management Rooms",
-        description:
-          "Supporting the chairman suite, director rooms are designed with complementary but distinct identities — reinforcing hierarchy while maintaining the overall floor's design coherence.",
-      },
-    ],
-  },
-  {
-    id: 5,
-    slug: "architectural-outdoor-design",
-    name: "Architecture & Outdoors",
-    shortDescription: "Site-specific buildings rooted in context — courtyard planning, facade development, and community facilities built with honest materials.",
-    image: "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD./VIEW%20FROM%20ENTRY%20GATE.png",
-    thumbnail: "/images/bat-logo.png",
-    details: [
-      {
-        title: "Building Design & Facade Development",
-        description:
-          "We design buildings rooted in their context — such as the BAT Farmer Waiting Station in Kushtia, where the facade was articulated with metal screens abstracting the form of tobacco leaves, giving the building a site-specific agricultural identity.",
-      },
-      {
-        title: "Courtyard & Outdoor Space Planning",
-        description:
-          "Drawing from the Bangladeshi courtyard tradition (uthan), we organise programmes around central green courts that foster community and natural ventilation — creating shared outdoor hearts that bring life to the building.",
-      },
-      {
-        title: "Training & Community Facility Design",
-        description:
-          "We design purpose-built training centres, farmer waiting stations, and community hubs — balancing practical operational needs with dignified, humane architecture using brick, timber, and steel in honest expression.",
-      },
-      {
-        title: "Night Facade & Exterior Lighting",
-        description:
-          "Exterior lighting design is treated as an architectural layer — defining the building's nighttime identity, guiding movement, and ensuring safety, while preserving the integrity of the daytime facade concept.",
+        title: "Material & Finish Selection",
+        description: "Timber, stone, metal, and fabric are curated to tell a coherent story — translating brand vision into tactile, durable, and visually compelling interiors.",
       },
     ],
   },

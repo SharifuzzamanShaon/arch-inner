@@ -38,13 +38,13 @@ const ServiceCollaps = () => {
                   </span>
                   <h3
                     className="font-normal text-[#383636] group-hover:text-[#383636]/70 transition-colors duration-300"
-                    style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
+                    style={{ fontSize: "clamp(1.4rem, 2.5vw, 2.2rem)" }}
                   >
                     {service.name}
                   </h3>
                 </div>
                 <span
-                  className={`text-[#383636]/30 text-sm shrink-0 transition-transform duration-300 mt-1 ${openIndex === serviceIndex ? "rotate-45" : ""}`}
+                  className={`text-[#383636]/30 text-3xl shrink-0 transition-transform duration-300 leading-none ${openIndex === serviceIndex ? "rotate-45" : ""}`}
                 >
                   +
                 </span>
@@ -63,7 +63,7 @@ const ServiceCollaps = () => {
                           {String(detailIndex + 1).padStart(2, "0")} —{" "}
                           {detail.title}
                         </p>
-                        <p className="text-sm text-[#383636]/60 font-normal leading-relaxed">
+                        <p className="text-xl text-[#383636]/60 font-normal leading-relaxed">
                           {detail.description}
                         </p>
                       </div>
@@ -72,22 +72,15 @@ const ServiceCollaps = () => {
 
                   {/* Service image / logo */}
                   <div className="flex items-center justify-center lg:justify-end">
-                    <div className="w-full max-w-sm aspect-4/3 relative overflow-hidden bg-[#383636]/3 flex items-center justify-center">
+                    <div className="w-full max-w-sm aspect-4/3 relative overflow-hidden bg-[#383636]/5">
                       <Image
-                        src={service.thumbnail}
-                        width={400}
-                        height={300}
+                        src={service.image}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 400px"
                         alt={service.name}
-                        className="w-32 h-auto object-contain opacity-40 grayscale"
-                        onError={(e) => {
-                          e.target.style.display = "none";
-                        }}
+                        className="object-cover"
                       />
-                      <div className="absolute bottom-4 right-4">
-                        <span className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/20 font-normal">
-                          arch INNER
-                        </span>
-                      </div>
+                      <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
                     </div>
                   </div>
                 </div>
