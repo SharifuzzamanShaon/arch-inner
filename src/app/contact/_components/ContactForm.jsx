@@ -127,14 +127,17 @@ const InquiryForm = () => {
                     <option value="" className="bg-white">
                       Choose your project type
                     </option>
-                    <option value="residential" className="bg-white">
-                      Residential Villa
-                    </option>
                     <option value="commercial" className="bg-white">
-                      Commercial Complex
+                      Commercial
+                    </option>
+                    <option value="residential" className="bg-white">
+                      Residential
                     </option>
                     <option value="industrial" className="bg-white">
-                      Industrial Plot
+                      Industrial
+                    </option>
+                    <option value="industrial" className="bg-white">
+                      Others
                     </option>
                   </select>
                   <span className="absolute right-0 top-1/2 -translate-y-1/2 text-[#383636]/25 pointer-events-none text-xs">

@@ -114,7 +114,7 @@ const ServiceSection = () => {
         <div ref={gridRef}>
           {/* Mobile: swipeable */}
           <div className="block sm:hidden -mx-6">
-            <Swiper spaceBetween={12} slidesPerView={1.15}>
+            <Swiper spaceBetween={12} slidesPerView={1.15} slidesOffsetBefore={24} slidesOffsetAfter={24}>
               {SERVICES.map((service) => (
                 <SwiperSlide key={service.id}>
                   <ServiceCard service={service} />

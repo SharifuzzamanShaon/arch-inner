@@ -24,7 +24,7 @@ const ClientReview = () => {
 
   useEffect(() => {
     if (!marqueeRef.current) return;
-    if (typeof window !== "undefined" && window.innerWidth < 768) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     const ctx = gsap.context(() => {
       gsap.to(marqueeRef.current, {
         xPercent: -50,
@@ -101,9 +101,9 @@ const ClientReview = () => {
       </div>
 
       {/* Logo marquee */}
-      <div className="relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 z-10 bg-linear-to-r from-[#F7F4F0] to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 z-10 bg-linear-to-l from-[#F7F4F0] to-transparent pointer-events-none" />
+      <div className="relative overflow-x-auto scrollbar-none md:overflow-hidden">
+        <div className="hidden md:block absolute left-0 top-0 bottom-0 w-20 sm:w-32 z-10 bg-linear-to-r from-[#F7F4F0] to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-20 sm:w-32 z-10 bg-linear-to-l from-[#F7F4F0] to-transparent pointer-events-none" />
         <div ref={marqueeRef} className="flex items-center w-max">
           {[...CLIENTS, ...CLIENTS].map((client, i) => (
             <div

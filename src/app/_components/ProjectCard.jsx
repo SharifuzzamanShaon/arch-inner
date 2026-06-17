@@ -42,7 +42,7 @@ const ProjectCard = ({ project }) => {
             "A beautiful blend of modern aesthetics and functional design."}
         </p>
         <Link
-          href={`/portfolio/${project?.slug}`}
+          href={`/project/${project?.slug}`}
           className="group/btn inline-flex items-center gap-3 text-white/50 hover:text-white text-xs tracking-[0.18em] uppercase transition-colors duration-300"
         >
           <span>View Project</span>

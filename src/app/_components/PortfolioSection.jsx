@@ -8,7 +8,7 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProjectCard from "./ProjectCard";
 
-import { CATEGORIES, PROJECTS } from "../portfolio/_data/projects";
+import { CATEGORIES, PROJECTS } from "../project/_data/projects";
 
 const PortfolioSection = ({ hideTabs = false }) => {
   const router = useRouter();
@@ -83,7 +83,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
   const renderProjects = (projects) => (
     <>
       <div className="block md:hidden -mx-6">
-        <Swiper spaceBetween={12} slidesPerView={1.15}>
+        <Swiper spaceBetween={12} slidesPerView={1.15} slidesOffsetBefore={24} slidesOffsetAfter={24}>
           {projects.map((p) => (
             <SwiperSlide key={p.id}>
               <div className="project-item">
@@ -120,7 +120,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
             </h2>
             {!hideTabs && (
               <button
-                onClick={() => router.push("/portfolio")}
+                onClick={() => router.push("/project")}
                 className="reveal group hidden sm:inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal pb-1"
               >
                 <span>Explore All</span>
@@ -188,7 +188,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
         {!hideTabs && (
           <div className="flex justify-center mt-10 sm:hidden">
             <button
-              onClick={() => router.push("/portfolio")}
+              onClick={() => router.push("/project")}
               className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal"
             >
               <span>Explore All Projects</span>
