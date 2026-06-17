@@ -70,6 +70,34 @@ const MoreProjects = ({ currentSlug }) => {
   );
 };
 
+const ConsultationCTA = () => (
+  <section className="bg-[#0F0E0D]">
+    <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-14 py-24 sm:py-32 flex flex-col items-center text-center">
+      <p className="text-xs tracking-[0.35em] uppercase text-white/30 font-normal mb-6">
+        / Start Your Project
+      </p>
+      <h2
+        className="font-normal text-white leading-tight max-w-2xl mb-4"
+        style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)" }}
+      >
+        Ready to design your{" "}
+        <span className="text-white/35">next space?</span>
+      </h2>
+      <p className="text-base text-white/35 font-normal leading-relaxed max-w-md mb-10">
+        Let&apos;s talk about your vision. Book a free consultation and we&apos;ll
+        walk you through how we can bring it to life.
+      </p>
+      <Link
+        href="/contact"
+        className="inline-flex items-center gap-4 px-8 py-4 bg-white text-[#0F0E0D] text-sm tracking-[0.18em] uppercase font-normal hover:bg-white/85 transition-colors duration-300"
+      >
+        <span>Book a Consultation</span>
+        <span className="text-base leading-none">→</span>
+      </Link>
+    </div>
+  </section>
+);
+
 const ProjectDetailPage = async ({ params }) => {
   const { slug } = await params;
   const project = PROJECTS.find((p) => p.slug === slug);
@@ -81,6 +109,7 @@ const ProjectDetailPage = async ({ params }) => {
       <ProjectDetailsHero project={project} />
       <ProjectGallery project={project} />
       <MoreProjects currentSlug={project.slug} />
+      <ConsultationCTA />
     </>
   );
 };

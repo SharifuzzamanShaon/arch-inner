@@ -96,7 +96,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
 
         .carousel-root.full-width .stage {
           aspect-ratio: unset;
-          height: clamp(260px, 55vh, 90vh);
+          height: clamp(260px, 75vh, 100vh);
         }
 
         .gradient {

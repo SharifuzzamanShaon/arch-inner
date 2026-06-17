@@ -49,11 +49,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="f-reveal lg:col-span-5 flex flex-col">
             <Image
-              src="/images/footer-logo.png"
+              src="/images/site-logo.png"
               width={80}
               height={80}
               alt="Arch Inner"
-              className="w-12 h-12 object-contain mb-6 brightness-0 invert opacity-60"
+              className="w-12 h-12 object-contain mb-6"
             />
             <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-4 font-normal">
               / Arch Inner

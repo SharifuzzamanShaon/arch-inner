@@ -21,7 +21,7 @@ const ServiceDetailPage = async ({ params }) => {
       <Header />
 
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden mt-16 md:mt-0">
+      <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden mt-16 sm:mt-18 lg:mt-20">
         <Image
           src={service.image}
           alt={service.name}
@@ -33,7 +33,10 @@ const ServiceDetailPage = async ({ params }) => {
         <div className="absolute inset-0 flex flex-col justify-end">
           <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pb-14 w-full">
             <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-normal mb-4 flex items-center gap-2">
-              <Link href="/services" className="hover:text-white/70 transition-colors duration-200">
+              <Link
+                href="/services"
+                className="hover:text-white/70 transition-colors duration-200"
+              >
                 Services
               </Link>
               <span className="opacity-50">/</span>
@@ -53,7 +56,6 @@ const ServiceDetailPage = async ({ params }) => {
       <section className="bg-white border-t border-[#383636]/10">
         <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-
             {/* Left — short description */}
             <div className="lg:col-span-4">
               <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/40 font-normal mb-6">
@@ -126,12 +128,18 @@ const ServiceDetailPage = async ({ params }) => {
                 className="group relative overflow-hidden bg-[#1C1917] shrink-0 w-[78vw] snap-start block"
                 style={{ aspectRatio: "4/3" }}
               >
-                <Image src={s.image} fill sizes="80vw" alt={s.name}
-                  className="object-cover opacity-70 group-hover:opacity-85 transition-all duration-700" />
+                <Image
+                  src={s.image}
+                  fill
+                  sizes="80vw"
+                  alt={s.name}
+                  className="object-cover pl-2 opacity-70 group-hover:opacity-85 transition-all duration-700"
+                />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-normal block mb-1.5">0{s.id}</span>
-                  <h3 className="text-sm font-normal text-white leading-snug">{s.name}</h3>
+                  <h3 className="text-sm font-normal text-white leading-snug">
+                    {s.name}
+                  </h3>
                 </div>
               </Link>
             ))}
@@ -146,12 +154,21 @@ const ServiceDetailPage = async ({ params }) => {
                 className="group relative overflow-hidden bg-[#1C1917] block"
                 style={{ aspectRatio: "4/3" }}
               >
-                <Image src={s.image} fill sizes="33vw" alt={s.name}
-                  className="object-cover opacity-70 group-hover:opacity-85 group-hover:scale-105 transition-all duration-700" />
+                <Image
+                  src={s.image}
+                  fill
+                  sizes="33vw"
+                  alt={s.name}
+                  className="object-cover opacity-70 group-hover:opacity-85 group-hover:scale-105 transition-all duration-700"
+                />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-normal block mb-1.5">0{s.id}</span>
-                  <h3 className="text-sm font-normal text-white leading-snug">{s.name}</h3>
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-normal block mb-1.5">
+                    0{s.id}
+                  </span>
+                  <h3 className="text-sm font-normal text-white leading-snug">
+                    {s.name}
+                  </h3>
                 </div>
               </Link>
             ))}
