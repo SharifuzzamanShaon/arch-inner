@@ -25,10 +25,10 @@ const ProjectDetailsHero = ({ project }) => {
         {/* Breadcrumb */}
         <p className="text-xs tracking-[0.3em] uppercase text-black/50 font-normal mb-6 sm:mb-10 flex items-center gap-2">
           <Link
-            href="/portfolio"
+            href="/project"
             className="hover:text-black transition-colors duration-200"
           >
-            Portfolio
+            Project
           </Link>
           <span className="opacity-50">/</span>
           <span>{project.category}</span>

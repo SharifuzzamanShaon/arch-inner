@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Project", href: "/portfolio" },
+  { name: "Project", href: "/project" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about-us" },
   { name: "Contact", href: "/contact" },

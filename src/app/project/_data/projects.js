@@ -1,12 +1,14 @@
 export const CATEGORIES = [
   { id: "commercial", name: "Commercial" },
-  { id: "architecture", name: "Architecture" },
   { id: "residential", name: "Residential" },
+  { id: "architecture", name: "Architecture" },
 ];
 
-const BAT = "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD.";
+const BAT =
+  "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD.";
 const DIU = "/images/DIU";
-const FERVENT = "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION";
+const FERVENT =
+  "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION";
 const DBPLC = "/images/DBPlc%20Kalatia%20Branch%20Presentation";
 const IELTS = "/images/IELTS";
 
@@ -131,13 +133,7 @@ export const PROJECTS = [
     concept: "Banking Excellence — Trust · Clarity · Warmth",
     year: "2026",
     galleryAspectRatio: "4/3",
-    galleryLabels: [
-      "View 1",
-      "View 2",
-      "View 3",
-      "View 4",
-      "View 5",
-    ],
+    galleryLabels: ["View 1", "View 2", "View 3", "View 4", "View 5"],
     gallery: [
       `${DBPLC}/image.png`,
       `${DBPLC}/image%20copy.png`,

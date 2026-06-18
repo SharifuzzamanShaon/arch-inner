@@ -90,7 +90,7 @@ const StatsSection = () => {
             / By The Numbers
           </span>
           <span className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/55 font-normal">
-            Est. 2014
+            Est. 2018
           </span>
         </div>
 

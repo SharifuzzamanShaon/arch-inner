@@ -1,15 +1,12 @@
-"use client";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 import { SERVICES } from "../_data/services";
 
 const ServiceCollaps = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
   return (
-    <section className="bg-white border-t border-[#383636]/10">
-      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-10 sm:py-28">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10 sm:mb-20">
+    <section className="bg-[#F2F2F2] border-t border-[#383636]/8">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 sm:mb-16">
           <h2
             className="font-normal text-[#383636] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
@@ -17,75 +14,45 @@ const ServiceCollaps = () => {
             Our Services
           </h2>
           <p className="text-sm text-[#383636]/50 font-normal max-w-xs leading-relaxed">
-            Seven stages of design — from brief to handover — across five core
-            disciplines.
+            From concept to handover — across every discipline we offer.
           </p>
         </div>
 
-        <div className="space-y-0 divide-y divide-[#383636]/8">
-          {SERVICES.map((service, serviceIndex) => (
-            <div key={service.id}>
-              {/* Service header row */}
-              <button
-                onClick={() =>
-                  setOpenIndex(openIndex === serviceIndex ? null : serviceIndex)
-                }
-                className="w-full flex items-start justify-between gap-8 py-8 text-left group"
-              >
-                <div className="flex items-start gap-6 flex-1 min-w-0">
-                  <span className="text-[11px] tracking-[0.2em] text-[#383636]/30 font-normal pt-1 shrink-0 w-6">
-                    {String(serviceIndex + 1).padStart(2, "0")}
-                  </span>
-                  <h3
-                    className="font-normal text-[#383636] group-hover:text-[#383636]/70 transition-colors duration-300"
-                    style={{ fontSize: "clamp(1.4rem, 2.5vw, 2.2rem)" }}
-                  >
-                    {service.name}
-                  </h3>
-                </div>
-                <span
-                  className={`text-[#383636]/30 text-3xl shrink-0 transition-transform duration-300 leading-none ${openIndex === serviceIndex ? "rotate-45" : ""}`}
+        <div className="-mx-6 px-6 flex gap-4 overflow-x-auto scrollbar-none scroll-px-6 snap-x snap-mandatory sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:snap-none">
+          {SERVICES.map((service) => (
+            <Link
+              key={service.id}
+              href={`/services/${service.slug}`}
+              className="group relative overflow-hidden bg-[#1C1917] block rounded-xl shrink-0 w-[80vw] sm:w-auto snap-start"
+              style={{ aspectRatio: "4/3" }}
+            >
+              <Image
+                src={service.image}
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                alt={service.name}
+                className="object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent" />
+              <div className="absolute top-4 right-4 w-8 h-8 border border-white/30 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <span className="text-white text-sm leading-none">→</span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                <h3
+                  className="font-normal text-white leading-snug mb-2"
+                  style={{ fontSize: "clamp(1rem, 1.8vw, 1.3rem)" }}
                 >
-                  +
-                </span>
-              </button>
-
-              {/* Expanded content */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ${openIndex === serviceIndex ? "max-h-200 pb-10" : "max-h-0"}`}
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 pl-12">
-                  {/* Details list */}
-                  <div className="space-y-0 divide-y divide-[#383636]/8">
-                    {service.details.map((detail, detailIndex) => (
-                      <div key={detailIndex} className="py-6">
-                        <p className="text-[11px] tracking-[0.25em] uppercase text-[#383636]/35 font-medium mb-3">
-                          {String(detailIndex + 1).padStart(2, "0")} —{" "}
-                          {detail.title}
-                        </p>
-                        <p className="text-xl text-[#383636]/60 font-normal leading-relaxed">
-                          {detail.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Service image / logo */}
-                  <div className="flex items-center justify-center lg:justify-end">
-                    <div className="w-full max-w-sm aspect-4/3 relative overflow-hidden bg-[#383636]/5">
-                      <Image
-                        src={service.image}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 400px"
-                        alt={service.name}
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
-                    </div>
-                  </div>
+                  {service.name}
+                </h3>
+                <p className="text-[13px] text-white/55 font-normal leading-relaxed line-clamp-2 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
+                  {service.shortDescription}
+                </p>
+                <div className="mt-3 inline-flex items-center gap-2 text-white/50 group-hover:text-white/80 text-[11px] tracking-[0.18em] uppercase transition-colors duration-300 opacity-0 group-hover:opacity-100">
+                  <span>Learn More</span>
+                  <span className="w-4 h-px bg-current group-hover:w-6 transition-all duration-300" />
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

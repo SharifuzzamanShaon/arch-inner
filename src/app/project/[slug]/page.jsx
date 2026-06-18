@@ -27,7 +27,7 @@ const MoreProjects = ({ currentSlug }) => {
             </h2>
           </div>
           <Link
-            href="/portfolio"
+            href="/project"
             className="hidden sm:inline-flex items-center gap-3 text-base tracking-[0.15em] uppercase text-[#383636]/50 hover:text-[#383636] transition-colors duration-300 font-normal pb-1"
           >
             <span>All Projects</span>
@@ -40,7 +40,7 @@ const MoreProjects = ({ currentSlug }) => {
           {others.map((p) => (
             <Link
               key={p.id}
-              href={`/portfolio/${p.slug}`}
+              href={`/project/${p.slug}`}
               className="group relative overflow-hidden bg-[#1C1917] block"
               style={{ aspectRatio: "4/3" }}
             >
