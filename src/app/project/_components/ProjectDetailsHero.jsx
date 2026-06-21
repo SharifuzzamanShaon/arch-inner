@@ -17,7 +17,10 @@ const ProjectDetailsHero = ({ project }) => {
   return (
     <section className="bg-white border-b border-[#383636]/10 pt-20 sm:pt-24">
       {/* Full-width banner image */}
-      <div className="relative w-full" style={{ height: "clamp(340px, 60vh, 720px)" }}>
+      <div
+        className="relative w-full"
+        style={{ height: "clamp(340px, 60vh, 720px)" }}
+      >
         {heroImage && (
           <Image
             src={heroImage}
@@ -34,13 +37,18 @@ const ProjectDetailsHero = ({ project }) => {
         <div className="absolute top-0 left-0 right-0">
           <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pt-6 sm:pt-8">
             <p className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-normal flex items-center gap-2">
-              <Link href="/project" className="hover:text-white transition-colors duration-200">
+              <Link
+                href="/project"
+                className="hover:text-white transition-colors duration-200"
+              >
                 Project
               </Link>
               <span className="opacity-50">/</span>
               <span>{project.category}</span>
               <span className="opacity-50">/</span>
-              <span className="text-white/80 truncate max-w-xs">{project.title}</span>
+              <span className="text-white/80 truncate max-w-xs">
+                {project.title}
+              </span>
             </p>
           </div>
         </div>
@@ -85,10 +93,10 @@ const ProjectDetailsHero = ({ project }) => {
               key={i}
               className="flex flex-col gap-1.5 py-5 pr-4 border-b border-[#383636]/10 border-r border-r-[#383636]/10 nth-[2n]:border-r-0 sm:nth-[2n]:border-r sm:nth-[2n]:border-r-[#383636]/10 sm:nth-[3n]:border-r-0"
             >
-              <span className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/35 font-normal">
+              <span className="text-[10px] pl-2 tracking-[0.3em] uppercase text-[#383636]/35 font-normal">
                 {label}
               </span>
-              <span className="text-sm text-[#383636] font-normal tracking-wide leading-snug">
+              <span className="text-sm pl-2 text-[#383636] font-normal tracking-wide leading-snug">
                 {value}
               </span>
             </div>

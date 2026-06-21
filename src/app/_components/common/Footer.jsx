@@ -5,11 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -54,8 +50,8 @@ const Footer = () => {
               alt="Arch Inner"
               className="w-12 h-12 object-contain mb-6"
             />
-            <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-4 font-normal">
-              / Arch Inner
+            <p className="text-[10px] tracking-[0.3em] text-white/40 mb-4 font-normal">
+              arch INNER
             </p>
             <p className="text-base text-white/30 font-normal leading-relaxed max-w-xs">
               We design spaces that bridge architecture and emotion — crafting
@@ -63,7 +59,10 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-5 mt-8">
               {[
-                { icon: FaFacebookF, href: "https://www.facebook.com/archinner1/" },
+                {
+                  icon: FaFacebookF,
+                  href: "https://www.facebook.com/archinner1/",
+                },
                 { icon: FaLinkedinIn, href: "#" },
                 { icon: FaYoutube, href: "#" },
               ].map(({ icon: Icon, href }) => (
@@ -128,18 +127,18 @@ const Footer = () => {
                 / Contact
               </p>
               <ul className="space-y-4">
-                {[
-                  { label: "Get In Touch", href: "/contact" },
-                ].map(({ label, href }) => (
-                  <li key={label}>
-                    <Link
-                      href={href}
-                      className="text-base text-white/30 hover:text-white/70 font-normal tracking-wide transition-colors duration-300"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
+                {[{ label: "Get In Touch", href: "/contact" }].map(
+                  ({ label, href }) => (
+                    <li key={label}>
+                      <Link
+                        href={href}
+                        className="text-base text-white/30 hover:text-white/70 font-normal tracking-wide transition-colors duration-300"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           </div>
@@ -160,10 +159,10 @@ const Footer = () => {
       </div>
 
       {/* Display text */}
-      <div className="overflow-hidden border-t border-white/4">
+      <div className="overflow-x-clip border-t border-white/4">
         <p
-          className="f-reveal text-center font-normal tracking-[0.35em] text-white/4 select-none pointer-events-none py-4 sm:py-6 whitespace-nowrap"
-          style={{ fontSize: "clamp(2rem, 10vw, 10rem)" }}
+          className="f-reveal text-center font-normal tracking-[0.25em] text-white/4 select-none pointer-events-none py-4 sm:py-6"
+          style={{ fontSize: "clamp(2rem, 7.5vw, 7.5rem)" }}
         >
           ARCH INNER
         </p>

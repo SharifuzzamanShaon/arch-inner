@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import ContactModal from "./ContactModal";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -20,6 +21,7 @@ const Header = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const overlayRef = useRef(null);
   const overlayNavRef = useRef(null);
 
@@ -30,13 +32,13 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll when mobile menu or modal is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.style.overflow = menuOpen || modalOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [menuOpen]);
+  }, [menuOpen, modalOpen]);
 
   // Animate overlay open/close
   useEffect(() => {
@@ -71,6 +73,8 @@ const Header = () => {
   }, [menuOpen]);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const openModal = useCallback(() => setModalOpen(true), []);
+  const closeModal = useCallback(() => setModalOpen(false), []);
 
   return (
     <>
@@ -120,13 +124,13 @@ const Header = () => {
 
             {/* Desktop CTA */}
             <div className="hidden md:block flex-shrink-0">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 text-sm tracking-[0.12em] uppercase font-normal text-[#383636] hover:text-[#383636]/60 transition-colors duration-200"
+              <button
+                onClick={openModal}
+                className="group inline-flex cursor-pointer items-center gap-2 text-sm tracking-[0.12em] uppercase font-normal text-[#383636] hover:text-[#383636]/60 transition-colors duration-200"
               >
                 <span>Get In Touch</span>
                 <span className="inline-block w-5 h-px bg-current opacity-50 group-hover:w-7 transition-all duration-300" />
-              </Link>
+              </button>
             </div>
 
             {/* Mobile hamburger */}
@@ -189,18 +193,21 @@ const Header = () => {
 
         {/* Mobile overlay footer */}
         <div className="menu-item mt-8 flex items-center justify-between border-t border-[#383636]/10 pt-6">
-          <Link
-            href="/contact"
-            onClick={closeMenu}
+          <button
+            onClick={() => {
+              closeMenu();
+              openModal();
+            }}
             className="text-sm tracking-[0.15em] uppercase text-[#383636]/50 hover:text-[#383636] transition-colors duration-200"
           >
             / Get In Touch
-          </Link>
+          </button>
           <span className="text-[#383636]/20 text-xs tracking-widest">
             Arch Inner
           </span>
         </div>
       </div>
+      <ContactModal isOpen={modalOpen} onClose={closeModal} />
     </>
   );
 };
