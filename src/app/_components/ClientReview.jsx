@@ -115,7 +115,7 @@ const ClientReview = () => {
                 alt={client.name}
                 width={120}
                 height={48}
-                className="max-w-22.5 sm:max-w-27.5 max-h-full object-contain opacity-30 hover:opacity-70 transition-opacity duration-400 grayscale"
+                className="max-w-22.5 sm:max-w-27.5 max-h-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-400"
               />
             </div>
           ))}

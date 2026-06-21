@@ -72,7 +72,9 @@ const InquiryForm = () => {
             {/* Contact details */}
             <div className="space-y-6 border-t border-[#383636]/12 pt-8">
               {[
-                { label: "Phone", value: "+880 1721-700702" },
+                { label: "Phone", value: "01717-038194" },
+                { label: "Email", value: "archinner@gmail.com" },
+                { label: "Address", value: "Ja-80, Siddique Manjil, Mohakhali C/A, Dhaka 1212" },
                 { label: "Hours", value: "Sun – Thu, 10am – 7pm" },
               ].map(({ label, value }) => (
                 <div key={label} className="flex items-start gap-6">

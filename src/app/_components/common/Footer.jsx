@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import {
   FaFacebookF,
-  FaInstagram,
   FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa";
@@ -64,8 +63,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-5 mt-8">
               {[
-                { icon: FaInstagram, href: "#" },
-                { icon: FaFacebookF, href: "#" },
+                { icon: FaFacebookF, href: "https://www.facebook.com/archinner1/" },
                 { icon: FaLinkedinIn, href: "#" },
                 { icon: FaYoutube, href: "#" },
               ].map(({ icon: Icon, href }) => (
@@ -89,8 +87,8 @@ const Footer = () => {
               <ul className="space-y-4">
                 {[
                   { label: "About Us", href: "/about-us" },
-                  { label: "Blogs", href: "/blogs" },
-                  { label: "Careers", href: "#" },
+                  { label: "News", href: "/news" },
+                  { label: "Careers", href: "/career" },
                 ].map(({ label, href }) => (
                   <li key={label}>
                     <Link
@@ -132,7 +130,6 @@ const Footer = () => {
               <ul className="space-y-4">
                 {[
                   { label: "Get In Touch", href: "/contact" },
-                  { label: "Instagram", href: "#" },
                 ].map(({ label, href }) => (
                   <li key={label}>
                     <Link

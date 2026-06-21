@@ -8,7 +8,6 @@ const STATS = [
   { number: "7+", label: "Years Experience" },
   { number: "50+", label: "Projects Completed" },
   { number: "30+", label: "Happy Clients" },
-  { number: "80K+", label: "Sq. Ft. Designed" },
 ];
 
 const parseNum = (str) => {
@@ -94,7 +93,7 @@ const StatsSection = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#383636]/12 [&>*:nth-child(2)]:border-r-0 lg:[&>*:nth-child(2)]:border-r lg:[&>*:nth-child(2)]:border-[#383636]/12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#383636]/12">
           {STATS.map((stat, i) => {
             const { value } = parseNum(stat.number ?? "0");
             return (

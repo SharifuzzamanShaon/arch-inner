@@ -31,7 +31,6 @@ const NewsCard = ({ post }) => (
     <h3 className="text-base sm:text-lg font-semibold text-[#383636] leading-snug group-hover:text-[#383636]/60 transition-colors duration-300">
       {post.title}
     </h3>
-    <p className="text-xs text-[#383636]/45 font-normal leading-relaxed line-clamp-2 flex-1">{post.excerpt}</p>
     <span className="inline-flex items-center gap-2.5 text-[10px] tracking-[0.15em] uppercase text-[#383636]/35 group-hover:text-[#383636] transition-colors duration-300 font-normal mt-auto pt-2">
       <span>Read Article</span>
       <span className="inline-block w-4 h-px bg-current group-hover:w-8 transition-all duration-300" />
@@ -104,7 +103,7 @@ const NewsSection = () => {
         <div ref={cardsRef}>
           {/* Mobile: swipeable, no autoplay */}
           <div className="block sm:hidden -mx-6">
-            <Swiper spaceBetween={12} slidesPerView={1.15}>
+            <Swiper spaceBetween={12} slidesPerView={1.15} slidesOffsetBefore={24} slidesOffsetAfter={24}>
               {latest.map((post) => (
                 <SwiperSlide key={post.id}>
                   <NewsCard post={post} />
