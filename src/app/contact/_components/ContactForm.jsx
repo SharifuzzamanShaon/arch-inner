@@ -5,28 +5,33 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
-const countries = [
-  { code: "BD", flag: "🇧🇩", dialCode: "+880" },
-  { code: "US", flag: "🇺🇸", dialCode: "+1" },
-  { code: "GB", flag: "🇬🇧", dialCode: "+44" },
-  { code: "IN", flag: "🇮🇳", dialCode: "+91" },
-  { code: "CA", flag: "🇨🇦", dialCode: "+1" },
-];
 
 const DETAILS = [
-  { label: "Phone",   value: "01717-038194",                                   href: "tel:+8801717038194" },
-  { label: "Email",   value: "archinner@gmail.com",                            href: "mailto:archinner@gmail.com" },
-  { label: "Address", value: "Ja-80, Siddique Manjil,\nMohakhali C/A, Dhaka 1212" },
-  { label: "Hours",   value: "Sun – Thu  ·  10am – 7pm" },
+  { label: "Phone", value: "01717-038194", href: "tel:+8801717038194" },
+  {
+    label: "Email",
+    value: "archinner@gmail.com",
+    href: "mailto:archinner@gmail.com",
+  },
+  {
+    label: "Address",
+    value: "Ja-80, Siddique Manjil,\nMohakhali C/A, Dhaka 1212",
+  },
+  { label: "Hours", value: "Sun – Thu  ·  10am – 7pm" },
 ];
 
 const InquiryForm = () => {
-  const [form, setForm] = useState({ name: "", email: "", type: "", phone: "", brief: "" });
-  const [country, setCountry] = useState(countries[0]);
-  const [dialOpen, setDialOpen] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    type: "",
+    phone: "",
+    brief: "",
+  });
+  const country = { flag: "🇧🇩", dialCode: "+880" };
   const sectionRef = useRef(null);
-  const leftRef    = useRef(null);
-  const rightRef   = useRef(null);
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.innerWidth < 768) return;
@@ -35,14 +40,35 @@ const InquiryForm = () => {
       gsap.fromTo(
         leftRef.current.querySelectorAll(".l-item"),
         { y: 28, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.09, duration: 0.85, ease: "power3.out",
-          scrollTrigger: { trigger: leftRef.current, start: "top 78%", once: true } }
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.09,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: leftRef.current,
+            start: "top 78%",
+            once: true,
+          },
+        },
       );
       gsap.fromTo(
         rightRef.current.querySelectorAll(".r-item"),
         { y: 28, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.07, duration: 0.8, ease: "power3.out", delay: 0.15,
-          scrollTrigger: { trigger: rightRef.current, start: "top 78%", once: true } }
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.07,
+          duration: 0.8,
+          ease: "power3.out",
+          delay: 0.15,
+          scrollTrigger: {
+            trigger: rightRef.current,
+            start: "top 78%",
+            once: true,
+          },
+        },
       );
     }, sectionRef);
     return () => ctx.revert();
@@ -61,13 +87,12 @@ const InquiryForm = () => {
     "block text-[10px] tracking-[0.28em] uppercase text-[#383636]/40 font-normal mb-1.5";
 
   return (
-    <section ref={sectionRef} className="min-h-screen pt-16 sm:pt-18 lg:pt-20">
+    <section ref={sectionRef} className="min-h-screen pt-20 sm:pt-18 lg:pt-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-
         {/* ── Left — dark info panel ── */}
         <div
           ref={leftRef}
-          className="bg-[#1C1917] flex flex-col justify-between px-8 sm:px-12 lg:px-16 pt-32 sm:pt-36 pb-14 sm:pb-16"
+          className="order-last lg:order-first bg-[#1C1917] flex flex-col justify-between px-8 sm:px-12 lg:px-16 pt-16 sm:pt-10 pb-14 sm:pb-16"
         >
           {/* Top content */}
           <div>
@@ -78,12 +103,15 @@ const InquiryForm = () => {
               className="l-item font-normal text-white leading-[1.06] mb-8"
               style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)" }}
             >
-              Let&apos;s Create<br />
-              <span className="text-white/30">Something</span><br />
+              Let&apos;s Create
+              <br />
+              <span className="text-white/30">Something</span>
+              <br />
               Remarkable.
             </h1>
             <p className="l-item text-sm text-white/35 font-normal leading-relaxed max-w-xs mb-12">
-              We&apos;d love to hear about your next project — whether it&apos;s a concept sketch or a fully developed brief.
+              We&apos;d love to hear about your next project — whether it&apos;s
+              a concept sketch or a fully developed brief.
             </p>
 
             {/* Divider */}
@@ -116,7 +144,11 @@ const InquiryForm = () => {
           {/* Bottom — socials */}
           <div className="l-item mt-14 flex items-center gap-5 border-t border-white/8 pt-8">
             {[
-              { Icon: FaFacebookF, href: "https://www.facebook.com/archinner1/", label: "Facebook" },
+              {
+                Icon: FaFacebookF,
+                href: "https://www.facebook.com/archinner1/",
+                label: "Facebook",
+              },
               { Icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
             ].map(({ Icon, href, label }) => (
               <a
@@ -134,7 +166,7 @@ const InquiryForm = () => {
         {/* ── Right — form panel ── */}
         <div
           ref={rightRef}
-          className="bg-[#F7F4F0] flex flex-col justify-center px-8 sm:px-12 lg:px-16 pt-16 lg:pt-32 pb-14 sm:pb-16"
+          className="order-first lg:order-last bg-[#F7F4F0] flex flex-col justify-center px-8 sm:px-12 lg:px-16 pt-10 lg:pt-10 pb-14 sm:pb-16"
         >
           <p className="r-item text-[10px] tracking-[0.35em] uppercase text-[#383636]/40 font-normal mb-6">
             / Send a Message
@@ -143,11 +175,11 @@ const InquiryForm = () => {
             className="r-item font-normal text-[#383636] leading-tight mb-10 sm:mb-12"
             style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)" }}
           >
-            Tell Us About <span className="text-[#383636]/30">Your Project</span>
+            Tell Us About{" "}
+            <span className="text-[#383636]/30">Your Project</span>
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-7 max-w-lg">
-
             {/* Name + Email */}
             <div className="r-item grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
               <div>
@@ -188,13 +220,25 @@ const InquiryForm = () => {
                   className={`${inputCls} appearance-none pr-8`}
                 >
                   <option value="">Choose your project type</option>
-                  <option value="architecture" className="bg-white">Architecture</option>
-                  <option value="interior-architecture" className="bg-white">Interior Architecture</option>
-                  <option value="master-plan-landscape" className="bg-white">Master Plan &amp; Landscape</option>
-                  <option value="product-design" className="bg-white">Product Design</option>
-                  <option value="project-management" className="bg-white">Project Management</option>
+                  <option value="architecture" className="bg-white">
+                    Architecture
+                  </option>
+                  <option value="interior-architecture" className="bg-white">
+                    Interior Architecture
+                  </option>
+                  <option value="master-plan-landscape" className="bg-white">
+                    Master Plan &amp; Landscape
+                  </option>
+                  <option value="product-design" className="bg-white">
+                    Product Design
+                  </option>
+                  <option value="project-management" className="bg-white">
+                    Project Management
+                  </option>
                 </select>
-                <span className="absolute right-0 top-1/2 -translate-y-1/2 text-[#383636]/25 pointer-events-none text-xs">↓</span>
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 text-[#383636]/25 pointer-events-none text-xs">
+                  ↓
+                </span>
               </div>
             </div>
 
@@ -202,32 +246,10 @@ const InquiryForm = () => {
             <div className="r-item">
               <label className={labelCls}>Phone Number</label>
               <div className="flex items-end gap-4">
-                {/* Dial code picker */}
-                <div className="relative shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => setDialOpen((v) => !v)}
-                    className="flex items-center gap-1.5 pb-4 border-b border-[#383636]/15 text-[#383636]/50 hover:text-[#383636]/80 transition-colors duration-200 text-sm font-normal"
-                  >
-                    <span>{country.flag}</span>
-                    <span className="text-xs tracking-wide">{country.dialCode}</span>
-                    <span className={`text-[8px] text-[#383636]/25 transition-transform duration-200 ${dialOpen ? "rotate-180" : ""}`}>▼</span>
-                  </button>
-                  {dialOpen && (
-                    <div className="absolute top-full left-0 mt-1 w-44 bg-white border border-[#383636]/10 z-20 py-1 shadow-md">
-                      {countries.map((c) => (
-                        <button
-                          key={c.code}
-                          type="button"
-                          onClick={() => { setCountry(c); setDialOpen(false); }}
-                          className="flex items-center gap-2.5 w-full px-4 py-2.5 hover:bg-[#383636]/4 transition-colors text-left"
-                        >
-                          <span>{c.flag}</span>
-                          <span className="text-xs text-[#383636]/50 font-normal">{c.dialCode}</span>
-                        </button>
-                      ))}
-                    </div>
-                  )}
+                {/* Dial code */}
+                <div className="flex items-center gap-1.5 pb-4 border-b border-[#383636]/15 text-[#383636]/50 text-sm font-normal shrink-0">
+                  <span>{country.flag}</span>
+                  <span className="text-xs tracking-wide">{country.dialCode}</span>
                 </div>
                 <input
                   name="phone"
@@ -274,7 +296,6 @@ const InquiryForm = () => {
             </div>
           </form>
         </div>
-
       </div>
     </section>
   );
