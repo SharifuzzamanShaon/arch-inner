@@ -3,7 +3,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 
 const DETAILS = [
@@ -149,12 +149,14 @@ const InquiryForm = () => {
                 href: "https://www.facebook.com/archinner1/",
                 label: "Facebook",
               },
-              { Icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
+              { Icon: FaInstagram, href: "https://www.instagram.com/arch.inner", label: "Instagram" },
             ].map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
                 aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/30 transition-all duration-300"
               >
                 <Icon className="w-3.5 h-3.5" />
