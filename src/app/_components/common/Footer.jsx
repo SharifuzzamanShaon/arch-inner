@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -63,12 +63,13 @@ const Footer = () => {
                   icon: FaFacebookF,
                   href: "https://www.facebook.com/archinner1/",
                 },
-                { icon: FaLinkedinIn, href: "#" },
-                { icon: FaYoutube, href: "#" },
+                { icon: FaInstagram, href: "https://www.instagram.com/arch.inner" },
               ].map(({ icon: Icon, href }) => (
                 <a
                   key={href + Icon.name}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/20 hover:text-white/70 transition-colors duration-300"
                 >
                   <Icon className="w-4 h-4" />
