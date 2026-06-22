@@ -1,7 +1,9 @@
 export const CATEGORIES = [
-  { id: "commercial", name: "Commercial" },
-  { id: "residential", name: "Residential" },
   { id: "architecture", name: "Architecture" },
+  { id: "interior-architecture", name: "Interior Architecture" },
+  { id: "master-plan-landscape", name: "Master Plan & Landscape" },
+  { id: "product-design", name: "Product Design" },
+  { id: "project-management", name: "Project Management" },
 ];
 
 const BAT =
@@ -49,8 +51,8 @@ export const PROJECTS = [
     id: 2,
     slug: "faculty-earth-sciences-engineering-university-of-dhaka",
     title: "Faculty of Earth Sciences & Engineering, University of Dhaka",
-    category: "Residential",
-    categoryId: "residential",
+    category: "Interior Architecture",
+    categoryId: "interior-architecture",
     location: "University of Dhaka",
     thumbnail: `${DIU}/DEAN%20ROOM.png`,
     description:
@@ -84,8 +86,8 @@ export const PROJECTS = [
     id: 3,
     slug: "fervent-multiboard-chairman-floor",
     title: "Fervent Multiboard Industries — Chairman Floor",
-    category: "Commercial",
-    categoryId: "commercial",
+    category: "Interior Architecture",
+    categoryId: "interior-architecture",
     location: "Mohakhali C/A, Dhaka",
     thumbnail: `${FERVENT}/RECEPTION.png`,
     description:
@@ -119,8 +121,8 @@ export const PROJECTS = [
     id: 5,
     slug: "dhaka-bank-plc-kalatia-branch",
     title: "Dhaka Bank PLC — Kalatia Branch",
-    category: "Commercial",
-    categoryId: "commercial",
+    category: "Interior Architecture",
+    categoryId: "interior-architecture",
     location: "Kalatia, Keraniganj, Dhaka",
     thumbnail: `${DBPLC}/image.png`,
     description:
@@ -146,8 +148,8 @@ export const PROJECTS = [
     id: 4,
     slug: "servisol-ites-office-interior",
     title: "Servisol ITES — Office Interior",
-    category: "Residential",
-    categoryId: "residential",
+    category: "Interior Architecture",
+    categoryId: "interior-architecture",
     location: "Bhai Bhai Plaza, Khilkhet, Dhaka-1229",
     thumbnail: `${IELTS}/WAITING%20AREA%20OP-1.png`,
     description:

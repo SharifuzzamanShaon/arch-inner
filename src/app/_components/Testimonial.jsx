@@ -105,7 +105,7 @@ const TestimonialSection = () => {
         <div ref={gridRef}>
           {/* Mobile: swipeable, no autoplay */}
           <div className="block md:hidden -mx-6">
-            <Swiper spaceBetween={12} slidesPerView={1.1}>
+            <Swiper spaceBetween={12} slidesPerView={1.15} slidesOffsetBefore={24} slidesOffsetAfter={24}>
               {TESTIMONIALS.map((t) => (
                 <SwiperSlide key={t.id} className="tcard">
                   <TestimonialCard service={t} dark />

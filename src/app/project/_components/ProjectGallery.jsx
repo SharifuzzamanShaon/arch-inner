@@ -17,7 +17,6 @@ const ProjectGallery = ({ project }) => {
   return (
     <section className="bg-[#F7F4F0] border-t border-[#383636]/8">
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-14 sm:py-20 lg:py-28">
-
         {/* Heading row */}
         <div className="flex items-end justify-between mb-8 sm:mb-12">
           <div>
@@ -28,8 +27,7 @@ const ProjectGallery = ({ project }) => {
               className="font-normal text-[#383636] leading-none"
               style={{ fontSize: "clamp(1.5rem, 3.5vw, 3rem)" }}
             >
-              Project{" "}
-              <span className="text-[#383636]/25">Showcase</span>
+              Project <span className="text-[#383636]/25">Showcase</span>
             </h2>
           </div>
           <div className="text-right pb-0.5">
@@ -43,16 +41,19 @@ const ProjectGallery = ({ project }) => {
               className="text-[#383636]/25 font-normal"
               style={{ fontSize: "clamp(0.8rem, 2vw, 1.4rem)" }}
             >
-              {" "}/ {String(images.length).padStart(2, "0")}
+              {" "}
+              / {String(images.length).padStart(2, "0")}
             </span>
           </div>
         </div>
 
         {/* Desktop: main image + thumbnail panel */}
         <div className="flex gap-3 lg:gap-4">
-
           {/* Main featured image */}
-          <div className="relative flex-1 overflow-hidden group" style={{ aspectRatio: ratio, maxHeight: "500px" }}>
+          <div
+            className="relative flex-1 overflow-hidden group"
+            style={{ aspectRatio: ratio, maxHeight: "500px" }}
+          >
             <Image
               key={images[active]}
               src={images[active]}
@@ -85,7 +86,13 @@ const ProjectGallery = ({ project }) => {
                   aria-label="Previous image"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path
+                      d="M10 12L6 8L10 4"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
                 <button
@@ -94,7 +101,13 @@ const ProjectGallery = ({ project }) => {
                   aria-label="Next image"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path
+                      d="M6 4L10 8L6 12"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </>
@@ -111,12 +124,15 @@ const ProjectGallery = ({ project }) => {
 
           {/* Thumbnail panel — desktop only */}
           {images.length > 1 && (
-            <div className="hidden lg:flex flex-col gap-3 w-50 xl:w-60 shrink-0" style={{ maxHeight: "500px" }}>
+            <div
+              className="hidden lg:flex flex-col gap-3 w-50 xl:w-60 shrink-0"
+              style={{ maxHeight: "500px" }}
+            >
               {images.map((src, i) => (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
-                  className={`relative overflow-hidden flex-1 group/thumb transition-all duration-300 ${
+                  className={`relative overflow-hidden cursor-pointer flex-1 group/thumb transition-all duration-300 ${
                     active === i
                       ? "ring-1 ring-[#383636]/60"
                       : "opacity-40 hover:opacity-70"
@@ -187,7 +203,6 @@ const ProjectGallery = ({ project }) => {
             ))}
           </div>
         )}
-
       </div>
     </section>
   );

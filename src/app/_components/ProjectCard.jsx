@@ -2,56 +2,48 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProjectCard = ({ project }) => {
-  return (
-    <div className="group relative w-full overflow-hidden bg-[#1C1917] min-h-70 sm:min-h-105">
+  const Inner = (
+    <div
+      className="group relative w-full overflow-hidden bg-[#1C1917] transition-transform duration-300 hover:-translate-y-1"
+      style={{ minHeight: "300px" }}
+    >
       {/* Background image */}
-      {project?.thumbnail && (
-        <Image
-          src={project.thumbnail}
-          alt={project.title || "Project"}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-90"
-          priority
-        />
-      )}
-
-      {/* Gradient */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent z-10" />
-
-      {/* Top row — category + location */}
-      <div className="absolute top-5 left-5 right-5 flex items-start justify-between z-20">
-        <span className="bg-white/10 backdrop-blur-sm text-white text-[10px] tracking-[0.18em] uppercase px-3 py-1.5 border border-white/15">
-          {project?.category || "Interior"}
-        </span>
-        <span className="text-white/45 text-[10px] tracking-[0.12em] uppercase">
-          {project?.location || "Dhaka"}
-        </span>
+      <div className="absolute inset-0">
+        {project?.thumbnail && (
+          <Image
+            src={project.thumbnail}
+            alt={project.title || "Project"}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-70"
+            priority
+          />
+        )}
+        <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/10" />
       </div>
 
-      {/* Bottom content */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-8">
-        <h3
-          className="font-normal text-white leading-tight mb-2"
-          style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)" }}
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-8 py-7 sm:py-8 min-h-75">
+        {project?.category && (
+          <p className="text-[10px] tracking-[0.25em] uppercase text-white/40 mb-2">
+            {project.category}
+          </p>
+        )}
+        <h4
+          className="font-normal text-white leading-tight mb-3"
+          style={{ fontSize: "clamp(1rem, 1.8vw, 1.2rem)" }}
         >
           {project?.title || "Modern Living"}
-        </h3>
-        <p className="text-sm text-white/45 font-normal leading-relaxed mb-6 max-w-xs">
-          {project?.description ||
-            "A beautiful blend of modern aesthetics and functional design."}
-        </p>
-        <Link
-          href={`/project/${project?.slug}`}
-          className="group/btn inline-flex items-center gap-3 text-white/50 hover:text-white text-xs tracking-[0.18em] uppercase transition-colors duration-300"
-        >
+        </h4>
+        <div className="inline-flex items-center gap-2 text-white/40 group-hover:text-white/65 text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 opacity-100 sm:opacity-0 group-hover:opacity-100">
           <span>View Project</span>
-          <span className="inline-block w-5 h-px bg-current group-hover/btn:w-9 transition-all duration-300" />
-          <span>→</span>
-        </Link>
+          <span className="w-4 h-px bg-current group-hover:w-7 transition-all duration-300" />
+        </div>
       </div>
     </div>
   );
+
+  return <Link href={`/project/${project?.slug}`}>{Inner}</Link>;
 };
 
 export default ProjectCard;

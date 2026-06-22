@@ -39,7 +39,7 @@ export default function PageLoader() {
           <span className="progress-fill" />
         </div>
 
-        <p className="loader-label">Architecture &amp; Interior Design</p>
+        <p className="loader-label">Think design build</p>
       </div>
 
       <style jsx>{`

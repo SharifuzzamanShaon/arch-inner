@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PageLoader from "./_components/PageLoader";
+import StickyContact from "./_components/StickyContact";
 
 const clashGrotesk = localFont({
   src: [
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
       <body className={clashGrotesk.className}>
         <PageLoader />
         <ToastContainer />
+        <StickyContact />
         {children}
       </body>
     </html>
