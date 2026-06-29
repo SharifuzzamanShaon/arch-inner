@@ -1,105 +1,184 @@
 "use client";
 
 import gsap from "gsap";
-import { CustomEase } from "gsap/CustomEase";
 import { SplitText } from "gsap/SplitText";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const BAT   = "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD.";
-const DIU   = "/images/DIU";
-const FERV  = "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION";
+const BAT =
+  "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD.";
+const DIU = "/images/DIU";
+const FERV =
+  "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION";
 const DBPLC = "/images/DBPlc%20Kalatia%20Branch%20Presentation";
 const IELTS = "/images/IELTS";
 
 const slides = [
-  { src: `${BAT}/VIEW%20FROM%20ENTRY%20GATE.png`,                         label: "BAT Farmer Station · Kushtia",    tag: "Exterior" },
-  { src: `${FERV}/RECEPTION.png`,                                         label: "Fervent Chairman Floor · Dhaka",  tag: "Reception" },
-  { src: `${DIU}/DEAN%20ROOM.png`,                                        label: "University of Dhaka · Interior",  tag: "Dean's Suite" },
-  { src: `${IELTS}/WORKING%20ZONE.png`,                                   label: "Servisol ITES · Khilkhet",        tag: "Workspace" },
-  { src: `${DBPLC}/image.png`,                                            label: "Dhaka Bank PLC · Kalatia",        tag: "Branch Interior" },
-  { src: `${BAT}/FARMERS%20LOUNGE%20COURTYARD%20ARCHEGROUND%20LTD.png`,  label: "BAT Farmer Station · Kushtia",    tag: "Courtyard" },
-  { src: `${FERV}/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png`,                label: "Fervent Chairman Floor · Dhaka",  tag: "Chairman's Room" },
-  { src: `${DIU}/CONFERENCE%20ROOM.png`,                                  label: "University of Dhaka · Interior",  tag: "Conference Room" },
-  { src: `${IELTS}/WAITING%20AREA%20OP-1.png`,                           label: "Servisol ITES · Khilkhet",        tag: "Waiting Area" },
-  { src: `${DBPLC}/image%20copy.png`,                                     label: "Dhaka Bank PLC · Kalatia",        tag: "Banking Floor" },
-  { src: `${BAT}/LOUNGE%20INTERIOR.png`,                                  label: "BAT Farmer Station · Kushtia",    tag: "Lounge Interior" },
-  { src: `${IELTS}/DIRECTORS%20RM%20FRONT.png`,                          label: "Servisol ITES · Khilkhet",        tag: "Director's Room" },
+  {
+    src: `${BAT}/VIEW%20FROM%20ENTRY%20GATE.png`,
+    label: "BAT Farmer Station · Kushtia",
+    tag: "Exterior",
+  },
+  {
+    src: `${FERV}/RECEPTION.png`,
+    label: "Fervent Chairman Floor · Dhaka",
+    tag: "Reception",
+  },
+  {
+    src: `${DIU}/DEAN%20ROOM.png`,
+    label: "University of Dhaka · Interior",
+    tag: "Dean's Suite",
+  },
+  {
+    src: `${IELTS}/WORKING%20ZONE.png`,
+    label: "Servisol ITES · Khilkhet",
+    tag: "Workspace",
+  },
+  {
+    src: `${DBPLC}/image.png`,
+    label: "Dhaka Bank PLC · Kalatia",
+    tag: "Branch Interior",
+  },
+  {
+    src: `${BAT}/FARMERS%20LOUNGE%20COURTYARD%20ARCHEGROUND%20LTD.png`,
+    label: "BAT Farmer Station · Kushtia",
+    tag: "Courtyard",
+  },
+  {
+    src: `${FERV}/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png`,
+    label: "Fervent Chairman Floor · Dhaka",
+    tag: "Chairman's Room",
+  },
+  {
+    src: `${DIU}/CONFERENCE%20ROOM.png`,
+    label: "University of Dhaka · Interior",
+    tag: "Conference Room",
+  },
+  {
+    src: `${IELTS}/WAITING%20AREA%20OP-1.png`,
+    label: "Servisol ITES · Khilkhet",
+    tag: "Waiting Area",
+  },
+  {
+    src: `${DBPLC}/image%20copy.png`,
+    label: "Dhaka Bank PLC · Kalatia",
+    tag: "Banking Floor",
+  },
+  {
+    src: `${BAT}/LOUNGE%20INTERIOR.png`,
+    label: "BAT Farmer Station · Kushtia",
+    tag: "Lounge Interior",
+  },
+  {
+    src: `${IELTS}/DIRECTORS%20RM%20FRONT.png`,
+    label: "Servisol ITES · Khilkhet",
+    tag: "Director's Room",
+  },
 ];
 
-const INTERVAL = 5000;
+const INTERVAL = 6000;
 
-// Ken Burns variants — animates the .kb inner wrapper
+// Cinematic Ken Burns — slow camera-like pan/zoom for video feel
 const KB = [
-  (el) => gsap.fromTo(el,
-    { scale: 1.0, x: "0%",   y: "0%"   },
-    { scale: 1.09, x: "0%",  y: "-2%",  duration: 6.5, ease: "none" }
-  ),
-  (el) => gsap.fromTo(el,
-    { scale: 1.05, x: "3.5%", y: "0%"  },
-    { scale: 1.05, x: "-3.5%", y: "0%", duration: 6.5, ease: "none" }
-  ),
-  (el) => gsap.fromTo(el,
-    { scale: 1.09, x: "2%",  y: "1.5%" },
-    { scale: 1.0,  x: "0%",  y: "0%",   duration: 6.5, ease: "none" }
-  ),
+  // Slow pull-back: zooms out from close-up, slight upward drift
+  (el) =>
+    gsap.fromTo(
+      el,
+      { scale: 1.12, x: "1.5%", y: "1%" },
+      { scale: 1.0, x: "0%", y: "-0.5%", duration: 8, ease: "power1.inOut" },
+    ),
+  // Slow pan across: lateral camera move with gentle zoom
+  (el) =>
+    gsap.fromTo(
+      el,
+      { scale: 1.07, x: "4%", y: "0.5%" },
+      { scale: 1.04, x: "-4%", y: "-0.5%", duration: 8, ease: "power1.inOut" },
+    ),
+  // Slow push-in: zooms into the scene from wide, slight rightward drift
+  (el) =>
+    gsap.fromTo(
+      el,
+      { scale: 1.0, x: "-1.5%", y: "0.5%" },
+      { scale: 1.12, x: "0.5%", y: "-1%", duration: 8, ease: "power1.inOut" },
+    ),
+  // Diagonal drift: camera drifts diagonally like a floating drone shot
+  (el) =>
+    gsap.fromTo(
+      el,
+      { scale: 1.06, x: "-3%", y: "2%" },
+      { scale: 1.1, x: "1.5%", y: "-1.5%", duration: 8, ease: "none" },
+    ),
 ];
 
 export default function HeroImageCarousel({ fullWidth = false }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeRef  = useRef(0);
-  const slideEls   = useRef([]);
-  const kbEls      = useRef([]);
-  const labelRef   = useRef(null);
-  const kbTween    = useRef(null);
-  const timerRef        = useRef(null);
-  const didMount        = useRef(false);
+  const activeRef = useRef(0);
+  const slideEls = useRef([]);
+  const kbEls = useRef([]);
+  const labelRef = useRef(null);
+  const kbTween = useRef(null);
+  const timerRef = useRef(null);
+  const didMount = useRef(false);
   const taglineWordsRef = useRef([]);
+  const progressRef = useRef(null);
+  const progressTween = useRef(null);
 
   const goTo = useCallback((nextIdx) => {
-    const prevIdx   = activeRef.current;
+    const prevIdx = activeRef.current;
     if (nextIdx === prevIdx) return;
 
     const prevSlide = slideEls.current[prevIdx];
     const nextSlide = slideEls.current[nextIdx];
-    const nextKb    = kbEls.current[nextIdx];
+    const nextKb = kbEls.current[nextIdx];
+    const prevKb = kbEls.current[prevIdx];
 
-    // Kill running Ken Burns
     kbTween.current?.kill();
 
-    // Position incoming slide ready for wipe reveal
-    gsap.set(nextSlide, { zIndex: 3, clipPath: "inset(0 100% 0 0)", opacity: 1 });
+    // Place incoming behind outgoing, invisible, with KB start position
+    gsap.set(nextSlide, { zIndex: 3, opacity: 0, x: "0%" });
+    gsap.set(nextKb, { scale: 1.12, x: "1.5%", y: "1%" });
 
-    // Wipe in — premium CustomEase cubic bezier
+    // Start Ken Burns on incoming immediately so it's in motion when it fades in
+    kbTween.current = KB[nextIdx % KB.length](nextKb);
+
+    // Cinematic crossfade: incoming fades in over outgoing
     gsap.to(nextSlide, {
-      clipPath: "inset(0 0% 0 0)",
-      duration: 1.4,
-      ease: "arch.wipe",
+      opacity: 1,
+      duration: 1.8,
+      ease: "power2.inOut",
       onComplete: () => {
-        gsap.set(prevSlide, { opacity: 0, zIndex: 1 });
+        gsap.set(prevSlide, { opacity: 0, zIndex: 1, x: "0%" });
         gsap.set(nextSlide, { zIndex: 2 });
       },
     });
 
-    // Outgoing slide fades behind the wipe
-    gsap.to(prevSlide, { opacity: 0, duration: 0.7, delay: 1.0, ease: "power2.in" });
+    // Outgoing continues its KB motion and fades out (no jump, smooth dissolve)
+    gsap.to(prevSlide, {
+      opacity: 0,
+      duration: 1.8,
+      ease: "power2.inOut",
+    });
 
-    // Ken Burns on incoming image
-    kbTween.current = KB[nextIdx % 3](nextKb);
+    // Subtle push-out on outgoing KB (camera continues moving as scene dissolves)
+    gsap.to(prevKb, {
+      scale: "+=0.04",
+      duration: 1.8,
+      ease: "power2.in",
+    });
 
     // SplitText: animate out current label chars
     if (labelRef.current) {
       const splitOut = new SplitText(labelRef.current, { type: "chars" });
       gsap.to(splitOut.chars, {
-        y: -7,
+        y: -6,
         opacity: 0,
-        duration: 0.22,
-        stagger: 0.025,
+        duration: 0.28,
+        stagger: 0.02,
         ease: "power2.in",
         onComplete: () => {
           splitOut.revert();
           activeRef.current = nextIdx;
-          setActiveIndex(nextIdx); // triggers useEffect to animate in
+          setActiveIndex(nextIdx);
         },
       });
     } else {
@@ -110,7 +189,10 @@ export default function HeroImageCarousel({ fullWidth = false }) {
 
   // SplitText animate-in whenever activeIndex updates
   useEffect(() => {
-    if (!didMount.current) { didMount.current = true; return; }
+    if (!didMount.current) {
+      didMount.current = true;
+      return;
+    }
     if (!labelRef.current) return;
 
     const split = new SplitText(labelRef.current, { type: "chars" });
@@ -124,35 +206,53 @@ export default function HeroImageCarousel({ fullWidth = false }) {
         stagger: 0.035,
         ease: "power3.out",
         onComplete: () => split.revert(),
-      }
+      },
     );
-    return () => { tween.kill(); split.revert(); };
+    return () => {
+      tween.kill();
+      split.revert();
+    };
   }, [activeIndex]);
+
+  const startProgress = useCallback(() => {
+    if (!progressRef.current) return;
+    progressTween.current?.kill();
+    gsap.set(progressRef.current, { scaleX: 0, transformOrigin: "left center" });
+    progressTween.current = gsap.to(progressRef.current, {
+      scaleX: 1,
+      duration: INTERVAL / 1000,
+      ease: "none",
+    });
+  }, []);
 
   const next = useCallback(() => {
     goTo((activeRef.current + 1) % slides.length);
   }, [goTo]);
 
+  // Restart progress bar whenever slide changes
+  useEffect(() => {
+    startProgress();
+  }, [activeIndex, startProgress]);
+
   // Bootstrap
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    gsap.registerPlugin(CustomEase, SplitText);
-    CustomEase.create("arch.wipe", "M0,0 C0.77,0 0.175,1 1,1");
+    gsap.registerPlugin(SplitText);
 
     // Init slides — first visible, rest hidden
     slideEls.current.forEach((el, i) => {
       if (!el) return;
       gsap.set(el, {
         opacity: i === 0 ? 1 : 0,
-        zIndex:  i === 0 ? 2 : 1,
-        clipPath: "inset(0 0% 0 0)",
+        zIndex: i === 0 ? 2 : 1,
+        x: "0%",
       });
     });
 
     // Init Ken Burns elements
     kbEls.current.forEach((el) => {
-      if (el) gsap.set(el, { scale: 1, x: "0%", y: "0%" });
+      if (el) gsap.set(el, { scale: 1.12, x: "1.5%", y: "1%" });
     });
 
     // Start KB on slide 0
@@ -165,7 +265,14 @@ export default function HeroImageCarousel({ fullWidth = false }) {
     gsap.fromTo(
       words,
       { y: 24, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.0, stagger: 0.14, ease: "power3.out", delay: 0.7 }
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.0,
+        stagger: 0.14,
+        ease: "power3.out",
+        delay: 0.7,
+      },
     );
 
     timerRef.current = setInterval(next, INTERVAL);
@@ -173,6 +280,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
     return () => {
       clearInterval(timerRef.current);
       kbTween.current?.kill();
+      progressTween.current?.kill();
     };
   }, [next]);
 
@@ -190,12 +298,16 @@ export default function HeroImageCarousel({ fullWidth = false }) {
         {slides.map((slide, i) => (
           <div
             key={i}
-            ref={(el) => { slideEls.current[i] = el; }}
+            ref={(el) => {
+              slideEls.current[i] = el;
+            }}
             className="slide"
           >
             {/* Ken Burns wrapper — slightly oversized for pan/scale headroom */}
             <div
-              ref={(el) => { kbEls.current[i] = el; }}
+              ref={(el) => {
+                kbEls.current[i] = el;
+              }}
               className="kb"
             >
               <Image
@@ -212,12 +324,19 @@ export default function HeroImageCarousel({ fullWidth = false }) {
 
         <div className="gradient" />
 
+        {/* Video-style progress bar */}
+        <div className="progress-track">
+          <div ref={progressRef} className="progress-fill" />
+        </div>
+
         {/* Tagline */}
         <div className="tagline">
-          {["Think", "design", "build"].map((word, i) => (
+          {["Think", "Design", "Build"].map((word, i) => (
             <span
               key={word}
-              ref={(el) => { taglineWordsRef.current[i] = el; }}
+              ref={(el) => {
+                taglineWordsRef.current[i] = el;
+              }}
               className="tword"
             >
               {word}
@@ -286,7 +405,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           inset: 0;
           background: linear-gradient(
             to bottom,
-            rgba(15, 14, 13, 0.50) 0%,
+            rgba(15, 14, 13, 0.5) 0%,
             transparent 35%,
             transparent 50%,
             rgba(15, 14, 13, 0.65) 100%
@@ -315,7 +434,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
 
         .tword {
           display: inline-block;
-          font-size: clamp(1.2rem, 3vw, 1.9rem);
+          font-size: clamp(1.8rem, 5vw, 3.2rem);
           font-weight: 300;
           letter-spacing: 0.03em;
           color: rgba(255, 255, 255, 0.88);
@@ -343,6 +462,25 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           text-transform: uppercase;
           color: rgba(255, 255, 255, 0.65);
           display: inline-block;
+        }
+
+        /* Video progress bar */
+        .progress-track {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.12);
+          z-index: 20;
+          pointer-events: none;
+        }
+        .progress-fill {
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.7);
+          transform-origin: left center;
+          transform: scaleX(0);
         }
       `}</style>
     </div>

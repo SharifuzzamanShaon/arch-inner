@@ -18,11 +18,7 @@ export default function PageLoader() {
   if (phase === "hidden") return null;
 
   return (
-    <div
-      className="page-loader"
-      data-phase={phase}
-      aria-hidden="true"
-    >
+    <div className="page-loader" data-phase={phase} aria-hidden="true">
       <div className="loader-inner">
         <div className="logo-wrap">
           <Image
@@ -47,12 +43,13 @@ export default function PageLoader() {
           position: fixed;
           inset: 0;
           z-index: 9999;
-          background: #0F0E0D;
+          background: #0f0e0d;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                      transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+          transition:
+            opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+            transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
         }
 
         .page-loader[data-phase="hiding"] {
@@ -93,23 +90,38 @@ export default function PageLoader() {
         }
 
         @keyframes trackIn {
-          to { opacity: 1; }
+          to {
+            opacity: 1;
+          }
         }
 
         .progress-fill {
           display: block;
           height: 100%;
           width: 0;
-          background: linear-gradient(90deg, #FE5443, #ff8a7e);
+          background: linear-gradient(90deg, #fe5443, #ff8a7e);
           border-radius: 1px;
-          animation: fillProgress 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+          animation: fillProgress 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s
+            forwards;
         }
 
         @keyframes fillProgress {
-          0%   { width: 0; opacity: 1; }
-          70%  { width: 90%; opacity: 1; }
-          90%  { width: 98%; opacity: 1; }
-          100% { width: 100%; opacity: 0.6; }
+          0% {
+            width: 0;
+            opacity: 1;
+          }
+          70% {
+            width: 90%;
+            opacity: 1;
+          }
+          90% {
+            width: 98%;
+            opacity: 1;
+          }
+          100% {
+            width: 100%;
+            opacity: 0.6;
+          }
         }
 
         /* Subtle label */
@@ -124,7 +136,9 @@ export default function PageLoader() {
         }
 
         @keyframes labelIn {
-          to { opacity: 1; }
+          to {
+            opacity: 1;
+          }
         }
       `}</style>
     </div>
