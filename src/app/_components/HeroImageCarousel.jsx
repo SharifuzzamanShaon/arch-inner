@@ -217,7 +217,10 @@ export default function HeroImageCarousel({ fullWidth = false }) {
   const startProgress = useCallback(() => {
     if (!progressRef.current) return;
     progressTween.current?.kill();
-    gsap.set(progressRef.current, { scaleX: 0, transformOrigin: "left center" });
+    gsap.set(progressRef.current, {
+      scaleX: 0,
+      transformOrigin: "left center",
+    });
     progressTween.current = gsap.to(progressRef.current, {
       scaleX: 1,
       duration: INTERVAL / 1000,
@@ -370,15 +373,8 @@ export default function HeroImageCarousel({ fullWidth = false }) {
         }
         .carousel-root.full-width .stage {
           aspect-ratio: unset;
-          height: clamp(260px, 75vh, 100vh);
-        }
-
-        /* Mobile: match landscape image proportions so object-cover doesn't crop */
-        @media (max-width: 767px) {
-          .carousel-root.full-width .stage {
-            height: auto;
-            aspect-ratio: 16 / 9;
-          }
+          height: 100vh;
+          height: 100dvh;
         }
 
         /* Individual slide */
@@ -441,19 +437,18 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           opacity: 0;
         }
 
-        /* Top bar */
+        /* Tag label — bottom left */
         .top-bar {
           position: absolute;
-          top: 0;
+          bottom: 0;
           left: 0;
-          right: 0;
           z-index: 20;
           display: flex;
           align-items: center;
           padding: 16px 18px;
         }
         .carousel-root.full-width .top-bar {
-          padding: 20px 32px;
+          padding: 28px 32px;
         }
 
         .top-label {

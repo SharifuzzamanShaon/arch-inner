@@ -17,7 +17,7 @@ const HeroSectionSecondary = () => {
   }, []);
 
   return (
-    <section ref={rootRef} className="relative w-full pt-16 sm:pt-18 lg:pt-20">
+    <section ref={rootRef} className="relative w-full">
       <HeroImageCarousel fullWidth />
     </section>
   );
