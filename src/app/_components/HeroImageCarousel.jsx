@@ -422,7 +422,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           flex-wrap: wrap;
           justify-content: flex-start;
           align-items: flex-end;
-          gap: 0 0.28em;
+          gap: 0 0.9em;
           padding: 0 18px 44px;
           pointer-events: none;
         }
