@@ -76,13 +76,20 @@ const Header = () => {
   const openModal = useCallback(() => setModalOpen(true), []);
   const closeModal = useCallback(() => setModalOpen(false), []);
 
+  // Light treatment (glass bg + white text) only on the home hero, before scroll.
+  // Other pages have a white background, so use dark text.
+  const isHome = pathname === "/";
+  const lightMode = isHome && !scrolled;
+
   return (
     <>
       <header
         className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? "bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(56,54,54,0.08)]"
-            : "bg-transparent"
+            : lightMode
+              ? "bg-white/10 backdrop-blur-md border-b border-white/15"
+              : "bg-transparent"
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
@@ -109,9 +116,13 @@ const Header = () => {
                       <Link
                         href={item.href}
                         className={`px-2.5 lg:px-3 py-1 text-[14px] uppercase tracking-[0.2em] transition-colors duration-200 ${
-                          active
-                            ? "text-black font-semibold"
-                            : "text-black/40  hover:text-black/75"
+                          lightMode
+                            ? active
+                              ? "text-white font-semibold"
+                              : "text-white/60 hover:text-white"
+                            : active
+                              ? "text-black font-semibold"
+                              : "text-black/40 hover:text-black/75"
                         }`}
                       >
                         {item.name}
@@ -126,7 +137,11 @@ const Header = () => {
             <div className="hidden md:block flex-shrink-0">
               <button
                 onClick={openModal}
-                className="group inline-flex cursor-pointer items-center gap-2 text-sm tracking-[0.12em] uppercase font-normal text-[#383636] hover:text-[#383636]/60 transition-colors duration-200"
+                className={`group inline-flex cursor-pointer items-center gap-2 text-sm tracking-[0.12em] uppercase font-normal transition-colors duration-200 ${
+                  lightMode
+                    ? "text-white hover:text-white/60"
+                    : "text-[#383636] hover:text-[#383636]/60"
+                }`}
               >
                 <span>Get In Touch</span>
                 <span className="inline-block w-5 h-px bg-current opacity-50 group-hover:w-7 transition-all duration-300" />
@@ -140,19 +155,19 @@ const Header = () => {
               aria-label="Toggle menu"
             >
               <span
-                className={`block h-px bg-[#383636] transition-all duration-400 ${
-                  menuOpen ? "w-6 rotate-45 translate-y-1.75" : "w-6"
-                }`}
+                className={`block h-px transition-all duration-400 ${
+                  lightMode && !menuOpen ? "bg-white" : "bg-[#383636]"
+                } ${menuOpen ? "w-6 rotate-45 translate-y-1.75" : "w-6"}`}
               />
               <span
-                className={`block h-px bg-[#383636] transition-all duration-400 ${
-                  menuOpen ? "w-6 opacity-0" : "w-4"
-                }`}
+                className={`block h-px transition-all duration-400 ${
+                  lightMode && !menuOpen ? "bg-white" : "bg-[#383636]"
+                } ${menuOpen ? "w-6 opacity-0" : "w-4"}`}
               />
               <span
-                className={`block h-px bg-[#383636] transition-all duration-400 ${
-                  menuOpen ? "w-6 -rotate-45 -translate-y-1.75" : "w-5"
-                }`}
+                className={`block h-px transition-all duration-400 ${
+                  lightMode && !menuOpen ? "bg-white" : "bg-[#383636]"
+                } ${menuOpen ? "w-6 -rotate-45 -translate-y-1.75" : "w-5"}`}
               />
             </button>
           </div>

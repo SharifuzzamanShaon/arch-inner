@@ -340,7 +340,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
               ref={(el) => {
                 taglineWordsRef.current[i] = el;
               }}
-              className="tword"
+              className={`tword${i === 2 ? " tbreak" : ""}`}
             >
               {word}
             </span>
@@ -413,28 +413,35 @@ export default function HeroImageCarousel({ fullWidth = false }) {
         /* Tagline */
         .tagline {
           position: absolute;
-          bottom: 20px;
+          bottom: 0;
           left: 0;
           right: 0;
           z-index: 15;
           display: flex;
           flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          gap: 0.35em;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: flex-end;
+          gap: 0 0.28em;
+          padding: 0 18px 44px;
           pointer-events: none;
         }
         .carousel-root.full-width .tagline {
-          bottom: 32px;
+          padding: 0 32px 72px;
         }
 
         .tword {
           display: inline-block;
-          font-size: clamp(1.8rem, 5vw, 3.2rem);
-          font-weight: 300;
-          letter-spacing: 0.03em;
-          color: rgba(255, 255, 255, 0.88);
+          font-size: clamp(2.6rem, 8vw, 6rem);
+          font-weight: 500;
+          line-height: 1.02;
+          letter-spacing: -0.02em;
+          color: #fff;
           opacity: 0;
+        }
+        /* Force "Build" onto its own second line */
+        .tbreak {
+          flex-basis: 100%;
         }
 
         /* Tag label — bottom left */
