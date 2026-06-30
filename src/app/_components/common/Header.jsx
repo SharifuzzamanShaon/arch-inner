@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { BiMenuAltRight, BiX } from "react-icons/bi";
 import ContactModal from "./ContactModal";
 
 const navItems = [
@@ -150,25 +151,17 @@ const Header = () => {
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden relative z-50 flex flex-col justify-center items-end gap-[5px] w-8 h-8"
+              className={`md:hidden relative z-50 flex items-center justify-center w-9 h-9 transition-colors duration-300 ${
+                lightMode && !menuOpen ? "text-white" : "text-[#383636]"
+              }`}
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
             >
-              <span
-                className={`block h-px transition-all duration-400 ${
-                  lightMode && !menuOpen ? "bg-white" : "bg-[#383636]"
-                } ${menuOpen ? "w-6 rotate-45 translate-y-1.75" : "w-6"}`}
-              />
-              <span
-                className={`block h-px transition-all duration-400 ${
-                  lightMode && !menuOpen ? "bg-white" : "bg-[#383636]"
-                } ${menuOpen ? "w-6 opacity-0" : "w-4"}`}
-              />
-              <span
-                className={`block h-px transition-all duration-400 ${
-                  lightMode && !menuOpen ? "bg-white" : "bg-[#383636]"
-                } ${menuOpen ? "w-6 -rotate-45 -translate-y-1.75" : "w-5"}`}
-              />
+              {menuOpen ? (
+                <BiX className="w-9 h-9" />
+              ) : (
+                <BiMenuAltRight className="w-8 h-8 text-[#6e6f73]" />
+              )}
             </button>
           </div>
         </div>

@@ -377,6 +377,14 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           height: 100dvh;
         }
 
+        /* Mobile: show the full landscape image instead of a full-height crop */
+        @media (max-width: 767px) {
+          .carousel-root.full-width .stage {
+            height: auto;
+            aspect-ratio: 16 / 9;
+          }
+        }
+
         /* Individual slide */
         .slide {
           position: absolute;
