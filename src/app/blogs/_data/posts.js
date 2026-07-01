@@ -1,16 +1,17 @@
 export const CATEGORIES = [
   "All",
-  "Residential Interior",
-  "Commercial Interior",
-  "Institutional",
-  "Tech Office",
+  "Architecture",
+  "Interior Architecture",
+  "Master Plan & Landscape",
+  "Product Design",
+  "Project Management",
 ];
 
 export const posts = [
   {
     id: 1,
     slug: "interior-design-trends-defining-modern-homes",
-    category: "Residential Interior",
+    category: "Architecture",
     date: "Jan 1, 2026",
     author: "arch INNER",
     title: "The Top Interior Design Trends Defining Modern Homes",
@@ -28,7 +29,7 @@ export const posts = [
   {
     id: 2,
     slug: "designing-executive-spaces-authority-through-material",
-    category: "Commercial Interior",
+    category: "Interior Architecture",
     date: "Dec 15, 2025",
     author: "arch INNER",
     title: "Designing Executive Spaces: Authority Through Material",
@@ -45,7 +46,7 @@ export const posts = [
   {
     id: 3,
     slug: "academic-interiors-crafting-environments-for-focused-learning",
-    category: "Institutional",
+    category: "Interior Architecture",
     date: "Nov 28, 2025",
     author: "arch INNER",
     title: "Academic Interiors: Crafting Environments for Focused Learning",
@@ -62,7 +63,7 @@ export const posts = [
   {
     id: 4,
     slug: "the-open-office-reimagined-energy-acoustics-and-brand",
-    category: "Tech Office",
+    category: "Interior Architecture",
     date: "Nov 10, 2025",
     author: "arch INNER",
     title: "The Open Office Reimagined: Energy, Acoustics, and Brand",
@@ -79,7 +80,7 @@ export const posts = [
   {
     id: 5,
     slug: "warm-minimalism-the-case-for-restraint-in-home-design",
-    category: "Residential Interior",
+    category: "Interior Architecture",
     date: "Oct 22, 2025",
     author: "arch INNER",
     title: "Warm Minimalism: The Case for Restraint in Home Design",

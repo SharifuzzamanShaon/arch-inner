@@ -340,7 +340,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
               ref={(el) => {
                 taglineWordsRef.current[i] = el;
               }}
-              className={`tword${i === 2 ? " tbreak" : ""}`}
+              className="tword"
             >
               {word}
             </span>
@@ -375,6 +375,14 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           aspect-ratio: unset;
           height: 100vh;
           height: 100dvh;
+        }
+
+        /* Mobile: show the full landscape image instead of a full-height crop */
+        @media (max-width: 767px) {
+          .carousel-root.full-width .stage {
+            height: auto;
+            aspect-ratio: 16 / 9;
+          }
         }
 
         /* Individual slide */
@@ -419,7 +427,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           z-index: 15;
           display: flex;
           flex-direction: row;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
           justify-content: flex-start;
           align-items: flex-end;
           gap: 0 0.9em;
@@ -438,10 +446,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           letter-spacing: -0.02em;
           color: #fff;
           opacity: 0;
-        }
-        /* Force "Build" onto its own second line */
-        .tbreak {
-          flex-basis: 100%;
+          white-space: nowrap;
         }
 
         /* Tag label — bottom left */

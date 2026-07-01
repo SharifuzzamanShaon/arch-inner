@@ -38,7 +38,7 @@ export default function StickyContact() {
         {/* Get In Touch trigger */}
         <button
           onClick={() => setModalOpen(true)}
-          className="group flex items-center cursor-pointer gap-3 bg-[#383636] text-white/75 hover:text-white px-5 py-3.5 text-[10px] tracking-[0.25em] uppercase font-normal transition-colors duration-200"
+          className="group flex items-center cursor-pointer gap-3 bg-[#6e6f73] text-white/75 hover:text-white px-5 py-3.5 text-[10px] tracking-[0.25em] uppercase font-normal transition-colors duration-200"
         >
           <span>Get In Touch</span>
           <span className="inline-block w-4 h-px bg-current opacity-50 group-hover:w-6 group-hover:opacity-100 transition-all duration-300" />
@@ -51,7 +51,7 @@ export default function StickyContact() {
         <button
           onClick={dismiss}
           aria-label="Dismiss"
-          className="bg-[#383636] hover:bg-[#2a2828] text-white/35 hover:text-white/70 px-3.5 py-3.5 transition-colors duration-200"
+          className="bg-[#383636] hover:bg-[#2a2828] text-[#6e6f73] hover:text-white/70 px-3.5 py-3.5 transition-colors duration-200"
         >
           <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
             <path
