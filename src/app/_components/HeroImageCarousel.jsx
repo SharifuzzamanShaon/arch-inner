@@ -428,7 +428,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           display: flex;
           flex-direction: row;
           flex-wrap: nowrap;
-          justify-content: flex-start;
+          justify-content: flex-end;
           align-items: flex-end;
           gap: 0 0.9em;
           padding: 0 18px 44px;
@@ -440,13 +440,30 @@ export default function HeroImageCarousel({ fullWidth = false }) {
 
         .tword {
           display: inline-block;
-          font-size: clamp(2.6rem, 8vw, 6rem);
-          font-weight: 500;
-          line-height: 1.02;
-          letter-spacing: -0.02em;
+          font-size: clamp(2rem, 6vw, 4.5rem);
+          font-weight: 200;
+          line-height: 1.1;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
           color: #fff;
           opacity: 0;
           white-space: nowrap;
+        }
+
+        /* Mobile: center the tagline and let it wrap/scale to fit */
+        @media (max-width: 767px) {
+          .tagline,
+          .carousel-root.full-width .tagline {
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0 0.5em;
+            padding: 0 16px 32px;
+          }
+          .tword {
+            font-size: clamp(1.4rem, 7vw, 2.4rem);
+            letter-spacing: 0.14em;
+          }
         }
 
         /* Tag label — bottom left */

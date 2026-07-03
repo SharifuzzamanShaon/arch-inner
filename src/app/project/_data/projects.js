@@ -60,7 +60,7 @@ export const PROJECTS = [
     longDescription:
       "Commissioned by the University of Dhaka, this project covers 15,650 SFT across multiple faculty spaces including the Dean's Office, Waiting Area, Officer's Rooms, Conference Room, and Meeting Room. The design draws on a restrained material palette of warm oak veneer, off-white plaster, and dark metal accents — creating an atmosphere of scholarly authority balanced with contemporary clarity. Slatted ceiling elements and layered lighting give each room a distinct spatial identity while maintaining cohesion across the floor.",
     client: "University of Dhaka",
-    architect: "arch INNER",
+    architect: "arch Inner",
     type: "Institutional Interior",
     concept: "Academic Space — Earth Sciences Faculty",
     year: "2024",
@@ -95,7 +95,7 @@ export const PROJECTS = [
     longDescription:
       "The Chairman Floor of Fervent Multiboard Industries Ltd. spans a full executive level in Mohakhali, Dhaka. The brief called for a workplace that projects authority and refinement — a setting worthy of boardroom-level decision-making. The reception greets visitors with the company identity embedded in a dramatic slatted wood backdrop and warm chandelier. The Chairman's Room features a circular feature ceiling with ambient coffers, full-height joinery, and a panoramic city outlook. Supporting spaces — the lounge, director's room, and private dining — carry the same language: rich veneers, muted stone, and measured luxury.",
     client: "Fervent Multiboard Industries Ltd.",
-    architect: "arch INNER",
+    architect: "arch Inner",
     type: "Commercial Interior",
     concept: "Executive Chairman Floor",
     year: "2025",
@@ -130,7 +130,7 @@ export const PROJECTS = [
     longDescription:
       "Commissioned by Dhaka Bank PLC for their Kalatia Branch, this interior project covers the complete fit-out of a modern retail bank. The design is guided by the bank's brand ethos — 'Your Trust. Our Commitment.' — translated into a material palette of warm oak veneer, grey stone-finish tiles, and cream texture walls that communicate reliability without formality. The open banking floor is organised around a central teller counter with perforated timber cladding and under-counter lighting, flanked by a customer waiting lounge featuring blue upholstered seating beneath circular ring pendant lights. Glass-partitioned officer rooms and a dedicated meeting room maintain visual openness while providing acoustic separation. Wall graphics carrying the bank's vision, mission, and brand identity are integrated as spatial elements rather than afterthoughts. Floor finishes include Flotex carpet in the waiting zone and vinyl and ceramic tiles in the transactional areas — each zone coded by material.",
     client: "Dhaka Bank PLC",
-    architect: "arch INNER",
+    architect: "arch Inner",
     type: "Commercial Interior",
     concept: "Banking Excellence — Trust · Clarity · Warmth",
     year: "2026",
@@ -157,7 +157,7 @@ export const PROJECTS = [
     longDescription:
       "Covering 4,752 SFT across the second floor of Bhai Bhai Plaza, this office interior for Servisol ITES rejects corporate monotony in favour of dynamic energy. The reception makes an immediate brand statement — the SERVISOL ITES logo is set against a bold colour-block wall beneath a signature circular coved ceiling, framed by colourful modular seating. Director suites behind glass partitions feature geometric timber feature walls in warm oak, offering acoustic separation without visual heaviness. The sprawling workstation floor is planned for high-density IT operations: low-partition bays, integrated cable management, and an ever-present tech-themed mural that reinforces company identity. Material palette — flotex carpet, acoustic timber slats, fabric panels, and texture paint — is tuned to absorb noise and sustain long work hours.",
     client: "Servisol ITES",
-    architect: "arch INNER",
+    architect: "arch Inner",
     type: "Commercial Interior",
     concept: "Tech Office — Vibrant Collaborative Workspace",
     year: "2025",

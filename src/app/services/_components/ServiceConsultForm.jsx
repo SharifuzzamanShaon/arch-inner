@@ -28,21 +28,23 @@ const ServiceConsultForm = () => {
               className="font-normal text-white leading-tight mb-4 sm:mb-6"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
-              Start Your{" "}
-              <span className="text-white/40">Interior</span>
+              Start Your <span className="text-white/40">Interior</span>
               <br />
               Design Journey
             </h2>
 
             <p className="text-white/50 text-sm font-normal mb-8 max-w-lg leading-relaxed">
-              Schedule a free consultation with Arch Inner to explore your
+              Schedule a free consultation with arch Inner to explore your
               interior design goals. Our team listens carefully to your needs
               while evaluating style, space and functionality.
             </p>
 
             <ul className="space-y-4">
               {benefits.map((benefit, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-white/60 text-sm font-normal">
+                <li
+                  key={idx}
+                  className="flex items-center gap-3 text-white/60 text-sm font-normal"
+                >
                   <FaCheck size={14} className="text-white/40 shrink-0" />
                   {benefit}
                 </li>

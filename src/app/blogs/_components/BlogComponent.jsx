@@ -33,7 +33,8 @@ const BlogComponent = () => {
               <span className="text-[#383636]/30">Perspectives</span>
             </h1>
             <p className="text-xs text-[#383636]/35 font-normal leading-relaxed max-w-xs pb-1">
-              Design thinking, project insights, and studio notes from arch INNER.
+              Design thinking, project insights, and studio notes from arch
+              Inner.
             </p>
           </div>
         </div>

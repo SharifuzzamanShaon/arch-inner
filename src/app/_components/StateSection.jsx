@@ -93,7 +93,7 @@ const StatsSection = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 sm:divide-x divide-[#383636]/12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 sm:divide-x divide-[#383636]/12 sm:border-y sm:border-[#383636]/12">
           {STATS.map((stat, i) => {
             const { value } = parseNum(stat.number ?? "0");
             return (
@@ -101,7 +101,11 @@ const StatsSection = () => {
                 key={i}
                 ref={(el) => (itemRefs.current[i] = el)}
                 className={`group flex flex-col items-center text-center py-10 sm:py-14 lg:py-24 px-4 sm:px-8 ${
-                  i === STATS.length - 1 ? "col-span-2 sm:col-span-1" : ""
+                  i === 0 ? "border-r border-[#383636]/12" : ""
+                } ${
+                  i === STATS.length - 1
+                    ? "col-span-2 border-t border-[#383636]/12 sm:col-span-1 sm:border-t-0"
+                    : ""
                 }`}
               >
                 <div className="w-6 h-px bg-[#383636]/25 group-hover:w-10 group-hover:bg-[#383636] transition-all duration-400 mb-6" />

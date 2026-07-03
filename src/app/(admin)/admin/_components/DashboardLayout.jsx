@@ -1,21 +1,21 @@
- "use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
-import Cookies from "js-cookie"
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const DashboardLayout = ({ children }) => {
-  const pathname = usePathname()
-  const router = useRouter()
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Get last segment (project, service, blog)
-  const activePage = pathname.split("/")[2]  // <-- FIXED INDEX
+  const activePage = pathname.split("/")[2]; // <-- FIXED INDEX
 
   return (
     <div className="flex h-screen bg-[#f8f7f5] font-sans">
       <aside className="hidden md:flex flex-col w-64 bg-slate-900 text-white">
         <div className="p-6 text-2xl font-bold border-b border-slate-800">
-          Arch Inner
+          arch Inner
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
@@ -64,8 +64,8 @@ const DashboardLayout = ({ children }) => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => {
-                Cookies.remove("admin_token")
-                router.push("/login")
+                Cookies.remove("admin_token");
+                router.push("/login");
               }}
               className="px-4 py-2 rounded-md border border-slate-300 text-sm font-medium text-slate-700 hover:bg-slate-100 transition"
             >
@@ -80,7 +80,7 @@ const DashboardLayout = ({ children }) => {
         <div className="p-8 overflow-y-auto">{children}</div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default DashboardLayout
+export default DashboardLayout;

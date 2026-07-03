@@ -88,7 +88,7 @@ const VisionSection = () => {
             Our vision is to become a leading name in interior design,
             recognized for excellence, integrity, and innovation. We aspire to
             set new standards in the industry by continuously pushing creative
-            boundaries and embracing sustainable practices. At Arch Inner, we
+            boundaries and embracing sustainable practices. At arch Inner, we
             envision a future where every project we undertake becomes a
             benchmark of quality and a testament to the power of thoughtful
             design. We strive to build lasting relationships with clients,

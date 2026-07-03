@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { BiMenuAltRight, BiX } from "react-icons/bi";
+import { RxCross1 } from "react-icons/rx";
 import ContactModal from "./ContactModal";
 
 const navItems = [
@@ -23,8 +23,10 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const overlayRef = useRef(null);
   const overlayNavRef = useRef(null);
+  const sectionLabelRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -32,6 +34,39 @@ const Header = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Scroll-spy: track which labelled section is in view (for the mobile header title)
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll("[data-nav-title]"));
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.getAttribute("data-nav-title"));
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 },
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => {
+      observer.disconnect();
+      setActiveSection("");
+    };
+  }, [pathname]);
+
+  // Animate the section title on change
+  useEffect(() => {
+    if (!sectionLabelRef.current || !activeSection) return;
+    gsap.fromTo(
+      sectionLabelRef.current,
+      { y: 8, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
+    );
+  }, [activeSection]);
 
   // Lock body scroll when mobile menu or modal is open
   useEffect(() => {
@@ -93,13 +128,29 @@ const Header = () => {
               : "bg-transparent"
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
+        <div className="max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="relative flex items-center justify-between h-16 sm:h-18 lg:h-20">
+            {/* Mobile section title (scroll-spy) */}
+            <div
+              className={`md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-opacity duration-300 ${
+                scrolled && activeSection && !menuOpen
+                  ? "opacity-100"
+                  : "opacity-0"
+              }`}
+            >
+              <span
+                ref={sectionLabelRef}
+                className="block text-[14px] tracking-[0.25em] uppercase text-[#6e6f73] whitespace-nowrap font-semibold"
+              >
+                {activeSection}
+              </span>
+            </div>
+
             {/* Logo */}
             <Link href="/" className="relative z-50 flex-shrink-0">
               <Image
                 src="/images/site-logo.png"
-                alt="Arch Inner"
+                alt="arch Inner"
                 width={48}
                 height={48}
                 className="w-10 h-10 sm:w-12 sm:h-12"
@@ -158,9 +209,15 @@ const Header = () => {
               aria-label="Toggle menu"
             >
               {menuOpen ? (
-                <BiX className="w-9 h-9" />
+                <RxCross1 className="w-7 h-7" />
               ) : (
-                <BiMenuAltRight className="w-8 h-8 text-[#6e6f73]" />
+                <Image
+                  src="/images/pyramid-chart-menu.png"
+                  alt="Menu"
+                  width={32}
+                  height={32}
+                  className={`w-7 h-7 object-contain transition-all duration-300`}
+                />
               )}
             </button>
           </div>
@@ -211,7 +268,7 @@ const Header = () => {
             / Get In Touch
           </button>
           <span className="text-[#383636]/20 text-xs tracking-widest">
-            Arch Inner
+            arch Inner
           </span>
         </div>
       </div>

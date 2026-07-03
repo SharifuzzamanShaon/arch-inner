@@ -4,7 +4,7 @@ import Link from "next/link";
 const ProjectDetailsHero = ({ project }) => {
   const meta = [
     { label: "Type", value: project.type || project.category },
-    { label: "Architect", value: project.architect || "Arch Inner" },
+    { label: "Architect", value: project.architect || "arch Inner" },
     { label: "Client", value: project.client || "—" },
     { label: "Location", value: project.location },
     { label: "Concept", value: project.concept || "Minimal Design" },
@@ -18,8 +18,8 @@ const ProjectDetailsHero = ({ project }) => {
     <section className="bg-white border-b border-[#383636]/10 pt-20 sm:pt-24">
       {/* Full-width banner image */}
       <div
-        className="relative w-full"
-        style={{ height: "clamp(340px, 60vh, 720px)" }}
+        className="relative w-full bg-[#1C1917]"
+        style={{ height: "clamp(440px, 80vh, 960px)" }}
       >
         {heroImage && (
           <Image
@@ -27,7 +27,7 @@ const ProjectDetailsHero = ({ project }) => {
             fill
             sizes="100vw"
             alt={project.title}
-            className="object-cover"
+            className="object-contain"
             priority
           />
         )}
