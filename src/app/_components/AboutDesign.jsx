@@ -19,27 +19,36 @@ const AboutDesign = () => {
         lineRef.current,
         { scaleX: 0 },
         {
-          scaleX: 1, duration: 1.2, ease: "power3.inOut",
+          scaleX: 1,
+          duration: 1.2,
+          ease: "power3.inOut",
           scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
-        }
+        },
       );
 
       gsap.fromTo(
         contentRef.current.querySelectorAll(".reveal"),
         { y: 40, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 0.9, stagger: 0.11, ease: "power3.out",
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          stagger: 0.11,
+          ease: "power3.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-        }
+        },
       );
 
       gsap.fromTo(
         imageRef.current,
         { y: 60, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 1.2, ease: "power3.out",
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-        }
+        },
       );
     }, sectionRef);
 
@@ -69,10 +78,11 @@ const AboutDesign = () => {
               <br />& Emotion
             </h2>
             <p className="reveal text-sm sm:text-base text-[#383636]/55 font-normal leading-relaxed mb-10 max-w-md">
-              At Arch Inner, we blend architecture and interior design seamlessly. We
-              don&apos;t just decorate within boundaries — we reimagine them. Our studio
-              specializes in creating spaces that feel both deeply personal and
-              effortlessly elegant, where every detail serves a purpose.
+              At arch Inner, we blend architecture and interior design
+              seamlessly. We don&apos;t just decorate within boundaries — we
+              reimagine them. Our studio specializes in creating spaces that
+              feel both deeply personal and effortlessly elegant, where every
+              detail serves a purpose.
             </p>
 
             {/* Stats row */}
@@ -81,9 +91,16 @@ const AboutDesign = () => {
                 { n: "10+", l: "Years" },
                 { n: "240+", l: "Projects" },
               ].map(({ n, l }) => (
-                <div key={l} className="py-6 pr-8 border-r border-[#383636]/12 last:border-r-0 last:pl-8 last:pr-0">
-                  <span className="block text-3xl font-normal text-[#383636] tracking-tight">{n}</span>
-                  <span className="text-xs tracking-[0.2em] uppercase text-[#383636]/40">{l}</span>
+                <div
+                  key={l}
+                  className="py-6 pr-8 border-r border-[#383636]/12 last:border-r-0 last:pl-8 last:pr-0"
+                >
+                  <span className="block text-3xl font-normal text-[#383636] tracking-tight">
+                    {n}
+                  </span>
+                  <span className="text-xs tracking-[0.2em] uppercase text-[#383636]/40">
+                    {l}
+                  </span>
                 </div>
               ))}
             </div>
@@ -103,7 +120,7 @@ const AboutDesign = () => {
             <div className="relative overflow-hidden">
               <Image
                 src="/images/hero-image.png"
-                alt="Arch Inner design process"
+                alt="arch Inner design process"
                 width={720}
                 height={540}
                 className="w-full h-auto object-cover"

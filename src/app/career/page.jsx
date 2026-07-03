@@ -257,7 +257,7 @@ export default function CareerPage() {
                 <textarea
                   required
                   rows={6}
-                  placeholder="Share your background, passion for design, and what draws you to arch INNER…"
+                  placeholder="Share your background, passion for design, and what draws you to arch Inner…"
                   value={about}
                   onChange={handleAbout}
                   className={`${inputClass} resize-none`}

@@ -13,7 +13,7 @@ export const posts = [
     slug: "interior-design-trends-defining-modern-homes",
     category: "Architecture",
     date: "Jan 1, 2026",
-    author: "arch INNER",
+    author: "arch Inner",
     title: "The Top Interior Design Trends Defining Modern Homes",
     excerpt:
       "An analytical overview of the most influential interior design trends shaping contemporary homes, including colour palettes, materials, and furniture forms.",
@@ -31,11 +31,12 @@ export const posts = [
     slug: "designing-executive-spaces-authority-through-material",
     category: "Interior Architecture",
     date: "Dec 15, 2025",
-    author: "arch INNER",
+    author: "arch Inner",
     title: "Designing Executive Spaces: Authority Through Material",
     excerpt:
       "How high-end material selection — stone, veneer, and precision lighting — communicates leadership and refinement in corporate environments.",
-    image: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png",
+    image:
+      "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png",
     content: [
       "An executive floor is not simply an office — it is an extension of corporate identity, a physical statement about how an organisation sees itself and wants to be seen. At Fervent Multiboard Industries, the chairman floor brief asked for authority, refinement, and a sense of permanence. The challenge was to achieve all three without tipping into ostentation.",
       "Material selection is where executive interiors succeed or fail. Stone, in its natural variation, conveys permanence — it is the material of institutions and cathedrals, and it carries that cultural weight into any room it enters. We specified a warm-vein marble for the reception counter and selected book-matched stone panels for the chairman's feature wall. The colour temperature of the stone — warm ivory with gold undertones — was chosen to complement the oak veneer used throughout the joinery.",
@@ -48,7 +49,7 @@ export const posts = [
     slug: "academic-interiors-crafting-environments-for-focused-learning",
     category: "Interior Architecture",
     date: "Nov 28, 2025",
-    author: "arch INNER",
+    author: "arch Inner",
     title: "Academic Interiors: Crafting Environments for Focused Learning",
     excerpt:
       "Thoughtful spatial design in educational buildings supports concentration, collaboration, and institutional identity.",
@@ -65,7 +66,7 @@ export const posts = [
     slug: "the-open-office-reimagined-energy-acoustics-and-brand",
     category: "Interior Architecture",
     date: "Nov 10, 2025",
-    author: "arch INNER",
+    author: "arch Inner",
     title: "The Open Office Reimagined: Energy, Acoustics, and Brand",
     excerpt:
       "Modern IT offices demand more than rows of desks. Colour zoning, acoustic panels, and branded environments drive productivity and retention.",
@@ -82,7 +83,7 @@ export const posts = [
     slug: "warm-minimalism-the-case-for-restraint-in-home-design",
     category: "Interior Architecture",
     date: "Oct 22, 2025",
-    author: "arch INNER",
+    author: "arch Inner",
     title: "Warm Minimalism: The Case for Restraint in Home Design",
     excerpt:
       "How limiting a palette to three materials and two tones creates spaces that feel curated rather than sparse.",

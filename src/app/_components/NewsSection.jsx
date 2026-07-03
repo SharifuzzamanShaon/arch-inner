@@ -12,7 +12,10 @@ import { posts } from "../blogs/_data/posts";
 const latest = posts.slice(0, 3);
 
 const NewsCard = ({ post }) => (
-  <Link href={`/news/${post.slug}`} className="news-card group flex flex-col gap-4">
+  <Link
+    href={`/news/${post.slug}`}
+    className="news-card group flex flex-col gap-4"
+  >
     <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
       <Image
         src={post.image}
@@ -24,9 +27,13 @@ const NewsCard = ({ post }) => (
       <div className="absolute inset-0 bg-[#383636]/5 group-hover:bg-transparent transition-colors duration-500" />
     </div>
     <div className="flex items-center gap-3">
-      <span className="text-[9px] tracking-[0.3em] uppercase text-[#383636] font-normal">{post.category}</span>
+      <span className="text-[9px] tracking-[0.3em] uppercase text-[#383636] font-normal">
+        {post.category}
+      </span>
       <span className="w-3 h-px bg-[#383636]/20" />
-      <span className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/35 font-normal">{post.date}</span>
+      <span className="text-[9px] tracking-[0.2em] uppercase text-[#383636]/35 font-normal">
+        {post.date}
+      </span>
     </div>
     <h3 className="text-base sm:text-lg font-semibold text-[#383636] leading-snug group-hover:text-[#383636]/60 transition-colors duration-300">
       {post.title}
@@ -94,7 +101,7 @@ const NewsSection = () => {
               className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
             >
-              Latest from <span className="text-[#383636]/40">Arch Inner</span>
+              Latest from <span className="text-[#383636]/40">arch Inner</span>
             </h2>
           </div>
         </div>
@@ -103,7 +110,12 @@ const NewsSection = () => {
         <div ref={cardsRef}>
           {/* Mobile: swipeable, no autoplay */}
           <div className="block sm:hidden -mx-6">
-            <Swiper spaceBetween={12} slidesPerView={1.15} slidesOffsetBefore={24} slidesOffsetAfter={24}>
+            <Swiper
+              spaceBetween={12}
+              slidesPerView={1.15}
+              slidesOffsetBefore={24}
+              slidesOffsetAfter={24}
+            >
               {latest.map((post) => (
                 <SwiperSlide key={post.id}>
                   <NewsCard post={post} />

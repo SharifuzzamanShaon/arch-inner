@@ -17,8 +17,12 @@ const slides = [
     title: "Modern Architecture",
     titleHighlight: "Design",
     subtitle:
-      "arch INNER is where structural integrity meets refined interior aesthetics. We provide a seamless transition from construction.",
-    features: ["Innovative Design", "Sustainable Materials", "Smart Technology"],
+      "arch Inner is where structural integrity meets refined interior aesthetics. We provide a seamless transition from construction.",
+    features: [
+      "Innovative Design",
+      "Sustainable Materials",
+      "Smart Technology",
+    ],
   },
   {
     id: 2,

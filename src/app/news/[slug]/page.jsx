@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
-  return { title: `${post.title} — arch INNER`, description: post.excerpt };
+  return { title: `${post.title} — arch Inner`, description: post.excerpt };
 }
 
 export default async function NewsDetailPage({ params }) {

@@ -13,7 +13,7 @@ const TESTIMONIALS = [
     name: "Dr. Kamal Hossain",
     role: "Dean, Faculty of Fine Arts — University of Dhaka",
     testimonial:
-      "The conference room and dean's chamber now carry a presence that commands respect. Arch Inner understood institutional dignity — every material choice, every proportion felt deliberate and considered.",
+      "The conference room and dean's chamber now carry a presence that commands respect. arch Inner understood institutional dignity — every material choice, every proportion felt deliberate and considered.",
     image: "/images/DIU/DEAN%20ROOM.png",
   },
   {
@@ -21,8 +21,9 @@ const TESTIMONIALS = [
     name: "Rezaul Karim",
     role: "Managing Director — Fervent Group",
     testimonial:
-      "Our executive floor needed to reflect the authority of our brand without feeling cold. Arch Inner delivered exactly that — a space that speaks before anyone in it does.",
-    image: "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png",
+      "Our executive floor needed to reflect the authority of our brand without feeling cold. arch Inner delivered exactly that — a space that speaks before anyone in it does.",
+    image:
+      "/images/FERVENT%20CHAIRMAN%20FLOOR%20INTERIOR%20DESIGN%20PRESENTATION/INTERIOR%20VIEW%20CHAIRMAN%20ROOM.png",
   },
   {
     id: 3,
@@ -75,10 +76,7 @@ const TestimonialSection = () => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="bg-[#1C1917] border-t border-white/5"
-    >
+    <section ref={sectionRef} className="bg-[#1C1917] border-t border-white/5">
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
         {/* Heading */}
         <div ref={headingRef} className="mb-12 sm:mb-16">
@@ -105,7 +103,12 @@ const TestimonialSection = () => {
         <div ref={gridRef}>
           {/* Mobile: swipeable, no autoplay */}
           <div className="block md:hidden -mx-6">
-            <Swiper spaceBetween={12} slidesPerView={1.15} slidesOffsetBefore={24} slidesOffsetAfter={24}>
+            <Swiper
+              spaceBetween={12}
+              slidesPerView={1.15}
+              slidesOffsetBefore={24}
+              slidesOffsetAfter={24}
+            >
               {TESTIMONIALS.map((t) => (
                 <SwiperSlide key={t.id} className="tcard">
                   <TestimonialCard service={t} dark />

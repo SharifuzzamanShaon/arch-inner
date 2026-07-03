@@ -51,8 +51,8 @@ const ProjectGallery = ({ project }) => {
         <div className="flex gap-3 lg:gap-4">
           {/* Main featured image */}
           <div
-            className="relative flex-1 overflow-hidden group"
-            style={{ aspectRatio: ratio, maxHeight: "500px" }}
+            className="relative flex-1 overflow-hidden group bg-[#1C1917]"
+            style={{ height: "clamp(320px, 55vh, 520px)" }}
           >
             <Image
               key={images[active]}
@@ -60,7 +60,7 @@ const ProjectGallery = ({ project }) => {
               fill
               sizes="(max-width: 1024px) 100vw, 65vw"
               alt={labels[active] || `View ${active + 1}`}
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
               priority
             />
 
@@ -126,7 +126,7 @@ const ProjectGallery = ({ project }) => {
           {images.length > 1 && (
             <div
               className="hidden lg:flex flex-col gap-3 w-50 xl:w-60 shrink-0"
-              style={{ maxHeight: "500px" }}
+              style={{ height: "clamp(320px, 55vh, 520px)" }}
             >
               {images.map((src, i) => (
                 <button

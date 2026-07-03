@@ -23,7 +23,7 @@ export default function PageLoader() {
         <div className="logo-wrap">
           <Image
             src="/images/footer-logo.png"
-            alt="Arch Inner"
+            alt="arch Inner"
             width={140}
             height={56}
             className="object-contain"
@@ -34,8 +34,6 @@ export default function PageLoader() {
         <div className="progress-track">
           <span className="progress-fill" />
         </div>
-
-        <p className="loader-label">Think design build</p>
       </div>
 
       <style jsx>{`
@@ -124,15 +122,28 @@ export default function PageLoader() {
           }
         }
 
-        /* Subtle label */
+        /* Wordmark-style label — thin, wide-tracked, pinned to the left */
         .loader-label {
-          font-size: 10px;
-          letter-spacing: 0.22em;
+          position: absolute;
+          bottom: 32px;
+          left: 32px;
+          font-size: 13px;
+          font-weight: 200;
+          letter-spacing: 0.42em;
           text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.3);
+          color: rgba(255, 255, 255, 0.4);
           margin: 0;
           opacity: 0;
           animation: labelIn 0.8s ease 1s forwards;
+        }
+
+        @media (max-width: 640px) {
+          .loader-label {
+            bottom: 24px;
+            left: 24px;
+            font-size: 10px;
+            letter-spacing: 0.3em;
+          }
         }
 
         @keyframes labelIn {

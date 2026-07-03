@@ -13,12 +13,22 @@ export default function Home() {
     <>
       <Header />
       <HeroSectionSecondary />
-      <StatsSection />
-      <PortfolioSection />
+      <div data-nav-title="By The Numbers">
+        <StatsSection />
+      </div>
+      <div data-nav-title="Selected Works">
+        <PortfolioSection />
+      </div>
       {/* <ServiceSection /> */}
-      <ClientReview />
-      <TestimonialSection />
-      <NewsSection />
+      <div data-nav-title="Clients">
+        <ClientReview />
+      </div>
+      <div data-nav-title="Testimonials">
+        <TestimonialSection />
+      </div>
+      <div data-nav-title="News">
+        <NewsSection />
+      </div>
       <Footer />
     </>
   );

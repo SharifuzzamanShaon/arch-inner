@@ -21,15 +21,18 @@ const ServiceDetailPage = async ({ params }) => {
       <Header />
 
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden mt-16 sm:mt-18 lg:mt-20">
+      <section
+        className="relative w-full overflow-hidden mt-16 sm:mt-18 lg:mt-20 bg-[#1C1917]"
+        style={{ height: "clamp(440px, 80vh, 960px)" }}
+      >
         <Image
           src={service.image}
           alt={service.name}
           fill
-          className="object-cover"
+          className="object-contain"
           priority
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end">
           <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pb-14 w-full">
             <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-normal mb-4 flex items-center gap-2">

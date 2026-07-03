@@ -7,7 +7,7 @@ const FooterBottom = () => {
         className="text-center font-normal tracking-[0.25em] text-white/4 select-none pointer-events-none py-4 sm:py-6"
         style={{ fontSize: "clamp(2rem, 7.5vw, 7.5rem)" }}
       >
-        ARCH INNER
+        arch Inner
       </p>
     </div>
   );

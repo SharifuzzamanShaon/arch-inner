@@ -47,11 +47,11 @@ const Footer = () => {
               src="/images/site-logo.png"
               width={80}
               height={80}
-              alt="Arch Inner"
+              alt="arch Inner"
               className="w-12 h-12 object-contain mb-6"
             />
             <p className="text-[10px] tracking-[0.3em] text-white/40 mb-4 font-normal">
-              arch INNER
+              arch Inner
             </p>
             <p className="text-base text-white/30 font-normal leading-relaxed max-w-xs">
               We design spaces that bridge architecture and emotion — crafting
@@ -63,7 +63,10 @@ const Footer = () => {
                   icon: FaFacebookF,
                   href: "https://www.facebook.com/archinner1/",
                 },
-                { icon: FaInstagram, href: "https://www.instagram.com/arch.inner" },
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/arch.inner",
+                },
               ].map(({ icon: Icon, href }) => (
                 <a
                   key={href + Icon.name}
@@ -151,7 +154,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="f-reveal py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/20 font-normal tracking-widest">
-            © {new Date().getFullYear()} Arch Inner. All rights reserved.
+            © {new Date().getFullYear()} arch Inner. All rights reserved.
           </p>
           <p className="text-xs text-white/12 font-normal tracking-[0.15em] uppercase">
             Dhaka, Bangladesh
@@ -165,7 +168,7 @@ const Footer = () => {
           className="f-reveal text-center font-normal tracking-[0.25em] text-white/4 select-none pointer-events-none py-4 sm:py-6"
           style={{ fontSize: "clamp(2rem, 7.5vw, 7.5rem)" }}
         >
-          ARCH INNER
+          arch Inner
         </p>
       </div>
     </footer>
