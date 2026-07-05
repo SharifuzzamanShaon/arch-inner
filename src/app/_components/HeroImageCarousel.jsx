@@ -263,20 +263,25 @@ export default function HeroImageCarousel({ fullWidth = false }) {
       kbTween.current = KB[0](kbEls.current[0]);
     }
 
-    // Animate tagline words in on mount
+    // Animate tagline in on mount — one letter at a time
     const words = taglineWordsRef.current.filter(Boolean);
-    gsap.fromTo(
-      words,
-      { y: 24, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.0,
-        stagger: 0.14,
-        ease: "power3.out",
-        delay: 0.7,
-      },
-    );
+    let taglineSplit = null;
+    if (words.length) {
+      gsap.set(words, { opacity: 1 });
+      taglineSplit = new SplitText(words, { type: "chars" });
+      gsap.fromTo(
+        taglineSplit.chars,
+        { yPercent: 120, opacity: 0 },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.9,
+          stagger: 0.04,
+          ease: "power4.out",
+          delay: 0.6,
+        },
+      );
+    }
 
     timerRef.current = setInterval(next, INTERVAL);
 
@@ -284,6 +289,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
       clearInterval(timerRef.current);
       kbTween.current?.kill();
       progressTween.current?.kill();
+      taglineSplit?.revert();
     };
   }, [next]);
 
@@ -428,7 +434,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           display: flex;
           flex-direction: row;
           flex-wrap: nowrap;
-          justify-content: flex-end;
+          justify-content: center;
           align-items: flex-end;
           gap: 0 0.9em;
           padding: 0 18px 44px;
@@ -440,7 +446,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
 
         .tword {
           display: inline-block;
-          font-size: clamp(2rem, 6vw, 4.5rem);
+          font-size: clamp(1.375rem, 5vw, 3.875rem);
           font-weight: 200;
           line-height: 1.1;
           letter-spacing: 0.22em;
