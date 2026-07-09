@@ -29,6 +29,9 @@ export default function PageLoader() {
             className="object-contain"
             priority
           />
+          <span className="brand-name">
+            <span className="lowercase">arch</span> INNER
+          </span>
         </div>
 
         <div className="progress-track">
@@ -64,9 +67,21 @@ export default function PageLoader() {
 
         /* Logo fade-up entrance */
         .logo-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 14px;
           opacity: 0;
           transform: translateY(16px);
           animation: logoIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+        }
+
+        .brand-name {
+          font-size: 15px;
+          font-weight: 300;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.75);
         }
 
         @keyframes logoIn {

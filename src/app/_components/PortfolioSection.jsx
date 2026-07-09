@@ -83,7 +83,12 @@ const PortfolioSection = ({ hideTabs = false }) => {
   const renderProjects = (projects) => (
     <>
       <div className="block md:hidden -mx-6">
-        <Swiper spaceBetween={12} slidesPerView={1.15} slidesOffsetBefore={24} slidesOffsetAfter={24}>
+        <Swiper
+          spaceBetween={12}
+          slidesPerView={1.15}
+          slidesOffsetBefore={24}
+          slidesOffsetAfter={24}
+        >
           {projects.map((p) => (
             <SwiperSlide key={p.id}>
               <div className="project-item">
@@ -116,7 +121,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
               className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
-              Selected <span className="text-[#383636]/50">Works</span>
+              Project <span className="text-[#383636]/50">Showcase</span>
             </h2>
             {!hideTabs && (
               <button

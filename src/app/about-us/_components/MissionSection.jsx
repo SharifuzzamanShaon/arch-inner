@@ -39,6 +39,28 @@ const cells = [
     alt: "BAT Farmer Station entry view",
   },
   { type: "text", key: "management" },
+  { type: "text", key: "masterplan" },
+  {
+    type: "image",
+    src: "/images/DIU/DEAN%20ROOM.png",
+    alt: "University of Dhaka dean's room",
+  },
+  {
+    type: "image",
+    src: "/images/BAT%20KUSHTIA_BD-FARMER%20WAITING%20STATION%20AND%20TRAINING%20CENTER%20AT%20MLD./LOUNGE%20INTERIOR.png",
+    alt: "BAT Farmer Station lounge interior",
+  },
+  {
+    type: "image",
+    src: "/images/IELTS/WAITING%20AREA%20OP-1.png",
+    alt: "Servisol ITES waiting area",
+  },
+  { type: "text", key: "product" },
+  {
+    type: "image",
+    src: "/images/DBPlc%20Kalatia%20Branch%20Presentation/image%20copy.png",
+    alt: "Dhaka Bank PLC banking floor",
+  },
 ];
 
 const TEXT = {
@@ -56,6 +78,16 @@ const TEXT = {
     num: "03",
     label: "Project Management",
     body: "Every project runs on our seven-stage work strategy — preparation & briefing, concept design, spatial coordination, technical design, manufacturing & construction, handover, and use. Refined across projects like the BAT Farmer Station and Dhaka Bank PLC, this framework ensures every responsibility is met and each space reaches a considered, useful completion.",
+  },
+  masterplan: {
+    num: "04",
+    label: "Master Plan & Landscape",
+    body: "We shape the land as carefully as the buildings on it — organising circulation, courtyards, and green edges into a coherent whole. On projects like the BAT Farmer Station, semi-outdoor lounges, courtyards, and entry sequences were planned to respond to climate, movement, and community life.",
+  },
+  product: {
+    num: "05",
+    label: "Product Design",
+    body: "From bespoke joinery and reception counters to lighting details and loose furniture, we design the objects that complete a space. Each piece is drawn to the millimetre and specified with the same material honesty — oak veneer, stone, and precision finishes — that defines our interiors.",
   },
 };
 

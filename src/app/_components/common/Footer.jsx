@@ -50,9 +50,7 @@ const Footer = () => {
               alt="arch Inner"
               className="w-12 h-12 object-contain mb-6"
             />
-            <p className="text-[10px] tracking-[0.3em] text-white/40 mb-4 font-normal">
-              arch Inner
-            </p>
+
             <p className="text-base text-white/30 font-normal leading-relaxed max-w-xs">
               We design spaces that bridge architecture and emotion — crafting
               interiors that feel timeless and deeply personal.
@@ -168,7 +166,7 @@ const Footer = () => {
           className="f-reveal text-center font-normal tracking-[0.25em] text-white/4 select-none pointer-events-none py-4 sm:py-6"
           style={{ fontSize: "clamp(2rem, 7.5vw, 7.5rem)" }}
         >
-          arch Inner
+          arch INNER
         </p>
       </div>
     </footer>

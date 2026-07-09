@@ -51,7 +51,7 @@ const ProjectGallery = ({ project }) => {
         <div className="flex gap-3 lg:gap-4">
           {/* Main featured image */}
           <div
-            className="relative flex-1 overflow-hidden group bg-[#1C1917]"
+            className="relative flex-1 overflow-hidden group bg-white sm:bg-[#1C1917]"
             style={{ height: "clamp(320px, 55vh, 520px)" }}
           >
             <Image
@@ -60,7 +60,7 @@ const ProjectGallery = ({ project }) => {
               fill
               sizes="(max-width: 1024px) 100vw, 65vw"
               alt={labels[active] || `View ${active + 1}`}
-              className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+              className="object-cover sm:object-contain transition-transform duration-700 group-hover:scale-[1.03]"
               priority
             />
 
