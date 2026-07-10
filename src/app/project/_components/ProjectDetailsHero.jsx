@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const ProjectDetailsHero = ({ project }) => {
   const meta = [
@@ -17,41 +16,18 @@ const ProjectDetailsHero = ({ project }) => {
   return (
     <section className="bg-white border-b border-[#383636]/10 pt-20 sm:pt-24">
       {/* Full-width banner image */}
-      <div
-        className="relative w-full bg-[#1C1917]"
-        style={{ height: "clamp(440px, 80vh, 960px)" }}
-      >
+      <div className="relative w-full bg-white h-[56vh] min-h-85 sm:h-[80vh] sm:min-h-110 sm:max-h-240">
         {heroImage && (
           <Image
             src={heroImage}
             fill
             sizes="100vw"
             alt={project.title}
-            className="object-contain"
+            className="object-cover sm:object-contain"
             priority
           />
         )}
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/25 to-black/30" />
-
-        {/* Breadcrumb — top left inside banner */}
-        <div className="absolute top-0 left-0 right-0">
-          <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pt-6 sm:pt-8">
-            <p className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-normal flex items-center gap-2">
-              <Link
-                href="/project"
-                className="hover:text-white transition-colors duration-200"
-              >
-                Project
-              </Link>
-              <span className="opacity-50">/</span>
-              <span>{project.category}</span>
-              <span className="opacity-50">/</span>
-              <span className="text-white/80 truncate max-w-xs">
-                {project.title}
-              </span>
-            </p>
-          </div>
-        </div>
 
         {/* Bottom row — category badge + location/year */}
         <div className="absolute bottom-0 left-0 right-0">

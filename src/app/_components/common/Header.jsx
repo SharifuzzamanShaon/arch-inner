@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { CiMenuFries } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
 import ContactModal from "./ContactModal";
 
@@ -208,17 +209,20 @@ const Header = () => {
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
             >
-              {menuOpen ? (
-                <RxCross1 className="w-7 h-7" />
-              ) : (
-                <Image
-                  src="/images/pyramid-chart-menu.png"
-                  alt="Menu"
-                  width={32}
-                  height={32}
-                  className={`w-7 h-7 object-contain transition-all duration-300`}
-                />
-              )}
+              <CiMenuFries
+                className={`absolute left-1/2 top-1/2 w-7 h-7 -translate-x-1/2 -translate-y-1/2 text-black transition-all duration-300 ${
+                  menuOpen
+                    ? "opacity-0 rotate-90 scale-50"
+                    : "opacity-100 rotate-0 scale-100"
+                }`}
+              />
+              <RxCross1
+                className={`absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+                  menuOpen
+                    ? "opacity-100 rotate-0 scale-100"
+                    : "opacity-0 -rotate-90 scale-50"
+                }`}
+              />
             </button>
           </div>
         </div>

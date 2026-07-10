@@ -434,7 +434,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           display: flex;
           flex-direction: row;
           flex-wrap: nowrap;
-          justify-content: center;
+          justify-content: flex-end;
           align-items: flex-end;
           gap: 0 0.9em;
           padding: 0 18px 44px;
@@ -446,7 +446,7 @@ export default function HeroImageCarousel({ fullWidth = false }) {
 
         .tword {
           display: inline-block;
-          font-size: clamp(1.375rem, 5vw, 3.875rem);
+          font-size: clamp(1rem, 3vw, 2.4rem);
           font-weight: 200;
           line-height: 1.1;
           letter-spacing: 0.22em;
@@ -469,6 +469,17 @@ export default function HeroImageCarousel({ fullWidth = false }) {
           .tword {
             font-size: clamp(1.4rem, 7vw, 2.4rem);
             letter-spacing: 0.14em;
+          }
+        }
+
+        /* Big screens: keep the previous centered, larger tagline */
+        @media (min-width: 1024px) {
+          .tagline,
+          .carousel-root.full-width .tagline {
+            justify-content: center;
+          }
+          .tword {
+            font-size: clamp(1.375rem, 5vw, 3.875rem);
           }
         }
 

@@ -86,7 +86,7 @@ const StatsSection = () => {
       <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16">
         <div ref={headerRef} className="flex items-center justify-between py-5">
           <span className="text-[10px] tracking-[0.3em] uppercase text-[#383636] font-normal">
-            / By The Numbers
+            / Our Milestone
           </span>
           <span className="text-[10px] tracking-[0.2em] uppercase text-[#383636]/55 font-normal">
             Est. 2018
