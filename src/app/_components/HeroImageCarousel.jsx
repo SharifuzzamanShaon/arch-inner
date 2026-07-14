@@ -460,14 +460,14 @@ export default function HeroImageCarousel({ fullWidth = false }) {
         @media (max-width: 767px) {
           .tagline,
           .carousel-root.full-width .tagline {
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-end;
+            align-items: flex-end;
             flex-wrap: wrap;
-            gap: 0 0.5em;
-            padding: 0 16px 32px;
+            gap: 0 0.4em;
+            padding: 0 16px 28px;
           }
           .tword {
-            font-size: clamp(1.4rem, 7vw, 2.4rem);
+            font-size: clamp(0.85rem, 4.5vw, 1.5rem);
             letter-spacing: 0.14em;
           }
         }
