@@ -272,7 +272,7 @@ const Header = () => {
             / Get In Touch
           </button>
           <span className="text-[#383636]/20 text-xs tracking-widest">
-            arch Inner
+            arch INNER
           </span>
         </div>
       </div>
