@@ -3,7 +3,7 @@ export const CATEGORIES = [
   "Architecture",
   "Interior Architecture",
   "Master Plan & Landscape",
-  "Product Design",
+  "Product Design (Light & Furniture)",
   "Project Management",
 ];
 

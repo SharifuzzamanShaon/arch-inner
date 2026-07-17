@@ -2,7 +2,7 @@ export const CATEGORIES = [
   { id: "architecture", name: "Architecture" },
   { id: "interior-architecture", name: "Interior Architecture" },
   { id: "master-plan-landscape", name: "Master Plan & Landscape" },
-  { id: "product-design", name: "Product Design" },
+  { id: "product-design", name: "Product Design (Light & Furniture)" },
   { id: "project-management", name: "Project Management" },
 ];
 

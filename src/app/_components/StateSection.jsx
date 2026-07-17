@@ -26,59 +26,89 @@ const StatsSection = () => {
     if (!itemRefs.current.length) return;
     gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(() => {
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current,
-          { opacity: 0, y: 16 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
-          },
-        );
-      }
-
-      itemRefs.current.forEach((el, i) => {
-        if (!el) return;
-        const { value, suffix } = parseNum(STATS[i]?.number ?? "0");
-        const numEl = el.querySelector(".stat-num");
-        const suffEl = el.querySelector(".stat-suf");
-
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: i * 0.1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: sectionRef.current, start: "top 82%" },
-          },
-        );
-
-        gsap.fromTo(
-          numEl,
-          { innerText: 0 },
-          {
-            innerText: value,
-            duration: 2.2,
-            delay: i * 0.1 + 0.25,
-            ease: "power2.out",
-            snap: { innerText: 1 },
-            scrollTrigger: { trigger: sectionRef.current, start: "top 82%" },
-            onUpdate() {
-              if (suffEl) suffEl.textContent = suffix;
-            },
-          },
-        );
-      });
+    // Set hidden/zero baseline immediately so nothing flashes before setup
+    if (headerRef.current) gsap.set(headerRef.current, { opacity: 0, y: 16 });
+    itemRefs.current.forEach((el) => {
+      if (!el) return;
+      gsap.set(el, { opacity: 0, y: 30 });
+      const numEl = el.querySelector(".stat-num");
+      if (numEl) numEl.textContent = "0";
     });
 
-    return () => ctx.revert();
+    let ctx;
+    const build = () => {
+      ctx = gsap.context(() => {
+        if (headerRef.current) {
+          gsap.fromTo(
+            headerRef.current,
+            { opacity: 0, y: 16 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              ease: "power3.out",
+              scrollTrigger: { trigger: sectionRef.current, start: "top 90%" },
+            },
+          );
+        }
+
+        itemRefs.current.forEach((el, i) => {
+          if (!el) return;
+          const { value, suffix } = parseNum(STATS[i]?.number ?? "0");
+          const numEl = el.querySelector(".stat-num");
+          const suffEl = el.querySelector(".stat-suf");
+
+          gsap.fromTo(
+            el,
+            { opacity: 0, y: 30 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.1,
+              ease: "power3.out",
+              scrollTrigger: { trigger: sectionRef.current, start: "top 90%" },
+            },
+          );
+
+          gsap.fromTo(
+            numEl,
+            { innerText: 0 },
+            {
+              innerText: value,
+              duration: 2.2,
+              delay: i * 0.1 + 0.25,
+              ease: "power2.out",
+              snap: { innerText: 1 },
+              scrollTrigger: { trigger: sectionRef.current, start: "top 90%" },
+              onUpdate() {
+                if (suffEl) suffEl.textContent = suffix;
+              },
+            },
+          );
+        });
+      });
+    };
+
+    // Wait for the intro loader to disappear before building the triggers,
+    // otherwise (on mobile, where the section is above the fold) the count
+    // fires and finishes while it's still hidden behind the loader.
+    let poll;
+    if (document.querySelector(".page-loader")) {
+      poll = setInterval(() => {
+        if (!document.querySelector(".page-loader")) {
+          clearInterval(poll);
+          build();
+        }
+      }, 120);
+    } else {
+      build();
+    }
+
+    return () => {
+      if (poll) clearInterval(poll);
+      ctx?.revert();
+    };
   }, []);
 
   return (

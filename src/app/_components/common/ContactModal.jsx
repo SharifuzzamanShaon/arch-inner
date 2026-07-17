@@ -6,11 +6,18 @@ import { useEffect, useRef, useState } from "react";
 const ContactModal = ({ isOpen, onClose }) => {
   const backdropRef = useRef(null);
   const cardRef = useRef(null);
-  const [form, setForm] = useState({ name: "", email: "", type: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    type: "",
+    message: "",
+  });
 
   // Escape key
   useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
     if (isOpen) window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, onClose]);
@@ -20,16 +27,23 @@ const ContactModal = ({ isOpen, onClose }) => {
     if (!backdropRef.current || !cardRef.current) return;
     if (isOpen) {
       gsap.set(backdropRef.current, { display: "flex" });
-      gsap.fromTo(backdropRef.current,
+      gsap.fromTo(
+        backdropRef.current,
         { opacity: 0 },
-        { opacity: 1, duration: 0.3, ease: "power2.out" }
+        { opacity: 1, duration: 0.3, ease: "power2.out" },
       );
-      gsap.fromTo(cardRef.current,
+      gsap.fromTo(
+        cardRef.current,
         { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", delay: 0.08 }
+        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", delay: 0.08 },
       );
     } else {
-      gsap.to(cardRef.current, { y: 24, opacity: 0, duration: 0.28, ease: "power2.in" });
+      gsap.to(cardRef.current, {
+        y: 24,
+        opacity: 0,
+        duration: 0.28,
+        ease: "power2.in",
+      });
       gsap.to(backdropRef.current, {
         opacity: 0,
         duration: 0.32,
@@ -79,7 +93,12 @@ const ContactModal = ({ isOpen, onClose }) => {
           className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center text-[#383636]/35 hover:text-[#383636] transition-colors duration-200 border border-[#383636]/12 hover:border-[#383636]/30"
         >
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+            <path
+              d="M1 1l10 10M11 1L1 11"
+              stroke="currentColor"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+            />
           </svg>
         </button>
 
@@ -137,11 +156,21 @@ const ContactModal = ({ isOpen, onClose }) => {
                 className={`${inputCls} appearance-none cursor-pointer pr-8`}
               >
                 <option value="">Choose project type</option>
-                <option value="architecture" className="bg-white">Architecture</option>
-                <option value="interior-architecture" className="bg-white">Interior Architecture</option>
-                <option value="master-plan-landscape" className="bg-white">Master Plan &amp; Landscape</option>
-                <option value="product-design" className="bg-white">Product Design</option>
-                <option value="project-management" className="bg-white">Project Management</option>
+                <option value="architecture" className="bg-white">
+                  Architecture
+                </option>
+                <option value="interior-architecture" className="bg-white">
+                  Interior Architecture
+                </option>
+                <option value="master-plan-landscape" className="bg-white">
+                  Master Plan &amp; Landscape
+                </option>
+                <option value="product-design" className="bg-white">
+                  Product Design (Light &amp; Furniture)
+                </option>
+                <option value="project-management" className="bg-white">
+                  Project Management
+                </option>
               </select>
               <span className="absolute right-0 top-1/2 -translate-y-1/2 text-[#383636]/25 pointer-events-none text-xs">
                 ↓

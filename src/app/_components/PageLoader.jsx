@@ -24,13 +24,13 @@ export default function PageLoader() {
           <Image
             src="/images/footer-logo.png"
             alt="arch Inner"
-            width={140}
+            width={120}
             height={56}
             className="object-contain"
             priority
           />
-          <span className="brand-name">
-            <span className="lowercase">arch</span> INNER
+          <span className="brand-name ">
+            <span className="lowercase pr-3">arch</span> INNER
           </span>
         </div>
 

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SERVICES } from "../services/_data/services";
 
@@ -111,24 +112,41 @@ const ServiceSection = () => {
         </div>
 
         {/* Cards */}
-        <div ref={gridRef}>
-          {/* Mobile: swipeable */}
-          <div className="block sm:hidden -mx-6">
-            <Swiper spaceBetween={12} slidesPerView={1.15} slidesOffsetBefore={24} slidesOffsetAfter={24}>
-              {SERVICES.map((service) => (
-                <SwiperSlide key={service.id}>
-                  <ServiceCard service={service} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          {/* Desktop: grid */}
-          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div ref={gridRef} className="-mx-6 md:mx-0">
+          <Swiper
+            modules={[Autoplay]}
+            grabCursor
+            loop
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            spaceBetween={12}
+            slidesPerView={1.15}
+            slidesOffsetBefore={24}
+            slidesOffsetAfter={24}
+            breakpoints={{
+              768: {
+                slidesPerView: 1.6,
+                spaceBetween: 20,
+                slidesOffsetBefore: 0,
+                slidesOffsetAfter: 0,
+              },
+              1024: {
+                slidesPerView: 2.4,
+                spaceBetween: 24,
+                slidesOffsetBefore: 0,
+                slidesOffsetAfter: 0,
+              },
+            }}
+          >
             {SERVICES.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+              <SwiperSlide key={service.id} className="h-auto">
+                <ServiceCard service={service} />
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
 
         {/* Mobile CTA */}

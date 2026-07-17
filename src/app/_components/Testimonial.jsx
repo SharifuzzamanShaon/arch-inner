@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import TestimonialCard from "./TestimonialCard";
 
@@ -100,31 +101,41 @@ const TestimonialSection = () => {
         </div>
 
         {/* Cards */}
-        <div ref={gridRef}>
-          {/* Mobile: swipeable, no autoplay */}
-          <div className="block md:hidden -mx-6">
-            <Swiper
-              spaceBetween={12}
-              slidesPerView={1.15}
-              slidesOffsetBefore={24}
-              slidesOffsetAfter={24}
-            >
-              {TESTIMONIALS.map((t) => (
-                <SwiperSlide key={t.id} className="tcard">
-                  <TestimonialCard service={t} dark />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          {/* Desktop: grid */}
-          <div className="hidden md:grid md:grid-cols-3 gap-4 sm:gap-5">
+        <div ref={gridRef} className="-mx-6 md:mx-0">
+          <Swiper
+            modules={[Autoplay]}
+            grabCursor
+            loop
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            spaceBetween={12}
+            slidesPerView={1.15}
+            slidesOffsetBefore={24}
+            slidesOffsetAfter={24}
+            breakpoints={{
+              768: {
+                slidesPerView: 1.6,
+                spaceBetween: 20,
+                slidesOffsetBefore: 0,
+                slidesOffsetAfter: 0,
+              },
+              1024: {
+                slidesPerView: 2.2,
+                spaceBetween: 24,
+                slidesOffsetBefore: 0,
+                slidesOffsetAfter: 0,
+              },
+            }}
+          >
             {TESTIMONIALS.map((t) => (
-              <div key={t.id} className="tcard">
+              <SwiperSlide key={t.id} className="tcard h-auto">
                 <TestimonialCard service={t} dark />
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       </div>
     </section>
