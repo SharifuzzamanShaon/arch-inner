@@ -24,8 +24,14 @@ const OPENINGS = [
     location: "Dhaka, Bangladesh",
   },
   {
-    id: "site-engineer-intern",
-    title: "Site Engineer Intern",
+    id: "site-engineer",
+    title: "Site Engineer",
+    type: "Full Time",
+    location: "Dhaka, Bangladesh",
+  },
+  {
+    id: "internship-opportunity",
+    title: "Internship Opportunity",
     type: "Internship",
     location: "Dhaka, Bangladesh",
   },
@@ -40,7 +46,7 @@ export default function CareerPage() {
   const [selected, setSelected] = useState(null);
   const [fileName, setFileName] = useState("");
   const [about, setAbout] = useState("");
-  const [form, setForm] = useState({ name: "", email: "" });
+  const [form, setForm] = useState({ name: "", email: "", portfolio: "" });
   const formRef = useRef(null);
 
   const wordCount = countWords(about);
@@ -90,7 +96,7 @@ export default function CareerPage() {
             className="font-normal text-[#383636] leading-tight"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
           >
-            Join Our <span className="text-[#383636]/30">Studio</span>
+            Join Our <span className="text-[#383636]/30">Team</span>
           </h1>
           <p className="mt-6 text-sm text-[#383636]/45 font-normal leading-relaxed max-w-md">
             We are always looking for thoughtful designers and architects who
@@ -218,6 +224,20 @@ export default function CareerPage() {
                     className={inputClass}
                   />
                 </div>
+              </div>
+
+              {/* Portfolio link */}
+              <div>
+                <label className={labelClass}>Portfolio Link</label>
+                <input
+                  type="url"
+                  placeholder="https://your-portfolio.com"
+                  value={form.portfolio}
+                  onChange={(e) =>
+                    setForm((p) => ({ ...p, portfolio: e.target.value }))
+                  }
+                  className={inputClass}
+                />
               </div>
 
               {/* Resume upload */}

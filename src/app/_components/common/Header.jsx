@@ -5,13 +5,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CiMenuFries } from "react-icons/ci";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import ContactModal from "./ContactModal";
 
+const socials = [
+  {
+    Icon: FaFacebookF,
+    href: "https://www.facebook.com/archinner1/",
+    label: "Facebook",
+  },
+  {
+    Icon: FaInstagram,
+    href: "https://www.instagram.com/arch.inner",
+    label: "Instagram",
+  },
+  { Icon: FaWhatsapp, href: "https://wa.me/8801717038194", label: "WhatsApp" },
+  {
+    Icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/company/arch-inner",
+    label: "LinkedIn",
+  },
+];
+
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Project", href: "/project" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about-us" },
   { name: "Career", href: "/career" },
@@ -77,6 +101,13 @@ const Header = () => {
     };
   }, [menuOpen, modalOpen]);
 
+  // Set the overlay's hidden baseline once on mount
+  useEffect(() => {
+    if (overlayRef.current) {
+      gsap.set(overlayRef.current, { xPercent: 100, opacity: 0 });
+    }
+  }, []);
+
   // Animate overlay open/close
   useEffect(() => {
     if (!overlayRef.current || !overlayNavRef.current) return;
@@ -84,26 +115,27 @@ const Header = () => {
       gsap.set(overlayRef.current, { display: "flex" });
       gsap.fromTo(
         overlayRef.current,
-        { clipPath: "inset(0 0 100% 0)" },
-        { clipPath: "inset(0 0 0% 0)", duration: 0.7, ease: "power4.inOut" },
+        { xPercent: 100, opacity: 0 },
+        { xPercent: 0, opacity: 1, duration: 1, ease: "power3.out" },
       );
       gsap.fromTo(
         overlayNavRef.current.querySelectorAll(".menu-item"),
-        { y: 40, opacity: 0 },
+        { x: 48, opacity: 0 },
         {
-          y: 0,
+          x: 0,
           opacity: 1,
-          stagger: 0.07,
-          delay: 0.35,
-          duration: 0.6,
+          stagger: 0.09,
+          delay: 0.3,
+          duration: 0.8,
           ease: "power3.out",
         },
       );
     } else {
       gsap.to(overlayRef.current, {
-        clipPath: "inset(0 0 100% 0)",
-        duration: 0.55,
-        ease: "power4.inOut",
+        xPercent: 100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.inOut",
         onComplete: () => gsap.set(overlayRef.current, { display: "none" }),
       });
     }
@@ -209,8 +241,12 @@ const Header = () => {
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
             >
-              <CiMenuFries
-                className={`absolute left-1/2 top-1/2 w-7 h-7 -translate-x-1/2 -translate-y-1/2 text-black transition-all duration-300 ${
+              <Image
+                src="/images/menu.png"
+                alt="Menu"
+                width={28}
+                height={28}
+                className={`absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 object-contain transition-all duration-300 ${
                   menuOpen
                     ? "opacity-0 rotate-90 scale-50"
                     : "opacity-100 rotate-0 scale-100"
@@ -231,7 +267,7 @@ const Header = () => {
       {/* Full-screen mobile overlay */}
       <div
         ref={overlayRef}
-        style={{ display: "none", clipPath: "inset(0 0 100% 0)" }}
+        style={{ display: "none" }}
         className="fixed inset-0 z-40 bg-white flex flex-col px-6 sm:px-8 pt-22 sm:pt-28 pb-10 sm:pb-12"
       >
         {/* Nav items */}
@@ -260,8 +296,24 @@ const Header = () => {
           })}
         </nav>
 
+        {/* Social links */}
+        <div className="menu-item mt-8 flex items-center gap-4">
+          {socials.map(({ Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="flex items-center justify-center w-10 h-10 border border-[#383636]/15 text-[#383636]/60 hover:text-[#383636] hover:border-[#383636]/40 transition-colors duration-200"
+            >
+              <Icon className="w-4 h-4" />
+            </a>
+          ))}
+        </div>
+
         {/* Mobile overlay footer */}
-        <div className="menu-item mt-8 flex items-center justify-between border-t border-[#383636]/10 pt-6">
+        <div className="menu-item mt-6 flex items-center justify-between border-t border-[#383636]/10 pt-6">
           <button
             onClick={() => {
               closeMenu();

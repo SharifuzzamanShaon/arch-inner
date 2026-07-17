@@ -116,14 +116,14 @@ const MissionSection = () => {
   return (
     <section
       ref={gridRef}
-      className="grid grid-cols-1 sm:grid-cols-3 border-t border-[#383636]/10 pt-16 sm:pt-18 lg:pt-20"
+      className="grid grid-cols-1 sm:grid-cols-3 border-t border-[#383636]/10 pt-16 sm:pt-18 lg:pt-18"
     >
       {cells.map((cell, i) => {
         if (cell.type === "image") {
           return (
             <div
               key={i}
-              className="grid-cell relative aspect-4/3 overflow-hidden"
+              className="grid-cell relative aspect-4/3 sm:aspect-auto sm:h-[45vh] overflow-hidden"
             >
               <Image
                 src={cell.src}
@@ -140,7 +140,7 @@ const MissionSection = () => {
         return (
           <div
             key={i}
-            className="grid-cell py-12 sm:aspect-4/3 flex flex-col justify-center px-8 sm:px-8 lg:px-12 bg-[#F7F4F0] border-[#383636]/8"
+            className="grid-cell py-12 sm:py-8 sm:h-[45vh] flex flex-col justify-center px-8 sm:px-8 lg:px-12 bg-[#F7F4F0] border-[#383636]/8"
           >
             <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/40 mb-4 font-normal">
               / {num}

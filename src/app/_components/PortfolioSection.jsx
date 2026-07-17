@@ -5,10 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProjectCard from "./ProjectCard";
 
-import { CATEGORIES, PROJECTS } from "../project/_data/projects";
+import { CATEGORIES, PROJECTS } from "../portfolio/_data/projects";
 
 const PortfolioSection = ({ hideTabs = false }) => {
   const router = useRouter();
@@ -81,31 +82,44 @@ const PortfolioSection = ({ hideTabs = false }) => {
   ];
 
   const renderProjects = (projects) => (
-    <>
-      <div className="block md:hidden -mx-6">
-        <Swiper
-          spaceBetween={12}
-          slidesPerView={1.15}
-          slidesOffsetBefore={24}
-          slidesOffsetAfter={24}
-        >
-          {projects.map((p) => (
-            <SwiperSlide key={p.id}>
-              <div className="project-item">
-                <ProjectCard project={p} />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <div className="hidden md:grid md:grid-cols-2 gap-5">
+    <div className="-mx-6 md:mx-0">
+      <Swiper
+        modules={[Autoplay]}
+        grabCursor
+        loop
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        spaceBetween={12}
+        slidesPerView={1.15}
+        slidesOffsetBefore={24}
+        slidesOffsetAfter={24}
+        breakpoints={{
+          768: {
+            slidesPerView: 1.6,
+            spaceBetween: 20,
+            slidesOffsetBefore: 0,
+            slidesOffsetAfter: 0,
+          },
+          1024: {
+            slidesPerView: 2.2,
+            spaceBetween: 24,
+            slidesOffsetBefore: 0,
+            slidesOffsetAfter: 0,
+          },
+        }}
+      >
         {projects.map((p) => (
-          <div key={p.id} className="project-item">
-            <ProjectCard project={p} />
-          </div>
+          <SwiperSlide key={p.id} className="h-auto">
+            <div className="project-item h-full">
+              <ProjectCard project={p} />
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
-    </>
+      </Swiper>
+    </div>
   );
 
   return (

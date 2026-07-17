@@ -22,25 +22,25 @@ const TestimonialCard = ({ service, dark }) => {
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-7 sm:p-8">
+      <div className="flex flex-col flex-1 p-5 sm:p-6">
         {/* Stars */}
-        <div className={`flex gap-0.5 mb-5 ${dark ? "text-white/40" : "text-[#383636]"}`}>
+        <div className={`flex gap-0.5 mb-3.5 ${dark ? "text-white/40" : "text-[#383636]"}`}>
           {[...Array(5)].map((_, i) => (
-            <span key={i} className="text-xs">★</span>
+            <span key={i} className="text-[10px]">★</span>
           ))}
         </div>
 
         {/* Quote */}
-        <div className="relative flex-1 mb-7">
+        <div className="relative flex-1 mb-5">
           <span
-            className={`absolute -top-2 -left-1 text-4xl font-serif leading-none select-none ${
+            className={`absolute -top-2 -left-1 text-3xl font-serif leading-none select-none ${
               dark ? "text-white/8" : "text-[#383636]/10"
             }`}
           >
             &ldquo;
           </span>
           <p
-            className={`text-base font-normal leading-relaxed italic pl-4 ${
+            className={`text-[13px] font-normal leading-relaxed italic pl-4 ${
               dark ? "text-white/50" : "text-[#383636]/60"
             }`}
           >
@@ -50,10 +50,10 @@ const TestimonialCard = ({ service, dark }) => {
 
         {/* Author */}
         <div
-          className={`pt-5 border-t ${dark ? "border-white/10" : "border-[#383636]/10"}`}
+          className={`pt-4 border-t ${dark ? "border-white/10" : "border-[#383636]/10"}`}
         >
           <p
-            className={`text-sm font-normal tracking-wide ${
+            className={`text-[13px] font-normal tracking-wide ${
               dark ? "text-white/80" : "text-[#383636]"
             }`}
           >

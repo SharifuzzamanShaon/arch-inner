@@ -5,7 +5,7 @@ const ProjectCard = ({ project }) => {
   const Inner = (
     <div
       className="group relative w-full overflow-hidden bg-[#1C1917] transition-transform duration-300 hover:-translate-y-1"
-      style={{ minHeight: "300px" }}
+      style={{ minHeight: "clamp(380px, 48vh, 500px)" }}
     >
       {/* Background image */}
       <div className="absolute inset-0">
@@ -43,7 +43,7 @@ const ProjectCard = ({ project }) => {
     </div>
   );
 
-  return <Link href={`/project/${project?.slug}`}>{Inner}</Link>;
+  return <Link href={`/portfolio/${project?.slug}`}>{Inner}</Link>;
 };
 
 export default ProjectCard;
