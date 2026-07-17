@@ -62,10 +62,9 @@ const ShowcaseProject = () => {
               prevEl: ".showcase-swiper-button-prev",
             }}
             autoplay={{
-              delay: 5000,
+              delay: 3500,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
-              enabled: false,
             }}
             loop={true}
             centeredSlides={true}
@@ -74,7 +73,6 @@ const ShowcaseProject = () => {
               640: {
                 slidesPerView: 1,
                 spaceBetween: 20,
-                autoplay: { enabled: false },
               },
               768: {
                 slidesPerView: 1,
