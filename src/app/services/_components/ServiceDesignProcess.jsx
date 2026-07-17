@@ -73,7 +73,7 @@ const ServiceDesignProcess = () => {
   );
 
   return (
-    <section className="bg-[#383636]/3 border-t border-[#383636]/10 pt-20 sm:pt-28">
+    <section className="bg-[#383636]/3 border-t border-[#383636]/10 pt-20 sm:pt=-28">
       {/* Heading */}
       <div className="max-w-360 mx-auto px-6 sm:px-14 lg:px-16">
         <p className="text-xs tracking-[0.3em] uppercase text-[#383636] mb-5 font-normal">

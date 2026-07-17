@@ -3,7 +3,12 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 const DETAILS = [
   { label: "Phone", value: "01717-038194", href: "tel:+8801717038194" },
@@ -134,6 +139,16 @@ const InquiryForm = () => {
                 Icon: FaInstagram,
                 href: "https://www.instagram.com/arch.inner",
                 label: "Instagram",
+              },
+              {
+                Icon: FaLinkedinIn,
+                href: "https://www.linkedin.com/company/arch-inner",
+                label: "LinkedIn",
+              },
+              {
+                Icon: FaWhatsapp,
+                href: "https://wa.me/8801717038194",
+                label: "WhatsApp",
               },
             ].map(({ Icon, href, label }) => (
               <a
