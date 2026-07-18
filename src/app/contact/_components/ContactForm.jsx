@@ -8,14 +8,17 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaWhatsapp,
+  FaYoutube,
 } from "react-icons/fa";
 
 const DETAILS = [
   { label: "Phone", value: "01717-038194", href: "tel:+8801717038194" },
   {
     label: "Email",
-    value: "archinner@gmail.com",
-    href: "mailto:archinner@gmail.com",
+    values: [
+      { value: "archinner@gmail.com", href: "mailto:archinner@gmail.com" },
+      { value: "info@archinner.com", href: "mailto:info@archinner.com" },
+    ],
   },
   {
     label: "Address",
@@ -78,47 +81,59 @@ const InquiryForm = () => {
         {/* ── Left — dark info panel ── */}
         <div
           ref={leftRef}
-          className="order-last lg:order-first bg-[#1C1917] flex flex-col justify-between px-8 sm:px-12 lg:px-16 pt-16 sm:pt-10 pb-14 sm:pb-16"
+          className="order-last lg:order-first bg-white flex flex-col justify-between px-8 sm:px-12 lg:px-16 pt-16 sm:pt-10 pb-14 sm:pb-16"
         >
           {/* Top content */}
           <div>
-            <p className="l-item text-[10px] tracking-[0.35em] uppercase text-white/35 font-normal mb-8">
+            <p className="l-item text-[10px] tracking-[0.35em] uppercase text-[#383636]/50 font-normal mb-8">
               / Contact
             </p>
             <h1
-              className="l-item font-normal text-white leading-[1.06] mb-8"
+              className="l-item font-normal text-[#383636] leading-[1.06] mb-8"
               style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)" }}
             >
               Let&apos;s Create
               <br />
-              <span className="text-white/30">Something</span>
+              <span className="text-[#383636]/40">Something</span>
               <br />
               Remarkable.
             </h1>
-            <p className="l-item text-sm text-white/35 font-normal leading-relaxed max-w-xs mb-12">
+            <p className="l-item text-sm text-[#383636]/55 font-normal leading-relaxed max-w-xs mb-12">
               We&apos;d love to hear about your next project — whether it&apos;s
               a concept sketch or a fully developed brief.
             </p>
 
             {/* Divider */}
-            <div className="l-item w-10 h-px bg-white/15 mb-12" />
+            <div className="l-item w-10 h-px bg-[#383636]/15 mb-12" />
 
             {/* Contact details */}
             <div className="space-y-7">
-              {DETAILS.map(({ label, value, href }) => (
+              {DETAILS.map(({ label, value, href, values }) => (
                 <div key={label} className="l-item flex items-start gap-6">
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-white/25 font-normal w-14 pt-0.5 shrink-0">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-[#383636]/40 font-normal w-14 pt-0.5 shrink-0">
                     {label}
                   </span>
-                  {href ? (
+                  {values ? (
+                    <div className="flex flex-col gap-1">
+                      {values.map((v) => (
+                        <a
+                          key={v.value}
+                          href={v.href}
+                          className="text-sm text-[#383636]/60 hover:text-[#383636] font-normal leading-relaxed transition-colors duration-200"
+                        >
+                          {v.value}
+                        </a>
+                      ))}
+                    </div>
+                  ) : href ? (
                     <a
                       href={href}
-                      className="text-sm text-white/50 hover:text-white font-normal leading-relaxed transition-colors duration-200 whitespace-pre-line"
+                      className="text-sm text-[#383636]/60 hover:text-[#383636] font-normal leading-relaxed transition-colors duration-200 whitespace-pre-line"
                     >
                       {value}
                     </a>
                   ) : (
-                    <span className="text-sm text-white/50 font-normal leading-relaxed whitespace-pre-line">
+                    <span className="text-sm text-[#383636]/60 font-normal leading-relaxed whitespace-pre-line">
                       {value}
                     </span>
                   )}
@@ -128,12 +143,17 @@ const InquiryForm = () => {
           </div>
 
           {/* Bottom — socials */}
-          <div className="l-item mt-14 flex items-center gap-5 border-t border-white/8 pt-8">
+          <div className="l-item mt-14 flex items-center gap-5 border-t border-[#383636]/10 pt-8">
             {[
               {
                 Icon: FaFacebookF,
                 href: "https://www.facebook.com/archinner1/",
                 label: "Facebook",
+              },
+              {
+                Icon: FaYoutube,
+                href: "https://www.youtube.com/@archinner",
+                label: "YouTube",
               },
               {
                 Icon: FaInstagram,
@@ -157,7 +177,7 @@ const InquiryForm = () => {
                 aria-label={label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/30 transition-all duration-300"
+                className="w-9 h-9 border border-[#383636]/15 flex items-center justify-center text-[#383636]/40 hover:text-[#383636] hover:border-[#383636]/40 transition-all duration-300"
               >
                 <Icon className="w-3.5 h-3.5" />
               </a>

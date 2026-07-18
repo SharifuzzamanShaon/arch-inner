@@ -40,6 +40,7 @@ const TestimonialSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const gridRef = useRef(null);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     if (!headingRef.current || !gridRef.current) return;
@@ -101,8 +102,9 @@ const TestimonialSection = () => {
         </div>
 
         {/* Cards */}
-        <div ref={gridRef} className="-mx-6 md:mx-0">
+        <div ref={gridRef} className="relative -mx-6 md:mx-0">
           <Swiper
+            onSwiper={(s) => (swiperRef.current = s)}
             modules={[Autoplay]}
             grabCursor
             loop
@@ -136,6 +138,38 @@ const TestimonialSection = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* Slider controls — big screens only */}
+          <button
+            onClick={() => swiperRef.current?.slidePrev()}
+            aria-label="Previous"
+            className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center border border-white/60 text-white hover:border-white transition-colors duration-200 cursor-pointer drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]"
+          >
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M10 12L6 8L10 4"
+                stroke="currentColor"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={() => swiperRef.current?.slideNext()}
+            aria-label="Next"
+            className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center border border-white/60 text-white hover:border-white transition-colors duration-200 cursor-pointer drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]"
+          >
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M6 4L10 8L6 12"
+                stroke="currentColor"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

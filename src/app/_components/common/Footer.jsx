@@ -10,6 +10,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaWhatsapp,
+  FaYoutube,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -65,6 +66,10 @@ const Footer = () => {
                 {
                   icon: FaFacebookF,
                   href: "https://www.facebook.com/archinner1/",
+                },
+                {
+                  icon: FaYoutube,
+                  href: "https://www.youtube.com/@archinner",
                 },
                 {
                   icon: FaInstagram,
