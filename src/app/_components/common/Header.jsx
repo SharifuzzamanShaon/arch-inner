@@ -10,6 +10,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaWhatsapp,
+  FaYoutube,
 } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import ContactModal from "./ContactModal";
@@ -19,6 +20,11 @@ const socials = [
     Icon: FaFacebookF,
     href: "https://www.facebook.com/archinner1/",
     label: "Facebook",
+  },
+  {
+    Icon: FaYoutube,
+    href: "https://www.youtube.com/@archinner",
+    label: "YouTube",
   },
   {
     Icon: FaInstagram,

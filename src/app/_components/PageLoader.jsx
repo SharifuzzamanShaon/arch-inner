@@ -70,7 +70,7 @@ export default function PageLoader() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 14px;
+          gap: 4px;
           opacity: 0;
           transform: translateY(16px);
           animation: logoIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
