@@ -6,15 +6,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { posts } from "../blogs/_data/posts";
 
-const latest = posts.slice(0, 3);
+const latest = posts.slice(0, 6);
 
 const NewsCard = ({ post }) => (
   <Link
     href={`/news/${post.slug}`}
-    className="news-card group flex flex-col gap-4"
+    className="news-card group flex flex-col gap-4 h-full"
   >
     <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
       <Image
@@ -50,6 +51,7 @@ const NewsSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsRef = useRef(null);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -107,29 +109,74 @@ const NewsSection = () => {
         </div>
 
         {/* Cards */}
-        <div ref={cardsRef}>
-          {/* Mobile: swipeable, no autoplay */}
-          <div className="block sm:hidden -mx-6">
-            <Swiper
-              spaceBetween={12}
-              slidesPerView={1.15}
-              slidesOffsetBefore={24}
-              slidesOffsetAfter={24}
-            >
-              {latest.map((post) => (
-                <SwiperSlide key={post.id}>
-                  <NewsCard post={post} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          {/* Desktop: grid */}
-          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+        <div ref={cardsRef} className="relative -mx-6 md:mx-0">
+          <Swiper
+            onSwiper={(s) => (swiperRef.current = s)}
+            modules={[Autoplay]}
+            grabCursor
+            loop
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            spaceBetween={12}
+            slidesPerView={1.15}
+            slidesOffsetBefore={24}
+            slidesOffsetAfter={24}
+            breakpoints={{
+              768: {
+                slidesPerView: 1.9,
+                spaceBetween: 24,
+                slidesOffsetBefore: 0,
+                slidesOffsetAfter: 0,
+              },
+              1024: {
+                slidesPerView: 2.6,
+                spaceBetween: 32,
+                slidesOffsetBefore: 0,
+                slidesOffsetAfter: 0,
+              },
+            }}
+          >
             {latest.map((post) => (
-              <NewsCard key={post.id} post={post} />
+              <SwiperSlide key={post.id} className="h-auto">
+                <NewsCard post={post} />
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
+
+          {/* Slider controls — big screens only */}
+          <button
+            onClick={() => swiperRef.current?.slidePrev()}
+            aria-label="Previous"
+            className="hidden lg:flex absolute -left-14 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center text-[#383636]/70 hover:text-white hover:bg-[#383636] transition-all duration-200 cursor-pointer"
+          >
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M10 12L6 8L10 4"
+                stroke="currentColor"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={() => swiperRef.current?.slideNext()}
+            aria-label="Next"
+            className="hidden lg:flex absolute -right-14 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center text-[#383636]/70 hover:text-white hover:bg-[#383636] transition-all duration-200 cursor-pointer"
+          >
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M6 4L10 8L6 12"
+                stroke="currentColor"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
