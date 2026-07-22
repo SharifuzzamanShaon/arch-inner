@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, imageFit = "cover" }) => {
+  const contain = imageFit === "contain";
   const Inner = (
     <div
-      className="group relative w-full overflow-hidden bg-[#1C1917] transition-transform duration-300 hover:-translate-y-1"
+      className={`group relative w-full overflow-hidden transition-transform duration-300 hover:-translate-y-1 ${
+        contain ? "bg-white" : "bg-[#1C1917]"
+      }`}
       style={{ minHeight: "clamp(380px, 48vh, 500px)" }}
     >
       {/* Background image */}
@@ -15,7 +18,9 @@ const ProjectCard = ({ project }) => {
             alt={project.title || "Project"}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-70"
+            className={`transition-transform duration-700 group-hover:scale-105 ${
+              contain ? "object-contain" : "object-cover opacity-70"
+            }`}
             priority
           />
         )}

@@ -116,7 +116,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
         {projects.map((p) => (
           <SwiperSlide key={p.id} className="h-auto">
             <div className="project-item h-full">
-              <ProjectCard project={p} />
+              <ProjectCard project={p} imageFit="contain" />
             </div>
           </SwiperSlide>
         ))}
