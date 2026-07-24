@@ -116,7 +116,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
         {projects.map((p) => (
           <SwiperSlide key={p.id} className="h-auto">
             <div className="project-item h-full">
-              <ProjectCard project={p} />
+              <ProjectCard project={p} imageFit="contain" />
             </div>
           </SwiperSlide>
         ))}
@@ -210,7 +210,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
           <button
             onClick={() => swiperRef.current?.slidePrev()}
             aria-label="Previous"
-            className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center border border-white/60 text-white hover:border-white transition-colors duration-200 cursor-pointer drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]"
+            className="hidden lg:flex absolute -left-14 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center text-[#383636]/70 hover:text-white hover:bg-[#383636] transition-all duration-200 cursor-pointer"
           >
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
               <path
@@ -225,7 +225,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
           <button
             onClick={() => swiperRef.current?.slideNext()}
             aria-label="Next"
-            className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center border border-white/60 text-white hover:border-white transition-colors duration-200 cursor-pointer drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]"
+            className="hidden lg:flex absolute -right-14 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center text-[#383636]/70 hover:text-white hover:bg-[#383636] transition-all duration-200 cursor-pointer"
           >
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
               <path
