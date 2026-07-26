@@ -17,12 +17,16 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  /* Dark base = the loader's color, so a hard reload paints dark on the
+     very first frame instead of a white flash before the loader appears. */
+  background-color: var(--color-dark);
 }
 
 body {
   font-size: 14px;
   font-weight: 400;
-  background: var(--background);
+  min-height: 100vh;
+  background: #ffffff;
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,6 +34,19 @@ body {
 
 a, button, [role="button"], select, label[for], summary {
   cursor: pointer;
+}
+
+/* Page loader — critical cover styles live here (not only in styled-jsx) so
+   the loader fills the screen on the very first paint. styled-jsx injects its
+   styles a frame late, which showed the loader unstyled (white flash) first. */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-dark);
 }
 
 ::selection {
