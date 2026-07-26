@@ -186,7 +186,18 @@ const Header = () => {
             </div>
 
             {/* Logo */}
-            <Link href="/" className="relative z-50 flex-shrink-0">
+            <Link
+              href="/"
+              className="relative z-50 flex-shrink-0"
+              onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname === "/") {
+                  window.location.reload();
+                } else {
+                  window.location.href = "/";
+                }
+              }}
+            >
               <Image
                 src="/images/site-logo.png"
                 alt="arch Inner"
@@ -252,17 +263,17 @@ const Header = () => {
                 alt="Menu"
                 width={28}
                 height={28}
-                className={`absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 object-contain transition-all duration-300 ${
+                className={`absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 object-contain transition-all duration-700 ease-in-out ${
                   menuOpen
-                    ? "opacity-0 rotate-90 scale-50"
-                    : "opacity-100 rotate-0 scale-100"
+                    ? "opacity-0 scale-50"
+                    : "opacity-100 scale-100"
                 }`}
               />
               <RxCross1
-                className={`absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+                className={`absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out ${
                   menuOpen
-                    ? "opacity-100 rotate-0 scale-100"
-                    : "opacity-0 -rotate-90 scale-50"
+                    ? "opacity-100 scale-100"
+                    : "opacity-0 scale-50"
                 }`}
               />
             </button>

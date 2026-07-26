@@ -22,16 +22,13 @@ export default function PageLoader() {
       <div className="loader-inner">
         <div className="logo-wrap">
           <Image
-            src="/images/footer-logo.png"
+            src="/images/site-logo.png"
             alt="arch Inner"
             width={100}
             height={50}
             className="object-contain"
             priority
           />
-          <span className="brand-name ">
-            <span className="lowercase pr-2">arch</span> INNER
-          </span>
         </div>
 
         <div className="progress-track">
