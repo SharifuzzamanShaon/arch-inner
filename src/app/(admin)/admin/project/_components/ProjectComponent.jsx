@@ -18,11 +18,18 @@ const ProjectComponent = ({ editingProject, clearEditing, categories = [], onCat
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
-  const [project, setProject] = useState({
+  const emptyProject = {
     title: "",
     categoryId: "",
     thumbnail: "",
     status: "PUBLISHED",
+    slug: "",
+    location: "",
+    description: "",
+    longDescription: "",
+    concept: "",
+    year: "",
+    galleryAspectRatio: "",
     type: "",
     architech: "",
     client: "",
@@ -30,7 +37,10 @@ const ProjectComponent = ({ editingProject, clearEditing, categories = [], onCat
     strategy: "",
     date: "",
     gallery: [],
-  });
+    galleryLabels: [],
+  };
+
+  const [project, setProject] = useState(emptyProject);
 
   const [thumbnailFile, setThumbnailFile] = useState(null);
 
@@ -40,18 +50,29 @@ const ProjectComponent = ({ editingProject, clearEditing, categories = [], onCat
   useEffect(() => {
     if (editingProject) {
       setEditingId(editingProject.id);
+      const gallery = editingProject.gallery || [];
+      const galleryLabels = editingProject.galleryLabels || [];
       setProject({
         title: editingProject.title || "",
         categoryId: editingProject.categoryId || "",
         thumbnail: editingProject.thumbnail || "",
         status: editingProject.status || "PUBLISHED",
+        slug: editingProject.slug || "",
+        location: editingProject.location || "",
+        description: editingProject.description || "",
+        longDescription: editingProject.longDescription || "",
+        concept: editingProject.concept || "",
+        year: editingProject.year || "",
+        galleryAspectRatio: editingProject.galleryAspectRatio || "",
         type: editingProject.type || "",
         architech: editingProject.architech || "",
         client: editingProject.client || "",
         duration: editingProject.duration || "",
         strategy: editingProject.strategy || "",
         date: editingProject.date ? editingProject.date.slice(0, 10) : "",
-        gallery: editingProject.gallery || [],
+        gallery,
+        // Keep labels aligned 1:1 with gallery images
+        galleryLabels: gallery.map((_, i) => galleryLabels[i] || ""),
       });
     } else {
       setEditingId(null);
@@ -116,19 +137,7 @@ const ProjectComponent = ({ editingProject, clearEditing, categories = [], onCat
   };
   const resetForm = () => {
     setEditingId(null);
-    setProject({
-      title: "",
-      categoryId: "",
-      thumbnail: "",
-      status: "PUBLISHED",
-      type: "",
-      architech: "",
-      client: "",
-      duration: "",
-      strategy: "",
-      date: "",
-      gallery: [],
-    });
+    setProject(emptyProject);
     setThumbnailFile(null);
   };
 
@@ -230,6 +239,23 @@ const ProjectComponent = ({ editingProject, clearEditing, categories = [], onCat
     setProject((prev) => ({
       ...prev,
       gallery: [...(prev.gallery || []), ...newUrls],
+      galleryLabels: [...(prev.galleryLabels || []), ...newUrls.map(() => "")],
+    }));
+  };
+
+  const handleGalleryLabelChange = (idx, value) => {
+    setProject((prev) => {
+      const galleryLabels = [...(prev.galleryLabels || [])];
+      galleryLabels[idx] = value;
+      return { ...prev, galleryLabels };
+    });
+  };
+
+  const handleRemoveGalleryImage = (idx) => {
+    setProject((prev) => ({
+      ...prev,
+      gallery: prev.gallery.filter((_, i) => i !== idx),
+      galleryLabels: (prev.galleryLabels || []).filter((_, i) => i !== idx),
     }));
   };
   const handleSelectCategory = (value) => {
@@ -348,6 +374,135 @@ const ProjectComponent = ({ editingProject, clearEditing, categories = [], onCat
               </select>
             </div>
 
+            {/* Slug */}
+            <div>
+              <label className="block mb-1 font-medium">Slug</label>
+              <input
+                type="text"
+                name="slug"
+                value={project.slug}
+                onChange={handleChange}
+                placeholder="Auto-generated from title if left blank"
+                className="w-full border px-3 py-2 rounded-md"
+              />
+            </div>
+
+            {/* Location */}
+            <Input
+              label="Location"
+              name="location"
+              value={project.location}
+              onChange={handleChange}
+            />
+
+            {/* Type */}
+            <Input
+              label="Type"
+              name="type"
+              value={project.type}
+              onChange={handleChange}
+            />
+
+            {/* Architect */}
+            <Input
+              label="Architect"
+              name="architech"
+              value={project.architech}
+              onChange={handleChange}
+            />
+
+            {/* Client */}
+            <Input
+              label="Client"
+              name="client"
+              value={project.client}
+              onChange={handleChange}
+            />
+
+            {/* Concept */}
+            <Input
+              label="Concept"
+              name="concept"
+              value={project.concept}
+              onChange={handleChange}
+            />
+
+            {/* Year */}
+            <Input
+              label="Year"
+              name="year"
+              value={project.year}
+              onChange={handleChange}
+            />
+
+            {/* Duration */}
+            <Input
+              label="Duration"
+              name="duration"
+              value={project.duration}
+              onChange={handleChange}
+            />
+
+            {/* Date */}
+            <Input
+              label="Date"
+              name="date"
+              type="date"
+              value={project.date}
+              onChange={handleChange}
+            />
+
+            {/* Gallery aspect ratio */}
+            <Input
+              label="Gallery Aspect Ratio"
+              name="galleryAspectRatio"
+              value={project.galleryAspectRatio}
+              onChange={handleChange}
+              placeholder="e.g. 4/3, 4/5"
+            />
+
+            {/* Strategy */}
+            <div className="md:col-span-2">
+              <label className="block mb-1 font-medium">Strategy</label>
+              <textarea
+                name="strategy"
+                value={project.strategy}
+                onChange={handleChange}
+                rows={2}
+                className="w-full border px-3 py-2 rounded-md"
+              />
+            </div>
+
+            {/* Short description */}
+            <div className="md:col-span-2">
+              <label className="block mb-1 font-medium">
+                Short Description
+              </label>
+              <textarea
+                name="description"
+                value={project.description}
+                onChange={handleChange}
+                rows={2}
+                placeholder="Shown on project cards and listings"
+                className="w-full border px-3 py-2 rounded-md"
+              />
+            </div>
+
+            {/* Long description */}
+            <div className="md:col-span-2">
+              <label className="block mb-1 font-medium">
+                Long Description
+              </label>
+              <textarea
+                name="longDescription"
+                value={project.longDescription}
+                onChange={handleChange}
+                rows={4}
+                placeholder="Shown on the project detail page"
+                className="w-full border px-3 py-2 rounded-md"
+              />
+            </div>
+
             {/* Gallery Upload */}
             <div className="md:col-span-2">
               <label className="block mb-1 font-medium">Gallery Images</label>
@@ -359,27 +514,33 @@ const ProjectComponent = ({ editingProject, clearEditing, categories = [], onCat
                 className="w-full border px-3 py-2 rounded-md"
               />
               {project.gallery && project.gallery.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap gap-3">
                   {project.gallery.map((url, idx) => (
-                    <div key={`${url}-${idx}`} className="relative">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={url}
-                        alt={`Gallery ${idx + 1}`}
-                        className="w-16 h-16 object-cover rounded-md border"
-                      />
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setProject((prev) => ({
-                            ...prev,
-                            gallery: prev.gallery.filter((_, i) => i !== idx),
-                          }))
+                    <div key={`${url}-${idx}`} className="w-24">
+                      <div className="relative">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={url}
+                          alt={`Gallery ${idx + 1}`}
+                          className="w-24 h-16 object-cover rounded-md border"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveGalleryImage(idx)}
+                          className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] flex items-center justify-center shadow"
+                        >
+                          ×
+                        </button>
+                      </div>
+                      <input
+                        type="text"
+                        value={project.galleryLabels?.[idx] || ""}
+                        onChange={(e) =>
+                          handleGalleryLabelChange(idx, e.target.value)
                         }
-                        className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] flex items-center justify-center shadow"
-                      >
-                        ×
-                      </button>
+                        placeholder={`Label ${idx + 1}`}
+                        className="mt-1 w-full border px-1.5 py-1 rounded text-[11px]"
+                      />
                     </div>
                   ))}
                 </div>

@@ -181,8 +181,10 @@ const ProjectListByCategory = ({ onEdit, categories = [], onCategoryDeleted }) =
               <tr className="text-gray-500 text-xs uppercase tracking-wide">
                 <th className="px-3 py-2 font-semibold">Thumbnail</th>
                 <th className="px-3 py-2 font-semibold">Title</th>
+                <th className="px-3 py-2 font-semibold">Slug</th>
                 <th className="px-3 py-2 font-semibold">Type</th>
                 <th className="px-3 py-2 font-semibold">Client</th>
+                <th className="px-3 py-2 font-semibold">Year</th>
                 <th className="px-3 py-2 font-semibold">Status</th>
                 <th className="px-3 py-2 font-semibold">Created At</th>
                 <th className="px-3 py-2 font-semibold text-center">Actions</th>
@@ -201,8 +203,10 @@ const ProjectListByCategory = ({ onEdit, categories = [], onCategoryDeleted }) =
                     />
                   </td>
                   <td className="px-3 py-2">{proj.title}</td>
+                  <td className="px-3 py-2 text-gray-500">{proj.slug || "-"}</td>
                   <td className="px-3 py-2">{proj.type}</td>
                   <td className="px-3 py-2">{proj.client}</td>
+                  <td className="px-3 py-2">{proj.year || "-"}</td>
                   <td className="px-3 py-2">{proj.status}</td>
                   <td className="px-3 py-2">
                     {proj.createdAt

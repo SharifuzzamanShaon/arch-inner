@@ -87,6 +87,7 @@ const ShowService = ({ onEdit, onRefreshReady }) => {
               <tr className="text-gray-500 text-xs uppercase tracking-wide">
                 <th className="px-3 py-2 font-semibold">Thumbnail</th>
                 <th className="px-3 py-2 font-semibold">Name</th>
+                <th className="px-3 py-2 font-semibold">Slug</th>
                 <th className="px-3 py-2 font-semibold">Details count</th>
                 <th className="px-3 py-2 font-semibold text-center">Actions</th>
               </tr>
@@ -110,6 +111,9 @@ const ShowService = ({ onEdit, onRefreshReady }) => {
                     )}
                   </td>
                   <td className="px-3 py-2">{service.name}</td>
+                  <td className="px-3 py-2 text-gray-500">
+                    {service.slug || "-"}
+                  </td>
                   <td className="px-3 py-2">
                     {Array.isArray(service.details)
                       ? service.details.length

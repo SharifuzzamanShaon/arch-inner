@@ -24,6 +24,8 @@ const BlogComponent = () => {
     excerpt: "",
     categoryId: "",
     thumbnail: "",
+    author: "",
+    featured: false,
   });
 
   const [editorLoaded, setEditorLoaded] = useState(false);
@@ -107,8 +109,8 @@ const BlogComponent = () => {
   }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setBlog((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    setBlog((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
   };
 
   const handleContentChange = (event, editor) => {
@@ -152,10 +154,8 @@ const BlogComponent = () => {
         thumbnail: blog.thumbnail,
         content: blog.content,
         excerpt: blog.excerpt || "",
-        urlSlug: blog.title
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/(^-|-$)/g, ""),
+        author: blog.author || "",
+        featured: blog.featured,
         status: "PUBLISHED",
       };
       await axios.post(
@@ -169,7 +169,15 @@ const BlogComponent = () => {
         }
       );
       toast.success("Blog created successfully");
-      setBlog({ title: "", content: "", excerpt: "", categoryId: "", thumbnail: "" });
+      setBlog({
+        title: "",
+        content: "",
+        excerpt: "",
+        categoryId: "",
+        thumbnail: "",
+        author: "",
+        featured: false,
+      });
     } catch (err) {
       toast.error("Failed to create blog");
       console.error(err);
@@ -247,6 +255,27 @@ const BlogComponent = () => {
               rows={3}
               className="w-full border px-3 py-2 rounded-md"
             />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+              <input
+                type="text"
+                name="author"
+                value={blog.author}
+                onChange={handleChange}
+                placeholder="Author (defaults to arch Inner)"
+                className="w-full border px-3 py-2 rounded-md"
+              />
+              <label className="flex items-center gap-2 text-sm text-gray-700">
+                <input
+                  type="checkbox"
+                  name="featured"
+                  checked={blog.featured}
+                  onChange={handleChange}
+                  className="w-4 h-4"
+                />
+                Featured post
+              </label>
+            </div>
 
             <div className="border rounded-md">
               {editorLoaded && Editor.CKEditor ? (
