@@ -189,6 +189,8 @@ const ShowBlogs = () => {
               <tr className="text-gray-500 text-xs uppercase tracking-wide">
                 <th className="px-3 py-2 font-semibold">Thumbnail</th>
                 <th className="px-3 py-2 font-semibold">Title</th>
+                <th className="px-3 py-2 font-semibold">Author</th>
+                <th className="px-3 py-2 font-semibold">Featured</th>
                 <th className="px-3 py-2 font-semibold">Status</th>
                 <th className="px-3 py-2 font-semibold">Created</th>
                 <th className="px-3 py-2 font-semibold text-center">Actions</th>
@@ -210,6 +212,8 @@ const ShowBlogs = () => {
                     )}
                   </td>
                   <td className="px-3 py-2">{b.title}</td>
+                  <td className="px-3 py-2">{b.author || "-"}</td>
+                  <td className="px-3 py-2">{b.featured ? "Yes" : "No"}</td>
                   <td className="px-3 py-2">{b.status}</td>
                   <td className="px-3 py-2">
                     {b.createdAt

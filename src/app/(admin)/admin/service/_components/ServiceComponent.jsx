@@ -20,16 +20,21 @@ const ServiceComponent = ({
 }) => {
   const [categories, setCategories] = useState([]);
   const [categoryInput, setCategoryInput] = useState("");
-  const [service, setService] = useState({
+  const emptyService = {
     name: "",
     categoryId: "",
+    slug: "",
+    shortDescription: "",
     thumbnail: "",
+    image: "",
     details: [
       { title: "", description: "" },
       { title: "", description: "" },
     ],
-  });
+  };
+  const [service, setService] = useState(emptyService);
   const [thumbnailFile, setThumbnailFile] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // useEffect(() => {
@@ -41,7 +46,10 @@ const ServiceComponent = ({
       setService({
         name: editingService.name || "",
         categoryId: editingService.categoryId || "",
+        slug: editingService.slug || "",
+        shortDescription: editingService.shortDescription || "",
         thumbnail: editingService.thumbnail || "",
+        image: editingService.image || "",
         details: Array.isArray(editingService.details)
           ? editingService.details
           : [
@@ -50,17 +58,11 @@ const ServiceComponent = ({
             ],
       });
       setThumbnailFile(null);
+      setImageFile(null);
     } else {
-      setService({
-        name: "",
-        categoryId: "",
-        thumbnail: "",
-        details: [
-          { title: "", description: "" },
-          { title: "", description: "" },
-        ],
-      });
+      setService(emptyService);
       setThumbnailFile(null);
+      setImageFile(null);
     }
   }, [editingService]);
 
@@ -154,12 +156,14 @@ const ServiceComponent = ({
     setThumbnailFile(file);
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImageFile(file);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (!service.categoryId) {
-    //   toast.error("Please select a category");
-    //   return;
-    // }
     try {
       setLoading(true);
       let thumbnailUrl = service.thumbnail;
@@ -168,9 +172,18 @@ const ServiceComponent = ({
         if (!uploaded) return;
         thumbnailUrl = uploaded;
       }
+      let imageUrl = service.image;
+      if (imageFile) {
+        const uploaded = await uploadImage(imageFile);
+        if (!uploaded) return;
+        imageUrl = uploaded;
+      }
       const payload = {
         name: service.name,
+        slug: service.slug,
+        shortDescription: service.shortDescription,
         thumbnail: thumbnailUrl,
+        image: imageUrl,
         details: service.details,
       };
 
@@ -193,16 +206,9 @@ const ServiceComponent = ({
         if (onUpdateSuccess) onUpdateSuccess();
       }
 
-      setService({
-        name: "",
-        categoryId: "",
-        thumbnail: "",
-        details: [
-          { title: "", description: "" },
-          { title: "", description: "" },
-        ],
-      });
+      setService(emptyService);
       setThumbnailFile(null);
+      setImageFile(null);
     } catch (err) {
       toast.error("Failed to save service");
     } finally {
@@ -276,9 +282,39 @@ const ServiceComponent = ({
               </select>
             </div> */}
 
+            {/* Slug */}
+            <div>
+              <label className="block mb-1 font-medium">Slug</label>
+              <input
+                type="text"
+                name="slug"
+                value={service.slug}
+                onChange={handleChange}
+                placeholder="Auto-generated from name if left blank"
+                className="w-full border px-3 py-2 rounded-md"
+              />
+            </div>
+
+            {/* Short description */}
+            <div>
+              <label className="block mb-1 font-medium">
+                Short Description
+              </label>
+              <textarea
+                name="shortDescription"
+                value={service.shortDescription}
+                onChange={handleChange}
+                rows={3}
+                placeholder="Shown on the service detail page overview"
+                className="w-full border px-3 py-2 rounded-md"
+              />
+            </div>
+
             {/* Thumbnail */}
             <div>
-              <label className="block mb-1 font-medium">Thumbnail</label>
+              <label className="block mb-1 font-medium">
+                Thumbnail (card image)
+              </label>
               <input
                 type="file"
                 accept="image/*"
@@ -288,6 +324,24 @@ const ServiceComponent = ({
               {service.thumbnail && (
                 <p className="mt-1 text-xs text-gray-500 break-all">
                   Current: {service.thumbnail}
+                </p>
+              )}
+            </div>
+
+            {/* Hero image */}
+            <div>
+              <label className="block mb-1 font-medium">
+                Image (detail page hero)
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="w-full border px-3 py-2 rounded-md"
+              />
+              {service.image && (
+                <p className="mt-1 text-xs text-gray-500 break-all">
+                  Current: {service.image}
                 </p>
               )}
             </div>
