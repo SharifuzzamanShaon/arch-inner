@@ -5,7 +5,7 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProjectCard from "../../_components/ProjectCard";
-import { PROJECTS } from "../../portfolio/_data/projects";
+import { PROJECTS } from "../../project/_data/projects";
 
 const ServiceCollaps = () => {
   const swiperRef = useRef(null);

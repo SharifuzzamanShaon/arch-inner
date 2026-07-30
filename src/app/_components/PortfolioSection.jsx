@@ -9,7 +9,7 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProjectCard from "./ProjectCard";
 
-import { CATEGORIES, PROJECTS } from "../portfolio/_data/projects";
+import { CATEGORIES, PROJECTS } from "../project/_data/projects";
 
 const PortfolioSection = ({ hideTabs = false }) => {
   const router = useRouter();

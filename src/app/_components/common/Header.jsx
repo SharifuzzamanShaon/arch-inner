@@ -41,7 +41,7 @@ const socials = [
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Portfolio", href: "/portfolio" },
+  { name: "Project", href: "/project" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about-us" },
   { name: "Career", href: "/career" },
@@ -264,16 +264,12 @@ const Header = () => {
                 width={28}
                 height={28}
                 className={`absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 object-contain transition-all duration-700 ease-in-out ${
-                  menuOpen
-                    ? "opacity-0 scale-50"
-                    : "opacity-100 scale-100"
+                  menuOpen ? "opacity-0 scale-50" : "opacity-100 scale-100"
                 }`}
               />
               <RxCross1
                 className={`absolute left-1/2 top-1/2 w-6 h-6 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out ${
-                  menuOpen
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-50"
+                  menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-50"
                 }`}
               />
             </button>
