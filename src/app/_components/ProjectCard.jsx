@@ -5,13 +5,22 @@ const ProjectCard = ({ project, imageFit = "cover" }) => {
   const contain = imageFit === "contain";
   const Inner = (
     <div
-      className={`group relative w-full overflow-hidden transition-transform duration-300 hover:-translate-y-1 ${
-        contain ? "bg-white" : "bg-[#1C1917]"
-      }`}
-      style={{ minHeight: "clamp(380px, 48vh, 500px)" }}
+      className="group relative w-full overflow-hidden bg-[#1C1917] transition-transform duration-300 hover:-translate-y-1"
+      style={{ height: "clamp(380px, 48vh, 500px)" }}
     >
       {/* Background image */}
       <div className="absolute inset-0">
+        {/* Blurred copy fills the empty space around a contained image */}
+        {contain && project?.thumbnail && (
+          <Image
+            src={project.thumbnail}
+            alt=""
+            aria-hidden
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover scale-110 blur-2xl opacity-60"
+          />
+        )}
         {project?.thumbnail && (
           <Image
             src={project.thumbnail}
