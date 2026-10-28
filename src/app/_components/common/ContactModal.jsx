@@ -96,9 +96,9 @@ const ContactModal = ({ isOpen, onClose }) => {
   };
 
   const inputCls =
-    "w-full bg-transparent border-b border-[#383636]/15 py-3.5 text-sm text-[#383636]/80 placeholder-[#383636]/30 font-normal tracking-wide outline-none focus:border-[#383636] transition-colors duration-300";
+    "w-full bg-transparent border-b border-[#383636]/15 py-2.5 sm:py-3.5 text-sm text-[#383636]/80 placeholder-[#383636]/30 font-normal tracking-wide outline-none focus:border-[#383636] transition-colors duration-300";
   const labelCls =
-    "block text-[10px] tracking-[0.28em] uppercase text-[#383636]/40 font-normal mb-1.5";
+    "block text-[10px] tracking-[0.28em] uppercase text-[#383636]/40 font-normal mb-1 sm:mb-1.5";
 
   return (
     <div
@@ -115,7 +115,7 @@ const ContactModal = ({ isOpen, onClose }) => {
       {/* Card */}
       <div
         ref={cardRef}
-        className="relative z-10 w-full max-w-lg bg-[#F7F4F0] px-8 sm:px-10 py-10 sm:py-12 overflow-y-auto max-h-[90vh]"
+        className="relative z-10 w-full max-w-lg bg-[#F7F4F0] px-6 sm:px-10 py-7 sm:py-12 overflow-y-auto max-h-[90dvh]"
       >
         {/* Close */}
         <button
@@ -134,13 +134,13 @@ const ContactModal = ({ isOpen, onClose }) => {
         </button>
 
         {/* Label */}
-        <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/40 font-normal mb-5">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-[#383636]/40 font-normal mb-3 sm:mb-5">
           / Get In Touch
         </p>
 
         {/* Heading */}
         <h2
-          className="font-normal text-[#383636] leading-tight mb-8"
+          className="font-normal text-[#383636] leading-tight pr-10 sm:pr-0 mb-5 sm:mb-8"
           style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)" }}
         >
           Let&apos;s Talk About{" "}
@@ -148,8 +148,8 @@ const ContactModal = ({ isOpen, onClose }) => {
         </h2>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
             <div>
               <label className={labelCls}>Full Name *</label>
               <input
@@ -217,13 +217,13 @@ const ContactModal = ({ isOpen, onClose }) => {
               placeholder="Describe your project and vision…"
               value={form.message}
               onChange={handleChange}
-              className={`${inputCls} resize-none`}
+              className={`${inputCls} resize-none h-20 sm:h-auto`}
             />
           </div>
 
           <button
             type="submit"
-            className="group relative w-full py-4 bg-transparent border border-[#383636]/20 text-[#383636]/60 hover:border-[#383636] hover:text-[#383636] text-xs tracking-[0.22em] uppercase font-normal transition-all duration-400 overflow-hidden"
+            className="group relative w-full py-3 sm:py-4 bg-transparent border border-[#383636]/20 text-[#383636]/60 hover:border-[#383636] hover:text-[#383636] text-xs tracking-[0.22em] uppercase font-normal transition-all duration-400 overflow-hidden"
           >
             <span className="relative z-10 flex cursor-pointer items-center justify-center gap-3">
               Send Inquiry
@@ -235,11 +235,11 @@ const ContactModal = ({ isOpen, onClose }) => {
         </form>
 
         {/* Social links */}
-        <div className="mt-8 pt-6 border-t border-[#383636]/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="mt-5 sm:mt-8 pt-4 sm:pt-6 border-t border-[#383636]/10 flex items-center justify-between gap-3">
           <p className="text-[10px] tracking-[0.28em] uppercase text-[#383636]/40 font-normal">
             Follow Us
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {socials.map(({ Icon, href, label }) => (
               <a
                 key={label}
@@ -247,7 +247,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex items-center justify-center w-9 h-9 border border-[#383636]/15 text-[#383636]/60 hover:text-[#383636] hover:border-[#383636]/40 transition-colors duration-200"
+                className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 border border-[#383636]/15 text-[#383636]/60 hover:text-[#383636] hover:border-[#383636]/40 transition-colors duration-200"
               >
                 <Icon className="w-3.5 h-3.5" />
               </a>
