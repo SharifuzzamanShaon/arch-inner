@@ -2,6 +2,37 @@
 
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+  FaYoutube,
+} from "react-icons/fa";
+
+const socials = [
+  {
+    Icon: FaFacebookF,
+    href: "https://www.facebook.com/archinner1/",
+    label: "Facebook",
+  },
+  {
+    Icon: FaYoutube,
+    href: "https://www.youtube.com/@archinner",
+    label: "YouTube",
+  },
+  {
+    Icon: FaInstagram,
+    href: "https://www.instagram.com/arch.inner",
+    label: "Instagram",
+  },
+  { Icon: FaWhatsapp, href: "https://wa.me/8801717038194", label: "WhatsApp" },
+  {
+    Icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/company/arch-inner",
+    label: "LinkedIn",
+  },
+];
 
 const ContactModal = ({ isOpen, onClose }) => {
   const backdropRef = useRef(null);
@@ -202,6 +233,27 @@ const ContactModal = ({ isOpen, onClose }) => {
             <span className="absolute inset-0 bg-[#383636]/4 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
           </button>
         </form>
+
+        {/* Social links */}
+        <div className="mt-8 pt-6 border-t border-[#383636]/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="text-[10px] tracking-[0.28em] uppercase text-[#383636]/40 font-normal">
+            Follow Us
+          </p>
+          <div className="flex items-center gap-3">
+            {socials.map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex items-center justify-center w-9 h-9 border border-[#383636]/15 text-[#383636]/60 hover:text-[#383636] hover:border-[#383636]/40 transition-colors duration-200"
+              >
+                <Icon className="w-3.5 h-3.5" />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
