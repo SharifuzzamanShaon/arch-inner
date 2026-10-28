@@ -57,7 +57,7 @@ const ServiceCollaps = () => {
           >
             {PROJECTS.map((project) => (
               <SwiperSlide key={project.id} className="h-auto">
-                <ProjectCard project={project} imageFit="contain" />
+                <ProjectCard project={project} />
               </SwiperSlide>
             ))}
           </Swiper>
