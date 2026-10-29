@@ -57,7 +57,7 @@ const ProjectCard = ({ project, imageFit = "cover" }) => {
     </div>
   );
 
-  return <Link href={`/project/${project?.slug}`}>{Inner}</Link>;
+  return <Link href={`/portfolio/${project?.slug}`}>{Inner}</Link>;
 };
 
 export default ProjectCard;

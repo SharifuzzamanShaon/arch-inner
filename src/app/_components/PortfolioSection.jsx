@@ -9,7 +9,7 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProjectCard from "./ProjectCard";
 
-import { CATEGORIES, PROJECTS } from "../project/_data/projects";
+import { CATEGORIES, PROJECTS } from "../portfolio/_data/projects";
 
 const PortfolioSection = ({ hideTabs = false }) => {
   const router = useRouter();
@@ -137,11 +137,11 @@ const PortfolioSection = ({ hideTabs = false }) => {
               className="reveal font-normal text-[#383636] leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.75rem)" }}
             >
-              Project <span className="text-[#383636]/50">Showcase</span>
+              Portfolio <span className="text-[#383636]/50">Showcase</span>
             </h2>
             {!hideTabs && (
               <button
-                onClick={() => router.push("/project")}
+                onClick={() => router.push("/portfolio")}
                 className="reveal group hidden sm:inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal pb-1"
               >
                 <span>Explore All</span>
@@ -243,7 +243,7 @@ const PortfolioSection = ({ hideTabs = false }) => {
         {!hideTabs && (
           <div className="flex justify-center mt-10 sm:hidden">
             <button
-              onClick={() => router.push("/project")}
+              onClick={() => router.push("/portfolio")}
               className="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase text-[#383636] hover:text-[#383636]/60 transition-colors duration-300 font-normal"
             >
               <span>Explore All Projects</span>

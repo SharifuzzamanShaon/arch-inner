@@ -41,7 +41,7 @@ const socials = [
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Project", href: "/project" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about-us" },
   { name: "Career", href: "/career" },
