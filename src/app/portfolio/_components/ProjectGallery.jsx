@@ -60,7 +60,7 @@ const ProjectGallery = ({ project }) => {
               fill
               sizes="(max-width: 1024px) 100vw, 65vw"
               alt={labels[active] || `View ${active + 1}`}
-              className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               priority
             />
 

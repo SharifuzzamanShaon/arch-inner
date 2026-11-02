@@ -23,17 +23,17 @@ const ProjectDetailsHero = ({ project }) => {
             fill
             sizes="100vw"
             alt={project.title}
-            className="object-contain"
+            className="object-cover"
             priority
           />
         )}
         {/* Bottom row — category badge + location/year */}
         <div className="absolute bottom-0 left-0 right-0">
           <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pb-8 sm:pb-10 flex items-end justify-between">
-            <span className="bg-[#383636]/8 text-[#383636] text-[10px] tracking-[0.22em] uppercase px-3 py-1.5 border border-[#383636]/15 font-normal">
+            <span className="bg-[#F7F4F0]/90 backdrop-blur-sm text-[#383636] text-[10px] tracking-[0.22em] uppercase px-3 py-1.5 border border-[#383636]/10 font-normal">
               {project.category}
             </span>
-            <div className="flex items-center gap-4 text-[10px] tracking-[0.2em] uppercase text-[#383636]/55 font-normal">
+            <div className="flex items-center gap-4 bg-[#F7F4F0]/90 backdrop-blur-sm px-3 py-1.5 border border-[#383636]/10 text-[10px] tracking-[0.2em] uppercase text-[#383636]/80 font-normal">
               <span>{project.location}</span>
               <span className="w-3 h-px bg-[#383636]/30" />
               <span>{project.year || "2024"}</span>
